@@ -1,3 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import 'daisyui/dist/full.css';
+
 @import-normalize; /* bring in normalize.css styles */
 
 :root {
@@ -28,7 +33,8 @@
 
 @font-face {
   font-family: 'Inter';
-  src: url('./styles/fonts/Inter-Regular.woff2') format('woff2'),
+  src:
+    url('./styles/fonts/Inter-Regular.woff2') format('woff2'),
     url('./styles/fonts/Inter-Regular.woff') format('woff');
   font-weight: 400;
   font-style: normal;
@@ -37,7 +43,8 @@
 
 @font-face {
   font-family: 'Inter';
-  src: url('./styles/fonts/Inter-Medium.woff2') format('woff2'),
+  src:
+    url('./styles/fonts/Inter-Medium.woff2') format('woff2'),
     url('./styles/fonts/Inter-Medium.woff') format('woff');
   font-weight: 500;
   font-style: normal;
@@ -46,7 +53,8 @@
 
 @font-face {
   font-family: 'Inter';
-  src: url('./styles/fonts/Inter-SemiBold.woff2') format('woff2'),
+  src:
+    url('./styles/fonts/Inter-SemiBold.woff2') format('woff2'),
     url('./styles/fonts/Inter-SemiBold.woff') format('woff');
   font-weight: 600;
   font-style: normal;
@@ -55,7 +63,8 @@
 
 @font-face {
   font-family: 'Inter';
-  src: url('./styles/fonts/Inter-SemiBoldItalic.woff2') format('woff2'),
+  src:
+    url('./styles/fonts/Inter-SemiBoldItalic.woff2') format('woff2'),
     url('./styles/fonts/Inter-SemiBoldItalic.woff') format('woff');
   font-weight: 600;
   font-style: italic;
@@ -64,7 +73,8 @@
 
 @font-face {
   font-family: 'Inter';
-  src: url('./styles/fonts/Inter-Bold.woff2') format('woff2'),
+  src:
+    url('./styles/fonts/Inter-Bold.woff2') format('woff2'),
     url('./styles/fonts/Inter-Bold.woff') format('woff');
   font-weight: 700;
   font-style: normal;
@@ -73,7 +83,8 @@
 
 @font-face {
   font-family: 'Inter';
-  src: url('./styles/fonts/Inter-BoldItalic.woff2') format('woff2'),
+  src:
+    url('./styles/fonts/Inter-BoldItalic.woff2') format('woff2'),
     url('./styles/fonts/Inter-BoldItalic.woff') format('woff');
   font-weight: 700;
   font-style: italic;
@@ -82,7 +93,8 @@
 
 @font-face {
   font-family: 'Coolvetica';
-  src: url('./styles/fonts/CoolveticaRg-Regular.woff2') format('woff2'),
+  src:
+    url('./styles/fonts/CoolveticaRg-Regular.woff2') format('woff2'),
     url('./styles/fonts/CoolveticaRg-Regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
@@ -91,7 +103,8 @@
 
 @font-face {
   font-family: 'Coolvetica';
-  src: url('./styles/fonts/CoolveticaRg-Italic.woff2') format('woff2'),
+  src:
+    url('./styles/fonts/CoolveticaRg-Italic.woff2') format('woff2'),
     url('./styles/fonts/CoolveticaRg-Italic.woff') format('woff');
   font-weight: normal;
   font-style: italic;
@@ -100,7 +113,8 @@
 
 @font-face {
   font-family: 'Poppins';
-  src: url('./styles/fonts/Poppins-Medium.woff2') format('woff2'),
+  src:
+    url('./styles/fonts/Poppins-Medium.woff2') format('woff2'),
     url('./styles/fonts/Poppins-Medium.woff') format('woff');
   font-weight: 500;
   font-style: normal;
@@ -109,7 +123,8 @@
 
 @font-face {
   font-family: 'Poppins';
-  src: url('./styles/fonts/Poppins-Regular.woff2'),
+  src:
+    url('./styles/fonts/Poppins-Regular.woff2'),
     url('./styles/fonts/Poppins-Regular.woff') format('woff');
   font-weight: 400;
   font-style: normal;
@@ -128,7 +143,12 @@ html {
 
 body {
   margin: 0;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+  font-family:
+    'Inter',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    'Roboto',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
