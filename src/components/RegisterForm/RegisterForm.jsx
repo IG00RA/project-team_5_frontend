@@ -14,6 +14,7 @@ import {
 } from './RegisterForm.styled';
 
 import sprite from '../../images/svg-sprite/symbol-defs.svg';
+const emailRegexp = /^\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/;
 
 const validationSchema = Yup.object().shape({
   name: Yup.string()
@@ -28,7 +29,7 @@ const validationSchema = Yup.object().shape({
     ),
   email: Yup.string()
     .email('This is an ERROR email')
-    .matches(/^[a-zA-Z0-9@.]+$/, 'Email must contain only Latin characters')
+    .matches(emailRegexp, 'Email must contain only Latin characters')
     .required('Email is required'),
   password: Yup.string()
     .required('Password is required')
