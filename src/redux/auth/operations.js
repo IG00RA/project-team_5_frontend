@@ -10,3 +10,15 @@ const setAuthHeader = token => {
 const clearAuthHeader = () => {
   axios.defaults.headers.common.Authorization = '';
 };
+
+export const toggleTheme = createAsyncThunk(
+  'auth/toggle-theme',
+  async (credentials, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.patch('api/auth/toggle-theme', credentials);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
