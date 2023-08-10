@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { ReactComponent as Moon } from 'images/svg/moon.svg';
-import { ReactComponent as Sun } from 'images/svg/sun.svg';
+import { ReactComponent as Moon } from '../../images/svg/moon.svg';
+import { ReactComponent as Sun } from '../../images/svg/sun.svg';
 
 export const MoonSVG = styled(Moon)``;
 export const SunSVG = styled(Sun)``;
