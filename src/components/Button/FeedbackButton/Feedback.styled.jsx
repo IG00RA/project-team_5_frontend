@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const FeedbackBtn = styled.button`
   width: 97px;
@@ -15,7 +15,8 @@ export const FeedbackBtn = styled.button`
   line-height: 1.33;
   color: var(--white);
 
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: #2b78ef;
   }
 

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const LogoutBtn = styled.button`
   width: 131px;
@@ -11,10 +11,11 @@ export const LogoutBtn = styled.button`
   background-color: var(--blue);
   box-shadow: 4px 2px 16px 0px #88a5bf7a;
 
-  &:hover{
-  background-color: #2B78EF;
-  box-shadow: 4px 2px 16px 0px #88A5BF7A;
-}
+  &:hover,
+  &:focus {
+    background-color: #2b78ef;
+    box-shadow: 4px 2px 16px 0px #88a5bf7a;
+  }
 
   @media screen and (min-width: 768px) {
     width: 141px;
