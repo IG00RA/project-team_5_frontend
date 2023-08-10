@@ -6,7 +6,6 @@ export default function Register() {
     <div>
       <RegisterForm />
       <AuthNavigate />
-      <div></div>
     </div>
   );
 }
