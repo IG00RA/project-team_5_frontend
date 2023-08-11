@@ -1,8 +1,8 @@
+import { useLocation, useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { Button } from "../Button/Button";
 import { ThemeToggler } from "../ThemeToggler/ThemeToggler";
 import { UserInfo } from "../UserInfo/UserInfo";
-import { useLocation, useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
 import svgSprite from "../../images/svg-sprite/symbol-defs.svg";
 import gooseMotivation from "../../images/svg/motivation-goose.svg";
 import { MenuIcon, MotivationImg, Title, UserWrap, Wrap } from "./Header.styled";
@@ -38,7 +38,7 @@ export const Header = ({onToggle}) => {
 
     return (
       <>
-        <Wrap>{pageCalendarDay && haveTask() && <MotivationImg src={gooseMotivation} alt="goose" />}
+        <Wrap>{pageCalendarDay && haveTask() && (<MotivationImg src={gooseMotivation} alt="goose" />)}
         <div>
           <Title>{title}</Title>
           {pageCalendarDay && haveTask() && (<p>Let go of the past and focus on the present!</p>)}
