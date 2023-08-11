@@ -1,15 +1,21 @@
-import { WeekDaysWrapper, WeekendDays } from './CalendarWeekDays.styled';
+import moment from 'moment';
+import { WeekDaysWrapper, WeekDay } from './CalendarWeekDays.styled';
 
-const CalendarWeekDays = () => {
+const CalendarWeekDays = ({ startDay }) => {
+  const day = startDay.clone().subtract(1, 'day');
+  const daysOfWeek = [...Array(7)].map(() => day.add(1, 'day').clone());
+
   return (
     <WeekDaysWrapper>
-      <li>Mon</li>
-      <li>Tue</li>
-      <li>Wed</li>
-      <li>Thu</li>
-      <li>Fri</li>
-      <WeekendDays>Sat</WeekendDays>
-      <WeekendDays>Sun</WeekendDays>
+      {daysOfWeek.map((dayItem, idx) => (
+        <li key={dayItem.unix()}>
+          <WeekDay isWeekendDay={dayItem.day() === 6 || dayItem.day() === 0}>
+            {moment()
+              .day(idx + 1)
+              .format('ddd')}
+          </WeekDay>
+        </li>
+      ))}
     </WeekDaysWrapper>
   );
 };
