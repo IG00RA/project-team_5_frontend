@@ -7,7 +7,7 @@ const HomePage = lazy(() => import('../pages/Home'));
 const RegisterPage = lazy(() => import('../pages/Register/Register'));
 const LoginPage = lazy(() => import('../pages/Login/Login'));
 const AccountPage = lazy(() => import('../pages/Account'));
-const CalendarPage = lazy(() => import('../pages/Calendar'));
+const CalendarPage = lazy(() => import('../pages/Calendar/Calendar'));
 const StatisticsPage = lazy(() => import('../pages/Statistics'));
 
 export const App = () => {
