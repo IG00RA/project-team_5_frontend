@@ -18,7 +18,7 @@ import sprite from '../../images/svg-sprite/symbol-defs.svg';
 const emailRegexp = /^\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/;
 
 const validationSchema = Yup.object().shape({
-  name: Yup.string()
+  userName: Yup.string()
     .required('Name is required')
     .matches(/^\S[\S\s]{0,28}\S$/, 'Name must be between 2 and 30 characters')
     .test(
@@ -41,7 +41,7 @@ const validationSchema = Yup.object().shape({
 export const RegisterForm = () => {
   return (
     <Formik
-      initialValues={{ name: '', email: '', password: '' }}
+      initialValues={{ userName: '', email: '', password: '' }}
       validationSchema={validationSchema}
       onSubmit={(values, actions) => {
         console.log(values);
@@ -59,30 +59,32 @@ export const RegisterForm = () => {
         return (
           <Form onSubmit={handleSubmit}>
             <FormTitle>Sign Up</FormTitle>
-            <Label className={isValid('name')}>
+            <Label className={isValid('userName')}>
               Name
               <Wrapper>
                 <Field
-                  className={isValid('name')}
+                  className={isValid('userName')}
                   type="text"
-                  name="name"
+                  name="userName"
                   placeholder="Enter your name"
                   title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-                  value={values.name}
+                  value={values.userName}
                 />
-                {isValid('name') === 'is-valid' && (
+                {isValid('userName') === 'is-valid' && (
                   <SuccessIcon>
                     <use href={sprite + '#icon-done-logo'}></use>
                   </SuccessIcon>
                 )}
-                {isValid('name') === 'is-invalid' && (
+                {isValid('userName') === 'is-invalid' && (
                   <ErrorIcon>
                     <use href={sprite + '#icon-error-logo'}></use>
                   </ErrorIcon>
                 )}
               </Wrapper>
-              {isValid('name') === 'is-valid' && <p>This is a CORRECT name</p>}
-              <ErrorMessage name="name" component="div" />
+              {isValid('userName') === 'is-valid' && (
+                <p>This is a CORRECT name</p>
+              )}
+              <ErrorMessage name="userName" component="div" />
             </Label>
             <Label className={isValid('email')}>
               Email

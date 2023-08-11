@@ -56,7 +56,7 @@ export const LoginForm = () => {
                   className={isValid('email')}
                   type="email"
                   name="email"
-                  placeholder="Enter email"
+                  placeholder="nadiia@gmail.com"
                   title="Email must be in the format username@domain.com"
                   value={values.email}
                 />

@@ -84,6 +84,7 @@ export const Field = styled(FormikField)`
   font-weight: 600;
   line-height: 1.29px;
 
+  background-color: #fff;
   color: #111;
   outline: none;
   border: 1px solid #dce3e5;
@@ -204,7 +205,7 @@ export const SuccessIcon = styled.svg`
   fill: #3cbc81;
   top: 50%;
   transform: translateY(-50%);
-  right: 11px;
+  right: 18px;
 `;
 
 export const ErrorIcon = styled.svg`
@@ -214,5 +215,5 @@ export const ErrorIcon = styled.svg`
   fill: #e74a3b;
   top: 50%;
   transform: translateY(-50%);
-  right: 11px;
+  right: 18px;
 `;
