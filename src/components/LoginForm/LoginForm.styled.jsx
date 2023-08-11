@@ -42,7 +42,7 @@ export const Label = styled.label`
     }
   }
 
-  &:nth-of-type(3) {
+  &:nth-of-type(2) {
     margin-bottom: 32px;
 
     @media screen and (min-width: 768px) {
@@ -84,8 +84,8 @@ export const Field = styled(FormikField)`
   font-weight: 600;
   line-height: 1.29px;
 
-  background-color: #fff;
   color: #111;
+  background-color: #fff;
   outline: none;
   border: 1px solid #dce3e5;
   border-radius: 8px;

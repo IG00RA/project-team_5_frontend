@@ -1,0 +1,51 @@
+import { styled } from 'styled-components';
+import gooseImage from '../../images/registration-page/goose-login.webp';
+import gooseImage2x from '../../images/registration-page/goose-login-2x.webp';
+
+export const PageContainer = styled.div`
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #dcebf7;
+`;
+
+export const FormContainer = styled.div`
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 18px;
+
+  @media screen and (max-width: 374px) {
+    width: 100%;
+    max-width: 335px;
+  }
+  @media screen and (min-width: 375px) {
+    width: 335px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 480px;
+    margin-bottom: 24px;
+  }
+`;
+
+export const ImageContainer = styled.div`
+  width: 400px;
+  height: 416px;
+  position: absolute;
+  left: 49px;
+  bottom: 0;
+  background-image: url(${gooseImage});
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  @media screen and (min-device-pixel-ratio: 2) {
+    background-image: url(${gooseImage2x});
+  }
+
+  @media screen and (max-width: 1439px) {
+    display: none;
+  }
+`;
