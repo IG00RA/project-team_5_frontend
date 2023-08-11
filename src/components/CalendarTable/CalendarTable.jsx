@@ -1,15 +1,13 @@
 import moment from 'moment';
-
 import {
   CellWrapper,
   CurrentDay,
   DayWrapper,
   GridWrapper,
   RowInCell,
-} from './CalendarGrid.styled';
+} from './CalendarTable.styled';
 
-const CalendarGrid = ({ startDay }) => {
-  //   const totalCells = 35;
+const CalendarTable = ({ startDay }) => {
   const day = startDay.clone().subtract(1, 'day');
   const daysArray = [...Array(42)].map(() => day.add(1, 'day').clone());
 
@@ -34,4 +32,4 @@ const CalendarGrid = ({ startDay }) => {
   );
 };
 
-export default CalendarGrid;
+export default CalendarTable;

@@ -15,5 +15,5 @@ export const WeekDaysWrapper = styled.ul`
 `;
 
 export const WeekDay = styled.p`
-  color: ${p => (p.isWeekendDay ? '#3e85f3' : '#343434')};
+  color: ${p => (p.$isWeekendDay ? '#3e85f3' : '#343434')};
 `;

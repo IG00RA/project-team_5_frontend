@@ -1,12 +1,6 @@
-import {
-  BtnDay,
-  BtnMonth,
-  BtnNext,
-  BtnPrev,
-  CalendarToolBarWrapper,
-  Month,
-  MonthNavWrapper,
-} from './CalendarToolbar.styled';
+import PeriodPaginator from '../PeriodPaginator/PeriodPaginator';
+import PeriodTypeSelect from '../PeriodTypeSelect/PeriodTypeSelect';
+import { CalendarToolBarWrapper } from './CalendarToolbar.styled';
 
 const CalendarToolbar = ({
   currentMonth,
@@ -15,17 +9,12 @@ const CalendarToolbar = ({
 }) => {
   return (
     <CalendarToolBarWrapper>
-      <MonthNavWrapper>
-        <Month>{currentMonth.format('MMMM YYYY')}</Month>
-        <div>
-          <BtnPrev onClick={prevMonthHandler}>&lt;</BtnPrev>
-          <BtnNext onClick={nextMonthHandler}>&gt;</BtnNext>
-        </div>
-      </MonthNavWrapper>
-      <div>
-        <BtnMonth>Month</BtnMonth>
-        <BtnDay>Day</BtnDay>
-      </div>
+      <PeriodPaginator
+        currentMonth={currentMonth}
+        prevMonthHandler={prevMonthHandler}
+        nextMonthHandler={nextMonthHandler}
+      />
+      <PeriodTypeSelect />
     </CalendarToolBarWrapper>
   );
 };
