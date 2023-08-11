@@ -42,7 +42,7 @@ export const Label = styled.label`
     }
   }
 
-  &:nth-of-type(3) {
+  &:nth-of-type(2) {
     margin-bottom: 32px;
 
     @media screen and (min-width: 768px) {
