@@ -9,6 +9,8 @@ const LoginPage = lazy(() => import('../pages/Login/Login'));
 const AccountPage = lazy(() => import('../pages/Account'));
 const CalendarPage = lazy(() => import('../pages/Calendar'));
 const StatisticsPage = lazy(() => import('../pages/Statistics'));
+const ChoosedMonthModule = lazy(() => import('./ChoosedMonth'));
+const ChoosedDayModule = lazy(() => import('./ChoosedDay'));
 
 export const App = () => {
   return (
@@ -17,7 +19,10 @@ export const App = () => {
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/account" element={<AccountPage />} />
-      <Route path="/calendar" element={<CalendarPage />} />
+      <Route path="/calendar" element={<CalendarPage />}>
+        <Route path="month" element={<ChoosedMonthModule />} />
+        <Route path="day" element={<ChoosedDayModule />} />
+      </Route>
       <Route path="/statistics" element={<StatisticsPage />} />
     </Routes>
   );
