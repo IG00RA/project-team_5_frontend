@@ -1,14 +1,14 @@
 import { useDispatch } from 'react-redux';
 import UserForm from '../components/UserForm/UserForm';
-import { login, logout } from '../redux/auth/operations';
+// import { login, logout } from '../redux/auth/operations';
 
 export default function Account() {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   return (
     <div>
       <p>Account Page</p>
 
-      <button
+      {/* <button
         type="button"
         onClick={() => {
           dispatch(login({ email: 'user@example.com', password: 'qwerty123' }));
@@ -24,7 +24,7 @@ export default function Account() {
         }}
       >
         logout
-      </button>
+      </button> */}
 
       <UserForm />
     </div>

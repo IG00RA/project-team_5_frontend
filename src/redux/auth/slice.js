@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { login, logout } from './operations';
+import { changeProfile, login, logout } from './operations';
 
 const pendingReducer = state => {
   state.isLoading = true;
@@ -35,6 +35,20 @@ const logoutReducer = state => {
   state.user = {};
 };
 
+const changeProfileReducer = (state, { payload }) => {
+  const { userName, birthday, email, phone, skype, avatarURL } = payload;
+
+  state.isLoading = false;
+  state.error = null;
+
+  state.user.userName = userName;
+  state.user.birthday = birthday;
+  state.user.email = email;
+  state.user.phone = phone;
+  state.user.skype = skype;
+  state.user.avatarURL = avatarURL;
+};
+
 const initialState = {
   user: {},
   token: null,
@@ -52,7 +66,10 @@ const userSlice = createSlice({
       .addCase(login.rejected, rejectedReducer)
       .addCase(logout.pending, pendingReducer)
       .addCase(logout.fulfilled, logoutReducer)
-      .addCase(logout.rejected, logoutReducer),
+      .addCase(logout.rejected, logoutReducer)
+      .addCase(changeProfile.pending, pendingReducer)
+      .addCase(changeProfile.fulfilled, changeProfileReducer)
+      .addCase(changeProfile.rejected, rejectedReducer),
 });
 
 export const authReducer = userSlice.reducer;

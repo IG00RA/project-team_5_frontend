@@ -1,7 +1,12 @@
 import { ErrorMessage, Formik } from 'formik';
+import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
+import { changeProfile } from '../../redux/auth/operations';
+import { AvatarContainer } from './UserForm.styled';
 
 export default function UserForm() {
+  const dispatch = useDispatch();
+
   const setActiveSabmit = id => {
     const btn = document.querySelector(id);
     btn.disabled = false;
@@ -41,8 +46,14 @@ export default function UserForm() {
       initialValues={initialValues}
       validationSchema={validationSchema}
       onSubmit={values => {
-        console.log(values);
-        // Відправляємо запит на сервер
+        const formData = new FormData();
+        const inputFields = Object.keys(values);
+
+        inputFields.forEach(field => {
+          formData.append(field, values[field]);
+        });
+
+        dispatch(changeProfile(formData));
       }}
     >
       {({ values, setFieldValue, handleSubmit }) => {
@@ -72,11 +83,16 @@ export default function UserForm() {
           <form onSubmit={handleSubmit}>
             <label>
               {makeAvatarURL() ? (
-                <div className="avatar">
+                // <div className="avatar">
+                // <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                //   <img src={makeAvatarURL()} alt="userAvatar" />
+                // </div>
+                // </div>
+                <AvatarContainer className="avatar">
                   <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                     <img src={makeAvatarURL()} alt="userAvatar" />
                   </div>
-                </div>
+                </AvatarContainer>
               ) : (
                 <div className="avatar placeholder">
                   <div className="bg-neutral-focus text-neutral-content rounded-full w-24">
