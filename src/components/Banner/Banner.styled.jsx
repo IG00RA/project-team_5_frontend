@@ -59,13 +59,14 @@ export const Title = styled.h1`
     line-height: 150px;
   }
 `
-export const ButtonsWrap = styled.div`
+export const ButtonsWrap = styled.a`
   display: flex;
   align-items: center;
   /* justify-content: center; */
 	flex-direction: column;
   gap: 16px;
   margin-top: 32px;
+  cursor: auto;
 
   @media screen and (min-width: 375px) {
     flex-direction: row-reverse;
@@ -75,29 +76,33 @@ export const ButtonsWrap = styled.div`
 `
 
 export const LogInButton = styled.button`
-  width: 131px;
-  height: 46px;
-  flex-shrink: 0;
-  padding: 14px 33.5px;
-  border-radius: 16px;
-  background: #FFF;
-  box-shadow: 4px 2px 16px 0px rgba(136, 165, 191, 0.48);
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 14px 33.5px;
   color: var(--blue);
   font-size: 14px;
   font-weight: 600;
   line-height: 18px;
   letter-spacing: -0.28px;
+  cursor: pointer;
 
-  display: flex;
-  align-items: center;
-  /* justify-content: center; */
-  gap: 6px;
+  border-radius: 16px;
+  box-shadow: 4px 2px 16px rgba(136, 165, 191, 0.48);
 
-  @media screen and (min-width: 375px) {
-    width: 121px;
-    height: 49px;
-    padding: 14px 22px;
+  background-color: var(--white);
+  cursor: pointer;
+
+  @media screen and (min-width: 768px) {
+
+  }
+
+  &:hover,
+  &:focus {
+    background-color: var(--lightBlueActive);
+    color: var(--white);
   }
 `
 export const SignUpLink = styled.a`
@@ -113,9 +118,19 @@ export const SignUpLink = styled.a`
     line-height: 18px;
   }
 `
-export const LogInIcon = styled.div`
-  stroke: var(--white);
+export const LogInIcon = styled.svg`
+  stroke: var(--blue);
   height: 18px;
   width: 18px;
   fill: transparent;
+
+  &:hover,
+  &:focus {
+    stroke: var(--white);
+  }
+
+  @media screen and (min-width: 768px) {
+    height: 20px;
+    width: 20px;
+  }
 `
