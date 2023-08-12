@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Modal from '../components/Modal/Modal';
 import FeedbackButton from '../components/Button/FeedbackButton/FeedbackButton';
 import ModalContainer from '../components/Modal/ModalConatiner';
+import Header from '../components/Header/Header';
 
 export default function Home() {
   const [isModalOpen1, setIsModalOpen1] = useState(false);
@@ -22,6 +23,7 @@ export default function Home() {
   };
 
   return (
+<><Header/>
     <div>
       <h1>Welcome to Team 5 Project</h1>
       <FeedbackButton onClick={openModal1} />
@@ -32,6 +34,6 @@ export default function Home() {
       <ModalContainer isOpen={isModalOpen2} onRequestClose={closeModal2}>
         <p>HELLO2</p>
       </ModalContainer>
-    </div>
+    </div></>
   );
 }
