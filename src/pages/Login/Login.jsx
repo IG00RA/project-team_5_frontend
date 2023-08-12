@@ -8,7 +8,7 @@ export default function Login() {
       <FormContainer>
         <LoginForm />
       </FormContainer>
-      <AuthNavigate />
+      <AuthNavigate link="/register" text="Sign Up" />
       <ImageContainer />
     </PageContainer>
   );
