@@ -21,7 +21,7 @@ import SidebarDesk2x from '../../images/landing-page/desktop/image-desktop-2-2x.
 /* import AllDesk from '../../images/landing-page/desktop/image-desktop-3.jpg'; */
 import AllDesk2x from '../../images/landing-page/desktop/image-desktop-3-2x.jpg';
 
-export const LandingMain = () => {
+export const Description = () => {
   return (
     <Wrap>
 
@@ -66,4 +66,4 @@ export const LandingMain = () => {
   )
 };
 
-export default LandingMain;
+export default Description;

@@ -9,7 +9,7 @@ import GooseDesk2x from '../../images/goose-banner-logo/banner-logo-desktop-2x.w
 import sprite from '../../images/svg-sprite/symbol-defs.svg';
 
 
-export const Banner = () => {
+export const AuthSection = () => {
   return(
     <Wrap>
 
@@ -53,4 +53,4 @@ export const Banner = () => {
   )
 };
 
-export default Banner;
+export default AuthSection;

@@ -1,11 +1,49 @@
-import { Banner } from "../components/AuthSection/AuthSection";
-import { LandingMain } from "../components/Description/Description"
+
+
+
+
+
+
+
+
+import { AuthSection } from "../components/AuthSection/AuthSection";
+import { Description } from "../components/Description/Description";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 export default function Home() {
   return (
     <div>
-      <Banner />
-      <LandingMain/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+      <AuthSection/>
+      <Description/>
     </div>
   );
 }
