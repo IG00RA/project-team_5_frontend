@@ -2,7 +2,7 @@ import moment from 'moment';
 import { Suspense, useState } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import CalendarToolbar from '../components/CalendarToolbar/CalendarToolbar';
-import Header from '../components/Header/Header';
+
 
 export default function Calendar() {
   moment.updateLocale('en', { week: { dow: 1 } });
