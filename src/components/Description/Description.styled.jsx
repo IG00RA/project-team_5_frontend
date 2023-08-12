@@ -8,7 +8,7 @@ export const Wrap = styled.div`
   gap: 64px;
 
   @media screen and (min-width: 768px) {
-    padding: 64px 128px 100px 128px;
+    padding: 64px 128px 100px 205px;
   }
 `
 
@@ -16,6 +16,23 @@ export const SectionWrap = styled.div`
   @media screen and (min-width: 768px) {
     display: flex;
     gap: 228px;
+  }
+`
+export const SecondSectionWrap = styled.div`
+  @media screen and (min-width: 375px) {  
+/* 
+    display: flex;
+    flex-direction: column-reverse; */
+
+    margin-left: auto;
+    max-width: 275px;
+  }
+`
+export const DesktopSectionWrap = styled.div`
+  @media screen and (min-width: 768px) {
+    display: flex;
+    gap: 228px;
+    flex-direction: row-reverse;
   }
 `
 
@@ -121,17 +138,25 @@ export const Text = styled.p`
   }
 `
 export const Image = styled.img`
-  width: 335px;
-  height: 457px;
+  max-width: 335px;
+  max-height: 457px;
   border-radius: 40px;
   background: var(--lightBlue2);
   margin-top: 40px;
   text-align: center;
 
   @media screen and (min-width: 375px) {
-    width: 704px;
-    height: 700px;
+    max-width: 704px;
+    max-height: 700px;
     border-radius: 100px;
     margin-top: 48px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media screen and (min-width: 768px) {
+    max-width: 604px;
+    max-height: 700px;
+    margin-top: 0px;
   }
 `

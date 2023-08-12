@@ -40,6 +40,7 @@ export const Logo = styled.img`
     height: 149px;
   }
 `
+
 export const Title = styled.h1`
   color: var(--white);
   text-shadow: 0px 9.399999618530273px 57.6875px rgba(0, 0, 0, 0.04), 0px 47px 355px rgba(0, 0, 0, 0.07);
@@ -101,8 +102,10 @@ export const LogInButton = styled.button`
 
   &:hover,
   &:focus {
-    background-color: var(--lightBlueActive);
+    border: 1px solid var(--white);
     color: var(--white);
+    background-color: #2b78ef;
+    stroke: var(--white);
   }
 `
 export const SignUpLink = styled.a`
@@ -123,14 +126,15 @@ export const LogInIcon = styled.svg`
   height: 18px;
   width: 18px;
   fill: transparent;
-
-  &:hover,
-  &:focus {
-    stroke: var(--white);
   }
 
   @media screen and (min-width: 768px) {
     height: 20px;
     width: 20px;
+  }
+
+  &:hover,
+  &:focus {
+    stroke: var(--white);
   }
 `
