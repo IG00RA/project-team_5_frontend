@@ -1,4 +1,8 @@
 import styled from 'styled-components';
+import gooseLogoMobile from '../../images/goose-logo/goose-logo-mobile.webp';
+
+export const GooseLogoImg = styled.img`                                                                                                            
+background-image: url(${gooseLogoMobile});`;
 
 export const SideBarWrap = styled.div`
   position: fixed;
@@ -105,37 +109,5 @@ export const StyledCloseButton = styled.button`
   &:focus {
     stroke: #3e85f3;
     transform: rotate(180deg);
-  }
-`;
-
-export const LogoutBtn = styled.button`
-  height: 46px;
-  background-color: #3e85f3;
-  color: #ffffff;
-  font-weight: 600;
-  font-family: inherit;
-  font-size: 14px;
-  line-height: 18px;
-  letter-spacing: -0.02em;
-  box-shadow: 4px 2px 16px #88a5bf7a;
-  border-radius: 16px;
-  border-width: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  width: 131px;
-  position: absolute;
-  bottom: 24px;
-
-  &:hover,
-  &:focus {
-    background-color: #2b78ef;
-  }
-
-  @media screen and (min-width: 768px) {
-    width: 141px;
-    height: 56px;
-    gap: 11px;
   }
 `;
