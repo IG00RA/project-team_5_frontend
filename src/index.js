@@ -14,7 +14,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <BrowserRouter basename="/project-team_5_frontend">
         <GlobalStyle />
         <App />
-        <div id="modal-root"></div>
       </BrowserRouter>
     </PersistGate>
   </Provider>

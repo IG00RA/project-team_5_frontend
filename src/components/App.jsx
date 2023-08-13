@@ -19,20 +19,18 @@ export const App = () => {
     <Suspense fallback={null}>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/calendar" element={<MainLayout />}>
-          <Route index element={<CalendarPage />} />
-          <Route path="month/:currentDay" element={<ChoosedMonthModule />} />
-          <Route path="day/:currentDay" element={<ChoosedDayModule />} />
-        </Route>
-        <Route path="/account" element={<MainLayout />}>
-          <Route index element={<AccountPage />} />
-        </Route>
-        <Route path="/statistics" element={<MainLayout />}>
-          <Route index element={<StatisticsPage />} />
-        </Route>
         <Route path="register" element={<RegisterPage />} />
         <Route path="login" element={<LoginPage />} />
         <Route path="*" element={<NotFound />} />
+
+        <Route element={<MainLayout />}>
+          <Route path="/calendar" element={<CalendarPage />}>
+            <Route path="month/:currentDay" element={<ChoosedMonthModule />} />
+            <Route path="day/:currentDay" element={<ChoosedDayModule />} />
+          </Route>
+          <Route path="/account" element={<AccountPage />} />
+          <Route path="/statistics" element={<StatisticsPage />} />
+        </Route>
       </Routes>
     </Suspense>
   );

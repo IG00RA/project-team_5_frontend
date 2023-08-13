@@ -1,15 +1,10 @@
-import { NavLink } from 'react-router-dom';
 import { BtnDay, BtnMonth } from './PeriodTypeSelect.styled';
 
-const PeriodTypeSelect = () => {
+const PeriodTypeSelect = ({ selectedDay }) => {
   return (
     <div>
-      <BtnMonth>
-        <NavLink to="month/:currentDay">Month</NavLink>
-      </BtnMonth>
-      <BtnDay>
-        <NavLink to="day/:currentDay">Day</NavLink>
-      </BtnDay>
+      <BtnMonth to={`month/${selectedDay}`}>Month</BtnMonth>
+      <BtnDay to={`day/${selectedDay}`}>Day</BtnDay>
     </div>
   );
 };

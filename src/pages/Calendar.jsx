@@ -4,7 +4,6 @@ import { Outlet } from 'react-router-dom';
 
 import CalendarToolbar from '../components/CalendarToolbar/CalendarToolbar';
 
-
 export default function Calendar() {
   moment.updateLocale('en', { week: { dow: 1 } });
   const [selectedDay, setSelectedDay] = useState(moment());
