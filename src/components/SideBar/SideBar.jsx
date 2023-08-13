@@ -11,7 +11,7 @@ import {
   StyledCloseButton,
   Overlay,
 } from './SideBar.styled';
-import { GooseLogoImg } from './SideBar.styled';
+// import { GooseLogoImg } from './SideBar.styled';
 import LogoutButton from '../Button/LogoutButton/LogoutButton';
 
 export const SideBar = ({ isModalMenuOpen, closeModalMenu }) => {
