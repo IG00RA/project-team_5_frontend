@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchUser, updateUser } from './userOperations';
+import { updateUser } from './userOperations';
 
 const pendingReducer = state => {
   state.isLoading = true;

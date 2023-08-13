@@ -1,4 +1,4 @@
-import PeriodPaginator from '../components/PeriodPaginator/PeriodPaginator';
+// import PeriodPaginator from '../components/PeriodPaginator/PeriodPaginator';
 import StatisticsChart from '../components/StatisticsChart/StatisticsChart';
 
 export default function Statistics() {
