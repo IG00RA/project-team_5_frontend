@@ -1,6 +1,7 @@
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const BtnMonth = styled.button`
+export const BtnMonth = styled(NavLink)`
   padding: 8px 16px;
   width: 82px;
   height: 34px;
@@ -11,7 +12,7 @@ export const BtnMonth = styled.button`
   cursor: pointer;
 `;
 
-export const BtnDay = styled.button`
+export const BtnDay = styled(NavLink)`
   padding: 8px 16px;
   width: 82px;
   height: 34px;

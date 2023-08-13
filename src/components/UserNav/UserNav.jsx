@@ -1,3 +1,4 @@
+import moment from 'moment';
 import {
   UserSVG,
   CalendarSVG,
@@ -9,6 +10,8 @@ import {
 import React from 'react';
 
 const UserNav = ({ closeModalMenu }) => {
+  const currentDay = moment();
+
   const handleCloseModalMenu = () => {
     closeModalMenu(false);
   };
@@ -20,7 +23,10 @@ const UserNav = ({ closeModalMenu }) => {
         <UserSVG style={{ marginRight: 8, width: 20, height: 20 }} />{' '}
         {`sidebar.My Account`}
       </UserNavItem>
-      <UserNavItem to="/calendar" onClick={handleCloseModalMenu}>
+      <UserNavItem
+        to={`/calendar/month/${currentDay.format('YYYY:MM:DD')}`}
+        onClick={handleCloseModalMenu}
+      >
         <CalendarSVG style={{ marginRight: 8, width: 20, height: 20 }} />{' '}
         {`sidebar.Calendar`}
       </UserNavItem>
