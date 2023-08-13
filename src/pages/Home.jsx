@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import FeedbackButton from '../components/Button/FeedbackButton/FeedbackButton';
 import ModalContainer from '../components/Modal/ModalConatiner';
 import Header from '../components/Header/Header';
+import Loader from '../components/loader/loader';
 /* import { AuthSection } from "../components/AuthSection/AuthSection";
 import { Description } from "../components/Description/Description"; */
 
@@ -31,6 +32,7 @@ export default function Home() {
         {/*       <AuthSection/>
       <Description/> */}
         <h1>Welcome to Team 5 Project</h1>
+        <Loader />
         <FeedbackButton onClick={openModal1} />
         <FeedbackButton onClick={openModal2} />
         <ModalContainer isOpen={isModalOpen1} onRequestClose={closeModal1}>
