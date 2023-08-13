@@ -1,5 +1,6 @@
 import { useParams } from "react-router";
 import { DayCalendarHead } from "./DayCalendarHead/DayCalendarHead";
+import { TasksColumnsList } from "./TasksColumnsList/TasksColumnsList";
 
 
 export default function ChoosedDay() {
@@ -8,6 +9,7 @@ export default function ChoosedDay() {
   return (
     <>
       <DayCalendarHead currentDay={currentDay} />
+      <TasksColumnsList />
     </>
   );
 };
