@@ -2,7 +2,6 @@ import React from 'react';
 import * as Yup from 'yup';
 import { Formik } from 'formik';
 import {
-  FormContainer,
   Form,
   FormTitle,
   Field,
@@ -11,13 +10,15 @@ import {
   Wrapper,
   Button,
   LoginIcon,
+  SuccessIcon,
+  ErrorIcon,
 } from './RegisterForm.styled';
 
 import sprite from '../../images/svg-sprite/symbol-defs.svg';
 const emailRegexp = /^\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/;
 
 const validationSchema = Yup.object().shape({
-  name: Yup.string()
+  userName: Yup.string()
     .required('Name is required')
     .matches(/^\S[\S\s]{0,28}\S$/, 'Name must be between 2 and 30 characters')
     .test(
@@ -40,7 +41,7 @@ const validationSchema = Yup.object().shape({
 export const RegisterForm = () => {
   return (
     <Formik
-      initialValues={{ name: '', email: '', password: '' }}
+      initialValues={{ userName: '', email: '', password: '' }}
       validationSchema={validationSchema}
       onSubmit={(values, actions) => {
         console.log(values);
@@ -56,68 +57,96 @@ export const RegisterForm = () => {
             : '';
 
         return (
-          <FormContainer>
-            <Form onSubmit={handleSubmit}>
-              <FormTitle>Sign Up</FormTitle>
-              <Label className={isValid('name')}>
-                Name
-                <Wrapper>
-                  <Field
-                    className={isValid('name')}
-                    type="text"
-                    name="name"
-                    placeholder="Enter your name"
-                    title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-                    value={values.name}
-                  />
-                </Wrapper>
-                {isValid('name') === 'is-valid' && (
-                  <p>This is a CORRECT name</p>
+          <Form onSubmit={handleSubmit}>
+            <FormTitle>Sign Up</FormTitle>
+            <Label className={isValid('userName')}>
+              Name
+              <Wrapper>
+                <Field
+                  className={isValid('userName')}
+                  type="text"
+                  name="userName"
+                  placeholder="Enter your name"
+                  title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+                  value={values.userName}
+                />
+                {isValid('userName') === 'is-valid' && (
+                  <SuccessIcon>
+                    <use href={sprite + '#icon-done-logo'}></use>
+                  </SuccessIcon>
                 )}
-                <ErrorMessage name="name" component="div" />
-              </Label>
-              <Label className={isValid('email')}>
-                Email
-                <Wrapper>
-                  <Field
-                    className={isValid('email')}
-                    type="email"
-                    name="email"
-                    placeholder="Enter email"
-                    title="Email must be in the format username@domain.com"
-                    value={values.email}
-                  />
-                </Wrapper>
+                {isValid('userName') === 'is-invalid' && (
+                  <ErrorIcon>
+                    <use href={sprite + '#icon-error-logo'}></use>
+                  </ErrorIcon>
+                )}
+              </Wrapper>
+              {isValid('userName') === 'is-valid' && (
+                <p>This is a CORRECT name</p>
+              )}
+              <ErrorMessage name="userName" component="div" />
+            </Label>
+            <Label className={isValid('email')}>
+              Email
+              <Wrapper>
+                <Field
+                  className={isValid('email')}
+                  type="email"
+                  name="email"
+                  placeholder="Enter email"
+                  title="Email must be in the format username@domain.com"
+                  value={values.email}
+                />
                 {isValid('email') === 'is-valid' && (
-                  <p>This is a CORRECT email</p>
+                  <SuccessIcon>
+                    <use href={sprite + '#icon-done-logo'}></use>
+                  </SuccessIcon>
                 )}
-                <ErrorMessage name="email" component="div" />
-              </Label>
-              <Label className={isValid('password')}>
-                Password
-                <Wrapper>
-                  <Field
-                    className={isValid('password')}
-                    type="password"
-                    name="password"
-                    placeholder="Enter password"
-                    title="Password must contain at least one number, one lowercase and one uppercase letter, and be at least 6 characters long."
-                    value={values.password}
-                  />
-                </Wrapper>
+                {isValid('email') === 'is-invalid' && (
+                  <ErrorIcon>
+                    <use href={sprite + '#icon-error-logo'}></use>
+                  </ErrorIcon>
+                )}
+              </Wrapper>
+              {isValid('email') === 'is-valid' && (
+                <p>This is a CORRECT email</p>
+              )}
+              <ErrorMessage name="email" component="div" />
+            </Label>
+            <Label className={isValid('password')}>
+              Password
+              <Wrapper>
+                <Field
+                  className={isValid('password')}
+                  type="password"
+                  name="password"
+                  placeholder="Enter password"
+                  title="Password must contain at least one number, one lowercase and one uppercase letter, and be at least 6 characters long."
+                  value={values.password}
+                />
                 {isValid('password') === 'is-valid' && (
-                  <p>This is a CORRECT password</p>
+                  <SuccessIcon>
+                    <use href={sprite + '#icon-done-logo'}></use>
+                  </SuccessIcon>
                 )}
-                <ErrorMessage name="password" component="div" />
-              </Label>
-              <Button type="submit" disabled={isSubmitting}>
-                Sign Up
-                <LoginIcon>
-                  <use href={sprite + '#icon-log-in'}></use>
-                </LoginIcon>
-              </Button>
-            </Form>
-          </FormContainer>
+                {isValid('password') === 'is-invalid' && (
+                  <ErrorIcon>
+                    <use href={sprite + '#icon-error-logo'}></use>
+                  </ErrorIcon>
+                )}
+              </Wrapper>
+              {isValid('password') === 'is-valid' && (
+                <p>This is a CORRECT password</p>
+              )}
+              <ErrorMessage name="password" component="div" />
+            </Label>
+            <Button type="submit" disabled={isSubmitting}>
+              Sign Up
+              <LoginIcon>
+                <use href={sprite + '#icon-log-in'}></use>
+              </LoginIcon>
+            </Button>
+          </Form>
         );
       }}
     </Formik>
