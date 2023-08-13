@@ -8,7 +8,7 @@ import {
 } from './UserNav.styled';
 import React from 'react';
 
-export const UserNav = ({ closeModalMenu }) => {
+const UserNav = ({ closeModalMenu }) => {
   const handleCloseModalMenu = () => {
     closeModalMenu(false);
   };
@@ -34,3 +34,5 @@ export const UserNav = ({ closeModalMenu }) => {
     </UserNavWrap>
   );
 };
+
+export default UserNav;
