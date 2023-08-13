@@ -7,9 +7,9 @@ export default function ChoosedDay() {
   const { currentDay } = useParams();
 
   return (
-    <>
+    <div>
       <DayCalendarHead currentDay={currentDay} />
       <TasksColumnsList />
-    </>
+    </div>
   );
 };
