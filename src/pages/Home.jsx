@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Modal from '../components/Modal/Modal';
 import FeedbackButton from '../components/Button/FeedbackButton/FeedbackButton';
 import ModalContainer from '../components/Modal/ModalConatiner';
+/* import { AuthSection } from "../components/AuthSection/AuthSection";
+import { Description } from "../components/Description/Description"; */
 
 export default function Home() {
   const [isModalOpen1, setIsModalOpen1] = useState(false);
@@ -23,6 +25,9 @@ export default function Home() {
 
   return (
     <div>
+
+{/*       <AuthSection/>
+      <Description/> */}
       <h1>Welcome to Team 5 Project</h1>
       <FeedbackButton onClick={openModal1} />
       <FeedbackButton onClick={openModal2} />
