@@ -1,5 +1,7 @@
 import { Suspense, lazy } from 'react';
 import { Route, Routes } from 'react-router';
+import MainLayout from '../pages/MainLayout';
+import { NotFound } from './NotFound/NotFound';
 // import { RestrictedRoute } from "./RestrictedRoute";
 // import { PrivateRoute } from "./PrivateRoute";
 
@@ -17,14 +19,20 @@ export const App = () => {
     <Suspense fallback={null}>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/account" element={<AccountPage />} />
-        <Route path="/calendar" element={<CalendarPage />}>
+        <Route path="/calendar" element={<MainLayout />}>
+          <Route index element={<CalendarPage />} />
           <Route path="month/:currentDay" element={<ChoosedMonthModule />} />
           <Route path="day/:currentDay" element={<ChoosedDayModule />} />
         </Route>
-        <Route path="/statistics" element={<StatisticsPage />} />
+        <Route path="/account" element={<MainLayout />}>
+          <Route index element={<AccountPage />} />
+        </Route>
+        <Route path="/statistics" element={<MainLayout />}>
+          <Route index element={<StatisticsPage />} />
+        </Route>
+        <Route path="register" element={<RegisterPage />} />
+        <Route path="login" element={<LoginPage />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Suspense>
   );

@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
-import { ReactComponent as UserIcon } from './images/svg/user-check.svg';
-import { ReactComponent as CalendarIcon } from './images/svg/nav-calendar.svg';
-import { ReactComponent as ChartIcon } from './images/svg/nav-chart.svg';
+import { ReactComponent as UserIcon } from '../../images/svg/user-check.svg';
+import { ReactComponent as CalendarIcon } from '../../images/svg/nav-calendar.svg';
+import { ReactComponent as ChartIcon } from '../../images/svg/nav-chart.svg';
 
 export const UserSVG = styled(UserIcon)``;
 export const CalendarSVG = styled(CalendarIcon)``;
@@ -42,7 +42,7 @@ export const UserNavTitle = styled.div`
 `;
 
 export const UserNavItem = styled(NavLink)`
-  stroke: #3434341;
+  stroke: #343434;
   fill: none;
   display: flex;
   align-items: center;
@@ -76,4 +76,3 @@ export const UserNavItem = styled(NavLink)`
     padding: 18px 20px;
   }
 `;
-
