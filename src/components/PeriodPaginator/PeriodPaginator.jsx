@@ -6,13 +6,13 @@ import {
 } from './PeriodPaginator.styled';
 
 export default function PeriodPaginator({
-  currentMonth,
+  selectedDay,
   prevMonthHandler,
   nextMonthHandler,
 }) {
   return (
     <PaginatorWrapper>
-      <Period>{currentMonth.format('MMMM YYYY')}</Period>
+      <Period>{selectedDay.format('MMMM YYYY')}</Period>
       <div>
         <BtnPrev onClick={prevMonthHandler}>&lt;</BtnPrev>
         <BtnNext onClick={nextMonthHandler}>&gt;</BtnNext>

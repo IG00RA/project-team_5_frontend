@@ -21,9 +21,9 @@ export const App = () => {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/account" element={<AccountPage />} />
         <Route path="/calendar" element={<CalendarPage />}>
-        <Route path="month" element={<ChoosedMonthModule />} />
-        <Route path="day" element={<ChoosedDayModule />} />
-      </Route>
+          <Route path="month/:currentDay" element={<ChoosedMonthModule />} />
+          <Route path="day/:currentDay" element={<ChoosedDayModule />} />
+        </Route>
         <Route path="/statistics" element={<StatisticsPage />} />
       </Routes>
     </Suspense>

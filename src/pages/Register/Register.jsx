@@ -12,7 +12,7 @@ export default function Register() {
       <FormContainer>
         <RegisterForm />
       </FormContainer>
-      <AuthNavigate />
+      <AuthNavigate link="/login" text="Log In" />
       <ImageContainer />
     </PageContainer>
   );
