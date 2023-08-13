@@ -6,10 +6,11 @@
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
     "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^14.4.3",
     "axios": "^1.4.0",
     "formik": "^2.4.3",
+    "lodash": "^4.17.21",
     "modern-normalize": "^2.0.0",
     "moment": "^2.29.4",
     "react": "^18.2.0",
@@ -22,7 +23,7 @@
     "recharts": "^2.7.2",
     "redux-persist": "^6.0.0",
     "styled-components": "^6.0.7",
-    "web-vitals": "^2.1.4",
+    "web-vitals": "^3.4.0",
     "yup": "^1.2.0"
   },
   "scripts": {
