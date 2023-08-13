@@ -1,14 +1,20 @@
-import { useLocation, useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { Button } from "../Button/Button";
-import FeedbackButton from "../Button/FeedbackButton/FeedbackButton";
-import { ThemeToggler } from "../ThemeToggler/ThemeToggler";
-import { UserInfo } from "../UserInfo/UserInfo";
-import svgSprite from "../../images/svg-sprite/symbol-defs.svg";
-import gooseMotivation from "../../images/svg/motivation-goose.svg";
-import { MenuIcon, MotivationImg, Title, UserWrap, Wrap } from "./Header.styled";
+import { useLocation } from 'react-router-dom';
+// import { useSelector } from "react-redux";
+// import { Button } from "../Button/Button";
+import FeedbackButton from '../Button/FeedbackButton/FeedbackButton';
+import { ThemeToggler } from '../ThemeToggler/ThemeToggler';
+import { UserInfo } from '../UserInfo/UserInfo';
+import svgSprite from '../../images/svg-sprite/symbol-defs.svg';
+import gooseMotivation from '../../images/svg/motivation-goose.svg';
+import {
+  MenuIcon,
+  MotivationImg,
+  Title,
+  UserWrap,
+  Wrap,
+} from './Header.styled';
 
-export const Header = ({onToggle}) => {
+export const Header = ({ onToggle }) => {
   const location = useLocation();
   const currentPath = location.pathname;
 
@@ -24,43 +30,46 @@ export const Header = ({onToggle}) => {
   //   };
   // };
 
-    let title = '';
-    if (currentPath.startsWith('/account')) {
-      title = 'User Profile';
-    } else if (currentPath.startsWith('/calendar')) {
-      title = 'Calendar';
-    } else if (currentPath.startsWith('/statistics')) {
-      title = 'Statistics';
-    } else {
-      title = '';
-    }
+  let title = '';
+  if (currentPath.startsWith('/account')) {
+    title = 'User Profile';
+  } else if (currentPath.startsWith('/calendar')) {
+    title = 'Calendar';
+  } else if (currentPath.startsWith('/statistics')) {
+    title = 'Statistics';
+  } else {
+    title = '';
+  }
 
-    
-
-    return (
-      <>
-        <Wrap><MotivationImg src={gooseMotivation} alt="goose" />
-          <div>
+  return (
+    <>
+      <Wrap>
+        <MotivationImg src={gooseMotivation} alt="goose" />
+        <div>
           <Title>{title}</Title>
           <p>Let go of the past and focus on the present!</p>
         </div>
-          
+
         {/* <Wrap>{pageCalendarDay && haveTask() && (<MotivationImg src={gooseMotivation} alt="goose" />)}
         <div>
           <Title>{title}</Title>
           {pageCalendarDay && haveTask() && (<p>Let go of the past and focus on the present!</p>)}
         </div>  */}
-        <MenuIcon onClick={() => { onToggle()}}>
-          <use href={svgSprite + `#icon-menu`}/>
+        <MenuIcon
+          onClick={() => {
+            onToggle();
+          }}
+        >
+          <use href={svgSprite + `#icon-menu`} />
         </MenuIcon>
         <UserWrap>
-          <FeedbackButton/>
+          <FeedbackButton />
           <ThemeToggler />
-        <UserInfo />
+          <UserInfo />
         </UserWrap>
-        </Wrap>
-      </>
-    );
-}
+      </Wrap>
+    </>
+  );
+};
 
 export default Header;

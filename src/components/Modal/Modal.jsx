@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactModal from 'react-modal';
 
-const isMobile = window.innerWidth <= 768;
+// const isMobile = window.innerWidth <= 768;
 
 const overlayStyles = {
   position: 'fixed',
