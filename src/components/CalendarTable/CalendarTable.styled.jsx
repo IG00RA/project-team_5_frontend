@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const GridWrapper = styled.div`
   display: grid;
@@ -11,7 +12,7 @@ export const GridWrapper = styled.div`
   overflow: hidden;
 `;
 
-export const CellWrapper = styled.div`
+export const CellWrapper = styled(Link)`
   min-width: 156px;
   min-height: 125px;
   background-color: #fff;
@@ -37,7 +38,7 @@ export const DayWrapper = styled.div`
   line-height: calc(18 / 16);
   text-transform: uppercase;
 
-  color: #343434;
+  color: ${p => (p.$isSelectedMonth ? '#343434' : 'transparent')};
 `;
 
 export const CurrentDay = styled.div`
