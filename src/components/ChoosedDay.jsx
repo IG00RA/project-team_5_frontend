@@ -1,5 +1,13 @@
-const ChoosedDay = () => {
-  return <div>ChoosedDay</div>;
-};
+import { useParams } from "react-router";
+import { DayCalendarHead } from "./DayCalendarHead/DayCalendarHead";
 
-export default ChoosedDay;
+
+export default function ChoosedDay() {
+  const { currentDay } = useParams();
+
+  return (
+    <>
+      <DayCalendarHead currentDay={currentDay} />
+    </>
+  );
+};
