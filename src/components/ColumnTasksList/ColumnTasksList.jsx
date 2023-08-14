@@ -1,8 +1,10 @@
+import { TaskColumnCard } from "components/TaskColumnCard/TaskColumnCard";
+
 export const ColumnTasksList = ({tasksColection}) => {
   return (
     <ul>
-      {tasksColection.map(item => (
-        <li>{item.category}</li>
+      {tasksColection.map(task => (
+        <TaskColumnCard key={task._id} task={task} />
       ))}
     </ul>
   );
