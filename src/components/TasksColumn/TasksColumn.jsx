@@ -3,6 +3,7 @@ import { ColumnHeadBar } from "../ColumnHeadBar/ColumnHeadBar";
 import { ColumnTasksList } from "../ColumnTasksList/ColumnTasksList";
 
 export const TasksColumn = ({ title, tasksColection }) => {
+
   return (
     <li>
       <ColumnHeadBar title={title} />

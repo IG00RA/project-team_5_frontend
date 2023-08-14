@@ -1,5 +1,9 @@
 export const ColumnTasksList = ({tasksColection}) => {
   return (
-    <div>Hello!</div>
+    <ul>
+      {tasksColection.map(item => (
+        <li>{item.category}</li>
+      ))}
+    </ul>
   );
 };

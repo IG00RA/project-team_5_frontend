@@ -2,10 +2,12 @@ import { TasksColumn } from "../TasksColumn/TasksColumn";
 
 const columnsList = ['To do', 'In progress', 'Done'];
 
-export const TasksColumnsList = () => {
+export const TasksColumnsList = ({ tasks }) => {
 
   const getTasksColection = (TasksColumnName) => {
-  // функция которая возвращает таски нужной группы, использует фильтр
+    const normalizedStringCategory = TasksColumnName.split(' ').join('-').toLowerCase();
+
+    return tasks.filter(task => task.category === normalizedStringCategory);
   };
 
   return (
