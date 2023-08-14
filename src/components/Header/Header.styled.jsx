@@ -10,7 +10,6 @@ margin-bottom: 100px;
   @media (min-width: 1440px) {
     margin-bottom: 32px;
   }
-
 `;
 export const UserWrap = styled.div`
 display: flex;
@@ -19,6 +18,7 @@ margin-left: auto;
 `;
 export const MenuIcon = styled.svg`
 fill:transparent;
+stroke: black;
 height: 24px;
 width: 24px;
 

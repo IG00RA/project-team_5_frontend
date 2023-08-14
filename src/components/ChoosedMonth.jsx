@@ -1,11 +1,12 @@
 import moment from 'moment';
+import { useOutletContext } from 'react-router-dom';
 import MonthCalendarHead from './MonthCalendarHead/MonthCalendarHead';
 import CalendarTable from './CalendarTable/CalendarTable';
 
 export default function ChoosedMonth() {
-  const currentMonth = moment();
+  const [selectedDay] = useOutletContext();
 
-  const startDay = currentMonth.clone().startOf('month').startOf('week');
+  const startDay = selectedDay.clone().startOf('month').startOf('week');
   const endDay = moment().endOf('month').endOf('week');
 
   const calendar = [];
@@ -19,7 +20,7 @@ export default function ChoosedMonth() {
   return (
     <div>
       <MonthCalendarHead startDay={startDay} />
-      <CalendarTable startDay={startDay} />
+      <CalendarTable startDay={startDay} selectedDay={selectedDay} />
     </div>
   );
 }
