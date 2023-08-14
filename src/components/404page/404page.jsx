@@ -8,12 +8,23 @@ import Goose404Desk from '../../images/404-page/goose-404-desktop.webp';
 import Goose404Desk2x from '../../images/404-page/goose-404-desktop-2x.webp';
 
 export const Page404 = () => {
+
+  const isRetina = window.devicePixelRatio > 1;
+  const logoImage = ` ${isRetina ? Goose404Mob2x : Goose404Mob} 375w,
+                      ${isRetina ? Goose404Tab2x : Goose404Tab} 768w,
+                      ${isRetina ? Goose404Desk2x : Goose404Desk} 769w `;
+
   return (
     <Wrap>
       <div>
         <PictureWrap>
           4
-          <Picture src={Goose404Desk2x} alt="Goose 404 logo"/>
+          <Picture
+            srcSet={logoImage}
+            sizes="(max-width: 375px) 375px, (max-width: 768px) 768px, (min-width: 769px)"
+            src={Goose404Mob}
+            alt="Goose 404 logo"
+          />
           4
         </PictureWrap>
       </div>
@@ -22,9 +33,9 @@ export const Page404 = () => {
         We’re sorry, the page you requested could not be found. Please go back to the homepage.
       </Text>
 
-      <div href="/home">
-        <HomeButton type="button" href="/home" to="/">Back to home</HomeButton>
-      </div>
+      <a href="/">
+        <HomeButton type="button" href="/" to="/">Back to home</HomeButton>
+      </a>
     </Wrap>
   )
 }
