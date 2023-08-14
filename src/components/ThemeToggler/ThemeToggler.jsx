@@ -1,9 +1,9 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { MoonSVG, SunSVG, ButtonToggle } from './ThemeToggler.styled';
-import { toggleTheme } from '../../redux/auth/operations';;
+import { useDispatch } from 'react-redux';
+import { SunSVG, ButtonToggle } from './ThemeToggler.styled';
+import { toggleTheme } from '../../redux/auth/operations';
 export const ThemeToggler = () => {
   const dispatch = useDispatch();
-  const themeInterface = useSelector(state => state.auth.user.themeInterface);
+  // const themeInterface = useSelector(state => state.auth.user.themeInterface);
 
   function handlerClick() {
     dispatch(toggleTheme());
@@ -11,8 +11,9 @@ export const ThemeToggler = () => {
 
   return (
     <ButtonToggle onClick={handlerClick}>
-      {themeInterface === 'light' && <SunSVG />}
-      {themeInterface === 'dark' && <MoonSVG />}
+      <SunSVG />
+      {/* {themeInterface === 'light' && <SunSVG />}
+      {themeInterface === 'dark' && <MoonSVG />} */}
     </ButtonToggle>
   );
 };
