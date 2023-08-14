@@ -12,7 +12,7 @@ import {
   Overlay,
 } from './SideBar.styled';
 // import { GooseLogoImg } from './SideBar.styled';
-import LogoutButton from '../Button/LogoutButton/LogoutButton';
+import LogoutButton from '../Buttons/LogoutButton/LogoutButton';
 
 export const SideBar = ({ isModalMenuOpen, closeModalMenu }) => {
   // const dispatch = useDispatch();

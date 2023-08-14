@@ -1,7 +1,7 @@
 import { useLocation } from 'react-router-dom';
 // import { useSelector } from "react-redux";
 // import { Button } from "../Button/Button";
-import FeedbackButton from '../Button/FeedbackButton/FeedbackButton';
+import FeedbackButton from '../Buttons/FeedbackButton/FeedbackButton';
 import { ThemeToggler } from '../ThemeToggler/ThemeToggler';
 import { UserInfo } from '../UserInfo/UserInfo';
 import svgSprite from '../../images/svg-sprite/symbol-defs.svg';

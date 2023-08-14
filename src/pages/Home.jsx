@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import FeedbackButton from '../components/Button/FeedbackButton/FeedbackButton';
+import FeedbackButton from '../components/Buttons/FeedbackButton/FeedbackButton';
 import ModalContainer from '../components/Modal/ModalConatiner';
 import Loader from '../components/loader/loader';
 /* import { AuthSection } from "../components/AuthSection/AuthSection";
