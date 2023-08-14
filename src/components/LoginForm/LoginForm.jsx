@@ -1,5 +1,7 @@
 import React from 'react';
 import * as Yup from 'yup';
+import { useDispatch } from 'react-redux';
+import { login } from 'redux/auth/operations';
 import { Formik } from 'formik';
 import {
   Form,
@@ -29,12 +31,14 @@ const validationSchema = Yup.object().shape({
 });
 
 export const LoginForm = () => {
+  const dispatch = useDispatch();
+
   return (
     <Formik
       initialValues={{ email: '', password: '' }}
       validationSchema={validationSchema}
-      onSubmit={(values, actions) => {
-        console.log(values);
+      onSubmit={({ ...values }, actions) => {
+        dispatch(login({ ...values }));
         actions.resetForm();
       }}
     >
