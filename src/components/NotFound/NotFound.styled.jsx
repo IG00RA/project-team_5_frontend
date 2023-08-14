@@ -18,11 +18,13 @@ export const Wrap = styled.div`
   }
 `
 export const PictureWrap = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 252px;
   height: 150px;
+  gap: 86px;
 
   color: #3E85F3;
   text-shadow: 0px 9.399999618530273px 57.6875px rgba(0, 0, 0, 0.04), 0px 47px 355px rgba(0, 0, 0, 0.07);
@@ -33,10 +35,12 @@ export const PictureWrap = styled.div`
   @media screen and (min-width: 375px) {
     font-size: 200px;
     line-height: 250px;
+    z-index: 1;
   }
 `
 export const Picture = styled.img`
-  width: 81px;
+  position: absolute;
+  width: 145px;
   height: 188px;
   transform: rotate(-11deg);
 
