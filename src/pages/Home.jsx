@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-// import Modal from '../components/Modal/Modal';
 import FeedbackButton from '../components/Button/FeedbackButton/FeedbackButton';
 import ModalContainer from '../components/Modal/ModalConatiner';
-import Header from '../components/Header/Header';
 import Loader from '../components/loader/loader';
 /* import { AuthSection } from "../components/AuthSection/AuthSection";
 import { Description } from "../components/Description/Description"; */
@@ -27,7 +25,6 @@ export default function Home() {
 
   return (
     <>
-      <Header />
       <div>
         {/*       <AuthSection/>
       <Description/> */}
