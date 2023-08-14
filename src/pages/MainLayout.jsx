@@ -1,18 +1,16 @@
-import { Header } from "../components/Header/Header";
-import SideBar from "../components/SideBar/SideBar";
-import Account from "./Account";
-import Calendar from "./Calendar";
-import Statistics from "./Statistics";
+import { Suspense } from 'react';
+import { Header } from '../components/Header/Header';
+import SideBar from '../components/SideBar/SideBar';
+import { Outlet } from 'react-router-dom';
 
 export default function MainLayout() {
   return (
     <>
-      <Header />
-      <p>User page</p>
-      <SideBar />
-      <Statistics />
-      <Account />
-      <Calendar />
+      <Suspense fallback={<div>Loading page...</div>}>
+        <Header />
+        <SideBar />
+        <Outlet />
+      </Suspense>
     </>
   );
 }

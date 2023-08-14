@@ -5,24 +5,6 @@ import {
   Field as FormikField,
 } from 'formik';
 
-export const FormContainer = styled.div`
-  margin-right: auto;
-  margin-left: auto;
-  margin-bottom: 18px;
-
-  @media screen and (max-width: 374px) {
-    width: 100%;
-    max-width: 335px;
-  }
-  @media screen and (min-width: 375px) {
-    width: 335px;
-  }
-  @media screen and (min-width: 768px) {
-    width: 480px;
-    margin-bottom: 24px;
-  }
-`;
-
 export const Form = styled(FormikForm)`
   display: flex;
   flex-direction: column;
@@ -102,6 +84,7 @@ export const Field = styled(FormikField)`
   font-weight: 600;
   line-height: 1.29px;
 
+  background-color: #fff;
   color: #111;
   outline: none;
   border: 1px solid #dce3e5;
@@ -213,4 +196,24 @@ export const LoginIcon = styled.svg`
     height: 20px;
     width: 20px;
   }
+`;
+
+export const SuccessIcon = styled.svg`
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  fill: #3cbc81;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 18px;
+`;
+
+export const ErrorIcon = styled.svg`
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  fill: #e74a3b;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 18px;
 `;

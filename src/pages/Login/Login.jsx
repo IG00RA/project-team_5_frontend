@@ -1,11 +1,15 @@
 import { AuthNavigate } from '../../components/AuthNavigate/AuthNavigate';
 import { LoginForm } from '../../components/LoginForm/LoginForm';
+import { ImageContainer, PageContainer, FormContainer } from './Login.styled';
 
 export default function Login() {
   return (
-    <div>
-      <LoginForm />
-      <AuthNavigate />
-    </div>
+    <PageContainer>
+      <FormContainer>
+        <LoginForm />
+      </FormContainer>
+      <AuthNavigate link="/register" text="Sign Up" />
+      <ImageContainer />
+    </PageContainer>
   );
 }
