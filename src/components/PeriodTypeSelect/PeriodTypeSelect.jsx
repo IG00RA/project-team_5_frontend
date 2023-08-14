@@ -1,10 +1,10 @@
 import { BtnDay, BtnMonth } from './PeriodTypeSelect.styled';
 
-const PeriodTypeSelect = () => {
+const PeriodTypeSelect = ({ selectedDay }) => {
   return (
     <div>
-      <BtnMonth>Month</BtnMonth>
-      <BtnDay>Day</BtnDay>
+      <BtnMonth to={`month/${selectedDay}`}>Month</BtnMonth>
+      <BtnDay to={`day/${selectedDay}`}>Day</BtnDay>
     </div>
   );
 };

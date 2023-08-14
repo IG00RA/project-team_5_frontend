@@ -3,18 +3,18 @@ import PeriodTypeSelect from '../PeriodTypeSelect/PeriodTypeSelect';
 import { CalendarToolBarWrapper } from './CalendarToolbar.styled';
 
 const CalendarToolbar = ({
-  currentMonth,
+  selectedDay,
   prevMonthHandler,
   nextMonthHandler,
 }) => {
   return (
     <CalendarToolBarWrapper>
       <PeriodPaginator
-        currentMonth={currentMonth}
+        selectedDay={selectedDay}
         prevMonthHandler={prevMonthHandler}
         nextMonthHandler={nextMonthHandler}
       />
-      <PeriodTypeSelect />
+      <PeriodTypeSelect selectedDay={selectedDay.format('YYYY:MM:DD')} />
     </CalendarToolBarWrapper>
   );
 };

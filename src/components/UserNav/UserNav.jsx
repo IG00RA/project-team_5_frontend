@@ -1,7 +1,16 @@
-import { UserSVG, CalendarSVG, ChartSVG, UserNavWrap, UserNavTitle, UserNavItem } from './UserNav.styled';
+import moment from 'moment';
+import {
+  UserSVG,
+  CalendarSVG,
+  ChartSVG,
+  UserNavWrap,
+  UserNavTitle,
+  UserNavItem,
+} from './UserNav.styled';
 import React from 'react';
 
-export const UserNav = ({ closeModalMenu }) => {
+const UserNav = ({ closeModalMenu }) => {
+  const currentDay = moment();
 
   const handleCloseModalMenu = () => {
     closeModalMenu(false);
@@ -9,19 +18,24 @@ export const UserNav = ({ closeModalMenu }) => {
 
   return (
     <UserNavWrap>
-      <UserNavTitle>{(`sidebar.User Panel`)} </UserNavTitle>
+      <UserNavTitle>{`sidebar.User Panel`} </UserNavTitle>
       <UserNavItem to="/account" onClick={handleCloseModalMenu}>
         <UserSVG style={{ marginRight: 8, width: 20, height: 20 }} />{' '}
-        {(`sidebar.My Account`)}
+        {`sidebar.My Account`}
       </UserNavItem>
-      <UserNavItem to="/calendar" onClick={handleCloseModalMenu}>
+      <UserNavItem
+        to={`/calendar/month/${currentDay.format('YYYY:MM:DD')}`}
+        onClick={handleCloseModalMenu}
+      >
         <CalendarSVG style={{ marginRight: 8, width: 20, height: 20 }} />{' '}
-        {(`sidebar.Calendar`)}
+        {`sidebar.Calendar`}
       </UserNavItem>
       <UserNavItem to="/statistics" onClick={handleCloseModalMenu}>
         <ChartSVG style={{ marginRight: 8, width: 20, height: 20 }} />{' '}
-        {(`sidebar.Statistics`)}
+        {`sidebar.Statistics`}
       </UserNavItem>
     </UserNavWrap>
   );
 };
+
+export default UserNav;
