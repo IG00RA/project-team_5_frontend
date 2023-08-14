@@ -4,12 +4,19 @@ import * as Yup from 'yup';
 import { changeProfile, login } from '../../redux/auth/operations';
 import {
   AvatarContainer,
+  AvatarField,
   AvatarImg,
   AvatarText,
-  TextContainer,
+  AvatarTextContainer,
+  FileInput,
+  Svg,
+  SvgWrapper,
+  UserInfoForm,
 } from './UserForm.styled';
 import { selectUser } from '../../redux/auth/selectors';
 import { useEffect } from 'react';
+import ChangeProfileButton from 'components/Buttons/ChangeProfileButton/ChangeProfileButton';
+import Loader from 'components/loader/loader';
 
 export default function UserForm() {
   const dispatch = useDispatch();
@@ -18,7 +25,7 @@ export default function UserForm() {
 
   //
   useEffect(() => {
-    dispatch(login({ email: 'vlad@gmail.com', password: '123456' }));
+    dispatch(login({ email: 'vlad2@gmail.com', password: 'vlad222' }));
   }, [dispatch]);
   //
 
@@ -49,7 +56,10 @@ export default function UserForm() {
     const inputFields = Object.keys(values);
 
     const formData = new FormData();
-    inputFields.forEach(field => formData.append(field, values[field]));
+    inputFields.forEach(field => {
+      const value = values[field] ? values[field] : ' ';
+      formData.append(field, value);
+    });
 
     dispatch(changeProfile(formData));
   };
@@ -66,16 +76,19 @@ export default function UserForm() {
       }
     ),
     userName: Yup.string().max(16).required(),
-    phone: Yup.number().min(12),
+    phone: Yup.string()
+      .matches(
+        /((\+38)?\(?\d{3}\)?[\s\.-]?(\d{7}|\d{3}[\s\.-]\d{2}[\s\.-]\d{2}|\d{3}-\d{4}))/,
+        'This is an ERROR phone number'
+      )
+      .max(20),
     birthday: Yup.date(),
-    skype: Yup.string(),
+    skype: Yup.string().max(16),
     email: Yup.string().email().required(),
   });
 
   return isLoading ? (
-    <div>
-      <p>Loading...</p>
-    </div>
+    <Loader />
   ) : (
     <Formik
       initialValues={initialValues}
@@ -87,7 +100,7 @@ export default function UserForm() {
           const { name, value } = e.target;
           setFieldValue(name, value);
           // Додати перевірку на співпадіння з полем в редаксі
-          setActiveSabmit('.submitBtn');
+          setActiveSabmit('#changeProfileBtn');
         };
 
         const fileHandler = e => {
@@ -96,27 +109,56 @@ export default function UserForm() {
 
           setFieldValue('avatarURL', file);
           // Додати перевірку на співпадіння з полем в редаксі
-          setActiveSabmit('.submitBtn');
+          setActiveSabmit('#changeProfileBtn');
         };
 
         return (
-          <form onSubmit={handleSubmit}>
-            <label>
+          <UserInfoForm onSubmit={handleSubmit}>
+            <AvatarField>
               {makeAvatarURL(values) ? (
                 <AvatarContainer>
                   <AvatarImg src={makeAvatarURL(values)} alt="userAvatar" />
                 </AvatarContainer>
               ) : (
                 <AvatarContainer>
-                  <TextContainer>
+                  <AvatarTextContainer>
                     <AvatarText>{values.userName[0]}</AvatarText>
-                  </TextContainer>
+                  </AvatarTextContainer>
                 </AvatarContainer>
               )}
 
-              <input name="avatarUrl" type="file" onChange={fileHandler} />
-            </label>
+              <FileInput name="avatarUrl" type="file" onChange={fileHandler} />
+
+              <SvgWrapper>
+                <Svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 18 18"
+                  fill="none"
+                >
+                  <path
+                    d="M9 3.75V14.25"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M3.75 9H14.25"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </Svg>
+              </SvgWrapper>
+            </AvatarField>
+
             <ErrorMessage name="avatarUrl" />
+
+            <div>
+              <p>{values.userName}</p>
+              <p>User</p>
+            </div>
 
             <label>
               <div>
@@ -139,7 +181,7 @@ export default function UserForm() {
               <input
                 className="input input-bordered w-full max-w-xs"
                 name="phone"
-                type="number"
+                type="tel"
                 value={values.phone}
                 onChange={inputHandler}
               />
@@ -188,14 +230,8 @@ export default function UserForm() {
             </label>
             <ErrorMessage name="email" />
 
-            <button
-              type="submit"
-              className="btn btn-primary submitBtn"
-              disabled={true}
-            >
-              Save changes
-            </button>
-          </form>
+            <ChangeProfileButton disabled={true} />
+          </UserInfoForm>
         );
       }}
     </Formik>
