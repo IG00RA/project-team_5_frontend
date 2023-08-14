@@ -50,7 +50,14 @@ const changeProfileReducer = (state, { payload }) => {
 };
 
 const initialState = {
-  user: {},
+  user: {
+    avatarURL: '',
+    userName: '',
+    phone: '',
+    birthday: '',
+    skype: '',
+    email: '',
+  },
   token: null,
   isLoading: false,
   error: null,
@@ -73,3 +80,5 @@ const userSlice = createSlice({
 });
 
 export const authReducer = userSlice.reducer;
+
+export const { updateUser } = userSlice.actions;
