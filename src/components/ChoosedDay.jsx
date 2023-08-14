@@ -10,19 +10,20 @@ axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 
 export default function ChoosedDay() {
   const { currentDay } = useParams();
+  const [updatedDate, setUpdatedDate] = useState(currentDay);
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
     (async () => {
       const { data } = await axios("https://project-team-5-backend.onrender.com/api/tasks");
-      const filteredTasksByDate = data.filter(task => moment(task.date).format("YYYY:MM:DD") === currentDay);
+      const filteredTasksByDate = data.filter(task => moment(task.date).format("YYYY:MM:DD") === updatedDate);
       setTasks(filteredTasksByDate);
     })();
-  }, [currentDay, setTasks]);
+  }, [currentDay, setTasks, updatedDate]);
 
   return (
     <div>
-      <DayCalendarHead currentDay={currentDay} />
+      <DayCalendarHead currentDay={currentDay} updatedDate={updatedDate} setUpdatedDate={setUpdatedDate} />
       <TasksColumnsList tasks={tasks} />
     </div>
   );

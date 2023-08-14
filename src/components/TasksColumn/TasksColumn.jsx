@@ -1,14 +1,15 @@
 import { AddTaskBtn } from "../AddTaskBtn/AddTaskBtn";
 import { ColumnHeadBar } from "../ColumnHeadBar/ColumnHeadBar";
 import { ColumnTasksList } from "../ColumnTasksList/ColumnTasksList";
+import { Item } from "./TasksColumn.styled";
 
 export const TasksColumn = ({ title, tasksColection }) => {
 
   return (
-    <li>
+    <Item>
       <ColumnHeadBar title={title} />
-      {tasksColection && <ColumnTasksList tasksColection={tasksColection} />}
+      {tasksColection.length !== 0 && <ColumnTasksList tasksColection={tasksColection} />}
       <AddTaskBtn />
-    </li>
+    </Item>
   );
 };
