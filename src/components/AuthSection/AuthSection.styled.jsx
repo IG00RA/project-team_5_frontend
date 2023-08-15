@@ -1,26 +1,22 @@
 import { styled } from 'styled-components';
 
 export const Wrap = styled.div`
-  max-height: 812px;
+  /* max-height: 812px; */
+  height: 100vh;
   display: flex;
   align-items: center;
   /* justify-content: center; */
 	flex-direction: column;
   background-color: var(--blue);
   padding: 256px 59px 256px 58px;
-
-
-  @media screen and (max-width: 374px) {
-
-  }
   
   @media screen and (min-width: 375px) {
-    max-height: 812px;
+    /* max-height: 812px; */
     padding: 331px 92px 330px 91px;  
   }
 
   @media screen and (min-width: 768px) {
-    max-height: 770px;
+    /* max-height: 770px; */
     padding: 187px 369px 200px 369px; 
   }
 `

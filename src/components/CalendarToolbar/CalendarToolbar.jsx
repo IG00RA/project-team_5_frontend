@@ -14,7 +14,7 @@ const CalendarToolbar = ({
         prevMonthHandler={prevMonthHandler}
         nextMonthHandler={nextMonthHandler}
       />
-      <PeriodTypeSelect selectedDay={selectedDay.format('YYYY:MM:DD')} />
+      <PeriodTypeSelect selectedDay={selectedDay.format('YYYY-MM-DD')} />
     </CalendarToolBarWrapper>
   );
 };
