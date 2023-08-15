@@ -8,7 +8,7 @@ export const TasksColumn = ({ title, tasksColection }) => {
   return (
     <Item>
       <ColumnHeadBar title={title} />
-      {tasksColection.length !== 0 && <ColumnTasksList tasksColection={tasksColection} />}
+      {tasksColection?.length !== 0 && <ColumnTasksList tasksColection={tasksColection} />}
       <AddTaskBtn />
     </Item>
   );
