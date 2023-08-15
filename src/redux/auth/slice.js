@@ -1,5 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { changeProfile, login, logout, register, refreshUser } from './operations';
+import {
+  changeProfile,
+  login,
+  logout,
+  register,
+  refreshUser,
+} from './operations';
 
 const initialState = {
   user: {
@@ -14,7 +20,7 @@ const initialState = {
   isLoading: false,
   error: null,
   isLoggedIn: false,
-  isRefreshing: false,
+  isRefreshing: true,
 };
 
 const pendingRefreshReducer = state => {
@@ -45,6 +51,7 @@ const loginReducer = (state, { payload }) => {
   state.error = null;
   state.token = token;
   state.isLoggedIn = true;
+  state.isRefreshing = false;
 
   state.user.userName = userName;
   state.user.birthday = birthday;
@@ -55,6 +62,7 @@ const loginReducer = (state, { payload }) => {
 };
 
 const logoutReducer = state => {
+  state.isRefreshing = true;
   state.isLoggedIn = false;
   state.isLoading = false;
   state.error = null;
@@ -75,7 +83,6 @@ const changeProfileReducer = (state, { payload }) => {
   state.user.skype = skype;
   state.user.avatarURL = avatarURL;
 };
-
 
 const refreshReducer = (state, { payload }) => {
   state.user = payload;
