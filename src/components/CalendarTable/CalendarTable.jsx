@@ -12,7 +12,7 @@ import {
 } from './CalendarTable.styled';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { selectTasks } from 'redux/tasks/tasksSelectors';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 // import { getAllTasks } from 'redux/tasks/tasksOperations';
 
 const token =
@@ -28,26 +28,29 @@ const CalendarTable = ({ startDay, selectedDay }) => {
   const isCurrentDay = day => moment().isSame(day, 'day');
   const isSelectedMonth = day => selectedDay.isSame(day, 'month');
 
-  const [tasks, setTasks] = useState([]);
+  const [
+    tasks,
+    // , setTasks
+  ] = useState([]);
 
-  const startDateQuery = moment().clone().startOf('month');
-  // console.log(startDateQuery);
-  const endDateQuery = moment().clone().endOf('month');
-  // console.log(endDateQuery);
+  // const startDateQuery = moment().clone().startOf('month');
+  // // console.log(startDateQuery);
+  // const endDateQuery = moment().clone().endOf('month');
+  // // console.log(endDateQuery);
 
-  useEffect(() => {
-    (async () => {
-      const params = {
-        date: moment().format('X'),
-      };
-      const { data } = await axios(
-        `https://project-team-5-backend.onrender.com/api/tasks?date_gte=${startDateQuery}&date_lte=${endDateQuery}`,
-        { params }
-      );
-      setTasks([...data]);
-      // console.log(data);
-    })();
-  }, [selectedDay]);
+  // useEffect(() => {
+  //   (async () => {
+  //     const params = {
+  //       date: moment().format('X'),
+  //     };
+  //     const { data } = await axios(
+  //       `https://project-team-5-backend.onrender.com/api/tasks?date_gte=${startDateQuery}&date_lte=${endDateQuery}`,
+  //       { params }
+  //     );
+  //     setTasks([...data]);
+  //     // console.log(data);
+  //   })();
+  // }, [selectedDay]);
 
   // const taskDate = tasks.map(item => {
   //   return item.date;
