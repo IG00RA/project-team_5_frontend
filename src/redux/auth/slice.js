@@ -6,7 +6,7 @@ const initialState = {
   error: null,
   isLoading: false,
   isLoggedIn: false,
-  isRefreshing: false,
+  isRefreshing: true,
 };
 
 const pendingRefreshReducer = state => {
@@ -29,6 +29,15 @@ const rejectedReducer = (state, { payload }) => {
   state.error = payload;
 };
 
+const logoutRejectedReducer = state => {
+  state.isRefreshing = false;
+  state.isLoggedIn = false;
+  state.isLoading = false;
+  state.error = null;
+  state.token = null;
+  state.user = {};
+};
+
 const loginReducer = (state, { payload }) => {
   const { token } = payload;
 
@@ -39,6 +48,7 @@ const loginReducer = (state, { payload }) => {
 };
 
 const logoutReducer = state => {
+  state.isRefreshing = true;
   state.isLoggedIn = false;
   state.isLoading = false;
   state.error = null;

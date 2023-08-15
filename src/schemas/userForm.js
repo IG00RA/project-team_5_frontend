@@ -1,8 +1,8 @@
 import * as Yup from 'yup';
 
 const isValidFileType = value => value.type.includes('image');
-const regex =
-  /((\+38)?\(?\d{3}\)?[\s\.-]?(\d{7}|\d{3}[\s\.-]\d{2}[\s\.-]\d{2}|\d{3}-\d{4}))/;
+const regex = '';
+// /((\+38)?\(?\d{3}\)?[\s\.-]?(\d{7}|\d{3}[\s\.-]\d{2}[\s\.-]\d{2}|\d{3}-\d{4}))/;
 
 export const validationSchema = Yup.object({
   avatarURL: Yup.mixed().test(
