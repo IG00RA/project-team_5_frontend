@@ -10,7 +10,7 @@ const ChangeProfileButton = ({ onClick, isLoading, disabled }) => {
       id="changeProfileBtn"
     >
       <Text>Save changes</Text>
-      {isLoading && <CastomLoader />}
+      {/* {isLoading && <CastomLoader />} */}
     </Button>
   );
 };

@@ -1,7 +1,7 @@
 import { ErrorMessage, Formik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import { validationSchema } from '../../schemas';
-import { changeProfile } from '../../redux/auth/operations';
+import { changeProfile } from '../../redux/user/operations';
 import {
   AvatarContainer,
   AvatarField,
@@ -21,8 +21,9 @@ import {
   UserLabel,
   ButtonWrapper,
 } from './UserForm.styled';
-import { selectUser, selectIsLoading } from '../../redux/auth/selectors';
+import { selectIsLoading } from '../../redux/auth/selectors';
 import ChangeProfileButton from '../Buttons/ChangeProfileButton/ChangeProfileButton';
+import { selectUser } from 'redux/user/selectors';
 // import Loader from '../loader/loader';
 
 export default function UserForm() {

@@ -1,27 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { changeProfile, login, logout, register, refreshUser } from './operations';
+import { login, logout, refreshUser, register } from './operations';
 
 const initialState = {
-  user: {
-    avatarURL: '',
-    userName: '',
-    phone: '',
-    birthday: '',
-    skype: '',
-    email: '',
-  },
   token: null,
-  isLoading: false,
   error: null,
+  isLoading: false,
   isLoggedIn: false,
   isRefreshing: false,
 };
 
 const pendingRefreshReducer = state => {
+  state.isLoading = true;
   state.isRefreshing = true;
 };
 
 const rejectedRefreshReducer = state => {
+  state.isLoading = false;
   state.isRefreshing = false;
 };
 
@@ -36,22 +30,12 @@ const rejectedReducer = (state, { payload }) => {
 };
 
 const loginReducer = (state, { payload }) => {
-  const {
-    user: { userName, birthday, email, phone, skype, avatarURL },
-    token,
-  } = payload;
+  const { token } = payload;
 
   state.isLoading = false;
   state.error = null;
   state.token = token;
   state.isLoggedIn = true;
-
-  state.user.userName = userName;
-  state.user.birthday = birthday;
-  state.user.email = email;
-  state.user.phone = phone;
-  state.user.skype = skype;
-  state.user.avatarURL = avatarURL;
 };
 
 const logoutReducer = state => {
@@ -59,31 +43,38 @@ const logoutReducer = state => {
   state.isLoading = false;
   state.error = null;
   state.token = null;
-  state.user = {};
 };
 
-const changeProfileReducer = (state, { payload }) => {
-  const { userName, birthday, email, phone, skype, avatarURL } = payload;
+const registerReducer = (state, { payload }) => {
+  const { token } = payload;
 
   state.isLoading = false;
   state.error = null;
-
-  state.user.userName = userName;
-  state.user.birthday = birthday;
-  state.user.email = email;
-  state.user.phone = phone;
-  state.user.skype = skype;
-  state.user.avatarURL = avatarURL;
+  state.token = token;
+  state.isLoggedIn = true;
 };
 
+// const changeProfileReducer = (state, { payload }) => {
+//   const { userName, birthday, email, phone, skype, avatarURL } = payload;
 
-const refreshReducer = (state, { payload }) => {
-  state.user = payload;
+//   state.isLoading = false;
+//   state.error = null;
+
+//   state.user.userName = userName;
+//   state.user.birthday = birthday;
+//   state.user.email = email;
+//   state.user.phone = phone;
+//   state.user.skype = skype;
+//   state.user.avatarURL = avatarURL;
+// };
+
+const refreshReducer = state => {
+  state.isLoading = false;
   state.isLoggedIn = true;
   state.isRefreshing = false;
 };
 
-const userSlice = createSlice({
+const authSlice = createSlice({
   name: 'auth',
   initialState,
   extraReducers: buider =>
@@ -94,16 +85,17 @@ const userSlice = createSlice({
       .addCase(logout.pending, pendingReducer)
       .addCase(logout.fulfilled, logoutReducer)
       .addCase(logout.rejected, logoutReducer)
-      .addCase(changeProfile.pending, pendingReducer)
-      .addCase(changeProfile.fulfilled, changeProfileReducer)
-      .addCase(changeProfile.rejected, rejectedReducer)
+      // .addCase(changeProfile.pending, pendingReducer)
+      // .addCase(changeProfile.fulfilled, changeProfileReducer)
+      // .addCase(changeProfile.rejected, rejectedReducer)
       .addCase(register.pending, pendingReducer)
+      .addCase(register.fulfilled, registerReducer)
       .addCase(register.rejected, rejectedReducer)
       .addCase(refreshUser.pending, pendingRefreshReducer)
       .addCase(refreshUser.fulfilled, refreshReducer)
       .addCase(refreshUser.rejected, rejectedRefreshReducer),
 });
 
-export const authReducer = userSlice.reducer;
+export const authReducer = authSlice.reducer;
 
-export const { updateUser } = userSlice.actions;
+export const { updateUser } = authSlice.actions;
