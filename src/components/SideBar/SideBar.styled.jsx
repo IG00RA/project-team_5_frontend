@@ -1,8 +1,5 @@
 import styled from 'styled-components';
-import gooseLogoMobile from '../../images/goose-logo/goose-logo-mobile.webp';
 
-export const GooseLogoImg = styled.img`                                                                                                            
-background-image: url(${gooseLogoMobile});`;
 
 export const SideBarWrap = styled.div`
   position: fixed;
@@ -69,26 +66,36 @@ export const StyledTitle = styled.span`
 `;
 export const TopWrap = styled.div`
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: center;
+  margin-right: 39px;
+}
 `;
 
 export const StyledLogoWrapper = styled.div`
   display: flex;
   align-items: center;
-  gap: 6px;
+  justify-content: space-between;
+  margin-bottom: 64px;
+  
+  @media (min-width: 768px) {
+    margin-bottom: 32px;
+}
 `;
 
 export const SideBarImg = styled.picture`
+  margin-right: 6px;
   width: 36px;
   height: 35px;
 
   @media screen and (min-width: 768px) {
+    margin-right: 10px;
     width: 60px;
     height: 58px;
   }
 
   @media screen and (min-width: 1440px) {
+    margin-right: 10px;
     width: 71px;
     height: 68px;
   }
