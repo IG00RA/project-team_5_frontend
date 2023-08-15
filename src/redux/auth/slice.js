@@ -1,8 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { login, logout, register, refreshUser } from './operations';
+import { changeProfile, login, logout, register, refreshUser } from './operations';
 
 const initialState = {
-  user: {},
+  user: {
+    avatarURL: '',
+    userName: '',
+    phone: '',
+    birthday: '',
+    skype: '',
+    email: '',
+  },
   token: null,
   isLoading: false,
   error: null,
@@ -55,6 +62,21 @@ const logoutReducer = state => {
   state.user = {};
 };
 
+const changeProfileReducer = (state, { payload }) => {
+  const { userName, birthday, email, phone, skype, avatarURL } = payload;
+
+  state.isLoading = false;
+  state.error = null;
+
+  state.user.userName = userName;
+  state.user.birthday = birthday;
+  state.user.email = email;
+  state.user.phone = phone;
+  state.user.skype = skype;
+  state.user.avatarURL = avatarURL;
+};
+
+
 const refreshReducer = (state, { payload }) => {
   state.user = payload;
   state.isLoggedIn = true;
@@ -72,6 +94,9 @@ const userSlice = createSlice({
       .addCase(logout.pending, pendingReducer)
       .addCase(logout.fulfilled, logoutReducer)
       .addCase(logout.rejected, logoutReducer)
+      .addCase(changeProfile.pending, pendingReducer)
+      .addCase(changeProfile.fulfilled, changeProfileReducer)
+      .addCase(changeProfile.rejected, rejectedReducer)
       .addCase(register.pending, pendingReducer)
       .addCase(register.rejected, rejectedReducer)
       .addCase(refreshUser.pending, pendingRefreshReducer)
@@ -80,3 +105,5 @@ const userSlice = createSlice({
 });
 
 export const authReducer = userSlice.reducer;
+
+export const { updateUser } = userSlice.actions;

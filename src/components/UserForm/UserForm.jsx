@@ -1,56 +1,80 @@
 import { ErrorMessage, Formik } from 'formik';
-import * as Yup from 'yup';
+import { useDispatch, useSelector } from 'react-redux';
+import { validationSchema } from '../../schemas';
+import { changeProfile } from '../../redux/auth/operations';
+import {
+  AvatarContainer,
+  AvatarField,
+  AvatarImg,
+  AvatarText,
+  AvatarTextContainer,
+  CommonField,
+  CommonInput,
+  FileInput,
+  Svg,
+  SvgWrapper,
+  UserInfoForm,
+  Label,
+  UserPreview,
+  UserData,
+  UserName,
+  UserLabel,
+  ButtonWrapper,
+} from './UserForm.styled';
+import { selectUser, selectIsLoading } from '../../redux/auth/selectors';
+import ChangeProfileButton from '../Buttons/ChangeProfileButton/ChangeProfileButton';
+// import Loader from '../loader/loader';
 
 export default function UserForm() {
+  const dispatch = useDispatch();
+  const user = useSelector(selectUser);
+  const isLoading = useSelector(selectIsLoading);
+
   const setActiveSabmit = id => {
     const btn = document.querySelector(id);
     btn.disabled = false;
   };
 
-  const isValidFileType = value => value.type.includes('image');
-
-  const initialValues = {
-    avatarURL: '',
-    userName: 'Petro',
-    phone: '',
-    birthday: '',
-    skype: '',
-    email: '',
+  const makeAvatarURL = values => {
+    return typeof values.avatarURL === 'string' ||
+      values.avatarURL === 'undefined'
+      ? values.avatarURL
+      : URL.createObjectURL(values.avatarURL);
   };
 
-  const validationSchema = Yup.object({
-    avatarURL: Yup.mixed().test(
-      'is-valid-type',
-      'Not a valid image type',
-      value => {
-        if (value?.type) {
-          return isValidFileType(value);
-        }
-        return true;
-      }
-    ),
-    userName: Yup.string().max(16).required(),
-    phone: Yup.number().min(12),
-    birthday: Yup.date(),
-    skype: Yup.string(),
-    email: Yup.string().email().required(),
-  });
+  const initialValues = {
+    avatarURL: user.avatarURL,
+    userName: user.userName,
+    phone: user.phone,
+    birthday: user.birthday,
+    skype: user.skype,
+    email: user.email,
+  };
+
+  const onSubmit = values => {
+    const inputFields = Object.keys(values);
+
+    const formData = new FormData();
+    inputFields.forEach(field => {
+      const value = values[field] ? values[field] : ' ';
+      formData.append(field, value);
+    });
+
+    dispatch(changeProfile(formData));
+  };
 
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
-      onSubmit={values => {
-        console.log(values);
-        // Відправляємо запит на сервер
-      }}
+      onSubmit={onSubmit}
     >
       {({ values, setFieldValue, handleSubmit }) => {
         const inputHandler = e => {
           const { name, value } = e.target;
           setFieldValue(name, value);
           // Додати перевірку на співпадіння з полем в редаксі
-          setActiveSabmit('.submitBtn');
+          setActiveSabmit('#changeProfileBtn');
         };
 
         const fileHandler = e => {
@@ -59,114 +83,120 @@ export default function UserForm() {
 
           setFieldValue('avatarURL', file);
           // Додати перевірку на співпадіння з полем в редаксі
-          setActiveSabmit('.submitBtn');
-        };
-
-        const makeAvatarURL = () => {
-          return typeof values.avatarURL === 'string'
-            ? values.avatarURL
-            : URL.createObjectURL(values.avatarURL);
+          setActiveSabmit('#changeProfileBtn');
         };
 
         return (
-          <form onSubmit={handleSubmit}>
-            <label>
-              {makeAvatarURL() ? (
-                <div className="avatar">
-                  <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                    <img src={makeAvatarURL()} alt="userAvatar" />
-                  </div>
-                </div>
-              ) : (
-                <div className="avatar placeholder">
-                  <div className="bg-neutral-focus text-neutral-content rounded-full w-24">
-                    <span className="text-3xl">{values.userName[0]}</span>
-                  </div>
-                </div>
-              )}
+          <UserInfoForm onSubmit={handleSubmit}>
+            <UserPreview>
+              <AvatarField>
+                {makeAvatarURL(values) ? (
+                  <AvatarContainer>
+                    <AvatarImg src={makeAvatarURL(values)} alt="User avatar" />
+                  </AvatarContainer>
+                ) : (
+                  <AvatarContainer>
+                    <AvatarTextContainer>
+                      <AvatarText>{values.userName[0]}</AvatarText>
+                    </AvatarTextContainer>
+                  </AvatarContainer>
+                )}
 
-              <input name="avatarUrl" type="file" onChange={fileHandler} />
-            </label>
-            <ErrorMessage name="avatarUrl" />
+                <FileInput
+                  name="avatarUrl"
+                  type="file"
+                  onChange={fileHandler}
+                />
 
-            <label>
-              <div>
-                <p>User Name</p>
-              </div>
-              <input
-                className="input input-bordered w-full max-w-xs"
+                <SvgWrapper>
+                  <Svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 18 18"
+                    fill="none"
+                  >
+                    <path
+                      d="M9 3.75V14.25"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <path
+                      d="M3.75 9H14.25"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </Svg>
+                </SvgWrapper>
+              </AvatarField>
+
+              <UserData>
+                <UserName>{values.userName}</UserName>
+                <UserLabel>User</UserLabel>
+              </UserData>
+            </UserPreview>
+
+            <CommonField>
+              <Label>User Name</Label>
+              <CommonInput
                 name="userName"
                 type="text"
                 value={values.userName}
                 onChange={inputHandler}
               />
-            </label>
+            </CommonField>
             <ErrorMessage name="userName" />
 
-            <label>
-              <div>
-                <p>Phone</p>
-              </div>
-              <input
-                className="input input-bordered w-full max-w-xs"
+            <CommonField>
+              <Label>Phone</Label>
+              <CommonInput
                 name="phone"
-                type="number"
+                type="tel"
                 value={values.phone}
                 onChange={inputHandler}
               />
-            </label>
+            </CommonField>
             <ErrorMessage name="phone" />
 
-            <label>
-              <div>
-                <p>Birthday</p>
-              </div>
-              <input
-                className="input input-bordered w-full max-w-xs"
+            <CommonField>
+              <Label>Birthday</Label>
+              <CommonInput
                 name="birthday"
                 type="date"
                 value={values.birthday}
                 onChange={inputHandler}
               />
-            </label>
+            </CommonField>
             <ErrorMessage name="birthday" />
 
-            <label>
-              <div>
-                <p>Skype</p>
-              </div>
-              <input
-                className="input input-bordered w-full max-w-xs"
+            <CommonField>
+              <Label>Skype</Label>
+              <CommonInput
                 name="skype"
                 type="text"
                 value={values.skype}
                 onChange={inputHandler}
               />
-            </label>
+            </CommonField>
             <ErrorMessage name="skype" />
 
-            <label>
-              <div>
-                <p>Email</p>
-              </div>
-              <input
-                className="input input-bordered w-full max-w-xs"
+            <CommonField>
+              <Label>Email</Label>
+              <CommonInput
                 name="email"
                 type="text"
                 value={values.email}
                 onChange={inputHandler}
               />
-            </label>
+            </CommonField>
             <ErrorMessage name="email" />
 
-            <button
-              type="submit"
-              className="btn btn-primary submitBtn"
-              disabled={true}
-            >
-              Save changes
-            </button>
-          </form>
+            <ButtonWrapper>
+              <ChangeProfileButton isLoading={isLoading} disabled={true} />
+            </ButtonWrapper>
+          </UserInfoForm>
         );
       }}
     </Formik>

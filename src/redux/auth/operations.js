@@ -62,6 +62,16 @@ export const logout = createAsyncThunk('auth/logout', async (__, thunkAPI) => {
   }
 });
 
+
+export const changeProfile = createAsyncThunk(
+  'auth/changeProfile',
+  async (userData, thunkAPI) => {
+    try {
+      const res = await axios.patch('user/change-profile', userData);
+      return res.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+
 export const refreshUser = createAsyncThunk(
   'auth/refresh',
   async (_, thunkAPI) => {
