@@ -4,6 +4,7 @@ import ModalContainer from '../components/Modal/ModalConatiner';
 // import Loader from '../components/loader/loader';
 import { AuthSection } from '../components/AuthSection/AuthSection';
 import { Description } from '../components/Description/Description';
+import ReviewsSlider from 'components/ReviewsSlider/ReviewsSlider';
 
 export default function Home() {
   const [isModalOpen1, setIsModalOpen1] = useState(false);
@@ -29,6 +30,7 @@ export default function Home() {
         {/* <Loader /> */}
         <AuthSection />
         <Description />
+        <ReviewsSlider/>
         <FeedbackButton onClick={openModal1} />
         <FeedbackButton onClick={openModal2} />
         <ModalContainer isOpen={isModalOpen1} onRequestClose={closeModal1}>
