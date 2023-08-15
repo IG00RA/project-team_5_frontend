@@ -1,30 +1,35 @@
 import { useParams } from "react-router";
 import { DayCalendarHead } from "./DayCalendarHead/DayCalendarHead";
 import { TasksColumnsList } from "./TasksColumnsList/TasksColumnsList";
-import axios from "axios";
-import moment from "moment";
 import { useEffect, useState } from "react";
-
-const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ZDczNThkMDA5YWQ2OTEwN2EzZDNkNSIsImlhdCI6MTY5MjAwODgwOCwiZXhwIjoxNjkyMDkxNjA4fQ.NHUku1fFRQllx9EiHj9H7Yhv1-bzvq8hhtyesn5AH8E";
-axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+import { useDispatch, useSelector } from "react-redux";
+import { getAllTasks } from "redux/tasks/tasksOperations";
+import { selectTasks } from "redux/tasks/tasksSelectors";
+import moment from "moment";
 
 export default function ChoosedDay() {
   const { currentDay } = useParams();
+  const dispatch = useDispatch();
+  const tasks = useSelector(selectTasks);
+
   const [updatedDate, setUpdatedDate] = useState(currentDay);
-  const [tasks, setTasks] = useState([]);
+  const [filteredTasksByDate, setFilteredTasksByDate] = useState([]);
 
   useEffect(() => {
-    (async () => {
-      const { data } = await axios("https://project-team-5-backend.onrender.com/api/tasks");
-      const filteredTasksByDate = data.filter(task => moment(task.date).format("YYYY:MM:DD") === updatedDate);
-      setTasks(filteredTasksByDate);
-    })();
-  }, [currentDay, setTasks, updatedDate]);
+    dispatch(getAllTasks())
+  }, [dispatch]);
+
+  useEffect(() => {
+    const filterTasks = () => {
+      return tasks?.filter(task => moment(task.date).format("YYYY:MM:DD") === updatedDate)
+    };
+    setFilteredTasksByDate(filterTasks());
+  }, [updatedDate, tasks]);
 
   return (
     <div>
       <DayCalendarHead currentDay={currentDay} updatedDate={updatedDate} setUpdatedDate={setUpdatedDate} />
-      <TasksColumnsList tasks={tasks} />
+      <TasksColumnsList tasks={filteredTasksByDate} />
     </div>
   );
 };
