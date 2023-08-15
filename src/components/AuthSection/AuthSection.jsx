@@ -1,5 +1,5 @@
 import React from 'react';
-import { Wrap, Logo, Title, ButtonsWrap, LogInButton, LogInIcon, SignUpLink } from './AuthSection.styled';
+import { Wrap, Logo, Title, ButtonsWrap, ButtonsContainer, LogInButton, LogInIcon, SignUpLink } from './AuthSection.styled';
 import GooseMob from '../../images/goose-banner-logo/banner-logo-mobile.webp';
 import GooseMob2x from '../../images/goose-banner-logo/banner-logo-mobile-2x.webp';
 import GooseTab from '../../images/goose-banner-logo/banner-logo-tablet.webp';
@@ -30,14 +30,16 @@ export const AuthSection = () => {
       <Title>GooseTrack</Title>
     </div>
 
-      <ButtonsWrap href="/login">
-        <LogInButton type="button" href="/login" to="/login">Log in
+      <ButtonsContainer>
+      <ButtonsWrap href="https://ig00ra.github.io/project-team_5_frontend/login">
+        <LogInButton type="button" to="https://ig00ra.github.io/project-team_5_frontend/login">Log in
         <LogInIcon>
           <use href={sprite + '#icon-log-in'}></use>
         </LogInIcon>
-      </LogInButton>
-      <SignUpLink href="/register" to="/register">Sign up</SignUpLink> 
+        </LogInButton>
       </ButtonsWrap>
+      <SignUpLink href="https://ig00ra.github.io/project-team_5_frontend/register" to="https://ig00ra.github.io/project-team_5_frontend/register">Sign up</SignUpLink> 
+      </ButtonsContainer>  
   </Wrap>
   )
 };

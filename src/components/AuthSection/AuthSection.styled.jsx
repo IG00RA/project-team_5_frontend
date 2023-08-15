@@ -3,6 +3,7 @@ import { styled } from 'styled-components';
 export const Wrap = styled.div`
   /* max-height: 812px; */
   height: 100vh;
+  min-height: 812px;
   display: flex;
   align-items: center;
   /* justify-content: center; */
@@ -56,20 +57,46 @@ export const Title = styled.h1`
     line-height: 150px;
   }
 `
-export const ButtonsWrap = styled.a`
+
+export const ButtonsContainer = styled.div`
   display: flex;
   align-items: center;
-  /* justify-content: center; */
-	flex-direction: column;
+  flex-direction: column;
   gap: 16px;
   margin-top: 32px;
-  cursor: auto;
 
   @media screen and (min-width: 375px) {
     flex-direction: row-reverse;
     gap: 24px;
     margin-top: 40px;
   }
+`
+
+export const ButtonsWrap = styled.a`
+  display: flex;
+  align-items: center;
+	flex-direction: column;
+  gap: 16px;
+  cursor: auto;
+
+  &:hover svg,
+  &:focus svg {
+    stroke: var(--white);
+  }
+
+  &:hover,
+  &:focus{
+    button {
+      background-color: var(--bluePriority);
+      color: var(--white);
+    }
+  }
+
+/*   @media screen and (min-width: 375px) {
+    flex-direction: row-reverse;
+    gap: 24px;
+    margin-top: 40px;
+  } */
 `
 
 export const LogInButton = styled.button`
@@ -91,18 +118,6 @@ export const LogInButton = styled.button`
 
   background-color: var(--white);
   cursor: pointer;
-
-  @media screen and (min-width: 768px) {
-
-  }
-
-  &:hover,
-  &:focus {
-    border: 1px solid var(--white);
-    color: var(--white);
-    background-color: #2b78ef;
-    stroke: var(--white);
-  }
 `
 export const SignUpLink = styled.a`
   color: var(--white);;
@@ -111,6 +126,11 @@ export const SignUpLink = styled.a`
   font-weight: 600;
   line-height: 14px;
   text-decoration-line: underline;
+
+  &:hover,
+  &:focus{
+    color: var(--bluePriority);
+  }
 
   @media screen and (min-width: 375px) {
     font-size: 14px;
@@ -127,10 +147,5 @@ export const LogInIcon = styled.svg`
   @media screen and (min-width: 768px) {
     height: 20px;
     width: 20px;
-  }
-
-  &:hover,
-  &:focus {
-    stroke: var(--white);
   }
 `
