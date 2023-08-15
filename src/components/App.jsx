@@ -32,7 +32,15 @@ export const App = () => {
   ) : (
     <Suspense fallback={null}>
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route
+          path="/"
+          element={
+            <RestrictedRoute
+              redirectTo={`/calendar/month/${date}`}
+              component={<HomePage />}
+            />
+          }
+        />
         <Route
           path="/register"
           element={
