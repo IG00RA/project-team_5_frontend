@@ -7,8 +7,9 @@ export const Item = styled.li`
 
   padding: 20px;
 
-  min-width: 344px;
+  width: 344px;
   min-height: 165px;
+  max-height: 568px;
   height: 100%;
 
   background-color: #fff;
