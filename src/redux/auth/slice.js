@@ -41,6 +41,15 @@ const rejectedReducer = (state, { payload }) => {
   state.error = payload;
 };
 
+const logoutRejectedReducer = state => {
+  state.isRefreshing = false;
+  state.isLoggedIn = false;
+  state.isLoading = false;
+  state.error = null;
+  state.token = null;
+  state.user = {};
+};
+
 const loginReducer = (state, { payload }) => {
   const {
     user: { userName, birthday, email, phone, skype, avatarURL },
@@ -100,7 +109,7 @@ const userSlice = createSlice({
       .addCase(login.rejected, rejectedReducer)
       .addCase(logout.pending, pendingReducer)
       .addCase(logout.fulfilled, logoutReducer)
-      .addCase(logout.rejected, logoutReducer)
+      .addCase(logout.rejected, logoutRejectedReducer)
       .addCase(changeProfile.pending, pendingReducer)
       .addCase(changeProfile.fulfilled, changeProfileReducer)
       .addCase(changeProfile.rejected, rejectedReducer)
