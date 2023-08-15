@@ -1,5 +1,7 @@
+import { Btn } from "./AddTaskBtn.styled";
+
 export const AddTaskBtn = () => {
   return (
-    <button type="button">+ Add task</button>
+    <Btn type="button">+ Add task</Btn>
   );
 };
