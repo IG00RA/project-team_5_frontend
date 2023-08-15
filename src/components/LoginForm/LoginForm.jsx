@@ -51,7 +51,7 @@ export const LoginForm = () => {
             : '';
 
         return (
-          <Form onSubmit={handleSubmit}>
+          <Form onSubmit={handleSubmit} autoComplete="off">
             <FormTitle>Log In</FormTitle>
             <Label className={isValid('email')}>
               Email
@@ -84,6 +84,7 @@ export const LoginForm = () => {
               Password
               <Wrapper>
                 <Field
+                  autoComplete="new-password"
                   className={isValid('password')}
                   type="password"
                   name="password"
