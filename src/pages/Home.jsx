@@ -26,7 +26,7 @@ export default function Home() {
   return (
     <>
       <div>
-        {/*       <AuthSection/>
+        {/*<AuthSection/>
       <Description/> */}
         <h1>Welcome to Team 5 Project</h1>
         <Loader />
