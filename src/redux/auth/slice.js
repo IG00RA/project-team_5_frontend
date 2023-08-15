@@ -29,14 +29,14 @@ const rejectedReducer = (state, { payload }) => {
   state.error = payload;
 };
 
-const logoutRejectedReducer = state => {
-  state.isRefreshing = false;
-  state.isLoggedIn = false;
-  state.isLoading = false;
-  state.error = null;
-  state.token = null;
-  state.user = {};
-};
+// const logoutRejectedReducer = state => {
+//   state.isRefreshing = false;
+//   state.isLoggedIn = false;
+//   state.isLoading = false;
+//   state.error = null;
+//   state.token = null;
+//   state.user = {};
+// };
 
 const loginReducer = (state, { payload }) => {
   const { token } = payload;
