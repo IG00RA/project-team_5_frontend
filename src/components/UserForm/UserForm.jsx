@@ -1,7 +1,7 @@
 import { ErrorMessage, Formik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
-import * as Yup from 'yup';
-import { changeProfile, login } from '../../redux/auth/operations';
+import { validationSchema } from '../../schemas';
+import { changeProfile } from '../../redux/auth/operations';
 import {
   AvatarContainer,
   AvatarField,
@@ -15,22 +15,20 @@ import {
   SvgWrapper,
   UserInfoForm,
   Label,
+  UserPreview,
+  UserData,
+  UserName,
+  UserLabel,
+  ButtonWrapper,
 } from './UserForm.styled';
-import { selectUser } from '../../redux/auth/selectors';
-import { useEffect } from 'react';
+import { selectUser, selectIsLoading } from '../../redux/auth/selectors';
 import ChangeProfileButton from '../Buttons/ChangeProfileButton/ChangeProfileButton';
-import Loader from '../loader/loader';
+// import Loader from '../loader/loader';
 
 export default function UserForm() {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
-  const isLoading = useSelector(state => state.auth.isLoading);
-
-  //
-  useEffect(() => {
-    dispatch(login({ email: 'vlad2@gmail.com', password: 'vlad222' }));
-  }, [dispatch]);
-  //
+  const isLoading = useSelector(selectIsLoading);
 
   const setActiveSabmit = id => {
     const btn = document.querySelector(id);
@@ -43,8 +41,6 @@ export default function UserForm() {
       ? values.avatarURL
       : URL.createObjectURL(values.avatarURL);
   };
-
-  const isValidFileType = value => value.type.includes('image');
 
   const initialValues = {
     avatarURL: user.avatarURL,
@@ -67,32 +63,7 @@ export default function UserForm() {
     dispatch(changeProfile(formData));
   };
 
-  const validationSchema = Yup.object({
-    avatarURL: Yup.mixed().test(
-      'is-valid-type',
-      'Not a valid image type',
-      value => {
-        if (value?.type) {
-          return isValidFileType(value);
-        }
-        return true;
-      }
-    ),
-    userName: Yup.string().max(16).required(),
-    phone: Yup.string()
-      .matches(
-        /((\+38)?\(?\d{3}\)?[\s\.-]?(\d{7}|\d{3}[\s\.-]\d{2}[\s\.-]\d{2}|\d{3}-\d{4}))/,
-        'This is an ERROR phone number'
-      )
-      .max(20),
-    birthday: Yup.date(),
-    skype: Yup.string().max(16),
-    email: Yup.string().email().required(),
-  });
-
-  return isLoading ? (
-    <Loader />
-  ) : (
+  return (
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
@@ -117,51 +88,55 @@ export default function UserForm() {
 
         return (
           <UserInfoForm onSubmit={handleSubmit}>
-            <AvatarField>
-              {makeAvatarURL(values) ? (
-                <AvatarContainer>
-                  <AvatarImg src={makeAvatarURL(values)} alt="userAvatar" />
-                </AvatarContainer>
-              ) : (
-                <AvatarContainer>
-                  <AvatarTextContainer>
-                    <AvatarText>{values.userName[0]}</AvatarText>
-                  </AvatarTextContainer>
-                </AvatarContainer>
-              )}
+            <UserPreview>
+              <AvatarField>
+                {makeAvatarURL(values) ? (
+                  <AvatarContainer>
+                    <AvatarImg src={makeAvatarURL(values)} alt="User avatar" />
+                  </AvatarContainer>
+                ) : (
+                  <AvatarContainer>
+                    <AvatarTextContainer>
+                      <AvatarText>{values.userName[0]}</AvatarText>
+                    </AvatarTextContainer>
+                  </AvatarContainer>
+                )}
 
-              <FileInput name="avatarUrl" type="file" onChange={fileHandler} />
+                <FileInput
+                  name="avatarUrl"
+                  type="file"
+                  onChange={fileHandler}
+                />
 
-              <SvgWrapper>
-                <Svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="18"
-                  height="18"
-                  viewBox="0 0 18 18"
-                  fill="none"
-                >
-                  <path
-                    d="M9 3.75V14.25"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <path
-                    d="M3.75 9H14.25"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </Svg>
-              </SvgWrapper>
-            </AvatarField>
+                <SvgWrapper>
+                  <Svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 18 18"
+                    fill="none"
+                  >
+                    <path
+                      d="M9 3.75V14.25"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <path
+                      d="M3.75 9H14.25"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </Svg>
+                </SvgWrapper>
+              </AvatarField>
 
-            <ErrorMessage name="avatarUrl" />
-
-            <div>
-              <p>{values.userName}</p>
-              <p>User</p>
-            </div>
+              <UserData>
+                <UserName>{values.userName}</UserName>
+                <UserLabel>User</UserLabel>
+              </UserData>
+            </UserPreview>
 
             <CommonField>
               <Label>User Name</Label>
@@ -218,7 +193,9 @@ export default function UserForm() {
             </CommonField>
             <ErrorMessage name="email" />
 
-            <ChangeProfileButton disabled={true} />
+            <ButtonWrapper>
+              <ChangeProfileButton isLoading={isLoading} disabled={true} />
+            </ButtonWrapper>
           </UserInfoForm>
         );
       }}

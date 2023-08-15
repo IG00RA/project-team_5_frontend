@@ -7,7 +7,80 @@ export const UserInfoForm = styled.form`
   gap: 18px;
 
   width: 100%;
-  padding: 59px 18px 40px;
+  padding: 0 18px 40px;
+
+  border-radius: 16px;
+
+  background-color: #dbdbdb;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 40px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 24px;
+    column-gap: 50px;
+
+    padding-top: 60px;
+    padding-bottom: 60px;
+    padding-left: calc((100% - 758px) / 2);
+    padding-right: calc((100% - 758px) / 2);
+  }
+`;
+
+export const UserPreview = styled.div`
+  position: relative;
+  top: -22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+
+  @media screen and (min-width: 768px) {
+    position: static;
+    gap: 20px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+`;
+
+export const UserData = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+
+  @media screen and (min-width: 768px) {
+    gap: 8px;
+  }
+`;
+
+export const UserName = styled.p`
+  color: var(--grey);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: calc(18 / 18);
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+  }
+`;
+
+export const UserLabel = styled.p`
+  color: var(--grey);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: calc(14 / 12);
+
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+    line-height: calc(18 / 14);
+  }
 `;
 
 export const AvatarContainer = styled.div`
@@ -17,6 +90,11 @@ export const AvatarContainer = styled.div`
   height: 72px;
 
   border-radius: 50%;
+
+  @media screen and (min-width: 768px) {
+    width: 124px;
+    height: 124px;
+  }
 `;
 
 export const AvatarImg = styled.img`
@@ -63,6 +141,12 @@ export const CommonInput = styled.input`
   font-style: normal;
   font-weight: 600;
   line-height: calc(18 / 14);
+
+  @media screen and (min-width: 768px) {
+    padding: 14px 18px;
+    font-size: 16px;
+    line-height: calc(18 / 16);
+  }
 `;
 
 export const Label = styled.p`
@@ -70,10 +154,16 @@ export const Label = styled.p`
   color: var(--black);
   font-size: 12px;
   line-height: calc(14 / 12);
+
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+    line-height: calc(18 / 14);
+  }
 `;
 
 export const CommonField = styled.label`
   width: 100%;
+  max-width: 354px;
 `;
 
 export const AvatarField = styled.label`
@@ -94,10 +184,26 @@ export const SvgWrapper = styled.div`
   height: 14px;
   border-radius: 50%;
   background-color: var(--blue);
+
+  @media screen and (min-width: 768px) {
+    width: 24px;
+    height: 24px;
+  }
 `;
 
 export const Svg = styled.svg`
   stroke: var(--white);
   height: 8px;
   width: 8px;
+
+  @media screen and (min-width: 768px) {
+    width: 18px;
+    height: 18px;
+  }
+`;
+
+export const ButtonWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
 `;

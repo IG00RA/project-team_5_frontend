@@ -1,41 +1,23 @@
-<<<<<<< HEAD
-// import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 import UserForm from '../components/UserForm/UserForm';
-// import { login, logout } from '../redux/auth/operations';
+import { useDispatch, useSelector } from 'react-redux';
+import { login } from 'redux/auth/operations';
+import { selectIsLoading } from 'redux/auth/selectors';
+import Loader from 'components/loader/loader';
 
 export default function Account() {
-  // const dispatch = useDispatch();
-=======
-import UserForm from '../components/UserForm/UserForm';
+  const dispatch = useDispatch();
+  const isLoading = useSelector(selectIsLoading);
+  let isFirstRender = true;
+  //
+  useEffect(() => {
+    dispatch(login({ email: 'vlad2@gmail.com', password: 'vlad222' }));
+    if (isFirstRender) {
+      isFirstRender = false;
+    }
+    console.log(isFirstRender);
+  }, [dispatch, isFirstRender]);
+  //
 
-export default function Account() {
->>>>>>> dev
-  return (
-    <div>
-      <p>Account Page</p>
-
-<<<<<<< HEAD
-      {/* <button
-        type="button"
-        onClick={() => {
-          dispatch(login({ email: 'user@example.com', password: 'qwerty123' }));
-        }}
-      >
-        login
-      </button>
-
-      <button
-        type="button"
-        onClick={() => {
-          dispatch(logout());
-        }}
-      >
-        logout
-      </button> */}
-
-=======
->>>>>>> dev
-      <UserForm />
-    </div>
-  );
+  return isLoading && isFirstRender ? <Loader /> : <UserForm />;
 }

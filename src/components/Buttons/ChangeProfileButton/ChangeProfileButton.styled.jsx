@@ -1,3 +1,4 @@
+import Loader from 'components/loader/loader';
 import styled from 'styled-components';
 
 export const Button = styled.button`
@@ -43,4 +44,8 @@ export const Text = styled.p`
     font-size: 18px;
     line-height: 1.33;
   }
+`;
+
+export const CastomLoader = styled(Loader)`
+  height: 15px;
 `;

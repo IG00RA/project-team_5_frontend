@@ -1,7 +1,7 @@
 import React from 'react';
-import { Button, Text } from './ChangeProfileButton.styled';
+import { Button, CastomLoader, Text } from './ChangeProfileButton.styled';
 
-const ChangeProfileButton = ({ onClick, disabled }) => {
+const ChangeProfileButton = ({ onClick, isLoading, disabled }) => {
   return (
     <Button
       type="submit"
@@ -10,6 +10,7 @@ const ChangeProfileButton = ({ onClick, disabled }) => {
       id="changeProfileBtn"
     >
       <Text>Save changes</Text>
+      {isLoading && <CastomLoader />}
     </Button>
   );
 };
