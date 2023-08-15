@@ -1,39 +1,31 @@
 import styled from 'styled-components';
-import gooseLogoMobile from '../../images/goose-logo/goose-logo-mobile.webp';
-
-export const GooseLogoImg = styled.img`                                                                                                            
-background-image: url(${gooseLogoMobile});`;
 
 export const SideBarWrap = styled.div`
+  display: flex;
+  flex-direction: column;
   position: fixed;
-  z-index: 999;
+  z-index: 2;
   box-sizing: border-box;
   height: 100vh;
+  width: 225px;
   padding: 24px 20px;
   background-color: #ffffff;
   border-right: 1px solid;
-  transform: translateX(-100%);
   box-shadow: 0px 0px 7px 1px;
 
-  @media screen and (min-width: 375px) {
-    width: 225px;
-  }
   @media screen and (min-width: 768px) {
     width: 289px;
-    padding: 24px 32px;
+    padding: 32px;
   }
 
   @media screen and (max-width: 1440px) {
+    left: 0;
+    transform: translateX(-100%);
     transition: transform 350ms ease-in-out;
     &.openModalMenu {
+      display: block;
       transform: translateX(0px);
     }
-  }
-
-  @media screen and (min-width: 1440px) {
-    position: relative;
-    transform: translateX(0px);
-    padding: 32px 24px;
   }
 `;
 
@@ -69,26 +61,36 @@ export const StyledTitle = styled.span`
 `;
 export const TopWrap = styled.div`
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: center;
+  margin-right: 39px;
+}
 `;
 
 export const StyledLogoWrapper = styled.div`
   display: flex;
   align-items: center;
-  gap: 6px;
+  justify-content: space-between;
+  margin-bottom: 64px;
+  
+  @media (min-width: 768px) {
+    margin-bottom: 32px;
+}
 `;
 
 export const SideBarImg = styled.picture`
+  margin-right: 6px;
   width: 36px;
   height: 35px;
 
   @media screen and (min-width: 768px) {
+    margin-right: 10px;
     width: 60px;
     height: 58px;
   }
 
   @media screen and (min-width: 1440px) {
+    margin-right: 10px;
     width: 71px;
     height: 68px;
   }

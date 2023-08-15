@@ -55,13 +55,10 @@ export const Header = ({ onToggle }) => {
           <Title>{title}</Title>
           {pageCalendarDay && haveTask() && (<p>Let go of the past and focus on the present!</p>)}
         </div>  */}
-        <MenuIcon
-          onClick={() => {
-            onToggle();
-          }}
-        >
-          <use href={svgSprite + `#icon-menu`} />
+        <MenuIcon onClick={onToggle}>
+            <use href={svgSprite + `#icon-menu`} />
         </MenuIcon>
+
         <UserWrap>
           <FeedbackButton />
           <ThemeToggler />

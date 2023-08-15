@@ -1,7 +1,6 @@
 import React from 'react';
 import UserNav from '../UserNav/UserNav';
-import { useEffect } from 'react';
-// import { useDispatch, logOut } from 'react-redux';
+import { useEffect, useRef } from 'react';
 import {
   SideBarWrap,
   TopWrap,
@@ -11,18 +10,42 @@ import {
   StyledCloseButton,
   Overlay,
 } from './SideBar.styled';
-// import { GooseLogoImg } from './SideBar.styled';
 import LogoutButton from '../Buttons/LogoutButton/LogoutButton';
+import GooseDeskLogo2x from '../../images/goose-logo/goose-logo-desktop-2x.webp';
+import { useDispatch } from 'react-redux';
+import { logout } from '../../redux/auth/operations';
 
 export const SideBar = ({ isModalMenuOpen, closeModalMenu }) => {
-  // const dispatch = useDispatch();
-  // const handleLogOut = () => dispatch(logOut());
+  const dispatch = useDispatch();
+  const handleLogOut = () => {
+  dispatch(logout());
+};
+
+  const node = useRef();
+  const useOnClickOutside = (ref, handler) => {
+    useEffect(() => {
+    const listener = event => {
+      if (!ref.current || ref.current.contains(event.target)) {
+        return;
+      }
+      handler(event);
+    };
+    document.addEventListener('mousedown', listener);
+    return () => {
+      document.removeEventListener('mousedown', listener);
+    };
+  }, [ref, handler]);
+};
+
+useOnClickOutside(node, () => {
+  if (isModalMenuOpen) {
+    closeModalMenu();
+  }
+});
 
   useEffect(() => {
     const close = e => {
-      if (e.keyCode === 27) {
         closeModalMenu(false);
-      }
     };
     isModalMenuOpen && window.addEventListener('keydown', close);
     return () => window.removeEventListener('keydown', close);
@@ -34,30 +57,17 @@ export const SideBar = ({ isModalMenuOpen, closeModalMenu }) => {
 
   return (
     <>
-      <SideBarWrap className={isModalMenuOpen && 'openModalMenu'}>
+      <SideBarWrap className={isModalMenuOpen && 'openModalMenu'} ref={node}>
         <TopWrap>
           <StyledLogoWrapper>
-            <SideBarImg>
-              <source media="(max-width: 767px)" />
-              <source media="(min-width: 768px) and (max-width: 1439px)" />
-              <source media="(min-width: 1440px)" />
-              {/*  {gooseLogoMobile} не вказано шлях
-              <GooseLogoImg src={gooseLogoMobile} alt="Goose Logo" /> */}
-            </SideBarImg>
+            <SideBarImg src={`${GooseDeskLogo2x}`}/>
             <StyledTitle>GooseTrack</StyledTitle>
           </StyledLogoWrapper>
           <StyledCloseButton onClick={handleCloseModalMenu}></StyledCloseButton>
         </TopWrap>
 
         <UserNav closeModalMenu={closeModalMenu} />
-        <LogoutButton
-          type="button"
-          // onClick={handleLogOut}
-        >
-          {`sidebar.Log Out`}
-          {/* LogIn Не було визначено */}
-          {/* <LogIn style={{ marginLeft: 11, width: 20, height: 20 }} /> */}
-        </LogoutButton>
+        <LogoutButton onClick={handleLogOut}/>
       </SideBarWrap>
       {isModalMenuOpen && <Overlay onClick={handleCloseModalMenu} />}
     </>
