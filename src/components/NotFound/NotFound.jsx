@@ -39,8 +39,8 @@ const NotFound = () => {
         to the homepage.
       </Text>
 
-      <a href="/">
-        <HomeButton type="button" href="/" to="/">
+      <a href="https://ig00ra.github.io/project-team_5_frontend/">
+        <HomeButton type="button" to="https://ig00ra.github.io/project-team_5_frontend/">
           Back to home
         </HomeButton>
       </a>
