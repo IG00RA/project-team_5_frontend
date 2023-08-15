@@ -3,9 +3,9 @@ import { Route, Routes } from 'react-router';
 import MainLayout from '../pages/MainLayout';
 import NotFound from './NotFound/NotFound';
 import RestrictedRoute from './RestrictedRoute';
-import PrivateRoute from './PrivateRoute';
+// import PrivateRoute from './PrivateRoute';
 import { useDispatch } from 'react-redux';
-import { useAuth } from 'hooks';
+// import { useAuth } from 'hooks';
 import { refreshUser } from 'redux/auth/operations';
 import moment from 'moment';
 
@@ -58,7 +58,8 @@ export const App = () => {
           <Route
             path="/calendar"
             element={
-              <PrivateRoute redirectTo="/login" component={<CalendarPage />} />
+              <CalendarPage />
+              // <PrivateRoute redirectTo="/login" component={<CalendarPage />} />
             }
           >
             <Route path="month/:currentDay" element={<ChoosedMonthModule />} />
@@ -67,16 +68,18 @@ export const App = () => {
           <Route
             path="/account"
             element={
-              <PrivateRoute redirectTo="/login" component={<AccountPage />} />
+              <AccountPage />
+              // <PrivateRoute redirectTo="/login" component={<AccountPage />} />
             }
           />
           <Route
             path="/statistics"
             element={
-              <PrivateRoute
-                redirectTo="/login"
-                component={<StatisticsPage />}
-              />
+              <StatisticsPage />
+              // <PrivateRoute
+              //   redirectTo="/login"
+              //   component={<StatisticsPage />}
+              // />
             }
           />
         </Route>
