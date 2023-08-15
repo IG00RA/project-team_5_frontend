@@ -7,20 +7,20 @@ export const Wrap = styled.div`
   display: flex;
   align-items: center;
   /* justify-content: center; */
-	flex-direction: column;
+  flex-direction: column;
   background-color: var(--blue);
   padding: 256px 59px 256px 58px;
-  
+
   @media screen and (min-width: 375px) {
     /* max-height: 812px; */
-    padding: 331px 92px 330px 91px;  
+    padding: 331px 92px 330px 91px;
   }
 
   @media screen and (min-width: 768px) {
     /* max-height: 770px; */
-    padding: 187px 369px 200px 369px; 
+    padding: 187px 369px 200px 369px;
   }
-`
+`;
 export const Logo = styled.img`
   width: 142px;
   height: 142px;
@@ -36,11 +36,13 @@ export const Logo = styled.img`
     width: 150px;
     height: 149px;
   }
-`
+`;
 
 export const Title = styled.h1`
   color: var(--white);
-  text-shadow: 0px 9.399999618530273px 57.6875px rgba(0, 0, 0, 0.04), 0px 47px 355px rgba(0, 0, 0, 0.07);
+  text-shadow:
+    0px 9.399999618530273px 57.6875px rgba(0, 0, 0, 0.04),
+    0px 47px 355px rgba(0, 0, 0, 0.07);
   font-size: 44px;
   font-weight: 700;
   line-height: 48px;
@@ -56,7 +58,7 @@ export const Title = styled.h1`
     font-size: 120px;
     line-height: 150px;
   }
-`
+`;
 
 export const ButtonsContainer = styled.div`
   display: flex;
@@ -70,12 +72,12 @@ export const ButtonsContainer = styled.div`
     gap: 24px;
     margin-top: 40px;
   }
-`
+`;
 
 export const ButtonsWrap = styled.a`
   display: flex;
   align-items: center;
-	flex-direction: column;
+  flex-direction: column;
   gap: 16px;
   cursor: auto;
 
@@ -85,22 +87,21 @@ export const ButtonsWrap = styled.a`
   }
 
   &:hover,
-  &:focus{
+  &:focus {
     button {
       background-color: var(--bluePriority);
       color: var(--white);
     }
   }
 
-/*   @media screen and (min-width: 375px) {
+  /*   @media screen and (min-width: 375px) {
     flex-direction: row-reverse;
     gap: 24px;
     margin-top: 40px;
   } */
-`
+`;
 
 export const LogInButton = styled.button`
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -118,17 +119,19 @@ export const LogInButton = styled.button`
 
   background-color: var(--white);
   cursor: pointer;
-`
+`;
 export const SignUpLink = styled.a`
-  color: var(--white);;
-  text-shadow: 0px 9.399999618530273px 57.6875px rgba(0, 0, 0, 0.04), 0px 47px 355px rgba(0, 0, 0, 0.07);
+  color: var(--white);
+  text-shadow:
+    0px 9.399999618530273px 57.6875px rgba(0, 0, 0, 0.04),
+    0px 47px 355px rgba(0, 0, 0, 0.07);
   font-size: 12px;
   font-weight: 600;
   line-height: 14px;
   text-decoration-line: underline;
 
   &:hover,
-  &:focus{
+  &:focus {
     color: var(--bluePriority);
   }
 
@@ -136,16 +139,15 @@ export const SignUpLink = styled.a`
     font-size: 14px;
     line-height: 18px;
   }
-`
+`;
 export const LogInIcon = styled.svg`
   stroke: var(--blue);
   height: 18px;
   width: 18px;
   fill: transparent;
-  }
 
   @media screen and (min-width: 768px) {
     height: 20px;
     width: 20px;
   }
-`
+`;
