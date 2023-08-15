@@ -9,9 +9,9 @@ export const DayCalendarHead = ({ currentDay, updatedDate, setUpdatedDate  }) =>
   return (
     <DayCalendarWrapper>
       {daysOfWeek.map((day) => (
-        <DayCalendarBtn onClick={() => setUpdatedDate(day.format('YYYY:MM:DD'))} type='button' key={day}>
+        <DayCalendarBtn onClick={() => setUpdatedDate(day.format('YYYY-MM-DD'))} type='button' key={day}>
           {day.format('ddd')}
-          <NumberDay currentday={updatedDate} day={day.format('YYYY:MM:DD')}>{day.format('D')}</NumberDay>
+          <NumberDay currentday={updatedDate} day={day.format('YYYY-MM-DD')}>{day.format('D')}</NumberDay>
         </DayCalendarBtn>
       ))}
     </DayCalendarWrapper>
