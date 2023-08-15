@@ -60,7 +60,7 @@ export const RegisterForm = () => {
             : '';
 
         return (
-          <Form onSubmit={handleSubmit}>
+          <Form onSubmit={handleSubmit} autoComplete="off">
             <FormTitle>Sign Up</FormTitle>
             <Label className={isValid('userName')}>
               Name
@@ -93,6 +93,7 @@ export const RegisterForm = () => {
               Email
               <Wrapper>
                 <Field
+                  autoComplete="email-no-fill"
                   className={isValid('email')}
                   type="email"
                   name="email"
@@ -120,6 +121,7 @@ export const RegisterForm = () => {
               Password
               <Wrapper>
                 <Field
+                  autoComplete="new-password"
                   className={isValid('password')}
                   type="password"
                   name="password"
