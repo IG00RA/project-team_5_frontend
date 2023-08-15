@@ -1,9 +1,13 @@
-import { Suspense, lazy } from 'react';
+import { Suspense, lazy, useEffect } from 'react';
 import { Route, Routes } from 'react-router';
 import MainLayout from '../pages/MainLayout';
 import NotFound from './NotFound/NotFound';
-// import { RestrictedRoute } from "./RestrictedRoute";
-// import { PrivateRoute } from "./PrivateRoute";
+import RestrictedRoute from './RestrictedRoute';
+import PrivateRoute from './PrivateRoute';
+import { useDispatch } from 'react-redux';
+import { useAuth } from 'hooks';
+import { refreshUser } from 'redux/auth/operations';
+import moment from 'moment';
 
 const HomePage = lazy(() => import('../pages/Home'));
 const RegisterPage = lazy(() => import('../pages/Register/Register'));
@@ -15,21 +19,66 @@ const ChoosedMonthModule = lazy(() => import('./ChoosedMonth'));
 const ChoosedDayModule = lazy(() => import('./ChoosedDay'));
 
 export const App = () => {
+  const dispatch = useDispatch();
+  // const { isRefreshing } = useAuth();
+
+  const date = moment().format('YYYY-MM-DD');
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
   return (
+    // isRefreshing ? (
+    //   <b>Goose loader// Refreshing user...</b>
+    // ) : (
     <Suspense fallback={null}>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="register" element={<RegisterPage />} />
-        <Route path="login" element={<LoginPage />} />
+        <Route
+          path="/register"
+          element={
+            <RestrictedRoute
+              redirectTo={`/calendar/month/${date}`}
+              component={<RegisterPage />}
+            />
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <RestrictedRoute
+              redirectTo={`/calendar/month/${date}`}
+              component={<LoginPage />}
+            />
+          }
+        />
         <Route path="*" element={<NotFound />} />
 
         <Route element={<MainLayout />}>
-          <Route path="/calendar" element={<CalendarPage />}>
+          <Route
+            path="/calendar"
+            element={
+              <PrivateRoute redirectTo="/login" component={<CalendarPage />} />
+            }
+          >
             <Route path="month/:currentDay" element={<ChoosedMonthModule />} />
             <Route path="day/:currentDay" element={<ChoosedDayModule />} />
           </Route>
-          <Route path="/account" element={<AccountPage />} />
-          <Route path="/statistics" element={<StatisticsPage />} />
+          <Route
+            path="/account"
+            element={
+              <PrivateRoute redirectTo="/login" component={<AccountPage />} />
+            }
+          />
+          <Route
+            path="/statistics"
+            element={
+              <PrivateRoute
+                redirectTo="/login"
+                component={<StatisticsPage />}
+              />
+            }
+          />
         </Route>
       </Routes>
     </Suspense>
