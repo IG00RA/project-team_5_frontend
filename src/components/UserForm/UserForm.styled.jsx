@@ -4,6 +4,7 @@ export const UserInfoForm = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 18px;
 
   width: 100%;
   padding: 59px 18px 40px;
@@ -47,6 +48,32 @@ export const FileInput = styled.input`
   opacity: 0;
   visibility: hidden;
   position: absolute;
+`;
+
+export const CommonInput = styled.input`
+  width: 100%;
+  height: 42px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(17, 17, 17, 0.1);
+
+  color: var(--black);
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: calc(18 / 14);
+`;
+
+export const Label = styled.p`
+  margin-bottom: 8px;
+  color: var(--black);
+  font-size: 12px;
+  line-height: calc(14 / 12);
+`;
+
+export const CommonField = styled.label`
+  width: 100%;
 `;
 
 export const AvatarField = styled.label`

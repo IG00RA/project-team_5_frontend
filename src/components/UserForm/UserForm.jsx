@@ -8,15 +8,18 @@ import {
   AvatarImg,
   AvatarText,
   AvatarTextContainer,
+  CommonField,
+  CommonInput,
   FileInput,
   Svg,
   SvgWrapper,
   UserInfoForm,
+  Label,
 } from './UserForm.styled';
 import { selectUser } from '../../redux/auth/selectors';
 import { useEffect } from 'react';
-import ChangeProfileButton from 'components/Buttons/ChangeProfileButton/ChangeProfileButton';
-import Loader from 'components/loader/loader';
+import ChangeProfileButton from '../Buttons/ChangeProfileButton/ChangeProfileButton';
+import Loader from '../loader/loader';
 
 export default function UserForm() {
   const dispatch = useDispatch();
@@ -139,15 +142,15 @@ export default function UserForm() {
                 >
                   <path
                     d="M9 3.75V14.25"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                   <path
                     d="M3.75 9H14.25"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                 </Svg>
               </SvgWrapper>
@@ -160,74 +163,59 @@ export default function UserForm() {
               <p>User</p>
             </div>
 
-            <label>
-              <div>
-                <p>User Name</p>
-              </div>
-              <input
-                className="input input-bordered w-full max-w-xs"
+            <CommonField>
+              <Label>User Name</Label>
+              <CommonInput
                 name="userName"
                 type="text"
                 value={values.userName}
                 onChange={inputHandler}
               />
-            </label>
+            </CommonField>
             <ErrorMessage name="userName" />
 
-            <label>
-              <div>
-                <p>Phone</p>
-              </div>
-              <input
-                className="input input-bordered w-full max-w-xs"
+            <CommonField>
+              <Label>Phone</Label>
+              <CommonInput
                 name="phone"
                 type="tel"
                 value={values.phone}
                 onChange={inputHandler}
               />
-            </label>
+            </CommonField>
             <ErrorMessage name="phone" />
 
-            <label>
-              <div>
-                <p>Birthday</p>
-              </div>
-              <input
-                className="input input-bordered w-full max-w-xs"
+            <CommonField>
+              <Label>Birthday</Label>
+              <CommonInput
                 name="birthday"
                 type="date"
                 value={values.birthday}
                 onChange={inputHandler}
               />
-            </label>
+            </CommonField>
             <ErrorMessage name="birthday" />
 
-            <label>
-              <div>
-                <p>Skype</p>
-              </div>
-              <input
-                className="input input-bordered w-full max-w-xs"
+            <CommonField>
+              <Label>Skype</Label>
+              <CommonInput
                 name="skype"
                 type="text"
                 value={values.skype}
                 onChange={inputHandler}
               />
-            </label>
+            </CommonField>
             <ErrorMessage name="skype" />
 
-            <label>
-              <div>
-                <p>Email</p>
-              </div>
-              <input
-                className="input input-bordered w-full max-w-xs"
+            <CommonField>
+              <Label>Email</Label>
+              <CommonInput
                 name="email"
                 type="text"
                 value={values.email}
                 onChange={inputHandler}
               />
-            </label>
+            </CommonField>
             <ErrorMessage name="email" />
 
             <ChangeProfileButton disabled={true} />

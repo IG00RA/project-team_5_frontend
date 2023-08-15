@@ -13,6 +13,7 @@
     "lodash": "^4.17.21",
     "modern-normalize": "^2.0.0",
     "moment": "^2.29.4",
+    "notiflix": "^3.2.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-modal": "^3.16.1",
