@@ -30,8 +30,8 @@ export default function PeriodPaginator({ period, selectedDay, updatedDate, setS
     <PaginatorWrapper>
       <Period>{period ? updatedDate.format('DD MMM YYYY') : selectedDay.format('MMMM YYYY')}</Period>
       <div>
-        <BtnPrev disabled={checkDaysOfWeek === 'Mon'} onClick={prevMonthHandler}>&lt;</BtnPrev>
-        <BtnNext disabled={checkDaysOfWeek === 'Sun'} onClick={nextMonthHandler}>&gt;</BtnNext>
+        <BtnPrev disabled={period && checkDaysOfWeek === 'Mon'} onClick={prevMonthHandler}>&lt;</BtnPrev>
+        <BtnNext disabled={period && checkDaysOfWeek === 'Sun'} onClick={nextMonthHandler}>&gt;</BtnNext>
       </div>
     </PaginatorWrapper>
   );
