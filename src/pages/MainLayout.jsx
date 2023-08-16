@@ -4,6 +4,7 @@ import SideBar from '../components/SideBar/SideBar';
 import { Outlet } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { fetchUser } from 'redux/user/operations';
+import Loader from 'components/loader/loader';
 // import { selectIsLoadingUser } from 'redux/user/selectors';
 // import Loader from 'components/loader/loader';
 // import { selectIsLoggedIn } from 'redux/auth/selectors';
@@ -23,7 +24,14 @@ export default function MainLayout() {
   // ) :
   return (
     <>
-      <Suspense fallback={<div>Loading page...</div>}>
+      <Suspense
+        fallback={
+          <div>
+            {/* Loading page... */}
+            <Loader />
+          </div>
+        }
+      >
         <Header />
         <SideBar />
         <Outlet />
