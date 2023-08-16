@@ -1,5 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { login, logout, refreshUser, register } from './operations';
+
+import {
+  changeProfile,
+  login,
+  logout,
+  register,
+  refreshUser,
+  toggleTheme,
+} from './operations';
+
 
 const initialState = {
   token: null,
@@ -84,6 +93,11 @@ const refreshReducer = state => {
   state.isRefreshing = false;
 };
 
+const toggleThemeReducer = (state, { payload }) => {
+  const { theme } = payload;
+  state.user.theme = theme;
+};
+
 const authSlice = createSlice({
   name: 'auth',
   initialState,
@@ -103,7 +117,10 @@ const authSlice = createSlice({
       .addCase(register.rejected, rejectedReducer)
       .addCase(refreshUser.pending, pendingRefreshReducer)
       .addCase(refreshUser.fulfilled, refreshReducer)
-      .addCase(refreshUser.rejected, rejectedRefreshReducer),
+      .addCase(refreshUser.rejected, rejectedRefreshReducer)
+      .addCase(toggleTheme.pending, pendingReducer)
+      .addCase(toggleTheme.fulfilled, toggleThemeReducer)
+      .addCase(toggleTheme.rejected, rejectedReducer),
 });
 
 export const authReducer = authSlice.reducer;

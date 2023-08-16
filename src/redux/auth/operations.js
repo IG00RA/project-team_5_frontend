@@ -12,6 +12,19 @@ const clearAuthHeader = () => {
   axios.defaults.headers.common.Authorization = '';
 };
 
+export const toggleTheme = createAsyncThunk(
+  'user/toggle-theme',
+  async (credentials, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.patch('user/toggle-theme', credentials);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
+
 export const register = createAsyncThunk(
   'auth/register',
   async (userData, thunkAPI) => {
