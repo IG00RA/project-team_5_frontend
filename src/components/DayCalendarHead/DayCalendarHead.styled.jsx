@@ -16,7 +16,7 @@ flex-direction: column;
 align-items: center;
 gap: 8px;
 
-/* font-family: Inter; */
+font-family: Inter;
 font-size: 14px;
 font-weight: 600;
 line-height: 1.28;
