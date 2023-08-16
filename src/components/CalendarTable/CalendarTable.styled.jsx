@@ -70,8 +70,30 @@ export const TaskItemWrapper = styled.button`
   height: 26px;
   border: none;
   border-radius: 8px;
-  background-color: #ceeefd;
-  color: #3e85f3;
+  background-color: ${p => {
+    switch (p.$priority) {
+      case 'high':
+        return '#FFD2DD';
+      case 'medium':
+        return '#FCF0D4';
+      case 'low':
+        return '#CEEEFD';
+      default:
+        return;
+    }
+  }};
+  color: ${p => {
+    switch (p.$priority) {
+      case 'high':
+        return ' #EA3D65';
+      case 'medium':
+        return '#F3B249';
+      case 'low':
+        return '#3E85F3';
+      default:
+        return;
+    }
+  }};
 `;
 
 export const CurrentDay = styled.div`
