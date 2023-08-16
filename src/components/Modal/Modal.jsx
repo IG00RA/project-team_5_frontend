@@ -27,11 +27,12 @@ const contentStyles = {
   // borderRadius: '20px',
   outline: 'none',
   overflow: 'hidden',
-};
+  };
 
 const Modal = ({ isOpen, onRequestClose, children }) => {
   return (
     <ReactModal
+    
       isOpen={
         isOpen
       } /* Boolean describing if the modal should be shown or not. */
@@ -41,7 +42,7 @@ const Modal = ({ isOpen, onRequestClose, children }) => {
         onRequestClose
       } /* Function that will be run when the modal is requested to be closed (either by clicking on overlay or pressing ESC). Note: It is not called if isOpen is changed by other means. */
       closeTimeoutMS={
-        0
+        0.3
       } /* Number indicating the milliseconds to wait before closing  the modal. */
       style={{ overlay: overlayStyles, content: contentStyles }}
       /* Object indicating styles to be used for the modal. It has two keys, `overlay` and `content`. See the `Styles` section for more details. */
