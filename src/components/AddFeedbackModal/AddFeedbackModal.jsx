@@ -1,12 +1,25 @@
-import { FeedbackForm } from "../FeedbackForm/FeedbackForm";
-import { Modal } from "../Modal/Modal";
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import  ModalContainer  from '../Modal/ModalConatiner';
+import {
+  FeedBackTitle,
+  CloseBtn,
+  FeedBackForm,
+  FeedBackArea,
+  ModalBox,
+} from './feedBackModal.styled';
 
 export const AddFeedbackModal = () => {
   return (
-    <>
-      <p>Add Feedback Modal</p>
-      <Modal />
-      <FeedbackForm />
-    </>
+    <ModalContainer>
+      <ModalBox>
+        <FeedBackTitle>Rating</FeedBackTitle>
+        <CloseBtn>
+          <svg className="feedBackModalClose" width="24">
+            <use href="../images/svg/svg-sprite/synpol-defs.svg#icon-x-close"></use>
+          </svg>
+        </CloseBtn>
+      </ModalBox>
+    </ModalContainer>
   );
 };
