@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import FeedbackButton from '../components/Buttons/FeedbackButton/FeedbackButton';
 import ModalContainer from '../components/Modal/ModalConatiner';
+import { AddFeedbackModal } from '../components/AddFeedbackModal/AddFeedbackModal';
 import Loader from '../components/loader/loader';
 /* import { AuthSection } from "../components/AuthSection/AuthSection";
 import { Description } from "../components/Description/Description"; */
@@ -32,9 +33,7 @@ export default function Home() {
         <Loader />
         <FeedbackButton onClick={openModal1} />
         <FeedbackButton onClick={openModal2} />
-        <ModalContainer isOpen={isModalOpen1} onRequestClose={closeModal1}>
-          <p>HELLO</p>
-        </ModalContainer>
+        <AddFeedbackModal isOpen={isModalOpen1} onRequestClose={closeModal1}/>
         <ModalContainer isOpen={isModalOpen2} onRequestClose={closeModal2}>
           <p>HELLO2</p>
         </ModalContainer>
