@@ -17,10 +17,12 @@ align-items: center;
 margin-left: auto;
 `;
 export const MenuIcon = styled.svg`
+display: flex;
 fill:transparent;
 stroke: black;
 height: 24px;
 width: 24px;
+cursor: pointer;
 
  @media (min-width: 765px) {
     height: 34px;

@@ -12,6 +12,7 @@ import Goose404Tab from '../../images/404-page/goose-404-tablet.webp';
 import Goose404Tab2x from '../../images/404-page/goose-404-tablet-2x.webp';
 import Goose404Desk from '../../images/404-page/goose-404-desktop.webp';
 import Goose404Desk2x from '../../images/404-page/goose-404-desktop-2x.webp';
+import { Link } from 'react-router-dom';
 
 const NotFound = () => {
   const isRetina = window.devicePixelRatio > 1;
@@ -39,11 +40,9 @@ const NotFound = () => {
         to the homepage.
       </Text>
 
-      <a href="/">
-        <HomeButton type="button" href="/" to="/">
-          Back to home
-        </HomeButton>
-      </a>
+      <HomeButton type="button">
+        <Link to="/">Back to home</Link>
+      </HomeButton>
     </Wrap>
   );
 };
