@@ -1,8 +1,10 @@
+import { Icon, Title, Wrapper } from "./ColumnHeadBar.styled";
+
 export const ColumnHeadBar = ({title}) => {
   return (
-    <div>
-      <h2>{title}</h2>
-      <button type="button"></button>
-    </div>
+    <Wrapper>
+      <Title>{title}</Title>
+      <Icon>+</Icon>
+    </Wrapper>
   );
 };

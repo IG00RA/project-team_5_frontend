@@ -24,7 +24,7 @@ const UserNav = ({ closeModalMenu }) => {
         {`sidebar.My Account`}
       </UserNavItem>
       <UserNavItem
-        to={`/calendar/month/${currentDay.format('YYYY:MM:DD')}`}
+        to={`/calendar/month/${currentDay.format('YYYY-MM-DD')}`}
         onClick={handleCloseModalMenu}
       >
         <CalendarSVG style={{ marginRight: 8, width: 20, height: 20 }} />{' '}

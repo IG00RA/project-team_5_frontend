@@ -33,7 +33,7 @@ export default function Home() {
         <Loader />
         <FeedbackButton onClick={openModal1} />
         <FeedbackButton onClick={openModal2} />
-        <AddFeedbackModal isOpen={isModalOpen1} onRequestClose={closeModal1}/>
+        <AddFeedbackModal isOpen={isModalOpen1} onRequestClose={closeModal1} />
         <ModalContainer isOpen={isModalOpen2} onRequestClose={closeModal2}>
           <p>HELLO2</p>
         </ModalContainer>

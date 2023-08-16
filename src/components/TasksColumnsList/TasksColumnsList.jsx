@@ -1,17 +1,20 @@
 import { TasksColumn } from "../TasksColumn/TasksColumn";
+import { List } from "./TasksColumnsList.styled";
 
 const columnsList = ['To do', 'In progress', 'Done'];
 
-export const TasksColumnsList = () => {
-
+export const TasksColumnsList = ({ tasks }) => {
+  
   const getTasksColection = (TasksColumnName) => {
-  // функция которая возвращает таски нужной группы, использует фильтр
+    const normalizedStringCategory = TasksColumnName.split(' ').join('-').toLowerCase();
+
+    return tasks?.filter(task => task.category === normalizedStringCategory);
   };
 
   return (
-    <ul>
+    <List>
       {columnsList.map(item =>
         <TasksColumn key={item} title={item} tasksColection={getTasksColection(item)}></TasksColumn>)}
-    </ul>
+    </List>
   );
 };

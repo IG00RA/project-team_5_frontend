@@ -4,7 +4,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 axios.defaults.baseURL = 'https://project-team-5-backend.onrender.com/api/';
 
-const setAuthHeader = token => {
+export const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
@@ -13,16 +13,17 @@ const clearAuthHeader = () => {
 };
 
 export const toggleTheme = createAsyncThunk(
-  'auth/toggle-theme',
+  'user/toggle-theme',
   async (credentials, { rejectWithValue }) => {
     try {
-      const { data } = await axios.patch('api/auth/toggle-theme', credentials);
+      const { data } = await axios.patch('user/toggle-theme', credentials);
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
     }
   }
 );
+
 
 export const register = createAsyncThunk(
   'auth/register',
@@ -54,9 +55,31 @@ export const login = createAsyncThunk(
 
 export const logout = createAsyncThunk('auth/logout', async (__, thunkAPI) => {
   try {
-    await axios('auth/logout');
+    await axios.post('auth/logout');
     clearAuthHeader();
+    Notify.success('LogOut success');
   } catch (e) {
+    // Notify.failure(e);
     return thunkAPI.rejectWithValue(e.message);
   }
 });
+
+export const refreshUser = createAsyncThunk(
+  'auth/refresh',
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.token;
+
+    if (persistedToken === null) {
+      return thunkAPI.rejectWithValue('Unable to fetch user');
+    }
+
+    try {
+      setAuthHeader(persistedToken);
+      const res = await axios.get('/user/current');
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
