@@ -1,14 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 import {
-  changeProfile,
+  // changeProfile,
   login,
   logout,
   register,
   refreshUser,
   toggleTheme,
 } from './operations';
-
 
 const initialState = {
   token: null,
@@ -95,7 +94,7 @@ const refreshReducer = state => {
 
 const toggleThemeReducer = (state, { payload }) => {
   const { theme } = payload;
-  state.user.theme = theme;
+  state.theme = theme;
 };
 
 const authSlice = createSlice({
