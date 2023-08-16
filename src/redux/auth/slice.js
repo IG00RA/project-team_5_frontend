@@ -48,7 +48,7 @@ const loginReducer = (state, { payload }) => {
 };
 
 const logoutReducer = state => {
-  state.isRefreshing = true;
+  state.isRefreshing = false;
   state.isLoggedIn = false;
   state.isLoading = false;
   state.error = null;
