@@ -30,7 +30,47 @@ export default function StatisticsChart({
   selectedDate,
   setSelectedDate,
   filteredTasksByDate,
+  filteredTasksByMonth,
 }) {
+  const allTasksByDay = filteredTasksByDate.length;
+  const allTasksByMonth = filteredTasksByMonth.length;
+  const toDoByDayPercent =
+    (filteredTasksByDate?.filter(task => task.category === 'to-do').length /
+      allTasksByDay) *
+    100;
+  const inProgressByDayPercent =
+    (filteredTasksByDate?.filter(task => task.category === 'in-progress')
+      .length /
+      allTasksByDay) *
+    100;
+  const doneByDayPercent =
+    (filteredTasksByDate.filter(task => task.category === 'done').length /
+      allTasksByDay) *
+    100;
+
+  const toDoByMonthPercent =
+    (filteredTasksByDate?.filter(task => task.category === 'to-do').length /
+      allTasksByMonth) *
+    100;
+  const inProgressByMonthPercent =
+    (filteredTasksByMonth?.filter(task => task.category === 'in-progress')
+      .length /
+      allTasksByMonth) *
+    100;
+  const doneByMonthPercent =
+    (filteredTasksByMonth.filter(task => task.category === 'done').length /
+      allTasksByMonth) *
+    100;
+
+  console.log(allTasksByDay);
+  console.log(toDoByDayPercent);
+  console.log(inProgressByDayPercent);
+  console.log(doneByDayPercent);
+  console.log(allTasksByMonth);
+  console.log(toDoByMonthPercent);
+  console.log(inProgressByMonthPercent);
+  console.log(doneByMonthPercent);
+
   return (
     <BarChart
       width={860}
