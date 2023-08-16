@@ -10,8 +10,6 @@ import {
   CommonField,
   CommonInput,
   FileInput,
-  Svg,
-  SvgWrapper,
   UserInfoForm,
   Label,
   UserPreview,
@@ -19,22 +17,29 @@ import {
   UserName,
   UserLabel,
   ButtonWrapper,
+  Icon,
+  Use,
 } from './UserForm.styled';
-import { selectIsLoading } from '../../redux/auth/selectors';
+import { selectIsLoadingUser } from '../../redux/user/selectors';
 import ChangeProfileButton from '../Buttons/ChangeProfileButton/ChangeProfileButton';
 import { changeProfile } from 'redux/user/operations';
 import { selectUser } from 'redux/user/selectors';
-// import Loader from '../loader/loader';
+import sprite from '../../images/svg-sprite/symbol-defs.svg';
 
 export default function UserForm() {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
   const isUser = user.email;
-  const isLoading = useSelector(selectIsLoading);
+  const isLoading = useSelector(selectIsLoadingUser);
 
-  const setActiveSabmit = id => {
-    const btn = document.querySelector(id);
+  const setSubmitButtonActive = () => {
+    const btn = document.querySelector('#changeProfileBtn');
     btn.disabled = false;
+  };
+
+  const setSubmitButtonDisabled = () => {
+    const btn = document.querySelector('#changeProfileBtn');
+    btn.disabled = true;
   };
 
   const makeAvatarURL = values => {
@@ -42,6 +47,11 @@ export default function UserForm() {
       values.avatarURL === 'undefined'
       ? values.avatarURL
       : URL.createObjectURL(values.avatarURL);
+  };
+
+  const compareWithRedux = (field, value) => {
+    const reduxValue = user[field];
+    return value === reduxValue;
   };
 
   const initialValues = {
@@ -58,11 +68,11 @@ export default function UserForm() {
 
     const formData = new FormData();
     inputFields.forEach(field => {
-      const value = values[field] ? values[field] : ' ';
+      const value = values[field];
       formData.append(field, value);
     });
 
-    dispatch(changeProfile(formData));
+    dispatch(changeProfile({ formData, setSubmitButtonDisabled }));
   };
 
   return (
@@ -76,8 +86,10 @@ export default function UserForm() {
           const inputHandler = e => {
             const { name, value } = e.target;
             setFieldValue(name, value);
-            // Додати перевірку на співпадіння з полем в редаксі
-            setActiveSabmit('#changeProfileBtn');
+
+            compareWithRedux(name, value)
+              ? setSubmitButtonDisabled()
+              : setSubmitButtonActive();
           };
 
           const fileHandler = e => {
@@ -85,8 +97,7 @@ export default function UserForm() {
             if (!file) return;
 
             setFieldValue('avatarURL', file);
-            // Додати перевірку на співпадіння з полем в редаксі
-            setActiveSabmit('#changeProfileBtn');
+            setSubmitButtonActive();
           };
 
           return (
@@ -114,32 +125,13 @@ export default function UserForm() {
                     onChange={fileHandler}
                   />
 
-                  <SvgWrapper>
-                    <Svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="18"
-                      height="18"
-                      viewBox="0 0 18 18"
-                      fill="none"
-                    >
-                      <path
-                        d="M9 3.75V14.25"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M3.75 9H14.25"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </Svg>
-                  </SvgWrapper>
+                  <Icon>
+                    <Use href={`${sprite}#icon-plus`}></Use>
+                  </Icon>
                 </AvatarField>
 
                 <UserData>
-                  <UserName>{values.userName}</UserName>
+                  <UserName>{values.userName || 'UserName'}</UserName>
                   <UserLabel>User</UserLabel>
                 </UserData>
               </UserPreview>
@@ -150,6 +142,7 @@ export default function UserForm() {
                   name="userName"
                   type="text"
                   value={values.userName}
+                  placeholder="mr Ping"
                   onChange={inputHandler}
                 />
               </CommonField>
@@ -161,6 +154,7 @@ export default function UserForm() {
                   name="phone"
                   type="tel"
                   value={values.phone}
+                  placeholder="066-333-33-33"
                   onChange={inputHandler}
                 />
               </CommonField>
@@ -183,6 +177,7 @@ export default function UserForm() {
                   name="skype"
                   type="text"
                   value={values.skype}
+                  placeholder="skype name"
                   onChange={inputHandler}
                 />
               </CommonField>
@@ -194,6 +189,7 @@ export default function UserForm() {
                   name="email"
                   type="text"
                   value={values.email}
+                  placeholder="mrPing@panda.kungfu"
                   onChange={inputHandler}
                 />
               </CommonField>

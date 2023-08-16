@@ -11,7 +11,7 @@ export const UserInfoForm = styled.form`
 
   border-radius: 16px;
 
-  background-color: ${props => props.theme.colors?.blackBG || '#dbdbdb'};
+  background-color: ${props => props.theme.colors?.blackBG || '#fffff'};
 
   @media screen and (min-width: 768px) {
     padding-top: 40px;
@@ -61,7 +61,7 @@ export const UserData = styled.div`
 `;
 
 export const UserName = styled.p`
-  color: var(--grey);
+  color: ${props => props.theme.colors?.grey || '#343434'};
   font-size: 14px;
   font-weight: 700;
   line-height: calc(18 / 18);
@@ -72,7 +72,7 @@ export const UserName = styled.p`
 `;
 
 export const UserLabel = styled.p`
-  color: var(--grey);
+  color: ${props => props.theme.colors?.grey || '#343434'};
   font-size: 12px;
   font-weight: 600;
   line-height: calc(14 / 12);
@@ -101,7 +101,7 @@ export const AvatarImg = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border: 2px solid var(--blue);
+  border: 2px solid ${props => props.theme.colors?.blue || '#3e85f3'};
   border-radius: 50%;
 `;
 
@@ -113,13 +113,17 @@ export const AvatarTextContainer = styled.div`
   width: 100%;
   height: 100%;
 
-  background-color: var(--darkBG);
+  background-color: ${props => props.theme.colors?.darkBG || '#171820'};
 `;
 
 export const AvatarText = styled.span`
   font-size: 38px;
   font-weight: 600;
-  color: var(--greySub);
+  color: ${props => props.theme.colors?.greySub || '#84828a'};
+
+  @media screen and (min-width: 768px) {
+    font-size: 60px;
+  }
 `;
 
 export const FileInput = styled.input`
@@ -135,7 +139,7 @@ export const CommonInput = styled.input`
   border-radius: 8px;
   border: 1px solid rgba(17, 17, 17, 0.1);
 
-  color: var(--black);
+  color: ${props => props.theme.colors?.black || '#13151a'};
   font-family: Inter;
   font-size: 14px;
   font-style: normal;
@@ -151,7 +155,7 @@ export const CommonInput = styled.input`
 
 export const Label = styled.p`
   margin-bottom: 8px;
-  color: var(--black);
+  color: ${props => props.theme.colors?.black || '#13151a'};
   font-size: 12px;
   line-height: calc(14 / 12);
 
@@ -171,7 +175,10 @@ export const AvatarField = styled.label`
   position: relative;
 `;
 
-export const SvgWrapper = styled.div`
+export const Icon = styled.svg`
+  stroke: ${props => props.theme.colors?.white || '#ffffff'};
+  fill: transparent;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -183,7 +190,7 @@ export const SvgWrapper = styled.div`
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background-color: var(--blue);
+  background-color: ${props => props.theme.colors?.blue || '#3e85f3'};
 
   @media screen and (min-width: 768px) {
     width: 24px;
@@ -191,8 +198,7 @@ export const SvgWrapper = styled.div`
   }
 `;
 
-export const Svg = styled.svg`
-  stroke: var(--white);
+export const Use = styled.use`
   height: 8px;
   width: 8px;
 
