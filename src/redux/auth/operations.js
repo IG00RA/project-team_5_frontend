@@ -13,10 +13,10 @@ const clearAuthHeader = () => {
 };
 
 export const toggleTheme = createAsyncThunk(
-  'auth/toggle-theme',
+  'user/toggle-theme',
   async (credentials, { rejectWithValue }) => {
     try {
-      const { data } = await axios.patch('api/auth/toggle-theme', credentials);
+      const { data } = await axios.patch('user/toggle-theme', credentials);
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
