@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const SideBarWrap = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   position: fixed;
   z-index: 2;
   box-sizing: border-box;
@@ -10,8 +11,6 @@ export const SideBarWrap = styled.div`
   width: 225px;
   padding: 24px 20px;
   background-color: #ffffff;
-  border-right: 1px solid;
-  box-shadow: 0px 0px 7px 1px;
 
   @media screen and (min-width: 768px) {
     width: 289px;
@@ -78,7 +77,7 @@ export const StyledLogoWrapper = styled.div`
 }
 `;
 
-export const SideBarImg = styled.picture`
+export const SideBarImg = styled.img`
   margin-right: 6px;
   width: 36px;
   height: 35px;
