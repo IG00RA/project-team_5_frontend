@@ -29,8 +29,9 @@ export const UserNavWrap = styled.div`
 
 export const UserNavTitle = styled.div`
   box-sizing: border-box;
+  font-weight: 600;
   font-size: 12px;
-  line-height: 1.25;
+  line-height: 15px;
   color: #343434;
   margin-bottom: 24px;
 
@@ -42,14 +43,14 @@ export const UserNavTitle = styled.div`
 `;
 
 export const UserNavItem = styled(NavLink)`
-  stroke: #343434;
-  fill: none;
   display: flex;
   align-items: center;
-  box-sizing: border-box;
   text-align: center;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
   padding: 16px 20px;
-  border-radius: 8px;
   width: 100%;
   text-decoration: none;
   color: #343434;
@@ -57,13 +58,18 @@ export const UserNavItem = styled(NavLink)`
   &.active {
     color: #3e85f3;
     background-color: #e3f3ff;
-    stroke: #3e85f3;
+
+    ${UserSVG}, ${CalendarSVG}, ${ChartSVG} {
+      fill: #3e85f3;
+    }
   }
   :hover:not(.active),
   :focus-visible:not(.active) {
     color: #3e85f3;
-    background-color: #e3f3ff;
-    stroke: #3e85f3;
+
+    ${UserSVG}, ${CalendarSVG}, ${ChartSVG} {
+      fill: #3e85f3;
+    }
   }
   font-size: 14px;
   line-height: 1.21;

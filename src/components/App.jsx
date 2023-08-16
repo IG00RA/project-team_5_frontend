@@ -1,6 +1,6 @@
 import { Suspense, lazy, useEffect } from 'react';
 import { Route, Routes } from 'react-router';
-import MainLayout from '../pages/MainLayout';
+import { MainLayout } from '../pages/MainLayout';
 import NotFound from './NotFound/NotFound';
 import RestrictedRoute from './RestrictedRoute';
 import PrivateRoute from './PrivateRoute';
