@@ -21,7 +21,7 @@ export default function Statistics() {
   console.log(selectedDate);
   const filteredTasksByDate = selectFilteredTasksByDate(tasks, selectedDate);
 
-  const filteredTaskByMonth = selectFilteredTasksByMonth(tasks, selectedDate);
+  const filteredTasksByMonth = selectFilteredTasksByMonth(tasks, selectedDate);
 
   useEffect(() => {
     dispatch(getAllTasks());
@@ -29,7 +29,7 @@ export default function Statistics() {
 
   console.log(tasks);
   console.log(filteredTasksByDate);
-  console.log(filteredTaskByMonth);
+  console.log(filteredTasksByMonth);
   return (
     <div>
       <p>Statistics Page</p>
@@ -64,6 +64,7 @@ export default function Statistics() {
         selectedDate={selectedDate}
         setSelectedDate={setSelectedDate}
         filteredTasksByDate={filteredTasksByDate}
+        filteredTasksByMonth={filteredTasksByMonth}
       />
     </div>
   );
