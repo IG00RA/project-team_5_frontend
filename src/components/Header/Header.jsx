@@ -11,7 +11,7 @@ import {
   Wrap,
 } from './Header.styled';
 
-export const Header = ({ openMenu }) => {
+const Header = ({ openMenu }) => {
   const location = useLocation();
   const currentPath = location.pathname;
 
@@ -54,7 +54,7 @@ export const Header = ({ openMenu }) => {
         </div>  */}
 
         <MenuIcon onClick={openMenu}>
-            <use href={svgSprite + `#icon-menu`} />
+          <use href={svgSprite + `#icon-menu`} />
         </MenuIcon>
 
         <UserWrap>
