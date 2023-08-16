@@ -22,6 +22,8 @@ const CalendarTable = ({ startDay, selectedDay }) => {
   const daysCellsInCalendar = [...Array(TOTAL_CELLS)].map(() =>
     day.add(1, 'day').clone()
   );
+  // const DAY_ITEM = daysCellsInCalendar.map(item => item);
+  // console.log(DAY_ITEM);
 
   const isCurrentDay = day => moment().isSame(day, 'day');
   const isSelectedMonth = day => selectedDay.isSame(day, 'month');

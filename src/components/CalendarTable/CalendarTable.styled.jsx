@@ -10,12 +10,37 @@ export const GridWrapper = styled.div`
   border: 1px solid rgba(220, 227, 229, 0.8);
   border-radius: 8px;
   overflow: hidden;
+
+  @media screen and (max-width: 374px) {
+    width: 335px;
+    height: 470px;
+  }
+  @media screen and (min-width: 375px) {
+  }
+  @media screen and (min-width: 768px) {
+    margin-left: 321px;
+    min-width: 1067px;
+    min-height: 625px;
+  }
 `;
 
 export const CellWrapper = styled(Link)`
-  min-width: 156px;
-  min-height: 125px;
   background-color: #fff;
+  min-width: 48px;
+  min-height: 94px;
+
+  @media screen and (max-width: 374px) {
+    min-width: 48px;
+    min-height: 94px;
+  }
+  @media screen and (min-width: 375px) {
+    min-width: 102px;
+    min-height: 144px;
+  }
+  @media screen and (min-width: 768px) {
+    min-width: 156px;
+    min-height: 125px;
+  }
 `;
 
 export const RowInCell = styled.div`
@@ -27,6 +52,7 @@ export const RowInCell = styled.div`
 export const ShowDayWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
+  margin-bottom: 18px;
 `;
 
 export const DayWrapper = styled.div`
