@@ -1,0 +1,47 @@
+import axios from 'axios';
+// import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import { setAuthHeader } from 'redux/auth/operations';
+// import { useSelector } from 'react-redux';
+// import { selectToken } from 'redux/auth/selectors';
+
+export const fetchUser = createAsyncThunk(
+  'user/fetchUser',
+  async (__, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const token = state.auth.token;
+    setAuthHeader(token);
+
+    try {
+      console.log('ku');
+      const res = await axios('user/current');
+      return res.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
+export const changeProfile = createAsyncThunk(
+  'user/changeProfile',
+  async (userData, thunkAPI) => {
+    try {
+      const res = await axios.patch('user/change-profile', userData);
+      return res.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
+export const toggleTheme = createAsyncThunk(
+  'user/toggle-theme',
+  async (credentials, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.patch('/user/toggle-theme', credentials);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);

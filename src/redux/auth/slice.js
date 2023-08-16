@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+
 import {
   changeProfile,
   login,
@@ -8,27 +9,22 @@ import {
   toggleTheme,
 } from './operations';
 
+
 const initialState = {
-  user: {
-    avatarURL: '',
-    userName: '',
-    phone: '',
-    birthday: '',
-    skype: '',
-    email: '',
-  },
   token: null,
-  isLoading: false,
   error: null,
+  isLoading: false,
   isLoggedIn: false,
   isRefreshing: true,
 };
 
 const pendingRefreshReducer = state => {
+  state.isLoading = true;
   state.isRefreshing = true;
 };
 
 const rejectedRefreshReducer = state => {
+  state.isLoading = false;
   state.isRefreshing = false;
 };
 
@@ -42,60 +38,57 @@ const rejectedReducer = (state, { payload }) => {
   state.error = payload;
 };
 
-const logoutRejectedReducer = state => {
-  state.isRefreshing = false;
-  state.isLoggedIn = false;
-  state.isLoading = false;
-  state.error = null;
-  state.token = null;
-  state.user = {};
-};
+// const logoutRejectedReducer = state => {
+//   state.isRefreshing = false;
+//   state.isLoggedIn = false;
+//   state.isLoading = false;
+//   state.error = null;
+//   state.token = null;
+//   state.user = {};
+// };
 
 const loginReducer = (state, { payload }) => {
-  const {
-    user: { userName, birthday, email, phone, skype, avatarURL },
-    token,
-  } = payload;
+  const { token } = payload;
 
   state.isLoading = false;
   state.error = null;
   state.token = token;
   state.isLoggedIn = true;
-  state.isRefreshing = false;
-
-  state.user.userName = userName;
-  state.user.birthday = birthday;
-  state.user.email = email;
-  state.user.phone = phone;
-  state.user.skype = skype;
-  state.user.avatarURL = avatarURL;
 };
 
 const logoutReducer = state => {
-  state.isRefreshing = true;
+  state.isRefreshing = false;
   state.isLoggedIn = false;
   state.isLoading = false;
   state.error = null;
   state.token = null;
-  state.user = {};
 };
 
-const changeProfileReducer = (state, { payload }) => {
-  const { userName, birthday, email, phone, skype, avatarURL } = payload;
+const registerReducer = (state, { payload }) => {
+  const { token } = payload;
 
   state.isLoading = false;
   state.error = null;
-
-  state.user.userName = userName;
-  state.user.birthday = birthday;
-  state.user.email = email;
-  state.user.phone = phone;
-  state.user.skype = skype;
-  state.user.avatarURL = avatarURL;
+  state.token = token;
+  state.isLoggedIn = true;
 };
 
-const refreshReducer = (state, { payload }) => {
-  state.user = payload;
+// const changeProfileReducer = (state, { payload }) => {
+//   const { userName, birthday, email, phone, skype, avatarURL } = payload;
+
+//   state.isLoading = false;
+//   state.error = null;
+
+//   state.user.userName = userName;
+//   state.user.birthday = birthday;
+//   state.user.email = email;
+//   state.user.phone = phone;
+//   state.user.skype = skype;
+//   state.user.avatarURL = avatarURL;
+// };
+
+const refreshReducer = state => {
+  state.isLoading = false;
   state.isLoggedIn = true;
   state.isRefreshing = false;
 };
@@ -105,7 +98,7 @@ const toggleThemeReducer = (state, { payload }) => {
   state.user.theme = theme;
 };
 
-const userSlice = createSlice({
+const authSlice = createSlice({
   name: 'auth',
   initialState,
   extraReducers: buider =>
@@ -115,11 +108,12 @@ const userSlice = createSlice({
       .addCase(login.rejected, rejectedReducer)
       .addCase(logout.pending, pendingReducer)
       .addCase(logout.fulfilled, logoutReducer)
-      .addCase(logout.rejected, logoutRejectedReducer)
-      .addCase(changeProfile.pending, pendingReducer)
-      .addCase(changeProfile.fulfilled, changeProfileReducer)
-      .addCase(changeProfile.rejected, rejectedReducer)
+      .addCase(logout.rejected, logoutReducer)
+      // .addCase(changeProfile.pending, pendingReducer)
+      // .addCase(changeProfile.fulfilled, changeProfileReducer)
+      // .addCase(changeProfile.rejected, rejectedReducer)
       .addCase(register.pending, pendingReducer)
+      .addCase(register.fulfilled, registerReducer)
       .addCase(register.rejected, rejectedReducer)
       .addCase(refreshUser.pending, pendingRefreshReducer)
       .addCase(refreshUser.fulfilled, refreshReducer)
@@ -129,6 +123,6 @@ const userSlice = createSlice({
       .addCase(toggleTheme.rejected, rejectedReducer),
 });
 
-export const authReducer = userSlice.reducer;
+export const authReducer = authSlice.reducer;
 
-export const { updateUser } = userSlice.actions;
+export const { updateUser } = authSlice.actions;
