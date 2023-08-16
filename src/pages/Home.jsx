@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import FeedbackButton from '../components/Buttons/FeedbackButton/FeedbackButton';
 import ModalContainer from '../components/Modal/ModalConatiner';
 // import Loader from '../components/loader/loader';
 import { AuthSection } from '../components/AuthSection/AuthSection';
 import { Description } from '../components/Description/Description';
 import ReviewsSlider from 'components/ReviewsSlider/ReviewsSlider';
+import { fetchReviewsData } from 'components/ReviewsSlider/reviewsService';
+
 
 export default function Home() {
   const [isModalOpen1, setIsModalOpen1] = useState(false);
@@ -24,13 +26,21 @@ export default function Home() {
     setIsModalOpen2(false);
   };
 
+  const [reviewskData, setReviewsData] = useState([]);
+
+  useEffect(() => {
+    fetchReviewsData()
+      .then((data) => setReviewsData(data))
+      .catch((error) => console.error('Error fetching reviews:', error));
+  }, []);
+
   return (
     <>
       <div>
         {/* <Loader /> */}
         <AuthSection />
         <Description />
-        <ReviewsSlider/>
+        <ReviewsSlider reviewsData={reviewskData}/>
         <FeedbackButton onClick={openModal1} />
         <FeedbackButton onClick={openModal2} />
         <ModalContainer isOpen={isModalOpen1} onRequestClose={closeModal1}>
