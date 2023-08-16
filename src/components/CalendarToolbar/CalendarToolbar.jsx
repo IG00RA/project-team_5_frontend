@@ -2,12 +2,12 @@ import PeriodPaginator from '../PeriodPaginator/PeriodPaginator';
 import PeriodTypeSelect from '../PeriodTypeSelect/PeriodTypeSelect';
 import { CalendarToolBarWrapper } from './CalendarToolbar.styled';
 
-const CalendarToolbar = ({ period, selectedDay, updatedDate, setSelectedDay, setUpdatedDate }) => {
+const CalendarToolbar = ({ isChoosedDay, selectedDay, updatedDate, setSelectedDay, setUpdatedDate }) => {
   
   return (
     <CalendarToolBarWrapper>
       <PeriodPaginator
-        period={period}
+        isChoosedDay={isChoosedDay}
         selectedDay={selectedDay}
         updatedDate={updatedDate}
         setSelectedDay={setSelectedDay}

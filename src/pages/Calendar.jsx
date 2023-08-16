@@ -9,19 +9,19 @@ export default function Calendar() {
   
   const [selectedDay, setSelectedDay] = useState(moment());
   const [updatedDate, setUpdatedDate] = useState(selectedDay);
-  const [period, setPeriod] = useState(false);
+  const [isChoosedDay, setIsChoosedDay] = useState(false);
 
   return (
     <>
       <CalendarToolbar
-        period={period}
+        isChoosedDay={isChoosedDay}
         selectedDay={selectedDay}
         updatedDate={updatedDate}
         setSelectedDay={setSelectedDay}
         setUpdatedDate={setUpdatedDate}
       />
       <Suspense fallback={<div>Loading subpage...</div>}>
-        <Outlet context={[selectedDay, setPeriod, updatedDate, setUpdatedDate, setSelectedDay]} />
+        <Outlet context={[selectedDay, setIsChoosedDay, updatedDate, setUpdatedDate, setSelectedDay]} />
       </Suspense>
     </>
   );
