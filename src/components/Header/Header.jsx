@@ -1,8 +1,5 @@
 import { useLocation } from 'react-router-dom';
-// import { useSelector } from "react-redux";
-// import { Button } from "../Button/Button";
 import FeedbackButton from '../Buttons/FeedbackButton/FeedbackButton';
-import { ThemeToggler } from '../ThemeToggler/ThemeToggler';
 import { UserInfo } from '../UserInfo/UserInfo';
 import svgSprite from '../../images/svg-sprite/symbol-defs.svg';
 import gooseMotivation from '../../images/svg/motivation-goose.svg';
@@ -14,7 +11,7 @@ import {
   Wrap,
 } from './Header.styled';
 
-export const Header = ({ onToggle }) => {
+const Header = ({ openMenu }) => {
   const location = useLocation();
   const currentPath = location.pathname;
 
@@ -55,13 +52,13 @@ export const Header = ({ onToggle }) => {
           <Title>{title}</Title>
           {pageCalendarDay && haveTask() && (<p>Let go of the past and focus on the present!</p>)}
         </div>  */}
-        <MenuIcon onClick={onToggle}>
-            <use href={svgSprite + `#icon-menu`} />
+
+        <MenuIcon onClick={openMenu}>
+          <use href={svgSprite + `#icon-menu`} />
         </MenuIcon>
 
         <UserWrap>
           <FeedbackButton />
-          <ThemeToggler />
           <UserInfo />
         </UserWrap>
       </Wrap>

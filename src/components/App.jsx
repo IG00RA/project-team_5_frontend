@@ -1,6 +1,5 @@
 import { Suspense, lazy, useEffect } from 'react';
 import { Route, Routes } from 'react-router';
-import MainLayout from '../pages/MainLayout';
 import NotFound from './NotFound/NotFound';
 import RestrictedRoute from './RestrictedRoute';
 import PrivateRoute from './PrivateRoute';
@@ -10,6 +9,7 @@ import moment from 'moment';
 import { selectIsRefreshing, selectTheme } from 'redux/auth/selectors';
 import { ThemeProvider } from 'styled-components';
 import { theme } from '../utils/theme';
+import MainLayout from 'pages/MainLayout';
 
 const HomePage = lazy(() => import('../pages/Home'));
 const RegisterPage = lazy(() => import('../pages/Register/Register'));

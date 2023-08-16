@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import FeedbackButton from '../components/Buttons/FeedbackButton/FeedbackButton';
 import ModalContainer from '../components/Modal/ModalConatiner';
-// import Loader from '../components/loader/loader';
 import { AuthSection } from '../components/AuthSection/AuthSection';
 import { Description } from '../components/Description/Description';
+import { AddFeedbackModal } from '../components/AddFeedbackModal/AddFeedbackModal';
 
 export default function Home() {
   const [isModalOpen1, setIsModalOpen1] = useState(false);
@@ -26,14 +26,11 @@ export default function Home() {
   return (
     <>
       <div>
-        {/* <Loader /> */}
         <AuthSection />
         <Description />
         <FeedbackButton onClick={openModal1} />
         <FeedbackButton onClick={openModal2} />
-        <ModalContainer isOpen={isModalOpen1} onRequestClose={closeModal1}>
-          <p>HELLO</p>
-        </ModalContainer>
+        <AddFeedbackModal isOpen={isModalOpen1} onRequestClose={closeModal1} />
         <ModalContainer isOpen={isModalOpen2} onRequestClose={closeModal2}>
           <p>HELLO2</p>
         </ModalContainer>
@@ -41,3 +38,4 @@ export default function Home() {
     </>
   );
 }
+

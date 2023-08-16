@@ -14,13 +14,14 @@ export const Title = styled.h2`
   color: #111;
 `;
 
-export const Icon = styled.button`
+export const Icon = styled.svg`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 24px;
+
   height: 24px;
-  border-radius: 50%;
-  border: 2px solid black;
-  color: #111;
+  width: 24px;
+  
+  stroke: #111;
+  fill: transparent;
 `;
