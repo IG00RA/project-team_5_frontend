@@ -45,12 +45,12 @@ export const UserNavTitle = styled.div`
 export const UserNavItem = styled(NavLink)`
   display: flex;
   align-items: center;
-  text-align: center;
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
   line-height: 17px;
-  padding: 16px 20px;
+  padding: 12px;
+  gap: 8px;
   width: 100%;
   text-decoration: none;
   color: #343434;

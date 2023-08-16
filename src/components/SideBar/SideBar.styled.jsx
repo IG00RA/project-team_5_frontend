@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const SideBarWrap = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   position: fixed;
   z-index: 2;
   box-sizing: border-box;
@@ -10,7 +11,6 @@ export const SideBarWrap = styled.div`
   width: 225px;
   padding: 24px 20px;
   background-color: #ffffff;
-  border-right: 1px solid;
 
   @media screen and (min-width: 768px) {
     width: 289px;
