@@ -21,10 +21,7 @@ export const Icon = styled.svg`
 
   height: 24px;
   width: 24px;
-
-  border-radius: 50%;
-  border: 2px solid black;
-
+  
   stroke: #111;
   fill: transparent;
 `;

@@ -7,7 +7,7 @@ export const ColumnHeadBar = ({ title }) => {
       <Title>{title}</Title>
       <button type='button'>
         <Icon>
-          <use href={sprite + '#icon-plus'}></use>
+          <use href={sprite + '#icon-icon-plus'}></use>
         </Icon>
       </button>
     </Wrapper>
