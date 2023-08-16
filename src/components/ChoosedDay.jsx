@@ -18,7 +18,7 @@ export default function ChoosedDay() {
 
   useEffect(() => {
     dispatch(getAllTasks())
-  }, [dispatch, updatedDate]);
+  }, [dispatch, updatedDate, tasks]);
 
   return (
     <div>
@@ -26,4 +26,4 @@ export default function ChoosedDay() {
       <TasksColumnsList tasks={filteredTask} />
     </div>
   );
-}
+};
