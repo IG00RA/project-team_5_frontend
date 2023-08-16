@@ -1,9 +1,7 @@
 import axios from 'axios';
-// import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { setAuthHeader } from 'redux/auth/operations';
-// import { useSelector } from 'react-redux';
-// import { selectToken } from 'redux/auth/selectors';
 
 export const fetchUser = createAsyncThunk(
   'user/fetchUser',
@@ -13,7 +11,6 @@ export const fetchUser = createAsyncThunk(
     setAuthHeader(token);
 
     try {
-      console.log('ku');
       const res = await axios('user/current');
       return res.data;
     } catch (e) {
@@ -24,11 +21,14 @@ export const fetchUser = createAsyncThunk(
 
 export const changeProfile = createAsyncThunk(
   'user/changeProfile',
-  async (userData, thunkAPI) => {
+  async ({ formData, setSubmitButtonDisabled = () => {} }, thunkAPI) => {
     try {
-      const res = await axios.patch('user/change-profile', userData);
+      const res = await axios.patch('user/change-profile', formData);
+      setSubmitButtonDisabled();
+      Notify.success('Profile updated');
       return res.data;
     } catch (e) {
+      Notify.failure('Failed to update, please try again');
       return thunkAPI.rejectWithValue(e.message);
     }
   }
