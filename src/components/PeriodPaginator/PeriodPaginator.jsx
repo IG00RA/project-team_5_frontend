@@ -5,8 +5,8 @@ import {
   Period,
 } from './PeriodPaginator.styled';
 
-export default function PeriodPaginator({ period, selectedDay, setSelectedDay, setUpdatedDate }) {
-  const checkDaysOfWeek = selectedDay.format('ddd');
+export default function PeriodPaginator({ period, selectedDay, updatedDate, setSelectedDay, setUpdatedDate }) {
+  const checkDaysOfWeek = updatedDate.format('ddd');
 
   const prevMonthHandler = () => {
     if (!period) {
@@ -28,7 +28,7 @@ export default function PeriodPaginator({ period, selectedDay, setSelectedDay, s
 
   return (
     <PaginatorWrapper>
-      <Period>{period ? selectedDay.format('DD MMM YYYY') : selectedDay.format('MMMM YYYY')}</Period>
+      <Period>{period ? updatedDate.format('DD MMM YYYY') : selectedDay.format('MMMM YYYY')}</Period>
       <div>
         <BtnPrev disabled={checkDaysOfWeek === 'Mon'} onClick={prevMonthHandler}>&lt;</BtnPrev>
         <BtnNext disabled={checkDaysOfWeek === 'Sun'} onClick={nextMonthHandler}>&gt;</BtnNext>

@@ -16,6 +16,7 @@ export default function Calendar() {
       <CalendarToolbar
         period={period}
         selectedDay={selectedDay}
+        updatedDate={updatedDate}
         setSelectedDay={setSelectedDay}
         setUpdatedDate={setUpdatedDate}
       />
