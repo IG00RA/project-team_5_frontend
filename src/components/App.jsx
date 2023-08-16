@@ -4,10 +4,10 @@ import MainLayout from '../pages/MainLayout';
 import NotFound from './NotFound/NotFound';
 import RestrictedRoute from './RestrictedRoute';
 import PrivateRoute from './PrivateRoute';
-import { useDispatch } from 'react-redux';
-import { useAuth } from 'hooks';
+import { useDispatch, useSelector } from 'react-redux';
 import { refreshUser } from 'redux/auth/operations';
 import moment from 'moment';
+import { selectIsRefreshing } from 'redux/auth/selectors';
 
 const HomePage = lazy(() => import('../pages/Home'));
 const RegisterPage = lazy(() => import('../pages/Register/Register'));
@@ -20,8 +20,7 @@ const ChoosedDayModule = lazy(() => import('./ChoosedDay'));
 
 export const App = () => {
   const dispatch = useDispatch();
-  const { isRefreshing } = useAuth();
-
+  const isRefreshing = useSelector(selectIsRefreshing);
   const date = moment().format('YYYY-MM-DD');
 
   useEffect(() => {
