@@ -1,13 +1,5 @@
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import  ModalContainer  from '../Modal/ModalConatiner';
-import {
-  FeedBackTitle,
-  CloseBtn,
-  FeedBackForm,
-  FeedBackArea,
-  ModalBox,
-} from './feedBackModal.styled';
+import ModalContainer from '../Modal/ModalConatiner';
+import { FeedBackTitle, CloseBtn, ModalBox } from './feedBackModal.styled';
 
 export const AddFeedbackModal = () => {
   return (
