@@ -2,19 +2,17 @@ import PeriodPaginator from '../PeriodPaginator/PeriodPaginator';
 import PeriodTypeSelect from '../PeriodTypeSelect/PeriodTypeSelect';
 import { CalendarToolBarWrapper } from './CalendarToolbar.styled';
 
-const CalendarToolbar = ({
-  selectedDay,
-  prevMonthHandler,
-  nextMonthHandler,
-}) => {
+const CalendarToolbar = ({ period, selectedDay, setSelectedDay, setUpdatedDate }) => {
+  
   return (
     <CalendarToolBarWrapper>
       <PeriodPaginator
+        period={period}
         selectedDay={selectedDay}
-        prevMonthHandler={prevMonthHandler}
-        nextMonthHandler={nextMonthHandler}
+        setSelectedDay={setSelectedDay}
+        setUpdatedDate={setUpdatedDate}
       />
-      <PeriodTypeSelect selectedDay={selectedDay.format('YYYY-MM-DD')} />
+      <PeriodTypeSelect />
     </CalendarToolBarWrapper>
   );
 };
