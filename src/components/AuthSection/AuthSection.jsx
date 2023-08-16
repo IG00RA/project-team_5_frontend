@@ -38,12 +38,14 @@ export const AuthSection = () => {
 
       <ButtonsContainer>
         <ButtonsWrap>
-          <LogInButton type="button">
-            <Link to="/login">Log in</Link>
-            <LogInIcon>
-              <use href={sprite + '#icon-log-in'}></use>
-            </LogInIcon>
-          </LogInButton>
+          <Link to="/login">
+            <LogInButton type="button">
+              Log in
+              <LogInIcon>
+                <use href={sprite + '#icon-log-in'}></use>
+              </LogInIcon>
+            </LogInButton>
+          </Link>
         </ButtonsWrap>
         <SignUpLink>
           <Link to="/register">Sign up</Link>
