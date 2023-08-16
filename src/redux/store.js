@@ -13,6 +13,7 @@ import {
 import { authReducer } from './auth/slice';
 import { tasksReducer } from './tasks/tasksSlice';
 import { userReducer } from './user/slice';
+import { reviewReducer } from './review/reviewSlice';
 
 const middleware = [
   ...getDefaultMiddleware({
@@ -32,6 +33,7 @@ export const store = configureStore({
     auth: persistReducer(authPersistConfig, authReducer),
     user: userReducer,
     tasks: tasksReducer,
+    review: reviewReducer,
   },
   middleware,
 });
