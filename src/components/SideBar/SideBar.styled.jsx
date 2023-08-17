@@ -63,11 +63,9 @@ export const SpanSpec = styled.p`
     font-style: italic;
     @media (min-width: 768px) {
       font-size: 18px;
-      line-height: 24px;
     }
     @media (min-width: 1440px) {
       font-size: 24px;
-      line-height: 24px;
     }
 `;
 

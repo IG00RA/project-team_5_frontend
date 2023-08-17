@@ -3,8 +3,8 @@ import { NavLink } from 'react-router-dom';
 
 export const StyledIcon = styled.svg`
 display: inline-block;
-height: 18px;
-width: 18px;
+height: 24px;
+width: 24px;
 margin-right: 8px;
 stroke-width: 0;
 stroke: currentColor;
@@ -32,7 +32,7 @@ export const UserNavTitle = styled.div`
   box-sizing: border-box;
   font-size: 12px;
   line-height: 15px;
-  color: #34343480;
+  color: #343434;
   margin-bottom: 24px;
 
   @media screen and (min-width: 768px) {
@@ -53,7 +53,7 @@ export const UserNavItem = styled(NavLink)`
   gap: 8px;
   width: 100%;
   text-decoration: none;
-  color: #34343480;
+  color: #343434;
   margin-bottom: 18px;
   &.active {
     color: #3e85f3;
