@@ -24,7 +24,7 @@ const validationSchema = Yup.object().shape({
     .max(300, 'Review must be at most 300 characters'),
 });
 
-export const FeedbackForm = handleClose => {
+export const FeedbackForm = ({ handleClose }) => {
   // const dispatch = useDispatch();
   // const [isEditActive, setIsEditActive] = useState(false);
 
