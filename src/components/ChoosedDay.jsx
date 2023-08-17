@@ -18,7 +18,7 @@ export default function ChoosedDay() {
 
   useEffect(() => {
     dispatch(getAllTasks());
-  }, [dispatch, updatedDate, tasks]);
+  }, [dispatch, updatedDate]);
 
   useEffect(() => {
     setIsChoosedDay(true);

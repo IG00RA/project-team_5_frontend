@@ -8,7 +8,7 @@ export const TasksColumnsList = ({ tasks }) => {
   const getTasksColection = (TasksColumnName) => {
     const normalizedStringCategory = TasksColumnName.split(' ').join('-').toLowerCase();
 
-    return tasks?.filter(task => task.category === normalizedStringCategory);
+    return tasks?.filter(task => task?.category === normalizedStringCategory);
   };
 
   return (
