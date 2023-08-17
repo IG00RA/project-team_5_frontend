@@ -24,8 +24,8 @@ const [isSubmit, setIsSubmit] = useState(false);
       <FeedBackTitle>Review</FeedBackTitle>
       <FeedBackArea placeholder='Enter text'/>
       <Box>
-      <FeedBackFormBtn className='submit-btn'>{isSubmit === false ? 'Save' : 'Edit'}</FeedBackFormBtn>
-      <FeedBackFormBtn className='cancel-btn'>Cancel</FeedBackFormBtn>
+      <FeedBackFormBtn type='submit' className='submit-btn'>{isSubmit === false ? 'Save' : 'Edit'}</FeedBackFormBtn>
+      <FeedBackFormBtn type='button' className='cancel-btn' onClick={handleClose}>Cancel</FeedBackFormBtn>
       </Box>
       </FeedBackForm>
       <CloseBtn onClick={handleClose}>

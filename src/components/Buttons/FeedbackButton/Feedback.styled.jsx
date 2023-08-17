@@ -14,7 +14,7 @@ export const FeedbackBtn = styled.button`
   font-size: 12px;
   line-height: 1.33;
   color: var(--white);
-
+  
   &:hover,
   &:focus {
     background-color: #2b78ef;
