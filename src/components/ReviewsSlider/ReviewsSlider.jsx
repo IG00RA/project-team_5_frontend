@@ -6,16 +6,37 @@ import { Carousel } from "react-responsive-carousel";
 
 const ReviewsSlider = ({ reviewsData }) => {
 
-  const slidesPerPage = 2;
+  const sliderSettings = {
+  autoPlay: true,
+  dots: true, // Show dots (indicators)
+  infinite: true, // Infinite loop
+  speed: 2000, // Transition speed in milliseconds
+  slidesToShow: 2, // Number of slides shown at once
+  slidesToScroll: 2, // Number of slides to scroll
+  showStatus: false,
+  showIndicators: false,
+  dynamicHeight: false,
+  };
 
   return (
     <Wrap>
       <Title>Reviews</Title>          
       <div>
-        <Carousel
-          autoPlay={true}
+        <Carousel 
+          /* autoPlay={true}
+          interval={2000}
           emulateTouch={true}
-          slidesToShow={slidesPerPage}
+          infiniteLoop={true}
+          slidesToShow={'2'}
+          centerSlidePercentage={true}
+
+          useKeyboardArrows={'false'}
+
+          showStatus={false}
+          showIndicators={false}
+          showThumbs={false}
+          dynamicHeight={false} */
+          {...sliderSettings}
         >
           {reviewsData.map((review) => (
             <ReviewWrap key={review._id}>
@@ -31,9 +52,9 @@ const ReviewsSlider = ({ reviewsData }) => {
                     <ReviewRaiting className="rating">
 
                       {review.raiting}
-                      <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                      <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400"/>
+                      <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" checked/>
                       <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" checked />
-                      <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
                       <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
                       <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
                     </ReviewRaiting>
@@ -44,6 +65,12 @@ const ReviewsSlider = ({ reviewsData }) => {
               <ReviewText>{review.review}</ReviewText>
             </ReviewWrap>
           ))}
+
+          <div>
+            <span>left</span>
+            <span>right</span>
+          </div>
+
         </Carousel>
       </div>
     </Wrap>
