@@ -5,13 +5,15 @@ import {
   Period,
 } from './PeriodPaginator.styled';
 
+
 export default function PeriodPaginator({ isChoosedDay, selectedDay, updatedDate, setSelectedDay, setUpdatedDate }) {
   const checkDaysOfWeek = updatedDate.format('ddd');
+
 
   const prevMonthHandler = () => {
     if (!isChoosedDay) {
       setSelectedDay(prev => prev.clone().subtract(1, 'month'));
-      return
+      return;
     }
     setSelectedDay(prev => prev.clone().subtract(1, 'day'));
     setUpdatedDate(prev => prev.clone().subtract(1, 'day'));
@@ -20,7 +22,7 @@ export default function PeriodPaginator({ isChoosedDay, selectedDay, updatedDate
   const nextMonthHandler = () => {
     if (!isChoosedDay) {
       setSelectedDay(prev => prev.clone().add(1, 'month'));
-      return
+      return;
     }
     setSelectedDay(prev => prev.clone().add(1, 'day'));
     setUpdatedDate(prev => prev.clone().add(1, 'day'));
@@ -35,4 +37,6 @@ export default function PeriodPaginator({ isChoosedDay, selectedDay, updatedDate
       </div>
     </PaginatorWrapper>
   );
-};
+}
+
+// Замінити стрілки на СВГ у пагінаторі

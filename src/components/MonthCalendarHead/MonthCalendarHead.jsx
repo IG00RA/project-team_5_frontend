@@ -21,3 +21,5 @@ const MonthCalendarHead = ({ startDay }) => {
 };
 
 export default MonthCalendarHead;
+
+// Зробити відображення формату дня тижня залежно від адаптиву .format('dd')[0] або .format('ddd')
