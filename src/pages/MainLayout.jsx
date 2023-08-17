@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import SideBar from '../components/SideBar/SideBar';
 import { Container, Wrapper } from './MainLayout.styled';
 import { Outlet } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { fetchUser } from 'redux/user/operations';
+import Loader from 'components/loader/loader';
 import Header from 'components/Header/Header';
 // import { selectIsLoadingUser } from 'redux/user/selectors';
 // import Loader from 'components/loader/loader';
@@ -26,18 +27,27 @@ const MainLayout = () => {
   // ) :
   return (
     <>
-      <Container>
-        <SideBar
-          isModalMenuOpen={isModalMenuOpen}
-          closeModalMenu={setIsModalMenuOpen}
-        />
-        <Wrapper>
-          <Header openMenu={() => setIsModalMenuOpen(true)} />
-          <main>
-            <Outlet />
-          </main>
-        </Wrapper>
-      </Container>
+      <Suspense
+        fallback={
+          <div>
+            {/* Loading page... */}
+            <Loader />
+          </div>
+        }
+      >
+        <Container>
+          <SideBar
+            isModalMenuOpen={isModalMenuOpen}
+            closeModalMenu={setIsModalMenuOpen}
+          />
+          <Wrapper>
+            <Header openMenu={() => setIsModalMenuOpen(true)} />
+            <main>
+              <Outlet />
+            </main>
+          </Wrapper>
+        </Container>
+      </Suspense>
     </>
   );
 };
