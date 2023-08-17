@@ -12,12 +12,10 @@ export const UserNavWrap = styled.div`
   box-sizing: border-box;
   font-family: 'Inter';
   font-weight: 600;
-  margin-top: 64px;
   width: 185px;
-  margin-bottom: 32px;
 
   @media screen and (min-width: 768px) {
-    margin-top: 50px;
+    margin-top: 32px;
     width: 225px;
   }
 
@@ -29,10 +27,9 @@ export const UserNavWrap = styled.div`
 
 export const UserNavTitle = styled.div`
   box-sizing: border-box;
-  font-weight: 600;
   font-size: 12px;
   line-height: 15px;
-  color: #343434;
+  color: #34343480;
   margin-bottom: 24px;
 
   @media screen and (min-width: 768px) {
@@ -53,23 +50,17 @@ export const UserNavItem = styled(NavLink)`
   gap: 8px;
   width: 100%;
   text-decoration: none;
-  color: #343434;
+  color: #34343480;
   margin-bottom: 18px;
   &.active {
     color: #3e85f3;
     background-color: #e3f3ff;
-
-    ${UserSVG}, ${CalendarSVG}, ${ChartSVG} {
-      fill: #3e85f3;
-    }
+    border-radius: 8px;
   }
   :hover:not(.active),
   :focus-visible:not(.active) {
     color: #3e85f3;
-
-    ${UserSVG}, ${CalendarSVG}, ${ChartSVG} {
-      fill: #3e85f3;
-    }
+    border-radius: 8px;
   }
   font-size: 14px;
   line-height: 1.21;

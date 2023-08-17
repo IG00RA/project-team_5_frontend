@@ -9,6 +9,7 @@ import {
   StyledTitle,
   StyledCloseButton,
   Overlay,
+  SpanSpec
 } from './SideBar.styled';
 import LogoutButton from '../Buttons/LogoutButton/LogoutButton';
 import GooseDeskLogo2x from '../../images/goose-logo/goose-logo-desktop-2x.webp';
@@ -61,7 +62,7 @@ useOnClickOutside(node, () => {
         <TopWrap>
           <StyledLogoWrapper>
             <SideBarImg src={`${GooseDeskLogo2x}`}/>
-            <StyledTitle>GooseTrack</StyledTitle>
+            <StyledTitle>G<SpanSpec>oo</SpanSpec>seTrack</StyledTitle>
           </StyledLogoWrapper>
           <StyledCloseButton onClick={handleCloseModalMenu}></StyledCloseButton>
         </TopWrap>
