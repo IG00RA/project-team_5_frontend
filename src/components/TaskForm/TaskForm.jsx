@@ -1,7 +1,10 @@
 import { Form } from "./TaskForm.styled";
+import { useOutletContext } from "react-router";
 
-export const TaskForm = ({ task, closeModal }) => {
-  
+export const TaskForm = ({ task, closeModal, ColumnTitle }) => {
+
+  const [, , updatedDate] = useOutletContext();
+
   return (
     <Form>
       <button type="button" onClick={closeModal}>Close</button>

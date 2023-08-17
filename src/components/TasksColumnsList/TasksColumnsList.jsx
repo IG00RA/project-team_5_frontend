@@ -14,7 +14,7 @@ export const TasksColumnsList = ({ tasks }) => {
   return (
     <List>
       {columnsList.map(item =>
-        <TasksColumn key={item} title={item} tasksColection={getTasksColection(item)}></TasksColumn>)}
+        <TasksColumn key={item} ColumnTitle={item} tasksColection={getTasksColection(item)}></TasksColumn>)}
     </List>
   );
 };

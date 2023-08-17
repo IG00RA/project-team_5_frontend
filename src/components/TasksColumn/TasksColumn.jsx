@@ -5,7 +5,7 @@ import { ColumnTasksList } from "../ColumnTasksList/ColumnTasksList";
 import { Item } from "./TasksColumn.styled";
 import { useState } from "react";
 
-export const TasksColumn = ({ title, tasksColection }) => {
+export const TasksColumn = ({ ColumnTitle, tasksColection }) => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [task, setTask] = useState(null);
@@ -17,11 +17,11 @@ export const TasksColumn = ({ title, tasksColection }) => {
   return (
     <>
       <Item>
-        <ColumnHeadBar title={title} openModal={openModal} />
+        <ColumnHeadBar ColumnTitle={ColumnTitle} openModal={openModal} />
         {tasksColection?.length !== 0 && <ColumnTasksList openModal={openModal} tasksColection={tasksColection} />}
         <AddTaskBtn openModal={openModal} />
       </Item>
-      <TaskModal task={task} isModalOpen={isModalOpen} closeModal={closeModal} />
+      <TaskModal ColumnTitle={ColumnTitle} task={task} isModalOpen={isModalOpen} closeModal={closeModal} />
     </>
   );
 };
