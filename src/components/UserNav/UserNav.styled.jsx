@@ -17,7 +17,7 @@ height: 24px;
 width: 24px;
 margin-right: 8px;
 stroke-width: 0;
-stroke: currentColor;
+fill: currentColor;
 `;
 
 export const UserNavWrap = styled.div`
