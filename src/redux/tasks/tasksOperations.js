@@ -17,7 +17,8 @@ export const getAllTasks = createAsyncThunk(
 
 export const addTask = createAsyncThunk('tasks/add', async (task, thunkAPI) => {
   try {
-    const res = await axios.post('/tasks', { task });
+
+    const res = await axios.post('/tasks', task);
     Notify.success('The task was created');
     return res.data;
   } catch (e) {
@@ -28,9 +29,10 @@ export const addTask = createAsyncThunk('tasks/add', async (task, thunkAPI) => {
 
 export const updateTask = createAsyncThunk(
   'tasks/update',
-  async (task, thunkAPI) => {
+  async (id, task, thunkAPI) => {
     try {
-      const res = await axios.patch(`/tasks/${task.id}`, { task });
+
+      const res = await axios.patch(`/tasks/${id}`, task);
       Notify.success('The task has been updated');
       return res.data;
     } catch (e) {

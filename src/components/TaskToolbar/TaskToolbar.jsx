@@ -3,7 +3,7 @@ import sprite from '../../images/svg-sprite/symbol-defs.svg';
 import { Wrapper, Icon } from './TaskToolbar.styled';
 import { deleteTask } from 'redux/tasks/tasksOperations';
 
-export const TaskToolbar = ({id}) => {
+export const TaskToolbar = ({id, openModal, task}) => {
   const dispatch = useDispatch();
 
   const handlerDeleteTask = (id) => {
@@ -17,7 +17,7 @@ export const TaskToolbar = ({id}) => {
           <use href={sprite + '#icon-icon-exit'}></use>
         </Icon>
       </button>
-      <button type='button'>
+      <button type='button' onClick={() => openModal(task)}>
         <Icon>
           <use href={sprite + '#icon-pencil'}></use>
         </Icon>
