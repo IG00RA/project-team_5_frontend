@@ -27,27 +27,26 @@ const MainLayout = () => {
   // ) :
   return (
     <>
-      <Suspense
-        fallback={
-          <div>
-            {/* Loading page... */}
-            <Loader />
-          </div>
-        }
-      >
-        <Container>
-          <SideBar
-            isModalMenuOpen={isModalMenuOpen}
-            closeModalMenu={setIsModalMenuOpen}
-          />
-          <Wrapper>
-            <Header openMenu={() => setIsModalMenuOpen(true)} />
+      <Container>
+        <SideBar
+          isModalMenuOpen={isModalMenuOpen}
+          closeModalMenu={setIsModalMenuOpen}
+        />
+        <Wrapper>
+          <Header openMenu={() => setIsModalMenuOpen(true)} />
+          <Suspense
+            fallback={
+              <div>
+                <Loader />
+              </div>
+            }
+          >
             <main>
               <Outlet />
             </main>
-          </Wrapper>
-        </Container>
-      </Suspense>
+          </Suspense>
+        </Wrapper>
+      </Container>
     </>
   );
 };
