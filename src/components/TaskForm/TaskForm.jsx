@@ -6,11 +6,7 @@ import { useDispatch } from 'react-redux';
 import { addTask } from 'redux/tasks/tasksOperations';
 import moment from 'moment';
 
-const timeRegexp = /^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/;
-
-const Schema = Yup.object({
-  start: Yup.string().matches(timeRegexp).required(),
-});
+const Schema = Yup.object({});
 
 export const TaskForm = ({ task: {title = '', start = moment().format('HH:mm'), end = moment().add(1, 'hour').format('HH:mm'), priority = ''}, closeModal, ColumnTitle }) => {
 
