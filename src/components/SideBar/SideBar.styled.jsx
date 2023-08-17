@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const SideBarWrap = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   position: fixed;
   z-index: 2;
   box-sizing: border-box;
@@ -17,7 +16,7 @@ export const SideBarWrap = styled.div`
     padding: 32px;
   }
 
-  @media screen and (max-width: 1440px) {
+  @media screen and (max-width: 1439.5px) {
     left: 0;
     transform: translateX(-100%);
     transition: transform 350ms ease-in-out;
@@ -39,11 +38,12 @@ export const Overlay = styled.div`
 `;
 
 export const StyledTitle = styled.span`
+  display: flex;
+  flex-direction: row;
   color: #3e85f3;
-  margin: 0;
   font-family: 'Coolvetica';
   font-size: 16px;
-  line-height: 1.375;
+  line-height: 24px;
   font-weight: 400;
   text-shadow: 0px 47px 355px rgba(0, 0, 0, 0.07),
     0px 9.4px 57.6875px rgba(0, 0, 0, 0.035);
@@ -58,6 +58,17 @@ export const StyledTitle = styled.span`
     line-height: 1;
   }
 `;
+
+export const SpanSpec = styled.p` 
+    font-style: italic;
+    @media (min-width: 768px) {
+      font-size: 18px;
+    }
+    @media (min-width: 1440px) {
+      font-size: 24px;
+    }
+`;
+
 export const TopWrap = styled.div`
   display: flex;
   align-items: center;
