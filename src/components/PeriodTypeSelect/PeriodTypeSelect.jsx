@@ -5,7 +5,7 @@ const PeriodTypeSelect = () => {
   return (
     <BtnWrapper>
       <PeriodTypeBtn
-        activeClassName="active"
+        $activeClassName="active"
         type="month"
         $isMonth
         to={`month/${moment().format('YYYY-MM-DD')}`}
@@ -13,7 +13,7 @@ const PeriodTypeSelect = () => {
         Month
       </PeriodTypeBtn>
       <PeriodTypeBtn
-        activeClassName="active"
+        $activeClassName="active"
         type="day"
         to={`day/${moment().format('YYYY-MM-DD')}`}
       >
