@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
 export const SideBarWrap = styled.div`
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
-  position: fixed;
-  z-index: 2;
+  /* position: fixed; */
+  /* z-index: 2; */
   box-sizing: border-box;
-  height: 100vh;
+  /* height: 100vh; */
   width: 225px;
   padding: 24px 20px;
   background-color: #ffffff;
@@ -14,6 +14,13 @@ export const SideBarWrap = styled.div`
   @media screen and (min-width: 768px) {
     width: 289px;
     padding: 32px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 289px;
+    padding: 24px;
+    display: flex;
+    justify-content: space-between;
   }
 
   @media screen and (max-width: 1439.5px) {
@@ -45,7 +52,8 @@ export const StyledTitle = styled.span`
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
-  text-shadow: 0px 47px 355px rgba(0, 0, 0, 0.07),
+  text-shadow:
+    0px 47px 355px rgba(0, 0, 0, 0.07),
     0px 9.4px 57.6875px rgba(0, 0, 0, 0.035);
 
   @media screen and (min-width: 768px) {
@@ -59,33 +67,39 @@ export const StyledTitle = styled.span`
   }
 `;
 
-export const SpanSpec = styled.p` 
-    font-style: italic;
-    @media (min-width: 768px) {
-      font-size: 18px;
-    }
-    @media (min-width: 1440px) {
-      font-size: 24px;
-    }
+export const SpanSpec = styled.p`
+  font-style: italic;
+  @media (min-width: 768px) {
+    font-size: 18px;
+  }
+  @media (min-width: 1440px) {
+    font-size: 24px;
+  }
 `;
 
 export const TopWrap = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 39px;
-}
+  margin-bottom: 32px;
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: center;
+  margin-right: 39px; */
 `;
+
+export const LogoAndNavWrap = styled.div``;
 
 export const StyledLogoWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 64px;
-  
+
   @media (min-width: 768px) {
-    margin-bottom: 32px;
-}
+    /* margin-bottom: 32px; */
+  }
+  @media (min-width: 1440px) {
+    justify-content: flex-start;
+    margin-bottom: 0px;
+  }
 `;
 
 export const SideBarImg = styled.img`

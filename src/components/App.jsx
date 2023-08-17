@@ -11,7 +11,7 @@ import { selectTheme } from 'redux/user/selectors';
 import { ThemeProvider } from 'styled-components';
 import { theme, userDarkTheme } from '../utils/theme';
 import Loader from './loader/loader';
-import MainLayout from 'pages/MainLayout';
+import MainLayout from 'pages/MainLayout/MainLayout';
 
 const HomePage = lazy(() => import('../pages/Home'));
 const RegisterPage = lazy(() => import('../pages/Register/Register'));

@@ -2,22 +2,22 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 export const StyledIcon = styled.svg`
-display: inline-block;
-height: 24px;
-width: 24px;
-margin-right: 8px;
-stroke-width: 0;
-stroke: currentColor;
-fill: transparent;
+  display: inline-block;
+  height: 24px;
+  width: 24px;
+  margin-right: 8px;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: transparent;
 `;
 
 export const StyledIconChart = styled.svg`
-display: inline-block;
-height: 24px;
-width: 24px;
-margin-right: 8px;
-stroke-width: 0;
-fill: currentColor;
+  display: inline-block;
+  height: 24px;
+  width: 24px;
+  margin-right: 8px;
+  stroke-width: 0;
+  fill: currentColor;
 `;
 
 export const UserNavWrap = styled.div`
@@ -27,12 +27,10 @@ export const UserNavWrap = styled.div`
   width: 185px;
 
   @media screen and (min-width: 768px) {
-    margin-top: 32px;
     width: 225px;
   }
 
   @media screen and (min-width: 1440px) {
-    margin-top: 32px;
     width: 241px;
   }
 `;
