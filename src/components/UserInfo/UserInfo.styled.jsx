@@ -11,7 +11,7 @@ export const Container = styled.div`
 `;
 
 export const UserName = styled.p`
-  color: ${props => props.theme.colors?.grey || '#343434'};
+  color: ${props => props.theme.colors.header.userText};
   font-size: 14px;
   font-weight: 700;
   line-height: calc(18 / 18);
@@ -39,7 +39,7 @@ export const AvatarImg = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border: 2px solid ${props => props.theme.colors?.blue || '#3e85f3'};
+  border: 2px solid ${props => props.theme.colors.header.accent};
   border-radius: 50%;
 `;
 
@@ -51,16 +51,18 @@ export const AvatarTextContainer = styled.div`
   width: 100%;
   height: 100%;
 
-  background-color: ${props => props.theme.colors?.darkBG || '#171820'};
+  background-color: ${props => props.theme.colors.header.avatarBg};
+  border: 2px solid ${props => props.theme.colors.header.accent};
+  border-radius: 50%;
 `;
 
 export const AvatarText = styled.span`
-  font-size: 38px;
+  font-size: 22px;
   font-weight: 600;
-  color: ${props => props.theme.colors?.greySub || '#84828a'};
+  color: ${props => props.theme.colors.header.avatarText};
 
   @media screen and (min-width: 768px) {
-    font-size: 60px;
+    font-size: 32px;
   }
 `;
 

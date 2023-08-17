@@ -9,7 +9,7 @@ import moment from 'moment';
 import { selectIsRefreshing } from 'redux/auth/selectors';
 import { selectTheme } from 'redux/user/selectors';
 import { ThemeProvider } from 'styled-components';
-import { theme, userDarkTheme } from '../utils/theme';
+import { darkTheme, lightTheme } from '../utils/theme';
 import Loader from './loader/loader';
 import MainLayout from 'pages/MainLayout';
 
@@ -32,7 +32,7 @@ export const App = () => {
     dispatch(refreshUser());
   }, [dispatch]);
   return (
-    <ThemeProvider theme={userTheme === 'dark' ? userDarkTheme : theme}>
+    <ThemeProvider theme={userTheme === 'dark' ? darkTheme : lightTheme}>
       {isRefreshing ? (
         <Loader />
       ) : (

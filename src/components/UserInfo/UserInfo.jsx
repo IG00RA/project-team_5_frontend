@@ -15,6 +15,8 @@ export const UserInfo = () => {
   const user = useSelector(selectUser);
   const name = user.userName ? user.userName.split(' ')[0] : user.userName;
 
+  console.log(user.userName);
+
   return (
     <Container>
       <ThemeToggler />
@@ -27,7 +29,7 @@ export const UserInfo = () => {
         ) : (
           <AvatarContainer>
             <AvatarTextContainer>
-              <AvatarText>{user.userName}</AvatarText>
+              <AvatarText>{user.userName ? user.userName[0] : ''}</AvatarText>
             </AvatarTextContainer>
           </AvatarContainer>
         )}
