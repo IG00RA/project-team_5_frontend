@@ -42,6 +42,7 @@ const fetchUserReducer = (state, { payload }) => {
 const toggleThemeReducer = (state, { payload }) => {
   const { theme } = payload;
   state.theme = theme;
+  state.isLoading = false;
 };
 
 const initialState = {
