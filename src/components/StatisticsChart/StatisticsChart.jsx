@@ -8,24 +8,6 @@ import {
   Legend,
 } from 'recharts';
 
-const data = [
-  {
-    name: 'To Do',
-    byDay: 40,
-    byMonth: 84,
-  },
-  {
-    name: 'In Progress',
-    byDay: 30,
-    byMonth: 13,
-  },
-  {
-    name: 'Done',
-    byDay: 60,
-    byMonth: 98,
-  },
-];
-
 export default function StatisticsChart({
   selectedDate,
   setSelectedDate,
@@ -61,6 +43,24 @@ export default function StatisticsChart({
     (filteredTasksByMonth.filter(task => task.category === 'done').length /
       allTasksByMonth) *
     100;
+
+  const data = [
+    {
+      name: 'To Do',
+      byDay: toDoByDayPercent,
+      byMonth: toDoByMonthPercent,
+    },
+    {
+      name: 'In Progress',
+      byDay: inProgressByDayPercent,
+      byMonth: inProgressByMonthPercent,
+    },
+    {
+      name: 'Done',
+      byDay: doneByDayPercent,
+      byMonth: doneByMonthPercent,
+    },
+  ];
 
   console.log(allTasksByDay);
   console.log(toDoByDayPercent);

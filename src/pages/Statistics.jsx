@@ -10,15 +10,19 @@ import {
 } from 'redux/tasks/tasksSelectors';
 import { getAllTasks } from 'redux/tasks/tasksOperations';
 import moment from 'moment';
+// import { useParams } from 'react-router';
 
 export default function Statistics() {
   const tasks = useSelector(selectTasks);
   const dispatch = useDispatch();
+  // const { currentDay } = useParams();
 
   const [selectedDate, setSelectedDate] = useState(
-    moment().format('YYYY-MM-DD')
+    moment().subtract(1, 'days').format('YYYY-MM-DD')
   );
+
   console.log(selectedDate);
+
   const filteredTasksByDate = selectFilteredTasksByDate(tasks, selectedDate);
 
   const filteredTasksByMonth = selectFilteredTasksByMonth(tasks, selectedDate);
@@ -26,6 +30,14 @@ export default function Statistics() {
   useEffect(() => {
     dispatch(getAllTasks());
   }, [dispatch, selectedDate]);
+
+  // const prevMonthHandler = () => {
+  //   setSelectedDate(prev => prev.clone().subtract(1, 'day'));
+  // };
+
+  // const nextMonthHandler = () => {
+  //   setSelectedDate(prev => prev.clone().add(1, 'day'));
+  // };
 
   console.log(tasks);
   console.log(filteredTasksByDate);
