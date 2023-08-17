@@ -11,6 +11,15 @@ stroke: currentColor;
 fill: transparent;
 `;
 
+export const StyledIconChart = styled.svg`
+display: inline-block;
+height: 24px;
+width: 24px;
+margin-right: 8px;
+stroke-width: 0;
+stroke: currentColor;
+`;
+
 export const UserNavWrap = styled.div`
   box-sizing: border-box;
   font-family: 'Inter';

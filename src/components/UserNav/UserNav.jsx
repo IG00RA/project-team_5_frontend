@@ -1,6 +1,7 @@
 import moment from 'moment';
 import {
   StyledIcon,
+  StyledIconChart,
   UserNavWrap,
   UserNavTitle,
   UserNavItem,
@@ -34,9 +35,9 @@ const UserNav = ({ closeModalMenu }) => {
         {`Calendar`}
       </UserNavItem>
       <UserNavItem to="/statistics" onClick={handleCloseModalMenu}>
-      <StyledIcon>
+      <StyledIconChart>
            <use href={sprite + '#icon-nav-chart'} />
-        </StyledIcon>
+        </StyledIconChart>
         {`Statistics`}
       </UserNavItem>
     </UserNavWrap>
