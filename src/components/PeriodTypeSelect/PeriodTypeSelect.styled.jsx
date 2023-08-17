@@ -26,8 +26,17 @@ export const PeriodTypeBtn = styled(NavLink)`
     box-shadow: 0px 1px 7px 1px rgba(0, 0, 0, 0.1);
   }
 
-  &:active {
-    background-color: #cae8ff;
+  &.active {
+    background-color: ${p => {
+      switch (p.type) {
+        case 'month':
+          return '#cae8ff';
+        case 'day':
+          return '#cae8ff';
+        default:
+          return;
+      }
+    }};
   }
 
   @media screen and (min-width: 768px) {

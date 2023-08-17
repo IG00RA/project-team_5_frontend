@@ -20,6 +20,7 @@ export const Period = styled.div`
   border-radius: 8px;
   padding: 6px 12px;
   background-color: #3e85f3;
+  box-shadow: 4px 2px 16px 0px rgba(136, 165, 191, 0.48);
   color: #fff;
 
   @media screen and (min-width: 768px) {
