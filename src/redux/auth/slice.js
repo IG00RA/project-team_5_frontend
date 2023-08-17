@@ -6,7 +6,6 @@ import {
   logout,
   register,
   refreshUser,
-  toggleTheme,
 } from './operations';
 
 const initialState = {
@@ -92,11 +91,6 @@ const refreshReducer = state => {
   state.isRefreshing = false;
 };
 
-const toggleThemeReducer = (state, { payload }) => {
-  const { theme } = payload;
-  state.theme = theme;
-};
-
 const authSlice = createSlice({
   name: 'auth',
   initialState,
@@ -116,10 +110,7 @@ const authSlice = createSlice({
       .addCase(register.rejected, rejectedReducer)
       .addCase(refreshUser.pending, pendingRefreshReducer)
       .addCase(refreshUser.fulfilled, refreshReducer)
-      .addCase(refreshUser.rejected, rejectedRefreshReducer)
-      .addCase(toggleTheme.pending, pendingReducer)
-      .addCase(toggleTheme.fulfilled, toggleThemeReducer)
-      .addCase(toggleTheme.rejected, rejectedReducer),
+      .addCase(refreshUser.rejected, rejectedRefreshReducer),
 });
 
 export const authReducer = authSlice.reducer;

@@ -6,9 +6,10 @@ import PrivateRoute from './PrivateRoute';
 import { useDispatch, useSelector } from 'react-redux';
 import { refreshUser } from 'redux/auth/operations';
 import moment from 'moment';
-import { selectIsRefreshing, selectTheme } from 'redux/auth/selectors';
+import { selectIsRefreshing } from 'redux/auth/selectors';
+import { selectTheme } from 'redux/user/selectors';
 import { ThemeProvider } from 'styled-components';
-import { theme } from '../utils/theme';
+import { theme, userDarkTheme } from '../utils/theme';
 import Loader from './loader/loader';
 import MainLayout from 'pages/MainLayout';
 
@@ -31,7 +32,7 @@ export const App = () => {
     dispatch(refreshUser());
   }, [dispatch]);
   return (
-    <ThemeProvider theme={userTheme === 'dark' ? theme : {}}>
+    <ThemeProvider theme={userTheme === 'dark' ? userDarkTheme : theme}>
       {isRefreshing ? (
         <Loader />
       ) : (
