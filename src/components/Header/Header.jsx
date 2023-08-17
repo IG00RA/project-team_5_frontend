@@ -1,3 +1,4 @@
+import {useState} from 'react';
 import { useLocation } from 'react-router-dom';
 import FeedbackButton from '../Buttons/FeedbackButton/FeedbackButton';
 import { UserInfo } from '../UserInfo/UserInfo';
@@ -10,10 +11,18 @@ import {
   UserWrap,
   Wrap,
 } from './Header.styled';
+import { AddFeedbackModal } from 'components/AddFeedbackModal/AddFeedbackModal';
 
 const Header = ({ openMenu }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const location = useLocation();
   const currentPath = location.pathname;
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
 
   // const { currentDay } = useParams();
   // const pageCalendarDay = currentPath.startsWith('/calendar/day');
@@ -58,8 +67,9 @@ const Header = ({ openMenu }) => {
         </MenuIcon>
 
         <UserWrap>
-          <FeedbackButton />
+          <FeedbackButton onClick={openModal} />
           <UserInfo />
+          <AddFeedbackModal isOpen={isModalOpen} onRequestClose={closeModal} handleClose={closeModal}/>
         </UserWrap>
       </Wrap>
     </>

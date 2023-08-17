@@ -9,6 +9,7 @@ import moment from 'moment';
 import { selectIsRefreshing, selectTheme } from 'redux/auth/selectors';
 import { ThemeProvider } from 'styled-components';
 import { theme } from '../utils/theme';
+import Loader from './loader/loader';
 import MainLayout from 'pages/MainLayout';
 
 const HomePage = lazy(() => import('../pages/Home'));
@@ -32,7 +33,7 @@ export const App = () => {
   return (
     <ThemeProvider theme={userTheme === 'dark' ? theme : {}}>
       {isRefreshing ? (
-        <b>Goose loader// Refreshing user...</b>
+        <Loader />
       ) : (
         <Suspense fallback={null}>
           <Routes>

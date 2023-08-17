@@ -5,16 +5,13 @@ import {
   Period,
 } from './PeriodPaginator.styled';
 
-export default function PeriodPaginator({
-  period,
-  selectedDay,
-  setSelectedDay,
-  setUpdatedDate,
-}) {
-  const checkDaysOfWeek = selectedDay.format('ddd');
+
+export default function PeriodPaginator({ isChoosedDay, selectedDay, updatedDate, setSelectedDay, setUpdatedDate }) {
+  const checkDaysOfWeek = updatedDate.format('ddd');
+
 
   const prevMonthHandler = () => {
-    if (!period) {
+    if (!isChoosedDay) {
       setSelectedDay(prev => prev.clone().subtract(1, 'month'));
       return;
     }
@@ -23,7 +20,7 @@ export default function PeriodPaginator({
   };
 
   const nextMonthHandler = () => {
-    if (!period) {
+    if (!isChoosedDay) {
       setSelectedDay(prev => prev.clone().add(1, 'month'));
       return;
     }
@@ -33,24 +30,10 @@ export default function PeriodPaginator({
 
   return (
     <PaginatorWrapper>
-      <Period>
-        {period
-          ? selectedDay.format('DD MMM YYYY')
-          : selectedDay.format('MMMM YYYY')}
-      </Period>
+      <Period>{isChoosedDay ? updatedDate.format('DD MMM YYYY') : selectedDay.format('MMMM YYYY')}</Period>
       <div>
-        <BtnPrev
-          disabled={checkDaysOfWeek === 'Mon'}
-          onClick={prevMonthHandler}
-        >
-          &lt;
-        </BtnPrev>
-        <BtnNext
-          disabled={checkDaysOfWeek === 'Sun'}
-          onClick={nextMonthHandler}
-        >
-          &gt;
-        </BtnNext>
+        <BtnPrev disabled={isChoosedDay && checkDaysOfWeek === 'Mon'} onClick={prevMonthHandler}>&lt;</BtnPrev>
+        <BtnNext disabled={isChoosedDay && checkDaysOfWeek === 'Sun'} onClick={nextMonthHandler}>&gt;</BtnNext>
       </div>
     </PaginatorWrapper>
   );
