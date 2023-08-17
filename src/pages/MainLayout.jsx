@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import SideBar from '../components/SideBar/SideBar';
 import { Container, Wrapper } from './MainLayout.styled';
 import { Outlet } from 'react-router-dom';
@@ -26,8 +26,8 @@ const MainLayout = () => {
   //   <Loader />
   // ) :
   return (
-    <>    
-<Suspense
+    <>
+      <Suspense
         fallback={
           <div>
             {/* Loading page... */}
@@ -35,19 +35,19 @@ const MainLayout = () => {
           </div>
         }
       >
-      <Container>
-        <SideBar
-          isModalMenuOpen={isModalMenuOpen}
-          closeModalMenu={setIsModalMenuOpen}
-        />
-        <Wrapper>
-          <Header openMenu={() => setIsModalMenuOpen(true)} />
-          <main>
-            <Outlet />
-          </main>
-        </Wrapper>
-      </Container>
-</Suspense>
+        <Container>
+          <SideBar
+            isModalMenuOpen={isModalMenuOpen}
+            closeModalMenu={setIsModalMenuOpen}
+          />
+          <Wrapper>
+            <Header openMenu={() => setIsModalMenuOpen(true)} />
+            <main>
+              <Outlet />
+            </main>
+          </Wrapper>
+        </Container>
+      </Suspense>
     </>
   );
 };
