@@ -18,21 +18,21 @@ const UserNav = ({ closeModalMenu }) => {
 
   return (
     <UserNavWrap>
-      <UserNavTitle>{`sidebar.User Panel`} </UserNavTitle>
+      <UserNavTitle>{`User Panel`} </UserNavTitle>
       <UserNavItem to="/account" onClick={handleCloseModalMenu}>
         <UserSVG style={{ marginRight: 8, width: 20, height: 20 }} />{' '}
-        {`sidebar.My Account`}
+        {`My Account`}
       </UserNavItem>
       <UserNavItem
         to={`/calendar/month/${currentDay.format('YYYY-MM-DD')}`}
         onClick={handleCloseModalMenu}
       >
         <CalendarSVG style={{ marginRight: 8, width: 20, height: 20 }} />{' '}
-        {`sidebar.Calendar`}
+        {`Calendar`}
       </UserNavItem>
       <UserNavItem to="/statistics" onClick={handleCloseModalMenu}>
         <ChartSVG style={{ marginRight: 8, width: 20, height: 20 }} />{' '}
-        {`sidebar.Statistics`}
+        {`Statistics`}
       </UserNavItem>
     </UserNavWrap>
   );
