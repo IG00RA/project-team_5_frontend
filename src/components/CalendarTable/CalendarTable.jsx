@@ -43,7 +43,10 @@ const CalendarTable = ({ startDay, selectedDay }) => {
         >
           <RowInCell>
             <ShowDayWrapper>
-              <DayWrapper $isSelectedMonth={isSelectedMonth(dayItem)}>
+              <DayWrapper
+                $isNotCurrentDay
+                $isSelectedMonth={isSelectedMonth(dayItem)}
+              >
                 {isCurrentDay(dayItem) ? (
                   <CurrentDay>{dayItem.format('D')}</CurrentDay>
                 ) : (
