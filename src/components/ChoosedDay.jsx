@@ -10,7 +10,7 @@ import moment from "moment";
 
 export default function ChoosedDay() {
   const { currentDay } = useParams();
-  const [, setPeriod, updatedDate, setUpdatedDate, setSelectedDay] = useOutletContext();
+  const [, setIsChoosedDay, updatedDate, setUpdatedDate, setSelectedDay] = useOutletContext();
   const dispatch = useDispatch();
   const tasks = useSelector(selectTasks);
   const formatUpdatedDate = updatedDate.format('YYYY-MM-DD');
@@ -21,12 +21,12 @@ export default function ChoosedDay() {
   }, [dispatch, updatedDate, tasks]);
 
   useEffect(() => {
-    setPeriod(true);
+    setIsChoosedDay(true);
     setUpdatedDate(moment(new Date(currentDay.split('-'))));
 
-    return () => { setPeriod(false); setSelectedDay(moment()) };
+    return () => { setIsChoosedDay(false); setSelectedDay(moment()) };
 
-  }, [setPeriod, currentDay, setUpdatedDate, setSelectedDay ]);
+  }, [setIsChoosedDay, currentDay, setUpdatedDate, setSelectedDay ]);
 
   return (
     <div>
