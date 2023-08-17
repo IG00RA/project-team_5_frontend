@@ -1,24 +1,20 @@
 // import { useEffect } from 'react';
-import { useState } from 'react';
+// import { useState } from 'react';
 // import { useDispatch } from 'react-redux';
 import ModalContainer from '../Modal/ModalConatiner';
+import { FeedbackForm } from 'components/FeedbackForm/FeedbackForm';
 import {
-  FeedBackTitle,
   CloseBtn,
   CloseIcon,
-  Box,
-  FeedBackForm,
-  FeedBackArea,
   FeedBackModalStyles,
-  FeedBackFormBtn,
 } from './feedBackModal.styled';
 import svgSprite from '../../images/svg-sprite/symbol-defs.svg';
 
 export const AddFeedbackModal = ({ isOpen, onRequestClose, handleClose }) => {
-  const [isSubmit] = useState(false);
+  // const [isSubmit] = useState(false);
   return (
     <ModalContainer isOpen={isOpen} onRequestClose={onRequestClose}>
-      <FeedBackForm>
+      {/* <FeedBackForm>
       <FeedBackTitle>Rating</FeedBackTitle>
       <Box className='mask-star-2'/>
       <FeedBackTitle>Review</FeedBackTitle>
@@ -27,8 +23,9 @@ export const AddFeedbackModal = ({ isOpen, onRequestClose, handleClose }) => {
       <FeedBackFormBtn type='submit' className='submit-btn'>{isSubmit === false ? 'Save' : 'Edit'}</FeedBackFormBtn>
       <FeedBackFormBtn type='button' className='cancel-btn' onClick={handleClose}>Cancel</FeedBackFormBtn>
       </Box>
-      </FeedBackForm>
-      <CloseBtn type='button' onClick={handleClose}>
+      </FeedBackForm> */}
+      <FeedbackForm handleClose={handleClose} />
+      <CloseBtn type="button" onClick={handleClose}>
         <CloseIcon className="feedBackModalClose" width="24" height="24">
           <use href={svgSprite + `#icon-x-close`} />
         </CloseIcon>
