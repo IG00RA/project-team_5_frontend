@@ -33,6 +33,7 @@ export const CellWrapper = styled(Link)`
   min-width: 30px;
   min-height: 40px;
 
+  /* overflow: hidden; */
   overflow-y: scroll;
   scrollbar-width: none;
 
@@ -130,6 +131,15 @@ export const TasksListWrapper = styled.ul`
   list-style-position: inside;
   padding-left: 2px;
   padding-right: 2px;
+
+  /* overflow: hidden; */
+  /* overflow-y: scroll;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  } */
 
   @media screen and (min-width: 768px) {
     padding-left: 4px;
