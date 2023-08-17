@@ -1,11 +1,24 @@
 import moment from 'moment';
-import { BtnDay, BtnMonth, BtnWrapper } from './PeriodTypeSelect.styled';
+import { BtnWrapper, PeriodTypeBtn } from './PeriodTypeSelect.styled';
 
 const PeriodTypeSelect = () => {
   return (
     <BtnWrapper>
-      <BtnMonth to={`month/${moment().format('YYYY-MM-DD')}`}>Month</BtnMonth>
-      <BtnDay to={`day/${moment().format('YYYY-MM-DD')}`}>Day</BtnDay>
+      <PeriodTypeBtn
+        $activeClassName="active"
+        type="month"
+        $isMonth
+        to={`month/${moment().format('YYYY-MM-DD')}`}
+      >
+        Month
+      </PeriodTypeBtn>
+      <PeriodTypeBtn
+        $activeClassName="active"
+        type="day"
+        to={`day/${moment().format('YYYY-MM-DD')}`}
+      >
+        Day
+      </PeriodTypeBtn>
     </BtnWrapper>
   );
 };
