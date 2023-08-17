@@ -3,12 +3,12 @@ import * as Yup from 'yup';
 import { Form } from "./TaskForm.styled";
 import { useOutletContext } from "react-router";
 import { useDispatch } from 'react-redux';
-import { addTask } from 'redux/tasks/tasksOperations';
+import { addTask, updateTask } from 'redux/tasks/tasksOperations';
 import moment from 'moment';
 
 const Schema = Yup.object({});
 
-export const TaskForm = ({ task: {title = '', start = moment().format('HH:mm'), end = moment().add(1, 'hour').format('HH:mm'), priority = ''}, closeModal, ColumnTitle }) => {
+export const TaskForm = ({ task: {_id, title = '', start = moment().format('HH:mm'), end = moment().add(1, 'hour').format('HH:mm'), priority = ''}, closeModal, ColumnTitle }) => {
 
   const [, , updatedDate] = useOutletContext();
   const dispatch = useDispatch();
@@ -24,9 +24,17 @@ export const TaskForm = ({ task: {title = '', start = moment().format('HH:mm'), 
     validationSchema: Schema,
     onSubmit: (value, { resetForm }) => {
       const request = { ...value, category: normalizedStringCategory, date: updatedDate.format('YYYY-MM-DD') };
-      dispatch(addTask(request));
+      if (!_id) {
+        dispatch(addTask(request));
+        resetForm();
+        closeModal();
+        return
+      }
+      console.log(request)
+      dispatch(updateTask(_id, request));
       resetForm();
       closeModal();
+      return
     }
   });
 
@@ -41,7 +49,7 @@ export const TaskForm = ({ task: {title = '', start = moment().format('HH:mm'), 
       <input type="radio" name="priority" value='medium' onChange={formik.handleChange} />
       <input type="radio" name="priority" value='high' onChange={formik.handleChange} />
 
-      <button type="submit">{!title ? 'Add' : 'Edit'}</button>
+      <button type="submit">{!_id ? 'Add' : 'Edit'}</button>
       <button type="button" onClick={closeModal}>Close</button>
     </Form>
   );
