@@ -1,13 +1,12 @@
 import moment from 'moment';
 import {
-  UserSVG,
-  CalendarSVG,
-  ChartSVG,
+  StyledIcon,
   UserNavWrap,
   UserNavTitle,
   UserNavItem,
 } from './UserNav.styled';
 import React from 'react';
+import sprite from '../../images/svg-sprite/symbol-defs.svg';
 
 const UserNav = ({ closeModalMenu }) => {
   const currentDay = moment();
@@ -20,18 +19,24 @@ const UserNav = ({ closeModalMenu }) => {
     <UserNavWrap>
       <UserNavTitle>{`User Panel`} </UserNavTitle>
       <UserNavItem to="/account" onClick={handleCloseModalMenu}>
-        <UserSVG style={{ marginRight: 8, width: 20, height: 20 }} />{' '}
+      <StyledIcon>
+            <use href={sprite + '#icon-user-check'} />
+        </StyledIcon>
         {`My Account`}
       </UserNavItem>
       <UserNavItem
         to={`/calendar/month/${currentDay.format('YYYY-MM-DD')}`}
         onClick={handleCloseModalMenu}
       >
-        <CalendarSVG style={{ marginRight: 8, width: 20, height: 20 }} />{' '}
+        <StyledIcon>
+             <use href={sprite + '#icon-nav-calendar'} />
+         </StyledIcon>
         {`Calendar`}
       </UserNavItem>
       <UserNavItem to="/statistics" onClick={handleCloseModalMenu}>
-        <ChartSVG style={{ marginRight: 8, width: 20, height: 20 }} />{' '}
+      <StyledIcon>
+           <use href={sprite + '#icon-nav-chart'} />
+        </StyledIcon>
         {`Statistics`}
       </UserNavItem>
     </UserNavWrap>

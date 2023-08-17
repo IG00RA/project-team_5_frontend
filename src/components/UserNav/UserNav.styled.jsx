@@ -1,12 +1,15 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
-import { ReactComponent as UserIcon } from '../../images/svg/user-check.svg';
-import { ReactComponent as CalendarIcon } from '../../images/svg/nav-calendar.svg';
-import { ReactComponent as ChartIcon } from '../../images/svg/nav-chart.svg';
 
-export const UserSVG = styled(UserIcon)``;
-export const CalendarSVG = styled(CalendarIcon)``;
-export const ChartSVG = styled(ChartIcon)``;
+export const StyledIcon = styled.svg`
+display: inline-block;
+height: 18px;
+width: 18px;
+margin-right: 8px;
+stroke-width: 0;
+stroke: currentColor;
+fill: transparent;
+`;
 
 export const UserNavWrap = styled.div`
   box-sizing: border-box;

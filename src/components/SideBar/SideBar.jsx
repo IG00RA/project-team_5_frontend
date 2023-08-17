@@ -44,35 +44,44 @@ useOnClickOutside(node, () => {
   }
 });
 
-  useEffect(() => {
-    const close = e => {
-        closeModalMenu(false);
-    };
-    isModalMenuOpen && window.addEventListener('keydown', close);
-    return () => window.removeEventListener('keydown', close);
-  }, [isModalMenuOpen, closeModalMenu]);
+const handleCloseModalMenu = () => {
+  closeModalMenu(false);
 
-  const handleCloseModalMenu = () => {
+  if (isModalMenuOpen) {
+    document.body.style.overflow = 'hidden';
+  } else {
+    document.body.style.overflow = 'auto';
+  }
+};
+
+useEffect(() => {
+  const close = e => {
     closeModalMenu(false);
   };
+  isModalMenuOpen && window.addEventListener('keydown', close);
+  return () => {
+    window.removeEventListener('keydown', close);
+    document.body.style.overflow = 'auto';
+  };
+}, [isModalMenuOpen, closeModalMenu]);
 
-  return (
-    <>
-      <SideBarWrap className={isModalMenuOpen && 'openModalMenu'} ref={node}>
-        <TopWrap>
-          <StyledLogoWrapper>
-            <SideBarImg src={`${GooseDeskLogo2x}`}/>
-            <StyledTitle>G<SpanSpec>oo</SpanSpec>seTrack</StyledTitle>
-          </StyledLogoWrapper>
-          <StyledCloseButton onClick={handleCloseModalMenu}></StyledCloseButton>
-        </TopWrap>
+return (
+  <>
+    <SideBarWrap className={isModalMenuOpen && 'openModalMenu'} ref={node}>
+      <TopWrap>
+        <StyledLogoWrapper>
+          <SideBarImg src={`${GooseDeskLogo2x}`} />
+          <StyledTitle>G<SpanSpec>oo</SpanSpec>seTrack</StyledTitle>
+        </StyledLogoWrapper>
+        <StyledCloseButton onClick={handleCloseModalMenu}></StyledCloseButton>
+      </TopWrap>
 
-        <UserNav closeModalMenu={closeModalMenu} />
-        <LogoutButton onClick={handleLogOut}/>
-      </SideBarWrap>
-      {isModalMenuOpen && <Overlay onClick={handleCloseModalMenu} />}
-    </>
-  );
+      <UserNav closeModalMenu={closeModalMenu} />
+      <LogoutButton onClick={handleLogOut} />
+    </SideBarWrap>
+    {isModalMenuOpen && <Overlay onClick={handleCloseModalMenu} />}
+  </>
+);
 };
 
 export default SideBar;
