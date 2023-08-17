@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { changeProfile, fetchUser } from './operations';
+import { changeProfile, fetchUser, toggleTheme } from './operations';
 
 const pendingReducer = state => {
   state.isLoading = true;
@@ -39,6 +39,15 @@ const fetchUserReducer = (state, { payload }) => {
   state.error = null;
 };
 
+<<<<<<< HEAD
+=======
+const toggleThemeReducer = (state, { payload }) => {
+  const { theme } = payload;
+  state.theme = theme;
+  state.isLoading = false;
+};
+
+>>>>>>> dev
 const initialState = {
   userName: null,
   birthday: null,
@@ -61,7 +70,14 @@ const userSlice = createSlice({
       .addCase(changeProfile.rejected, rejectedReducer)
       .addCase(fetchUser.pending, pendingReducer)
       .addCase(fetchUser.fulfilled, fetchUserReducer)
+<<<<<<< HEAD
       .addCase(fetchUser.rejected, rejectedReducer),
+=======
+      .addCase(fetchUser.rejected, rejectedReducer)
+      .addCase(toggleTheme.pending, pendingReducer)
+      .addCase(toggleTheme.fulfilled, toggleThemeReducer)
+      .addCase(toggleTheme.rejected, rejectedReducer),
+>>>>>>> dev
 });
 
 export const userReducer = userSlice.reducer;

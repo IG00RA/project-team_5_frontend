@@ -1,16 +1,20 @@
-import { useOutletContext } from "react-router";
-import { useParams } from "react-router";
-import { DayCalendarHead } from "./DayCalendarHead/DayCalendarHead";
-import { TasksColumnsList } from "./TasksColumnsList/TasksColumnsList";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getAllTasks } from "redux/tasks/tasksOperations";
-import { selectFilteredTasksByDate, selectTasks } from "redux/tasks/tasksSelectors";
-import moment from "moment";
+import { useOutletContext } from 'react-router';
+import { useParams } from 'react-router';
+import { DayCalendarHead } from './DayCalendarHead/DayCalendarHead';
+import { TasksColumnsList } from './TasksColumnsList/TasksColumnsList';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllTasks } from 'redux/tasks/tasksOperations';
+import {
+  selectFilteredTasksByDate,
+  selectTasks,
+} from 'redux/tasks/tasksSelectors';
+import moment from 'moment';
 
 export default function ChoosedDay() {
   const { currentDay } = useParams();
-  const [, setIsChoosedDay, updatedDate, setUpdatedDate, setSelectedDay] = useOutletContext();
+  const [, setIsChoosedDay, updatedDate, setUpdatedDate, setSelectedDay] =
+    useOutletContext();
   const dispatch = useDispatch();
   const tasks = useSelector(selectTasks);
   const formatUpdatedDate = updatedDate.format('YYYY-MM-DD');
@@ -18,20 +22,26 @@ export default function ChoosedDay() {
 
   useEffect(() => {
     dispatch(getAllTasks());
-  }, [dispatch, updatedDate, tasks]);
+  }, [dispatch, updatedDate]);
 
   useEffect(() => {
     setIsChoosedDay(true);
     setUpdatedDate(moment(new Date(currentDay.split('-'))));
 
-    return () => { setIsChoosedDay(false); setSelectedDay(moment()) };
-
-  }, [setIsChoosedDay, currentDay, setUpdatedDate, setSelectedDay ]);
+    return () => {
+      setIsChoosedDay(false);
+      setSelectedDay(moment());
+    };
+  }, [setIsChoosedDay, currentDay, setUpdatedDate, setSelectedDay]);
 
   return (
     <div>
-      <DayCalendarHead currentDay={currentDay} updatedDate={formatUpdatedDate} setUpdatedDate={setUpdatedDate} />
+      <DayCalendarHead
+        currentDay={currentDay}
+        updatedDate={formatUpdatedDate}
+        setUpdatedDate={setUpdatedDate}
+      />
       <TasksColumnsList tasks={filteredTask} />
     </div>
   );
-};
+}

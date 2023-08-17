@@ -33,7 +33,11 @@ export const CellWrapper = styled(Link)`
   min-width: 30px;
   min-height: 40px;
 
+<<<<<<< HEAD
   overflow: hidden;
+=======
+  /* overflow: hidden; */
+>>>>>>> dev
   overflow-y: scroll;
   scrollbar-width: none;
 
@@ -65,9 +69,21 @@ export const RowInCell = styled.div`
 export const ShowDayWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
+<<<<<<< HEAD
   margin-top: 5px;
   margin-right: 4px;
   margin-bottom: 18px;
+=======
+  margin-top: 4px;
+  margin-right: 2px;
+  margin-bottom: 14px;
+
+  @media screen and (min-width: 375px) {
+    margin-top: 8px;
+    margin-right: 4px;
+    margin-bottom: 18px;
+  }
+>>>>>>> dev
 
   @media screen and (min-width: 768px) {
     margin-top: 14px;
@@ -80,10 +96,15 @@ export const DayWrapper = styled.div`
   align-items: center;
   justify-content: center;
 
+<<<<<<< HEAD
   height: 22px;
   width: 16px;
   /* padding: 4px 6px; */
   margin-right: 4px;
+=======
+  height: ${p => (p.$isNotCurrentDay ? '22px' : '0')};
+  width: ${p => (p.$isNotCurrentDay ? '20px' : '0')};
+>>>>>>> dev
 
   font-size: 12px;
   font-weight: 700;
@@ -92,12 +113,41 @@ export const DayWrapper = styled.div`
   color: ${p => (p.$isSelectedMonth ? '#343434' : 'transparent')};
 
   @media screen and (min-width: 768px) {
+<<<<<<< HEAD
     height: 26px;
     width: 27px;
     /* padding: 4px 8px; */
     margin: 2px;
     font-size: 16px;
     line-height: calc(18 / 16);
+=======
+    height: ${p => (p.$isNotCurrentDay ? '26px' : '0')};
+    width: ${p => (p.$isNotCurrentDay ? '27px' : '0')};
+
+    font-size: 16px;
+    line-height: calc(18 / 16);
+  }
+`;
+
+export const CurrentDay = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 22px;
+  width: 20px;
+  padding: 4px 6px;
+  border-radius: 6px;
+
+  background-color: #3e85f3;
+  color: #fff;
+
+  @media screen and (min-width: 768px) {
+    height: 26px;
+    width: 27px;
+    padding: 4px 8px;
+    border-radius: 8px;
+>>>>>>> dev
   }
 `;
 
@@ -105,22 +155,47 @@ export const TasksListWrapper = styled.ul`
   margin: 0;
   text-align: center;
   list-style-position: inside;
-  padding-left: 4px;
+  padding-left: 2px;
+  padding-right: 2px;
+
+  /* overflow: hidden; */
+  /* overflow-y: scroll;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  } */
+
+  @media screen and (min-width: 768px) {
+    padding-left: 4px;
+    padding-right: 4px;
+  }
 `;
 
 export const TaskItemWrapper = styled.button`
   position: relative;
   margin: 0;
   margin-bottom: 1px;
+<<<<<<< HEAD
   padding: 4px 10px;
   width: 100%;
   height: 26px;
+=======
+  padding: 4px 2px 4px 8px;
+  width: 100%;
+  height: 22px;
+>>>>>>> dev
 
   text-overflow: ellipsis;
   text-align: left;
-  font-size: 14px;
+  font-size: 10px;
   font-weight: 700;
+<<<<<<< HEAD
   line-height: calc(18 / 14);
+=======
+  line-height: calc(14 / 10);
+>>>>>>> dev
 
   overflow: hidden;
   white-space: nowrap;
@@ -151,18 +226,13 @@ export const TaskItemWrapper = styled.button`
         return;
     }
   }};
-`;
 
-export const CurrentDay = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 4px 8px;
-  border-radius: 8px;
-
-  background-color: #3e85f3;
-  color: #fff;
+  @media screen and (min-width: 768px) {
+    padding: 4px 4px 4px 10px;
+    font-size: 14px;
+    line-height: calc(18 / 14);
+    height: 26px;
+  }
 `;
 
 //Паданги обгортки поточного дня завеликі на моб

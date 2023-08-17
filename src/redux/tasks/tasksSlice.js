@@ -33,7 +33,7 @@ const handleFulfilledUpdate = (state, action) => {
   const idx = state.tasks.findIndex(task => task.id === action.payload.id);
 
   if (idx !== -1) {
-    state.tasks.splice(idx, 1, action.payload);
+    state.tasks.splice(idx, 1, action.payload._id);
   }
   state.error = '';
 };

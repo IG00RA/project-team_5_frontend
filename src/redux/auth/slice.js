@@ -92,11 +92,6 @@ const refreshReducer = state => {
   state.isRefreshing = false;
 };
 
-const toggleThemeReducer = (state, { payload }) => {
-  const { theme } = payload;
-  state.theme = theme;
-};
-
 const authSlice = createSlice({
   name: 'auth',
   initialState,

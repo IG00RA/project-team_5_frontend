@@ -32,9 +32,8 @@ export const LogoutBtnText = styled.p`
   color: var(--white);
 
   @media screen and (min-width: 768px) {
-      font-size: 18px;
-      line-height: 1.33;
-    }
+    font-size: 18px;
+    line-height: 1.33;
   }
 `;
 
