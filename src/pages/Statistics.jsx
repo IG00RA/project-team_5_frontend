@@ -1,6 +1,4 @@
-// import PeriodPaginator from '../components/PeriodPaginator/PeriodPaginator';
 import { useEffect, useState } from 'react';
-// import { useParams } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import StatisticsChart from '../components/StatisticsChart/StatisticsChart';
 import {
@@ -10,34 +8,33 @@ import {
 } from 'redux/tasks/tasksSelectors';
 import { getAllTasks } from 'redux/tasks/tasksOperations';
 import moment from 'moment';
-// import { useParams } from 'react-router';
+import StatisticPaginator from 'components/StatisticsChart/StatisticPaginator/StatisticPaginator';
 
 export default function Statistics() {
   const tasks = useSelector(selectTasks);
   const dispatch = useDispatch();
-  // const { currentDay } = useParams();
 
-  const [selectedDate, setSelectedDate] = useState(
-    moment().subtract(1, 'days').format('YYYY-MM-DD')
-  );
+  const [selectedDate, setSelectedDate] = useState(moment());
+  const handleDateChange = newDate => {
+    setSelectedDate(newDate);
+  };
 
+  const selectedDateFormat = selectedDate.format('YYYY-MM-DD');
   console.log(selectedDate);
 
-  const filteredTasksByDate = selectFilteredTasksByDate(tasks, selectedDate);
+  const filteredTasksByDate = selectFilteredTasksByDate(
+    tasks,
+    selectedDateFormat
+  );
 
-  const filteredTasksByMonth = selectFilteredTasksByMonth(tasks, selectedDate);
+  const filteredTasksByMonth = selectFilteredTasksByMonth(
+    tasks,
+    selectedDateFormat
+  );
 
   useEffect(() => {
     dispatch(getAllTasks());
   }, [dispatch, selectedDate]);
-
-  // const prevMonthHandler = () => {
-  //   setSelectedDate(prev => prev.clone().subtract(1, 'day'));
-  // };
-
-  // const nextMonthHandler = () => {
-  //   setSelectedDate(prev => prev.clone().add(1, 'day'));
-  // };
 
   console.log(tasks);
   console.log(filteredTasksByDate);
@@ -45,7 +42,11 @@ export default function Statistics() {
   return (
     <div>
       <p>Statistics Page</p>
-      {/* <PeriodPaginator ({selectedDay, prevMonthHandler ,nextMonthHandler}) /> */}
+      <StatisticPaginator
+        selectedDate={selectedDate}
+        typeOfPeriod={'day'}
+        onDateChange={handleDateChange}
+      />
       <div style={{ marginLeft: '500px' }}>
         <ul style={{ display: 'flex', gap: '20px' }}>
           <li style={{ display: 'flex' }}>
@@ -73,7 +74,7 @@ export default function Statistics() {
         </ul>
       </div>
       <StatisticsChart
-        selectedDate={selectedDate}
+        selectedDate={selectedDateFormat}
         setSelectedDate={setSelectedDate}
         filteredTasksByDate={filteredTasksByDate}
         filteredTasksByMonth={filteredTasksByMonth}
