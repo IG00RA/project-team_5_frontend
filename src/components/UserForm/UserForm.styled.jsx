@@ -11,7 +11,8 @@ export const UserInfoForm = styled.form`
 
   border-radius: 16px;
 
-  background-color: ${props => props.theme.colors?.blackBG || '#fffff'};
+  background-color: ${props =>
+    props.theme.colors?.white || props.theme.darkTheme?.blackBG};
 
   @media screen and (min-width: 768px) {
     padding-top: 40px;
