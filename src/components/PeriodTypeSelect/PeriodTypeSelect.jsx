@@ -1,11 +1,12 @@
-import { BtnDay, BtnMonth } from './PeriodTypeSelect.styled';
+import moment from 'moment';
+import { BtnDay, BtnMonth, BtnWrapper } from './PeriodTypeSelect.styled';
 
-const PeriodTypeSelect = ({ selectedDay }) => {
+const PeriodTypeSelect = () => {
   return (
-    <div>
-      <BtnMonth to={`month/${selectedDay}`}>Month</BtnMonth>
-      <BtnDay to={`day/${selectedDay}`}>Day</BtnDay>
-    </div>
+    <BtnWrapper>
+      <BtnMonth to={`month/${moment().format('YYYY-MM-DD')}`}>Month</BtnMonth>
+      <BtnDay to={`day/${moment().format('YYYY-MM-DD')}`}>Day</BtnDay>
+    </BtnWrapper>
   );
 };
 

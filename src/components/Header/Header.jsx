@@ -1,8 +1,6 @@
+import {useState} from 'react';
 import { useLocation } from 'react-router-dom';
-// import { useSelector } from "react-redux";
-// import { Button } from "../Button/Button";
 import FeedbackButton from '../Buttons/FeedbackButton/FeedbackButton';
-import { ThemeToggler } from '../ThemeToggler/ThemeToggler';
 import { UserInfo } from '../UserInfo/UserInfo';
 import svgSprite from '../../images/svg-sprite/symbol-defs.svg';
 import gooseMotivation from '../../images/svg/motivation-goose.svg';
@@ -13,10 +11,18 @@ import {
   UserWrap,
   Wrap,
 } from './Header.styled';
+import { AddFeedbackModal } from 'components/AddFeedbackModal/AddFeedbackModal';
 
-export const Header = ({ onToggle }) => {
+const Header = ({ openMenu }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const location = useLocation();
   const currentPath = location.pathname;
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
 
   // const { currentDay } = useParams();
   // const pageCalendarDay = currentPath.startsWith('/calendar/day');
@@ -55,14 +61,15 @@ export const Header = ({ onToggle }) => {
           <Title>{title}</Title>
           {pageCalendarDay && haveTask() && (<p>Let go of the past and focus on the present!</p>)}
         </div>  */}
-        <MenuIcon onClick={onToggle}>
-            <use href={svgSprite + `#icon-menu`} />
+
+        <MenuIcon onClick={openMenu}>
+          <use href={svgSprite + `#icon-menu`} />
         </MenuIcon>
 
         <UserWrap>
-          <FeedbackButton />
-          <ThemeToggler />
+          <FeedbackButton onClick={openModal} />
           <UserInfo />
+          <AddFeedbackModal isOpen={isModalOpen} onRequestClose={closeModal} handleClose={closeModal}/>
         </UserWrap>
       </Wrap>
     </>
