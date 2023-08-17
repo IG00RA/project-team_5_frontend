@@ -28,8 +28,8 @@ const [isSubmit, setIsSubmit] = useState(false);
       <FeedBackFormBtn type='button' className='cancel-btn' onClick={handleClose}>Cancel</FeedBackFormBtn>
       </Box>
       </FeedBackForm>
-      <CloseBtn onClick={handleClose}>
-        <CloseIcon type='button' className="feedBackModalClose" width="24" height="24">
+      <CloseBtn type='button' onClick={handleClose}>
+        <CloseIcon className="feedBackModalClose" width="24" height="24">
           <use href={svgSprite + `#icon-x-close`}/>
         </CloseIcon>
       </CloseBtn>
