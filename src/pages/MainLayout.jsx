@@ -4,6 +4,7 @@ import { Container, Wrapper } from './MainLayout.styled';
 import { Outlet } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { fetchUser } from 'redux/user/operations';
+import Loader from 'components/loader/loader';
 import Header from 'components/Header/Header';
 // import { selectIsLoadingUser } from 'redux/user/selectors';
 // import Loader from 'components/loader/loader';
@@ -25,7 +26,15 @@ const MainLayout = () => {
   //   <Loader />
   // ) :
   return (
-    <>
+    <>    
+<Suspense
+        fallback={
+          <div>
+            {/* Loading page... */}
+            <Loader />
+          </div>
+        }
+      >
       <Container>
         <SideBar
           isModalMenuOpen={isModalMenuOpen}
@@ -38,6 +47,7 @@ const MainLayout = () => {
           </main>
         </Wrapper>
       </Container>
+</Suspense>
     </>
   );
 };
