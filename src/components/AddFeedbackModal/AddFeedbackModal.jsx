@@ -29,7 +29,7 @@ const [isSubmit, setIsSubmit] = useState(false);
       </Box>
       </FeedBackForm>
       <CloseBtn onClick={handleClose}>
-        <CloseIcon className="feedBackModalClose" width="24" height="24">
+        <CloseIcon type='button' className="feedBackModalClose" width="24" height="24">
           <use href={svgSprite + `#icon-x-close`}/>
         </CloseIcon>
       </CloseBtn>
