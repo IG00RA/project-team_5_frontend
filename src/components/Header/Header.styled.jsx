@@ -25,7 +25,7 @@ export const UserWrap = styled.div`
 export const MenuIcon = styled.svg`
   display: ${({ open }) => (open ? 'none' : 'flex')};
   fill: transparent;
-  stroke: black;
+  stroke: ${props => props.theme.colors.header.titleText};
   height: 24px;
   width: 24px;
   cursor: pointer;
@@ -39,6 +39,7 @@ export const MenuIcon = styled.svg`
   }
 `;
 export const Title = styled.h2`
+  color: ${props => props.theme.colors.header.titleText};
   display: none;
   @media (min-width: 1440px) {
     display: block;
@@ -56,11 +57,15 @@ export const MotivationText = styled.p`
   @media (min-width: 1440px) {
     display: block;
     font-family: 'Inter';
-    color: ${props => props.theme.colors.header.titleText};
+    color: ${props => props.theme.colors.header.userText};
     font-weight: 600;
     font-size: 14px;
     line-height: 1.3;
   }
+`;
+
+export const AccentText = styled.span`
+  color: ${props => props.theme.colors.header.accent};
 `;
 export const MotivationImg = styled.img`
   display: none;
@@ -70,8 +75,4 @@ export const MotivationImg = styled.img`
     display: block;
     margin-right: 8px;
   }
-`;
-
-export const LetGoSpan = styled.span`
-  color: #3e85f3;
 `;
