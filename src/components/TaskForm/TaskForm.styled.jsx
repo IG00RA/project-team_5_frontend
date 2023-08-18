@@ -1,9 +1,9 @@
 import { styled } from "styled-components";
 
 export const CloseBtn = styled.button`
-  position: absolute;
-  top: 14px;
-  right: 14px;
+  position: relative;
+  top: 42px;
+  left: 356px;
 `;
 
 export const IconClose = styled.svg`
@@ -225,14 +225,9 @@ export const RadioCustomCheck = styled.span`
 `;
 
 export const Error = styled.div`
-  position: absolute;
-  right: 46px;
-  top: 79px;
-
   font-family: Inter;
   text-align: center;
   font-size: 12px;
-  font-weight: 500;
   line-height: 1.16; 
 
   color: #EA3D65;
