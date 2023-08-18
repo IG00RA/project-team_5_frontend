@@ -55,7 +55,7 @@ export const Overlay = styled.div`
 export const StyledTitle = styled.span`
   display: flex;
   flex-direction: row;
-  color: #3e85f3;
+  color: ${props => props.theme.colors.sideBar.logoText};
   font-family: 'Coolvetica';
   font-size: 16px;
   line-height: 24px;
@@ -140,7 +140,7 @@ export const StyledCloseButton = styled.svg`
   width: 24px;
   height: 24px;
   transition: all 250ms;
-  stroke: #343434;
+  stroke: ${props => props.theme.colors.sideBar.mainText};
   fill: transparent;
   cursor: pointer;
 
@@ -154,7 +154,7 @@ export const StyledCloseButton = styled.svg`
 
   &:hover,
   &:focus {
-    stroke: #3e85f3;
+    stroke: ${props => props.theme.colors.sideBar.accentBg};
     transform: rotate(180deg);
   }
 `;

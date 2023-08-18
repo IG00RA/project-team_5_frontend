@@ -14,8 +14,6 @@ import {
   Title,
   UserWrap,
   Wrap,
-  MotivationText,
-  LetGoSpan,
 } from './Header.styled';
 import { AddFeedbackModal } from 'components/AddFeedbackModal/AddFeedbackModal';
 
@@ -73,7 +71,7 @@ const Header = ({ isModalMenuOpen, openMenu }) => {
           <Title>{title}</Title>
           {pageCalendarDay && haveTask() && (
             <MotivationText>
-              <LetGoSpan>Let go </LetGoSpan>of the past and focus on the
+              <AccentText>Let go </AccentText>of the past and focus on the
               present!
             </MotivationText>
           )}

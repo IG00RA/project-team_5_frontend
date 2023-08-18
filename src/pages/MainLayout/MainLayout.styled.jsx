@@ -3,10 +3,6 @@ import styled from 'styled-components';
 export const Container = styled.div`
   /* position: relative; */
   margin: 0 auto;
-<<<<<<< HEAD
-  max-width: 1600px;
-  background-color: ${props => props.theme.colors.mainLayout.bg};
-=======
   max-width: 375px;
   min-height: 844px;
   @media (min-width: ${p => p.theme.media.m}) {
@@ -19,7 +15,6 @@ export const Container = styled.div`
     margin: 0 auto;
     max-width: 1600px;
   }
->>>>>>> dev
 `;
 export const Wrapper = styled.div`
   display: block;

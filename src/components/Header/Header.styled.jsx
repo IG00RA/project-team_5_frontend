@@ -78,7 +78,3 @@ export const MotivationImg = styled.img`
     margin-right: 8px;
   }
 `;
-
-export const LetGoSpan = styled.span`
-  color: #3e85f3;
-`;
