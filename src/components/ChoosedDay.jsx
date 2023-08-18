@@ -10,7 +10,7 @@ import moment from "moment";
 
 export default function ChoosedDay() {
   const { currentDay } = useParams();
-  const [, setIsChoosedDay, updatedDate, setUpdatedDate, setSelectedDay] = useOutletContext();
+  const [, setIsChoosedDay, updatedDate, setUpdatedDate] = useOutletContext();
   const dispatch = useDispatch();
   const tasks = useSelector(selectTasks);
   const formatUpdatedDate = updatedDate.format('YYYY-MM-DD');
@@ -24,9 +24,9 @@ export default function ChoosedDay() {
     setIsChoosedDay(true);
     setUpdatedDate(moment(new Date(currentDay.split('-'))));
 
-    return () => { setIsChoosedDay(false); setSelectedDay(moment()) };
+    return () => setIsChoosedDay(false);
 
-  }, [setIsChoosedDay, currentDay, setUpdatedDate, setSelectedDay ]);
+  }, [setIsChoosedDay, currentDay, setUpdatedDate ]);
 
   return (
     <div>

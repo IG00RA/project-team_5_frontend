@@ -6,10 +6,6 @@ import { deleteTask } from 'redux/tasks/tasksOperations';
 export const TaskToolbar = ({id, openModal, task}) => {
   const dispatch = useDispatch();
 
-  const handlerDeleteTask = (id) => {
-    dispatch(deleteTask(id))
-  };
-
   return (
     <Wrapper>
       <button type='button'>
@@ -22,7 +18,7 @@ export const TaskToolbar = ({id, openModal, task}) => {
           <use href={sprite + '#icon-pencil'}></use>
         </Icon>
       </button>
-      <button onClick={() => {handlerDeleteTask(id)}} type='button'>
+      <button onClick={() => dispatch(deleteTask(id))} type='button'>
         <Icon>
           <use href={sprite + '#icon-trash-box'}></use>
         </Icon>
