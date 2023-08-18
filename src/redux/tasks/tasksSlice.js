@@ -30,7 +30,7 @@ const handleFulfilledAdd = (state, action) => {
 
 const handleFulfilledUpdate = (state, action) => {
   state.isLoading = false;
-  const idx = state.tasks.findIndex(task => task._id === action.payload._id);
+  const idx = state.tasks.findIndex(task => task?._id === action.payload._id);
 
   if (idx !== -1) {
     state.tasks.splice(idx, 1, action.payload);

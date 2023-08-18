@@ -77,10 +77,9 @@ const Header = ({ isModalMenuOpen, openMenu }) => {
           )}
         </div>
 
-        <MenuIcon onClick={openMenu} isOpen={isModalMenuOpen}>
+        <MenuIcon onClick={openMenu} open={isModalMenuOpen}>
           <use href={svgSprite + `#icon-menu`} />
         </MenuIcon>
-
         <UserWrap>
           <FeedbackButton onClick={openModal} />
           <UserInfo />

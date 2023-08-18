@@ -12,7 +12,7 @@ export const TaskColumnCard = ({ task, openModal }) => {
       <ItemWrapper>
         <UserWrapper>
           <Img src={avatarURL} alt="" />
-          <TextWrapper priority={task.priority}><Text>{task.priority}</Text></TextWrapper>
+          <TextWrapper $priority={task.priority}><Text>{task.priority}</Text></TextWrapper>
         </UserWrapper>
         <TaskToolbar id={task._id} openModal={openModal} task={task} />
       </ItemWrapper>

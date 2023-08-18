@@ -53,7 +53,7 @@ export const TextWrapper = styled.div`
   border-radius: 4px;
   
   background-color: ${p => {
-  switch (p.priority) {
+  switch (p.$priority) {
     case 'medium':
       return '#F3B249'
     case 'high':

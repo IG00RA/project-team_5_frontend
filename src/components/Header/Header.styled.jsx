@@ -23,9 +23,7 @@ export const UserWrap = styled.div`
 `;
 
 export const MenuIcon = styled.svg`
-  display: ${({ isOpen }) => (isOpen ? 'none' : 'flex')};
-
-  /* display: flex; */
+  display: ${({ open }) => (open ? 'none' : 'flex')};
   fill: transparent;
   stroke: ${props => props.theme.colors.header.titleText};
   height: 24px;
