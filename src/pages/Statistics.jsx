@@ -20,7 +20,6 @@ export default function Statistics() {
   };
 
   const selectedDateFormat = selectedDate.format('YYYY-MM-DD');
-  console.log(selectedDate);
 
   const filteredTasksByDate = selectFilteredTasksByDate(
     tasks,
@@ -36,9 +35,6 @@ export default function Statistics() {
     dispatch(getAllTasks());
   }, [dispatch, selectedDate]);
 
-  console.log(tasks);
-  console.log(filteredTasksByDate);
-  console.log(filteredTasksByMonth);
   return (
     <div>
       <p>Statistics Page</p>

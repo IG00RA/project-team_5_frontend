@@ -62,15 +62,6 @@ export default function StatisticsChart({
     },
   ];
 
-  console.log(allTasksByDay);
-  console.log(toDoByDayPercent);
-  console.log(inProgressByDayPercent);
-  console.log(doneByDayPercent);
-  console.log(allTasksByMonth);
-  console.log(toDoByMonthPercent);
-  console.log(inProgressByMonthPercent);
-  console.log(doneByMonthPercent);
-
   return (
     <BarChart
       width={860}
