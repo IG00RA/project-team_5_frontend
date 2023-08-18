@@ -56,7 +56,7 @@ export const MotivationText = styled.p`
  @media (min-width: 1440px) {
     display: block;
     font-family: 'Inter';
-
+color: ${props => props.theme.colors.header.titleText};
     font-weight: 600;
     font-size: 14px;
     line-height: 1.3;
