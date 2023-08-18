@@ -209,11 +209,11 @@ export const RadioCustomCheck = styled.span`
     border-color: ${p => {
     switch (p.color) {
       case 'low':
-        return '#72C2F8'
+        return 'rgba(114, 194, 248, 0.50);'
       case 'medium':
-        return '#F3B249'
+        return 'rgba(243, 178, 73, 0.50);'
       case 'high':
-        return '#EA3D65'
+        return 'rgba(234, 61, 101, 0.50);'
       default:
         return
     }
