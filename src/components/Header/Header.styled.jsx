@@ -3,21 +3,25 @@ export const Wrap = styled.div`
 display: flex;
 justify-content: space-between;
 margin-bottom: 100px;
+align-items: center;
  @media (min-width: 768px) {
     margin-bottom: 4rem;
   }
 
   @media (min-width: 1440px) {
+  
     margin-bottom: 32px;
   }
 `;
 export const UserWrap = styled.div`
 display: flex;
+gap: 24px;
 align-items: center;
 margin-left: auto;
 `;
 export const MenuIcon = styled.svg`
 display: flex;
+
 fill:transparent;
 stroke: black;
 height: 24px;
@@ -43,6 +47,18 @@ display: none;
       0px 9.4px 57.6875px rgba(0, 0, 0, 0.035);
   }
 `;
+
+export const MotivationText = styled.p`
+ display: none;
+ @media (min-width: 1440px) {
+    display: block;
+    font-family: 'Inter';
+
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.3;
+  }
+`;
 export const MotivationImg = styled.img`
  display: none;
 
@@ -51,4 +67,7 @@ export const MotivationImg = styled.img`
     display: block;
     margin-right: 8px;
   }
+`;
+export const LetGoSpan = styled.span`
+color: #3E85F3;;
 `;
