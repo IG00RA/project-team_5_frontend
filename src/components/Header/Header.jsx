@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import FeedbackButton from '../Buttons/FeedbackButton/FeedbackButton';
 import { UserInfo } from '../UserInfo/UserInfo';
@@ -13,7 +13,7 @@ import {
 } from './Header.styled';
 import { AddFeedbackModal } from 'components/AddFeedbackModal/AddFeedbackModal';
 
-const Header = ({ openMenu }) => {
+const Header = ({ isModalMenuOpen, openMenu }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const location = useLocation();
   const currentPath = location.pathname;
@@ -53,7 +53,7 @@ const Header = ({ openMenu }) => {
         <MotivationImg src={gooseMotivation} alt="goose" />
         <div>
           <Title>{title}</Title>
-          <p>Let go of the past and focus on the present!</p>
+          {/* <p>Let go of the past and focus on the present!</p> */}
         </div>
 
         {/* <Wrap>{pageCalendarDay && haveTask() && (<MotivationImg src={gooseMotivation} alt="goose" />)}
@@ -62,14 +62,18 @@ const Header = ({ openMenu }) => {
           {pageCalendarDay && haveTask() && (<p>Let go of the past and focus on the present!</p>)}
         </div>  */}
 
-        <MenuIcon onClick={openMenu}>
+        <MenuIcon onClick={openMenu} isOpen={isModalMenuOpen}>
           <use href={svgSprite + `#icon-menu`} />
         </MenuIcon>
 
         <UserWrap>
           <FeedbackButton onClick={openModal} />
           <UserInfo />
-          <AddFeedbackModal isOpen={isModalOpen} onRequestClose={closeModal} handleClose={closeModal}/>
+          <AddFeedbackModal
+            isOpen={isModalOpen}
+            onRequestClose={closeModal}
+            handleClose={closeModal}
+          />
         </UserWrap>
       </Wrap>
     </>

@@ -22,7 +22,10 @@ const MainLayout = () => {
           closeModalMenu={setIsModalMenuOpen}
         />
         <Wrapper>
-          <Header openMenu={() => setIsModalMenuOpen(true)} />
+          <Header
+            isModalMenuOpen={isModalMenuOpen}
+            openMenu={() => setIsModalMenuOpen(true)}
+          />
           <Suspense
             fallback={
               <div>
