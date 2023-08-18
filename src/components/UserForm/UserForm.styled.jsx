@@ -1,3 +1,4 @@
+import { ErrorMessage } from 'formik';
 import styled from 'styled-components';
 
 export const UserInfoForm = styled.form`
@@ -169,6 +170,7 @@ export const Label = styled.p`
 `;
 
 export const CommonField = styled.label`
+  position: relative;
   width: 100%;
   max-width: 354px;
 `;
@@ -215,4 +217,18 @@ export const ButtonWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
+`;
+
+export const ErrorText = styled(ErrorMessage)`
+  position: absolute;
+  bottom: -16px;
+  right: 4px;
+  color: #e74a3b;
+  font-size: 11px;
+  line-height: calc(14 / 12);
+
+  @media screen and (min-width: 768px) {
+    bottom: -18px;
+    font-size: 12px;
+  }
 `;
