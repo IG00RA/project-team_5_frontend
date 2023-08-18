@@ -114,7 +114,7 @@ export const Input = styled(Field)`
     cursor: not-allowed;
   }
 
-  ::placeholder {
+  &::placeholder {
     font-family: Inter;
     opacity: 1;
     color: #343434;
