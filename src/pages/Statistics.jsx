@@ -8,7 +8,7 @@ import {
 } from 'redux/tasks/tasksSelectors';
 import { getAllTasks } from 'redux/tasks/tasksOperations';
 import moment from 'moment';
-import StatisticPaginator from 'components/StatisticsChart/StatisticPaginator/StatisticPaginator';
+import StatisticPaginator from 'components/StatisticPaginator/StatisticPaginator';
 
 export default function Statistics() {
   const tasks = useSelector(selectTasks);
