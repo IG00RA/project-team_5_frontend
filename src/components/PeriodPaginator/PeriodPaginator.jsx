@@ -35,12 +35,6 @@ export default function PeriodPaginator({
 
   return (
     <PaginatorWrapper>
-<<<<<<< HEAD
-      <Period>{isChoosedDay ? updatedDate.format('DD MMM YYYY') : selectedDay.format('MMMM YYYY')}</Period>
-      <div>
-        <BtnPrev disabled={isChoosedDay && checkDaysOfWeek === 'Mon'} onClick={prevMonthHandler}>&lt;</BtnPrev>
-        <BtnNext disabled={isChoosedDay && checkDaysOfWeek === 'Sun'} onClick={nextMonthHandler}>&gt;</BtnNext>
-=======
       <Period>
         {isChoosedDay
           ? updatedDate.format('DD MMM YYYY')
@@ -64,7 +58,6 @@ export default function PeriodPaginator({
             <use href={sprite + '#icon-chevron-right'}></use>
           </Icon>
         </PaginatorBtn>
->>>>>>> dev
       </div>
     </PaginatorWrapper>
   );

@@ -3,7 +3,7 @@ import {
   BtnPrev,
   PaginatorWrapper,
   Period,
-} from '../../PeriodPaginator/PeriodPaginator.styled';
+} from './StatisticPaginator.styled';
 
 export default function StatisticPaginator({
   selectedDate,
