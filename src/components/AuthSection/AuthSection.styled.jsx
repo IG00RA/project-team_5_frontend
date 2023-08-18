@@ -74,7 +74,7 @@ export const ButtonsContainer = styled.div`
   }
 `;
 
-export const ButtonsWrap = styled.a`
+export const ButtonsWrap = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -120,7 +120,7 @@ export const LogInButton = styled.button`
   background-color: var(--white);
   cursor: pointer;
 `;
-export const SignUpLink = styled.a`
+export const SignUpLink = styled.button`
   color: var(--white);
   text-shadow:
     0px 9.399999618530273px 57.6875px rgba(0, 0, 0, 0.04),
