@@ -47,7 +47,7 @@ export const AuthSection = () => {
             </LogInButton>
           </Link>
         </ButtonsWrap>
-        <SignUpLink>
+        <SignUpLink type="button">
           <Link to="/register">Sign up</Link>
         </SignUpLink>
       </ButtonsContainer>

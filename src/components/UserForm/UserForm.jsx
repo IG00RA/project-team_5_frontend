@@ -1,4 +1,4 @@
-import { ErrorMessage, Formik } from 'formik';
+import { Formik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import { validationSchema } from '../../schemas';
 import {
@@ -19,6 +19,7 @@ import {
   ButtonWrapper,
   Icon,
   Use,
+  ErrorText,
 } from './UserForm.styled';
 import { selectIsLoadingUser } from '../../redux/user/selectors';
 import ChangeProfileButton from '../Buttons/ChangeProfileButton/ChangeProfileButton';
@@ -145,8 +146,8 @@ export default function UserForm() {
                   placeholder="mr Ping"
                   onChange={inputHandler}
                 />
+                <ErrorText name="userName" component="p" />
               </CommonField>
-              <ErrorMessage name="userName" />
 
               <CommonField>
                 <Label>Phone</Label>
@@ -157,8 +158,8 @@ export default function UserForm() {
                   placeholder="066-333-33-33"
                   onChange={inputHandler}
                 />
+                <ErrorText name="phone" component="p" />
               </CommonField>
-              <ErrorMessage name="phone" />
 
               <CommonField>
                 <Label>Birthday</Label>
@@ -169,7 +170,6 @@ export default function UserForm() {
                   onChange={inputHandler}
                 />
               </CommonField>
-              <ErrorMessage name="birthday" />
 
               <CommonField>
                 <Label>Skype</Label>
@@ -180,8 +180,8 @@ export default function UserForm() {
                   placeholder="skype name"
                   onChange={inputHandler}
                 />
+                <ErrorText name="skype" component="p" />
               </CommonField>
-              <ErrorMessage name="skype" />
 
               <CommonField>
                 <Label>Email</Label>
@@ -192,8 +192,8 @@ export default function UserForm() {
                   placeholder="mrPing@panda.kungfu"
                   onChange={inputHandler}
                 />
+                <ErrorText name="email" component="p" />
               </CommonField>
-              <ErrorMessage name="email" />
 
               <ButtonWrapper>
                 <ChangeProfileButton isLoading={isLoading} disabled={true} />

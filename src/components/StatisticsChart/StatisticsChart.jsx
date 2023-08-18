@@ -19,30 +19,30 @@ export default function StatisticsChart({
   const allTasksByDay = filteredTasksByDate.length;
   const allTasksByMonth = filteredTasksByMonth.length;
   const toDoByDayPercent =
-    (filteredTasksByDate?.filter(task => task.category === 'to-do').length /
+    (filteredTasksByDate?.filter(task => task?.category === 'to-do').length /
       allTasksByDay) *
     100;
   const inProgressByDayPercent =
-    (filteredTasksByDate?.filter(task => task.category === 'in-progress')
+    (filteredTasksByDate?.filter(task => task?.category === 'in-progress')
       .length /
       allTasksByDay) *
     100;
   const doneByDayPercent =
-    (filteredTasksByDate.filter(task => task.category === 'done').length /
+    (filteredTasksByDate.filter(task => task?.category === 'done').length /
       allTasksByDay) *
     100;
 
   const toDoByMonthPercent =
-    (filteredTasksByDate?.filter(task => task.category === 'to-do').length /
+    (filteredTasksByDate?.filter(task => task?.category === 'to-do').length /
       allTasksByMonth) *
     100;
   const inProgressByMonthPercent =
-    (filteredTasksByMonth?.filter(task => task.category === 'in-progress')
+    (filteredTasksByMonth?.filter(task => task?.category === 'in-progress')
       .length /
       allTasksByMonth) *
     100;
   const doneByMonthPercent =
-    (filteredTasksByMonth.filter(task => task.category === 'done').length /
+    (filteredTasksByMonth.filter(task => task?.category === 'done').length /
       allTasksByMonth) *
     100;
 

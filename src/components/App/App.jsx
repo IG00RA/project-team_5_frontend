@@ -1,26 +1,28 @@
 import { Suspense, lazy, useEffect } from 'react';
 import { Route, Routes } from 'react-router';
-import NotFound from './NotFound/NotFound';
-import RestrictedRoute from './RestrictedRoute';
-import PrivateRoute from './PrivateRoute';
+import NotFound from '../NotFound/NotFound';
+import RestrictedRoute from '../RestrictedRoute';
+import PrivateRoute from '../PrivateRoute';
 import { useDispatch, useSelector } from 'react-redux';
 import { refreshUser } from 'redux/auth/operations';
 import moment from 'moment';
 import { selectIsRefreshing } from 'redux/auth/selectors';
 import { selectTheme } from 'redux/user/selectors';
 import { ThemeProvider } from 'styled-components';
-import { darkTheme, lightTheme } from '../utils/theme';
-import Loader from './loader/loader';
+import { darkTheme, lightTheme } from '../../utils/theme';
+import Loader from '../loader/loader';
 import MainLayout from 'pages/MainLayout/MainLayout';
+import { setMainStyles } from 'helpers/setMainStyles';
+import { LoaderWrapper } from './App.styled';
 
-const HomePage = lazy(() => import('../pages/Home'));
-const RegisterPage = lazy(() => import('../pages/Register/Register'));
-const LoginPage = lazy(() => import('../pages/Login/Login'));
-const AccountPage = lazy(() => import('../pages/Account'));
-const CalendarPage = lazy(() => import('../pages/Calendar'));
-const StatisticsPage = lazy(() => import('../pages/Statistics'));
-const ChoosedMonthModule = lazy(() => import('./ChoosedMonth'));
-const ChoosedDayModule = lazy(() => import('./ChoosedDay'));
+const HomePage = lazy(() => import('../../pages/Home'));
+const RegisterPage = lazy(() => import('../../pages/Register/Register'));
+const LoginPage = lazy(() => import('../../pages/Login/Login'));
+const AccountPage = lazy(() => import('../../pages/Account/Account'));
+const CalendarPage = lazy(() => import('../../pages/Calendar'));
+const StatisticsPage = lazy(() => import('../../pages/Statistics'));
+const ChoosedMonthModule = lazy(() => import('../ChoosedMonth'));
+const ChoosedDayModule = lazy(() => import('../ChoosedDay'));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -31,10 +33,17 @@ export const App = () => {
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
+
+  useEffect(() => {
+    setMainStyles(userTheme);
+  }, [userTheme]);
+
   return (
     <ThemeProvider theme={userTheme === 'dark' ? darkTheme : lightTheme}>
       {isRefreshing ? (
-        <Loader />
+        <LoaderWrapper>
+          <Loader />
+        </LoaderWrapper>
       ) : (
         <Suspense fallback={null}>
           <Routes>

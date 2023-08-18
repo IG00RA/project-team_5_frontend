@@ -19,9 +19,10 @@ export const Period = styled.div`
   text-transform: uppercase;
   border-radius: 8px;
   padding: 6px 12px;
-  background-color: #3e85f3;
-  box-shadow: 4px 2px 16px 0px rgba(136, 165, 191, 0.48);
-  color: #fff;
+  background-color: ${props => props.theme.colors.calendarPage.todayBg};
+  /* box-shadow: 4px 2px 16px 0px ${props =>
+    props.theme.colors.button.shadow}; */
+  color: ${props => props.theme.colors.calendarPage.todayText};
 
   @media screen and (min-width: 768px) {
     padding: 8px 12px;
@@ -40,10 +41,12 @@ export const PaginatorBtn = styled.button`
   padding: 7px 10px;
   font-weight: 700;
   border-radius: ${p => (p.$isPrevBtn ? '8px 0px 0px 8px' : '0px 8px 8px 0px')};
-  border: 1px solid rgba(220, 227, 229, 0.8);
-  background-color: #fff;
-  color: ${p =>
-    p.disabled ? 'rgba(220, 227, 229, 1)' : 'rgba(52, 52, 52, 1)'};
+  border: 1px solid ${props => props.theme.colors.calendarPage.border};
+  background-color: ${props => props.theme.colors.calendarPage.mainBg};
+  color: ${props =>
+    props.disabled
+      ? props.theme.colors.calendarPage.accent
+      : props.theme.colors.calendarPage.secondText};
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
@@ -61,6 +64,12 @@ export const Icon = styled.svg`
   height: 18px;
   width: 18px;
   stroke-width: 0;
-  stroke: currentColor;
+  stroke: ${props => props.theme.colors.calendarPage.border};
   fill: transparent;
+  transition: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    stroke: ${props => props.theme.colors.calendarPage.iconFocus};
+  }
 `;

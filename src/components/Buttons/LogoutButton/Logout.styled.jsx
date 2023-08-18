@@ -8,13 +8,13 @@ export const LogoutBtn = styled.button`
   justify-content: center;
   align-items: center;
   gap: 6px;
-  background-color: var(--blue);
-  box-shadow: 4px 2px 16px 0px #88a5bf7a;
+  background-color: ${props => props.theme.colors.button.mainBg};
+  box-shadow: 4px 2px 16px 0px ${props => props.theme.colors.button.shadow};
 
   &:hover,
   &:focus {
-    background-color: #2b78ef;
-    box-shadow: 4px 2px 16px 0px #88a5bf7a;
+    background-color: ${props => props.theme.colors.button.hoverBg};
+    box-shadow: 4px 2px 16px 0px ${props => props.theme.colors.button.shadow};
   }
 
   @media screen and (min-width: 768px) {
@@ -29,7 +29,7 @@ export const LogoutBtnText = styled.p`
   font-weight: 600;
   font-size: 14px;
   line-height: 1.29;
-  color: var(--white);
+  color: ${props => props.theme.colors.button.text};
 
   @media screen and (min-width: 768px) {
     font-size: 18px;
@@ -40,7 +40,7 @@ export const LogoutBtnText = styled.p`
 export const LogoutIcon = styled.svg`
   width: 18px;
   height: 18px;
-  stroke: var(--white);
+  stroke: ${props => props.theme.colors.button.text};
   fill: transparent;
 
   @media screen and (min-width: 768px) {
