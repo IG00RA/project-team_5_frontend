@@ -90,6 +90,10 @@ export const InputTime = styled.input`
   color: #343434;
   border-radius: 8px;
   background-color: #F6F6F6;
+
+  &::-webkit-calendar-picker-indicator {
+    display: none;
+}
 `;
 
 export const BottomWrapper = styled.div`
