@@ -146,8 +146,8 @@ export const Image = styled.img`
   text-align: center;
 
   @media screen and (min-width: 375px) {
-    max-width: 704px;
-    max-height: 700px;
+    width: 704px;
+    height: 700px;
     border-radius: 100px;
     margin-top: 48px;
     margin-left: auto;

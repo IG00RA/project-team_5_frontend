@@ -27,7 +27,7 @@ export const AuthSection = () => {
 
   return (
     <Wrap>
-      <div>
+      {/* <div> */}
         <Logo
           srcSet={gooseLogo}
           sizes="(max-width: 375px) 375px, (max-width: 768px) 768px, (min-width: 769px) 769px"
@@ -35,7 +35,7 @@ export const AuthSection = () => {
           alt="Goose logo"
         />
         <Title>G<TextStyle>oo</TextStyle>seTrack</Title>
-      </div>
+      {/* </div> */}
 
       <ButtonsContainer>
         <ButtonsWrap>

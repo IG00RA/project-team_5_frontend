@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
 export const ScrollToTopButton = styled.div`
+  @media screen and (max-width: 374px) {
+    display: none;
+  }
+
   display: ${({ visible }) => (visible ? 'block' : 'none')};
   position: fixed;
   bottom: 20px;

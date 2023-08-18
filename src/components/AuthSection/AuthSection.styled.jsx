@@ -8,7 +8,7 @@ export const Wrap = styled.div`
   align-items: center;
   /* justify-content: center; */
   flex-direction: column;
-/*   background-color: ${p => p.theme.colors.notFoundPage.bg}; */
+  background-color: var(--blue);
   padding: 256px 59px 256px 58px;v
 
   @media screen and (min-width: 375px) {
