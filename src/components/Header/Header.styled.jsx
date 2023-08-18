@@ -40,7 +40,7 @@ export const Title = styled.h2`
 display: none;
  @media (min-width: 1440px) {
     display: block;
-
+color: ${props => props.theme.colors.header.titleText};
     font-weight: 700;
     font-size: 32px;
     text-shadow: 0px 47px 355px rgba(0, 0, 0, 0.07),
