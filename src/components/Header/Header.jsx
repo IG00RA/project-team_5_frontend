@@ -1,12 +1,14 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import FeedbackButton from '../Buttons/FeedbackButton/FeedbackButton';
 import { UserInfo } from '../UserInfo/UserInfo';
 import svgSprite from '../../images/svg-sprite/symbol-defs.svg';
 import gooseMotivation from '../../images/svg/motivation-goose.svg';
 import {
+  AccentText,
   MenuIcon,
   MotivationImg,
+  MotivationText,
   Title,
   UserWrap,
   Wrap,
@@ -53,7 +55,10 @@ const Header = ({ openMenu }) => {
         <MotivationImg src={gooseMotivation} alt="goose" />
         <div>
           <Title>{title}</Title>
-          <p>Let go of the past and focus on the present!</p>
+          <MotivationText>
+            <AccentText>Let go</AccentText> of the past and focus on the
+            present!
+          </MotivationText>
         </div>
 
         {/* <Wrap>{pageCalendarDay && haveTask() && (<MotivationImg src={gooseMotivation} alt="goose" />)}
@@ -69,7 +74,11 @@ const Header = ({ openMenu }) => {
         <UserWrap>
           <FeedbackButton onClick={openModal} />
           <UserInfo />
-          <AddFeedbackModal isOpen={isModalOpen} onRequestClose={closeModal} handleClose={closeModal}/>
+          <AddFeedbackModal
+            isOpen={isModalOpen}
+            onRequestClose={closeModal}
+            handleClose={closeModal}
+          />
         </UserWrap>
       </Wrap>
     </>

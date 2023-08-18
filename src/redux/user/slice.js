@@ -68,7 +68,6 @@ const userSlice = createSlice({
       .addCase(fetchUser.pending, pendingReducer)
       .addCase(fetchUser.fulfilled, fetchUserReducer)
       .addCase(fetchUser.rejected, rejectedReducer)
-      .addCase(toggleTheme.pending, pendingReducer)
       .addCase(toggleTheme.fulfilled, toggleThemeReducer)
       .addCase(toggleTheme.rejected, rejectedReducer),
 });

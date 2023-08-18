@@ -54,6 +54,15 @@ export const SideBar = ({ isModalMenuOpen, closeModalMenu }) => {
     }
   };
 
+  const clickHandler = e => {
+    console.log(e.currentTarget === e.target);
+    console.log(e.target);
+    console.log(e.currentTarget);
+    if (e.currentTarget === e.target) {
+      handleCloseModalMenu();
+    }
+  };
+
   // useEffect(() => {
   //   const close = e => {
   //     closeModalMenu(false);
@@ -69,6 +78,7 @@ export const SideBar = ({ isModalMenuOpen, closeModalMenu }) => {
     <>
       <SideBarWrap
         className={isModalMenuOpen && 'openModalMenu'}
+        onClick={clickHandler}
         // ref={node}
       >
         <LogoAndNavWrap>
@@ -79,9 +89,9 @@ export const SideBar = ({ isModalMenuOpen, closeModalMenu }) => {
                 G<SpanSpec>oo</SpanSpec>seTrack
               </StyledTitle>
             </StyledLogoWrapper>
-            <StyledCloseButton
+            {/* <StyledCloseButton
               onClick={handleCloseModalMenu}
-            ></StyledCloseButton>
+            ></StyledCloseButton> */}
           </TopWrap>
           <UserNav closeModalMenu={closeModalMenu} />
         </LogoAndNavWrap>

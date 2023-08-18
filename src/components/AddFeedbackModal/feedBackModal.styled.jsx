@@ -9,6 +9,7 @@ export const Box = styled.div`
 export const FeedBackTitle = styled.p`
   margin-bottom: 8px;
   color: rgba(52, 52, 52, 0.8);
+  /* color: ${props => props.theme.colors.header.rewiev}; */
   font-family: Inter;
   font-size: 12px;
   font-weight: 500;

@@ -6,6 +6,7 @@ export const Container = styled.div`
   display: flex;
   margin: 0 auto;
   max-width: 1600px;
+  background-color: ${props => props.theme.colors.mainLayout.bg};
 `;
 
 export const Wrapper = styled.div`
