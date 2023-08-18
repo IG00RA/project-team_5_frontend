@@ -7,6 +7,8 @@ align-items: center;
 
 padding: 10px 46px 10px 46px;
 
+border-radius: 8px;
+border: 1px solid rgba(220, 227, 229, 0.80);
 background-color: #fff;
 `;
 

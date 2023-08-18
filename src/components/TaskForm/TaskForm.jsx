@@ -29,9 +29,8 @@ export const TaskForm = ({ task: {_id, title = '', start = moment().format('HH:m
         resetForm();
         closeModal();
         return
-      }
-      console.log(request)
-      dispatch(updateTask(_id, request));
+      };
+      dispatch(updateTask({id: _id, task: value}));
       resetForm();
       closeModal();
       return
