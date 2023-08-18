@@ -13,12 +13,12 @@ export const SideBarWrap = styled.div`
   padding: 24px 20px;
   background-color: ${props => props.theme.colors.sideBar.mainBg};
   position: absolute;
-  min-height: 812px;
+  min-height: 100vh;
 
   @media screen and (min-width: 768px) {
     width: 289px;
     padding: 24px 32px;
-    min-height: 1024px;
+    /* min-height: 100vh; */
   }
 
   @media screen and (min-width: 1440px) {

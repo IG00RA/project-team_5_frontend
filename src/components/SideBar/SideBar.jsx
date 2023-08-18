@@ -55,15 +55,6 @@ export const SideBar = ({ isModalMenuOpen, closeModalMenu }) => {
     }
   };
 
-  const clickHandler = e => {
-    console.log(e.currentTarget === e.target);
-    console.log(e.target);
-    console.log(e.currentTarget);
-    if (e.currentTarget === e.target) {
-      handleCloseModalMenu();
-    }
-  };
-
   // useEffect(() => {
   //   const close = e => {
   //     closeModalMenu(false);
@@ -79,7 +70,6 @@ export const SideBar = ({ isModalMenuOpen, closeModalMenu }) => {
     <>
       <SideBarWrap
         className={isModalMenuOpen && 'openModalMenu'}
-        onClick={clickHandler}
         // ref={node}
       >
         <LogoAndNavWrap>
