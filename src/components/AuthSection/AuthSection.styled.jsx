@@ -8,8 +8,8 @@ export const Wrap = styled.div`
   align-items: center;
   /* justify-content: center; */
   flex-direction: column;
-  background-color: var(--blue);
-  padding: 256px 59px 256px 58px;
+/*   background-color: ${p => p.theme.colors.notFoundPage.bg}; */
+  padding: 256px 59px 256px 58px;v
 
   @media screen and (min-width: 375px) {
     /* max-height: 812px; */
@@ -59,6 +59,10 @@ export const Title = styled.h1`
     line-height: 150px;
   }
 `;
+
+export const TextStyle = styled.span`
+  font-style: oblique;
+`
 
 export const ButtonsContainer = styled.div`
   display: flex;

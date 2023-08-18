@@ -8,6 +8,7 @@ import {
   LogInButton,
   LogInIcon,
   SignUpLink,
+  TextStyle,
 } from './AuthSection.styled';
 import GooseMob from '../../images/goose-banner-logo/banner-logo-mobile.webp';
 import GooseMob2x from '../../images/goose-banner-logo/banner-logo-mobile-2x.webp';
@@ -33,7 +34,7 @@ export const AuthSection = () => {
           src={GooseMob}
           alt="Goose logo"
         />
-        <Title>GooseTrack</Title>
+        <Title>G<TextStyle>oo</TextStyle>seTrack</Title>
       </div>
 
       <ButtonsContainer>
