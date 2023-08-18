@@ -1,11 +1,12 @@
 import React from 'react';
 import { Formik, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import sprite from '../../images/svg-sprite/symbol-defs.svg';
 import { selectRating, selectReview } from 'redux/review/reviewSelectors';
 import {
+  fetchQwnReview,
   addReview,
   updateReview,
   removeReview,
@@ -24,7 +25,7 @@ import {
 } from './FeedbackForm.styled';
 
 const validationSchema = Yup.object().shape({
-  rating: Yup.number()
+  rating: Yup.string()
     .required('Rating is required')
     .min(1, 'Rating must be at least 1')
     .max(5, 'Rating must be at most 5'),
@@ -39,13 +40,29 @@ export const FeedbackForm = ({ handleClose }) => {
   const userRating = useSelector(selectRating);
   const [isEditActive, setIsEditActive] = useState(false);
 
-  const handleSubmit = () => {};
+  useEffect(() => {
+    dispatch(fetchQwnReview());
+  }, [dispatch]);
+
+  const handleSubmit = (values, { setSubmitting }) => {
+    if (isEditActive) {
+      dispatch(updateReview(values));
+    } else {
+      dispatch(addReview(values));
+    }
+    setIsEditActive(false);
+    handleClose();
+    setSubmitting(false);
+  };
 
   const handleEdit = () => {
     setIsEditActive(!isEditActive);
   };
 
-  const handleDelete = () => {};
+  const handleDelete = () => {
+    dispatch(removeReview());
+    handleClose();
+  };
 
   const RatingComponent = ({ value }) => {
     const maxRating = 5;
@@ -62,7 +79,7 @@ export const FeedbackForm = ({ handleClose }) => {
             type="radio"
             name="rating"
             className="mask mask-star-2 bg-orange-400"
-            checked={ratingValue === value}
+            defaultChecked={ratingValue === value}
           />
         ))}
       </div>
@@ -72,7 +89,7 @@ export const FeedbackForm = ({ handleClose }) => {
   return (
     <Formik
       initialValues={{
-        rating: userRating || null,
+        rating: userRating || '',
         review: userReview || '',
       }}
       validationSchema={validationSchema}
@@ -90,8 +107,8 @@ export const FeedbackForm = ({ handleClose }) => {
                 <EditWrapper>
                   <EditBtn
                     onClick={handleEdit}
-                    isActive={isEditActive}
                     type="button"
+                    disabled={!userReview}
                   >
                     <svg
                       style={{
@@ -126,13 +143,14 @@ export const FeedbackForm = ({ handleClose }) => {
               id="review"
               name="review"
               component="textarea"
-              disabled={!isEditActive && userReview !== ''}
+              disabled={!isEditActive && userReview}
+              value={values.review || ''}
             />
 
             <ErrorMessage name="review" component="div" />
           </InputWrapper>
 
-          {(userReview !== '' || isEditActive) && (
+          {(!userReview || isEditActive) && (
             <FormBtnWrapper>
               <FormBtn type="submit">{isEditActive ? 'Edit' : 'Save'}</FormBtn>
               <CancelBtn type="button" onClick={handleClose}>
