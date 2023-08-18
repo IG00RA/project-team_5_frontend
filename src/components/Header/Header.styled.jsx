@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 export const Wrap = styled.div`
-display: flex;
-justify-content: space-between;
-margin-bottom: 100px;
-align-items: center;
- @media (min-width: 768px) {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 64px;
+  align-items: center;
+  @media (min-width: 768px) {
     margin-bottom: 4rem;
   }
 
@@ -14,6 +14,7 @@ align-items: center;
   }
 `;
 export const UserWrap = styled.div`
+
 display: flex;
 gap: 18px;
 align-items: center;
@@ -22,16 +23,18 @@ margin-left: auto;
   gap: 24px;
   }
 `;
+
 export const MenuIcon = styled.svg`
-display: flex;
+  display: ${({ isOpen }) => (isOpen ? 'none' : 'flex')};
 
-fill:transparent;
-stroke: black;
-height: 24px;
-width: 24px;
-cursor: pointer;
+  /* display: flex; */
+  fill: transparent;
+  stroke: black;
+  height: 24px;
+  width: 24px;
+  cursor: pointer;
 
- @media (min-width: 768px) {
+  @media (min-width: 765px) {
     height: 34px;
     width: 34px;
   }
@@ -40,13 +43,14 @@ cursor: pointer;
   }
 `;
 export const Title = styled.h2`
-display: none;
- @media (min-width: 1440px) {
+  display: none;
+  @media (min-width: 1440px) {
     display: block;
 color: ${props => props.theme.colors.header.titleText};
     font-weight: 700;
     font-size: 32px;
-    text-shadow: 0px 47px 355px rgba(0, 0, 0, 0.07),
+    text-shadow:
+      0px 47px 355px rgba(0, 0, 0, 0.07),
       0px 9.4px 57.6875px rgba(0, 0, 0, 0.035);
   }
 `;
@@ -63,7 +67,7 @@ color: ${props => props.theme.colors.header.titleText};
   }
 `;
 export const MotivationImg = styled.img`
- display: none;
+  display: none;
 
   @media (min-width: 1440px) {
     weight: 64px;
@@ -71,6 +75,8 @@ export const MotivationImg = styled.img`
     margin-right: 8px;
   }
 `;
+
 export const LetGoSpan = styled.span`
 color: #3E85F3;;
 `;
+
