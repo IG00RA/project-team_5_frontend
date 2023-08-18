@@ -9,23 +9,19 @@ export const Button = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${props => props.theme.colors?.blue || '#3e85f3'};
-  box-shadow: 4px 2px 16px 0px
-    ${props => props.theme.colors?.greyElements || '#88a5bf7a'};
+  background-color: ${props => props.theme.colors.button.mainBg};
 
   &:hover,
   &:focus {
-    background-color: #2b78ef;
-    box-shadow: 4px 2px 16px 0px
-      ${props => props.theme.colors?.greyElements || '#88a5bf7a'};
+    background-color: ${props => props.theme.colors.button.hoverBg};
   }
 
   &:disabled {
-    background-color: ${props => props.theme.colors?.greyElements || '#efefef'};
+    background-color: ${props => props.theme.colors.button.bgDisabled};
     box-shadow: none;
 
     p {
-      color: ${props => props.theme.colors?.blackText || '#111111'};
+      color: ${props => props.theme.colors.button.textDisabled};
     }
   }
 
@@ -40,7 +36,7 @@ export const Text = styled.p`
   font-weight: 600;
   font-size: 14px;
   line-height: 1.29;
-  color: ${props => props.theme.colors?.white || '#ffffff'};
+  color: ${props => props.theme.colors.button.text};
 
   @media screen and (min-width: 768px) {
     font-size: 18px;
