@@ -22,7 +22,7 @@ export const TaskForm = ({ task: { _id, title = '', start = moment().format('HH:
   const [checked, setChecked] = useState(priority);
   const [, , updatedDate] = useOutletContext();
   const dispatch = useDispatch();
-  const normalizedStringCategory = ColumnTitle.split(' ').join('-').toLowerCase();
+  const normalizedStringCategory = ColumnTitle?.split(' ').join('-').toLowerCase();
 
   const formik = useFormik({
     initialValues: {
