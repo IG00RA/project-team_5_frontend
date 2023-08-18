@@ -15,9 +15,12 @@ align-items: center;
 `;
 export const UserWrap = styled.div`
 display: flex;
-gap: 24px;
+gap: 18px;
 align-items: center;
 margin-left: auto;
+ @media (min-width: 768px) {
+  gap: 24px;
+  }
 `;
 export const MenuIcon = styled.svg`
 display: flex;
@@ -28,7 +31,7 @@ height: 24px;
 width: 24px;
 cursor: pointer;
 
- @media (min-width: 765px) {
+ @media (min-width: 768px) {
     height: 34px;
     width: 34px;
   }
