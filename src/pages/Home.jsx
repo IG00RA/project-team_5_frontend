@@ -5,7 +5,6 @@ import ModalContainer from '../components/Modal/ModalConatiner';
 import { AuthSection } from '../components/AuthSection/AuthSection';
 import { Description } from '../components/Description/Description';
 import ReviewsSlider from 'components/ReviewsSlider/ReviewsSlider';
-import ReviewsSliderNew from 'components/ReviewsSlider/ReviewsSliderNew';
 import { fetchReviewsData } from 'components/ReviewsSlider/reviewsService';
 
 
@@ -41,8 +40,7 @@ export default function Home() {
         {/* <Loader /> */}
         <AuthSection />
         <Description />
-        {/* <ReviewsSlider reviewsData={reviewskData}/> */}
-        <ReviewsSliderNew reviewsData={reviewskData}/>
+        <ReviewsSlider reviewsData={reviewskData}/>
         <FeedbackButton onClick={openModal1} />
         <FeedbackButton onClick={openModal2} />
         <ModalContainer isOpen={isModalOpen1} onRequestClose={closeModal1}>

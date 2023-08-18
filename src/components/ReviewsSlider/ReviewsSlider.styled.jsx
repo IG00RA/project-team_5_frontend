@@ -2,16 +2,16 @@ import styled from 'styled-components';
 
 export const Wrap = styled.div`
   margin-bottom: 64px;
-  max- width: 335px;
+  /* max- width: 335px; */
   background-color: var(--white);
 
   @media screen and (min-width: 375px) {
-    max- width: 516px;
+    /* max- width: 516px; */
     margin-bottom: 100px;
   }
 
   @media screen and (min-width: 768px) {
-    max-width: 1184px;
+    /* width: 1184px; */
     margin-bottom: 118px;
   }
 `
@@ -32,6 +32,19 @@ export const Title = styled.h2`
   }
 `
 
+export const CarouselWrap = styled.div`
+  width: 100%;
+  margin: 0 auto;
+
+  & li{
+    width: 335px;
+
+    @media screen and (min-width: 375px) {
+    width: 580px;
+    }
+  }
+`
+
 export const ReviewWrap = styled.div`
   display: flex;
   padding: 24px 20px 24px 24px;
@@ -39,17 +52,37 @@ export const ReviewWrap = styled.div`
   justify-content: center;
   align-items: flex-start;
   gap: 24px;
-  width: 335px;
-  height: 194px;
+  /* width: 335px; */
+  /* height: 194px; */
 
   border-radius: 8px;
   border: 1px solid rgba(17, 17, 17, 0.10);
+
+  @media screen and (min-width: 375px) {
+    /* width: 580px; */
+    padding: 32px 32px 50px 32px;
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: 32px;
+  }
 `
 
 export const ReviewContainer = styled.div`
   display: flex;
   justify-content: flex-start;
   gap: 18px;
+  width: 335px;
+  height: 194px;
+
+  @media screen and (min-width: 375px) {
+    width: 580px;
+    height: 187px;
+  }
+
+  @media screen and (min-width: 768px) {
+    height: 123px;
+  }
 `
 
 export const UserWrap = styled.div`
