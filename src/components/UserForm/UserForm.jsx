@@ -169,7 +169,6 @@ export default function UserForm() {
                   value={values.birthday}
                   onChange={inputHandler}
                 />
-                {/* <ErrorText name="birthday" component="p" /> */}
               </CommonField>
 
               <CommonField>
