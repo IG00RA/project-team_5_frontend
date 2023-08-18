@@ -223,3 +223,17 @@ export const RadioCustomCheck = styled.span`
     }
   }}};
 `;
+
+export const Error = styled.div`
+  position: absolute;
+  right: 46px;
+  top: 79px;
+
+  font-family: Inter;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.16; 
+
+  color: #EA3D65;
+`;

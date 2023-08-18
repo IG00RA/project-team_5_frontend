@@ -1,6 +1,6 @@
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { BottomWrapper, CancelBtn, CloseBtn, Form, FormSubmitBtn, IconClose, IconInBtn, InputLabel, InputText, InputTime, InputTimeWrapper, InputWrapper, Label, RadioNone, RadioCustomCheck, RedioWrapper, WrapperBtn, RadioCustom } from "./TaskForm.styled";
+import { BottomWrapper, CancelBtn, CloseBtn, Form, FormSubmitBtn, IconClose, IconInBtn, InputLabel, InputText, InputTime, InputTimeWrapper, InputWrapper, Label, RadioNone, RadioCustomCheck, RedioWrapper, WrapperBtn, RadioCustom, Error } from "./TaskForm.styled";
 import { useOutletContext } from "react-router";
 import { useDispatch } from 'react-redux';
 import { addTask, updateTask } from 'redux/tasks/tasksOperations';
@@ -9,7 +9,7 @@ import moment from 'moment';
 import { useState } from 'react';
 
 const Schema = Yup.object({
-  title: Yup.string().min(3).required(),
+  title: Yup.string().min(3, 'Please enter at least 3 characters').required('This field is required'),
   start: Yup.string(),
   end: Yup.string(),
   priority: Yup.string().oneOf(['low', 'medium', 'high']).required(),
@@ -59,6 +59,7 @@ export const TaskForm = ({ task: { _id, title = '', start = moment().format('HH:
 
         <InputWrapper>
           <InputLabel>Title<InputText placeholder='Enter text' type="text" name="title" value={formik.values.title} onChange={formik.handleChange} /></InputLabel>
+          {formik.errors.title && formik.touched.title && <Error>{formik.errors.title}</Error>}
           <InputTimeWrapper>
             <InputLabel>Start<InputTime type="time" name="start" value={formik.values.start} onChange={formik.handleChange} /></InputLabel>
             <InputLabel>End<InputTime type="time" name="end" value={formik.values.end} onChange={formik.handleChange} /></InputLabel>
