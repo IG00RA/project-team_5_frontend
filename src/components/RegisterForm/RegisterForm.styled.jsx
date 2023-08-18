@@ -198,6 +198,15 @@ export const LoginIcon = styled.svg`
   }
 `;
 
+export const ToggleButton = styled.button`
+  color: #111;
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+`;
+
 export const SuccessIcon = styled.svg`
   position: absolute;
   height: 18px;

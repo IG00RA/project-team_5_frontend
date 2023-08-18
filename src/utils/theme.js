@@ -5,7 +5,7 @@ const media = {
   l: '1440px',
 };
 
-const lightColors = {
+export const lightColors = {
   blackText: '#111111',
   blue: '#3e85f3',
   darkBlue: '#2B78EF',

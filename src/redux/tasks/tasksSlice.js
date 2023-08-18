@@ -40,7 +40,7 @@ const handleFulfilledUpdate = (state, action) => {
 
 const handleFulfilledDelete = (state, action) => {
   state.isLoading = false;
-  state.tasks = state.tasks.filter(task => task._id !== action.payload._id);
+  state.tasks = state.tasks.filter(task => task?._id !== action.payload._id);
   state.error = '';
 };
 

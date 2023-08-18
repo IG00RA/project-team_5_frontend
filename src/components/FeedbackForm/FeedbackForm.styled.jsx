@@ -76,8 +76,11 @@ export const DeleteBtn = styled.button`
 
   &:hover,
   &:focus {
-    stroke: #ffffff;
     background-color: #ea3d65;
+    & svg {
+      stroke: #ffffff;
+      fill: #ffffff;
+    }
   }
 `;
 
@@ -111,7 +114,7 @@ export const Input = styled(Field)`
     cursor: not-allowed;
   }
 
-  ::placeholder {
+  &::placeholder {
     font-family: Inter;
     opacity: 1;
     color: #343434;
