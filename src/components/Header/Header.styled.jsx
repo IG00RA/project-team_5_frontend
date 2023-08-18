@@ -9,25 +9,21 @@ export const Wrap = styled.div`
   }
 
   @media (min-width: 1440px) {
-  
     margin-bottom: 32px;
   }
 `;
 export const UserWrap = styled.div`
-
-display: flex;
-gap: 18px;
-align-items: center;
-margin-left: auto;
- @media (min-width: 768px) {
-  gap: 24px;
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  margin-left: auto;
+  @media (min-width: 768px) {
+    gap: 24px;
   }
 `;
 
 export const MenuIcon = styled.svg`
-  display: ${({ isOpen }) => (isOpen ? 'none' : 'flex')};
-
-  /* display: flex; */
+  display: ${({ open }) => (open ? 'none' : 'flex')};
   fill: transparent;
   stroke: black;
   height: 24px;
@@ -46,7 +42,7 @@ export const Title = styled.h2`
   display: none;
   @media (min-width: 1440px) {
     display: block;
-color: ${props => props.theme.colors.header.titleText};
+    color: ${props => props.theme.colors.header.titleText};
     font-weight: 700;
     font-size: 32px;
     text-shadow:
@@ -56,11 +52,11 @@ color: ${props => props.theme.colors.header.titleText};
 `;
 
 export const MotivationText = styled.p`
- display: none;
- @media (min-width: 1440px) {
+  display: none;
+  @media (min-width: 1440px) {
     display: block;
     font-family: 'Inter';
-color: ${props => props.theme.colors.header.titleText};
+    color: ${props => props.theme.colors.header.titleText};
     font-weight: 600;
     font-size: 14px;
     line-height: 1.3;
@@ -77,6 +73,5 @@ export const MotivationImg = styled.img`
 `;
 
 export const LetGoSpan = styled.span`
-color: #3E85F3;;
+  color: #3e85f3;
 `;
-
