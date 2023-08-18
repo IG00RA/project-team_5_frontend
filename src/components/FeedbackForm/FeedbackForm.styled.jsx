@@ -76,8 +76,11 @@ export const DeleteBtn = styled.button`
 
   &:hover,
   &:focus {
-    stroke: #ffffff;
     background-color: #ea3d65;
+    & svg {
+      stroke: #ffffff;
+      fill: #ffffff;
+    }
   }
 `;
 
