@@ -5,10 +5,11 @@ import {
   CartesianGrid,
   Tooltip,
   LabelList,
-  ReferenceLine,
+  // ReferenceLine,
+  BarChart,
 } from 'recharts';
 import {
-  StyledBarChart,
+  // StyledBarChart,
   Wrapper,
   StyledLegend,
   Text,
@@ -72,10 +73,12 @@ export default function StatisticsChart({
   return (
     <Wrapper>
       <Text>Tasks</Text>
-      <StyledBarChart
+      <BarChart
         width={780}
         height={440}
         data={data}
+        barGap={8}
+        barCategoryGap={75}
         margin={{
           top: 0,
           right: 0,
@@ -84,12 +87,31 @@ export default function StatisticsChart({
         }}
         title={'Tasks'}
       >
-        <CartesianGrid
-          strokeDasharray="3 1 2"
-          fill="transparent"
-          horizontal={false}
-          vertical={false}
-        ></CartesianGrid>
+        <defs>
+          <linearGradient
+            id="paint0_linear_10533_2456"
+            x1="11.4074"
+            y1="147"
+            x2="11.4074"
+            y2="5.34366e-08"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stop-color="#FFD2DD" />
+            <stop offset="0.96875" stop-color="#FFD2DD" stop-opacity="0" />
+          </linearGradient>
+          <linearGradient
+            id="paint0_linear_10533_2457"
+            x1="11.4074"
+            y1="246"
+            x2="11.4074"
+            y2="8.94245e-08"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stop-color="#3E85F3" />
+            <stop offset="1" stop-color="#3E85F3" stop-opacity="0" />
+          </linearGradient>
+        </defs>
+        <CartesianGrid x={100} stroke="#E3F3FF" vertical={false} />
         <XAxis
           // axisLine="false"
           dataKey="name"
@@ -108,29 +130,28 @@ export default function StatisticsChart({
 
         <Bar
           dataKey="byDay"
-          fill="#FFD2DD"
-          radius={[0, 0, 10, 10]}
-          // barSize={27}
+          fill="url(#paint0_linear_10533_2456)"
+          radius={[0, 0, 7, 7]}
+          barSize={22}
         >
           <LabelList dataKey="byDay" position={'top'} />
         </Bar>
 
         <Bar
           dataKey="byMonth"
-          fill="#3E85F3"
-          // barSize={27}
-          width="20"
-          radius={[0, 0, 10, 10]}
+          fill="url(#paint0_linear_10533_2457)"
+          barSize={22}
+          radius={[0, 0, 7, 7]}
         >
           <LabelList dataKey="byMonth" position={'top'} fill="black" />
         </Bar>
-        <ReferenceLine y={0} stroke="#E3F3FF" />
+        {/* <ReferenceLine y={0} stroke="#E3F3FF" />
         <ReferenceLine y={20} stroke="#E3F3FF" x1="150" />
         <ReferenceLine y={40} stroke="#E3F3FF" />
         <ReferenceLine y={60} stroke="#E3F3FF" />
         <ReferenceLine y={80} stroke="#E3F3FF" />
-        <ReferenceLine y={100} stroke="#E3F3FF" />
-      </StyledBarChart>
+        <ReferenceLine y={100} stroke="#E3F3FF" /> */}
+      </BarChart>
     </Wrapper>
   );
 }
