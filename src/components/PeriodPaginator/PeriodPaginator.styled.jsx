@@ -20,8 +20,7 @@ export const Period = styled.div`
   border-radius: 8px;
   padding: 6px 12px;
   background-color: ${props => props.theme.colors.calendarPage.todayBg};
-  /* box-shadow: 4px 2px 16px 0px ${props =>
-    props.theme.colors.button.shadow}; */
+  box-shadow: 4px 2px 16px 0px ${props => props.theme.colors.button.shadow};
   color: ${props => props.theme.colors.calendarPage.todayText};
 
   @media screen and (min-width: 768px) {
