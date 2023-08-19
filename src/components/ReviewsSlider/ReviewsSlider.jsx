@@ -21,13 +21,6 @@ const ReviewsSlider = ({ reviewsData }) => {
     }
   };
 
-  const RatingComponent = ({ value }) => {
-    const maxRating = 5;
-    const ratingArray = Array.from(
-      { length: maxRating },
-      (_, index) => index + 1
-    );
-  }
 
   return (
     <Wrap>
@@ -35,17 +28,18 @@ const ReviewsSlider = ({ reviewsData }) => {
       <div>
         <CarouselWrap>
         <Carousel
-          autoPlay={true}
-          selectedItem={currentIndex}
-          InfiniteLoop={true}
-          showStatus={false}
-          showThumbs={false}
-          centerMode={true}
-          showIndicators={false}
-          stopOnHover={true}
-          emulateTouch={true}
-          interval={1500}
-          transitionTime={500}   
+            autoPlay={true}
+            selectedItem={currentIndex}
+            infiniteLoop={true}
+            showStatus={false}
+            showThumbs={true}
+            centerMode={false}
+            showIndicators={false}
+            stopOnHover={true}
+            emulateTouch={true}
+            interval={1500}
+            transitionTime={500} 
+            showArrows={false}
           >
             {reviewsData.map((review) => (
               <ReviewWrap key={review._id}>
@@ -55,22 +49,15 @@ const ReviewsSlider = ({ reviewsData }) => {
                   </PhotoWrap>
                     <UserWrap key={review.owner._id}>
                       <ReviewUsername>{review.owner.userName}</ReviewUsername>
-                    {/* <ReviewRaiting> */}
-                      {/* {review.raiting} */}
-
-                      {/* <RatingComponent value={review.raiting}> */}
-
-                        {review.raiting}
-                        <div className="rating">
-                      <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
-                          <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
-                          <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
-                          <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
-                          <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                    <div className="rating">
+                          {[...Array(5)].map((item, i) => {
+                            return (
+                              <ReviewRaiting>
+                              <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400"
+                              checked={Number(review.raiting) === (i + 1)}/>
+                              </ReviewRaiting>
+                              )})}
                         </div>
-                      {/* </RatingComponent> */}
-
-                    {/* </ReviewRaiting> */}
                     </UserWrap>
                   </ReviewContainer>
                 <ReviewText>{review.review}</ReviewText>

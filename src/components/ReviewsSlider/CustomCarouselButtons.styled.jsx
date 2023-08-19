@@ -15,20 +15,22 @@ export const Button = styled.button`
   border: none;
   cursor: pointer;
 
-  @media screen and (min-width: 375px) {
+  @media screen and (min-width: 768px) {
     width: 61px;
     height: 61px;
   }
 `
 
 export const Icon = styled.svg`
-  stroke: black;
+  stroke: ${ p => p.theme.colors.header.titleText};
   height: 100%;
   width: 100%;
   fill: transperent;
+  transition: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
 
   &:hover,
   &:focus {
-    stroke: blue;
+    stroke: ${ p => p.theme.colors.homePage.titleText};
   }
 `

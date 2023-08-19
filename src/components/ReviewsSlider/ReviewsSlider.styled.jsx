@@ -2,46 +2,62 @@ import styled from 'styled-components';
 
 export const Wrap = styled.div`
   margin-bottom: 64px;
-  /* max- width: 335px; */
-  background-color: var(--white);
+  width: 100%;
+  background-color: ${ p => p.theme.colors.homePage.bg};
 
-  @media screen and (min-width: 375px) {
-    /* max- width: 516px; */
+  @media screen and (min-width: 768px) {
     margin-bottom: 100px;
   }
 
-  @media screen and (min-width: 768px) {
-    /* width: 1184px; */
+  @media screen and (min-width: 1067px) {
     margin-bottom: 118px;
   }
 `
 
 export const Title = styled.h2`
   text-align: center;
-  color: var(--blue);
+  color: ${ p => p.theme.colors.homePage.titleText};
   font-size: 28px;
   font-weight: 700;
-  line-height: 32px;
+  line-height: 1.14;
   text-transform: uppercase;
   margin-bottom: 40px;
 
-  @media screen and (min-width: 375px) {
+  @media screen and (min-width: 768px) {
     font-size: 40px;
-    line-height: 44px;
+    line-height: 1.57;
     margin-bottom: 50px;
   }
 `
 
 export const CarouselWrap = styled.div`
-  width: 100%;
+  width: 335px;
+  height: 194px;
   margin: 0 auto;
 
-  & li{
-    width: 335px;
-
-    @media screen and (min-width: 375px) {
-    width: 580px;
+  & > * {
+    display: flex;
+    width: 100%;
+    & > * {
+      display: flex;
+      & > * {
+        display: flex;
+        width: 100%;
+        & > * {
+        display: flex;
+        gap: 24px;
+        }
+      }
     }
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 580px;
+    height: 187px;
+  }
+
+    @media screen and (min-width: 1067px) {
+    width: 1184px;
   }
 `
 
@@ -49,22 +65,21 @@ export const ReviewWrap = styled.div`
   display: flex;
   padding: 24px 20px 24px 24px;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   gap: 24px;
-  /* width: 335px; */
-  /* height: 194px; */
-
+  height: 100%;
   border-radius: 8px;
   border: 1px solid rgba(17, 17, 17, 0.10);
 
-  @media screen and (min-width: 375px) {
-    /* width: 580px; */
+  @media screen and (min-width: 768px) {
     padding: 32px 32px 50px 32px;
+    align-items: start;
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1067px) {
     padding: 32px;
+    width: 580px;
+    height: 187px;
   }
 `
 
@@ -72,17 +87,6 @@ export const ReviewContainer = styled.div`
   display: flex;
   justify-content: flex-start;
   gap: 18px;
-  width: 335px;
-  height: 194px;
-
-  @media screen and (min-width: 375px) {
-    width: 580px;
-    height: 187px;
-  }
-
-  @media screen and (min-width: 768px) {
-    height: 123px;
-  }
 `
 
 export const UserWrap = styled.div`
@@ -93,38 +97,63 @@ export const UserWrap = styled.div`
 export const PhotoWrap = styled.div`
   width: 50px;
   height: 50px;
+  align-items: center;
 `
 
 export const ReviewPhoto = styled.img`
   width: 100%;
   height: 100%;
   border-radius: 50px;
-  background-color: tomato;
+  background-color: blue;
   text-align: center;
-  align-items: center;
-/*   overflow: hidden;
-  object-fit: cover; */
 `
 
 export const ReviewUsername = styled.p`
-  color: #343434;
+  color: ${ p => p.theme.colors.header.userText};
   font-size: 18px;
   font-weight: 700;
-  line-height: 18px;
+  line-height: 1.28;
   text-align: start;
+
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  @media screen and (min-width: 1067px) {
+    font-size: 18px;
+  }
 `
-export const ReviewRaiting = styled.p`
-  width: 110px;
-  height: 14px;
+
+export const ReviewRaiting = styled.div`
+
   display: flex;
+  flex-direction: row-revers;
   align-items: center;
+  justify-content: start;
   gap: 10px;
+
+    & input {
+      width: 14px;
+      height: 14px;
+      display: flex;  
+      margin-right: 10px;
+      justify-content: center;
+    }
 `
 
 export const ReviewText = styled.p`
-  color: rgba(17, 17, 17, 0.70);
+  width: 100%;
+  color: ${ p => p.theme.colors.notFoundPage.darkText};
   font-size: 14px;
   font-weight: 500;
-  line-height: 18px;
+  line-height: 1.28;
+  display: flex;
+  justify-content: center;
   text-align: start;
+
+  @media screen and (min-width: 768px) {
+    justify-content: center;
+    align-item: center;
+  }
 `
