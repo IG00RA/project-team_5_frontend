@@ -3,17 +3,11 @@ import {
   XAxis,
   YAxis,
   CartesianGrid,
-  Tooltip,
   LabelList,
-  // ReferenceLine,
   BarChart,
+  ResponsiveContainer,
 } from 'recharts';
-import {
-  // StyledBarChart,
-  Wrapper,
-  StyledLegend,
-  Text,
-} from './StatisticsChart.styled';
+import { Text } from './StatisticsChart.styled';
 export default function StatisticsChart({
   selectedDate,
   setSelectedDate,
@@ -53,105 +47,109 @@ export default function StatisticsChart({
   const data = [
     {
       name: 'To Do',
-      byDay: toDoByDayPercent,
-      byMonth: toDoByMonthPercent,
+      byDay: Math.ceil(toDoByDayPercent),
+      byMonth: Math.ceil(toDoByMonthPercent),
     },
     {
       name: 'In Progress',
-      byDay: inProgressByDayPercent,
-      byMonth: inProgressByMonthPercent,
+      byDay: Math.ceil(inProgressByDayPercent),
+      byMonth: Math.ceil(inProgressByMonthPercent),
     },
     {
       name: 'Done',
-      byDay: doneByDayPercent,
-      byMonth: doneByMonthPercent,
+      byDay: Math.ceil(doneByDayPercent),
+      byMonth: Math.ceil(doneByMonthPercent),
     },
   ];
 
   const percentages = [0, 20, 40, 60, 80, 100];
 
   return (
-    <Wrapper>
+    <>
       <Text>Tasks</Text>
-      <BarChart
-        width={780}
-        height={440}
-        data={data}
-        barGap={8}
-        barCategoryGap={75}
-        margin={{
-          top: 10,
-          right: 0,
-          left: 0,
-          bottom: 0,
-        }}
-      >
-        <CartesianGrid x={100} stroke="#E3F3FF" vertical={false} />
-        <defs>
-          <linearGradient
-            id="paint0_linear_10533_2456"
-            x1="11.4074"
-            y1="147"
-            x2="11.4074"
-            y2="5.34366e-08"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stop-color="#FFD2DD" />
-            <stop offset="0.96875" stop-color="#FFD2DD" stop-opacity="0" />
-          </linearGradient>
-          <linearGradient
-            id="paint0_linear_10533_2457"
-            x1="11.4074"
-            y1="246"
-            x2="11.4074"
-            y2="8.94245e-08"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stop-color="#3E85F3" />
-            <stop offset="1" stop-color="#3E85F3" stop-opacity="0" />
-          </linearGradient>
-        </defs>
-        <XAxis
-          // axisLine="false"
-          dataKey="name"
-          // stroke="transparent"
-        />
-        <YAxis
-          domain={['dataMin-10', 0]}
-          tickCount={7}
-          ticks={percentages}
-          // tick={{ dx: 32 }}
-          tickSize={32}
-        />
-
-        <Tooltip cursor={{ fill: 'transparent' }} />
-        <StyledLegend verticalAlign="top" />
-
-        <Bar
-          dataKey="byDay"
-          fill="url(#paint0_linear_10533_2456)"
-          radius={[0, 0, 7, 7]}
-          barSize={22}
+      <ResponsiveContainer width="100%" height={440}>
+        <BarChart
+          width={780}
+          height={440}
+          data={data}
+          barGap={8}
+          margin={{
+            top: 0,
+            right: 0,
+            left: 0,
+            bottom: 0,
+          }}
         >
-          <LabelList dataKey="byDay" position={'top'} />
-        </Bar>
+          <CartesianGrid x={125} stroke="#E3F3FF" vertical={false} />
+          <defs>
+            <linearGradient
+              id="paint0_linear_10525_1738"
+              x1="14"
+              y1="181"
+              x2="14"
+              y2="6.57961e-08"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stopColor="#FFD2DD" />
+              <stop offset="0.96875" stopColor="#FFD2DD" />
+            </linearGradient>
+            <linearGradient
+              id="paint0_linear_10525_1741"
+              x1="14"
+              y1="265"
+              x2="14"
+              y2="9.63313e-08"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stopColor="#3E85F3" />
+              <stop offset="1" stopColor="#3E85F3" stopOpacity="0" />
+            </linearGradient>
+          </defs>
+          <XAxis
+            // axisLine="false"
+            // tick={false}
+            dataKey="name"
+            axisLine={{ display: 'none' }}
+            tickLine={{ stroke: 'transparent' }}
+            // stroke="transparent"
+          />
+          <YAxis
+            domain={['dataMin-10', 0]}
+            tickCount={6}
+            ticks={percentages}
+            axisLine={{ stroke: 'transparent' }}
+            tickLine={{ stroke: 'transparent' }}
+            tick={{ dx: 32 }}
+            tickSize={32}
+          />
 
-        <Bar
-          dataKey="byMonth"
-          fill="url(#paint0_linear_10533_2457)"
-          barSize={22}
-          radius={[0, 0, 7, 7]}
-        >
-          <LabelList dataKey="byMonth" position={'top'} fill="black" />
-        </Bar>
-        {/* <ReferenceLine y={0} stroke="#E3F3FF" />
-        <ReferenceLine y={20} stroke="#E3F3FF" x1="150" />
-        <ReferenceLine y={40} stroke="#E3F3FF" />
-        <ReferenceLine y={60} stroke="#E3F3FF" />
-        <ReferenceLine y={80} stroke="#E3F3FF" />
-        <ReferenceLine y={100} stroke="#E3F3FF" /> */}
-      </BarChart>
-    </Wrapper>
+          {/* <Tooltip cursor={{ fill: 'transparent' }} /> */}
+
+          <Bar
+            dataKey="byDay"
+            fill="url(#paint0_linear_10525_1738)"
+            radius={[0, 0, 7, 7]}
+            barSize={22}
+          >
+            <LabelList
+              dataKey="byDay"
+              position="top"
+              fill="black"
+              content="hello"
+            />
+          </Bar>
+
+          <Bar
+            dataKey="byMonth"
+            fill="url(#paint0_linear_10525_1741)"
+            barSize={22}
+            radius={[0, 0, 7, 7]}
+          >
+            <LabelList dataKey="byMonth" position={'top'} fill="black" />
+          </Bar>
+        </BarChart>
+      </ResponsiveContainer>
+    </>
   );
 }
 
