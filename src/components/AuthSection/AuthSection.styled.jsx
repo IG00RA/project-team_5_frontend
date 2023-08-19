@@ -122,7 +122,7 @@ export const LogInButton = styled.button`
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 `;
 
-export const SignUpLink = styled.a`
+export const SignUpLink = styled.button`
   color: ${p => p.theme.colors.homePage.bg};
   text-shadow:
     0px 9.399999618530273px 57.6875px rgba(0, 0, 0, 0.04),
