@@ -36,7 +36,7 @@ const Header = ({ isModalMenuOpen, openMenu }) => {
   const haveTask = () => {
     const tasksForToday = tasksDay.filter(task => task.date === currentDay);
     if (tasksForToday.length > 0) {
-      const tasksInProgress = tasksDay.find(
+      const tasksInProgress = tasksForToday.find(
         task => task.category === 'to-do' || task.category === 'in-progress'
       );
 
@@ -57,15 +57,7 @@ const Header = ({ isModalMenuOpen, openMenu }) => {
 
   return (
     <>
-      {/* <Wrap>
-        <MotivationImg src={gooseMotivation} alt="goose" />
-        <div>
-          <Title>{title}</Title>
-
-          <p><span>Let go </span>of the past and focus on the present!</p>
-        </div> */}
-
-      <Wrap>
+       <Wrap>
         {pageCalendarDay && haveTask() && (
           <MotivationImg src={gooseMotivation} alt="goose" />
         )}
