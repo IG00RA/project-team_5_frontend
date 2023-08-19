@@ -1,4 +1,4 @@
-import { styled } from "styled-components";
+import { styled } from 'styled-components';
 
 export const Item = styled.li`
   display: flex;
@@ -12,7 +12,7 @@ export const Item = styled.li`
   max-height: 568px;
   height: 100%;
 
-  background-color: #fff;
+  background-color: ${props => props.theme.colors.calendarPage.mainBg};
   border-radius: 8px;
-  border: 1px solid rgba(220, 227, 229, 0.80);
+  border: 1px solid ${props => props.theme.colors.calendarPage.border};
 `;

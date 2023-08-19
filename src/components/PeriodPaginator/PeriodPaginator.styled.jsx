@@ -6,6 +6,8 @@ export const PaginatorWrapper = styled.div`
   align-items: center;
 
   @media screen and (min-width: 768px) {
+    justify-content: flex-start;
+    width: 100%;
     gap: 8px;
   }
 `;
@@ -20,8 +22,7 @@ export const Period = styled.div`
   border-radius: 8px;
   padding: 6px 12px;
   background-color: ${props => props.theme.colors.calendarPage.todayBg};
-  /* box-shadow: 4px 2px 16px 0px ${props =>
-    props.theme.colors.button.shadow}; */
+  box-shadow: 4px 2px 16px 0px ${props => props.theme.colors.button.shadow};
   color: ${props => props.theme.colors.calendarPage.todayText};
 
   @media screen and (min-width: 768px) {
@@ -47,7 +48,7 @@ export const PaginatorBtn = styled.button`
     props.disabled
       ? props.theme.colors.calendarPage.accent
       : props.theme.colors.calendarPage.secondText};
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
     box-shadow: 0px 1px 7px 1px rgba(0, 0, 0, 0.1);

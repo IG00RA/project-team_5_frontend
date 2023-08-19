@@ -65,6 +65,7 @@ const darkColors = {
   blueRGBA: 'rgba(227, 243, 255, 0.15)',
   redPriorityRGBA: 'rgba(234, 61, 101, 0.2)',
   shadowRGBA: 'rgba(136, 165, 191, 0.30)',
+  transparent: 'transparent',
 };
 
 // props => props.theme.colors.MainLayout.bg
@@ -118,7 +119,7 @@ export const lightTheme = {
       border: lightColors.borderRGBA,
       iconFocus: lightColors.grey,
 
-      mounth: {
+      month: {
         mainText: lightColors.grey,
         weekendText: lightColors.blue,
         lowTaskBg: lightColors.blueStatus,
@@ -129,6 +130,7 @@ export const lightTheme = {
         hightTaskText: lightColors.redPriority,
       },
       day: {
+        taskCardTitle: lightColors.blackText,
         dayName: lightColors.grey,
         taskLabelText: lightColors.greyCard,
         lowTaskBg: lightColors.bluePriority,
@@ -138,6 +140,7 @@ export const lightTheme = {
         addTaskBtnText: lightColors.black,
         addTaskBtnBg: lightColors.lightBlue2,
         addTaskBtnBorder: lightColors.blue,
+        darkText: lightColors.darkRGBA,
       },
     },
     statisticsPage: {
@@ -184,11 +187,18 @@ export const lightTheme = {
         cancelBtnBg: lightColors.lightBlue3,
       },
       task: {
+        taskBG: lightColors.white,
+        taskInput: lightColors.grey2,
+        taskInputText: lightColors.grey,
+        taskFormBorder: lightColors.borderRGBA,
         cancelBtnBg: lightColors.greyElements,
-        cancelBtnText: lightColors.blackText,
+        cancelBtnText: lightColors.darkRGBA,
+        closeBtn: lightColors.blackText,
+        saveBtnText: lightColors.white,
         lowIcon: lightColors.bluePriority,
         mediumIcon: lightColors.orangePriority,
         hightIcon: lightColors.redPriority,
+        popUpBorder: lightColors.white,
       },
     },
   },
@@ -235,7 +245,7 @@ export const darkTheme = {
       border: darkColors.whiteRGBA,
       iconFocus: darkColors.white,
 
-      mounth: {
+      month: {
         mainText: darkColors.white,
         weekendText: darkColors.blue,
         lowTaskBg: darkColors.blueStatus,
@@ -246,8 +256,9 @@ export const darkTheme = {
         hightTaskText: darkColors.redPriority,
       },
       day: {
+        taskCardTitle: darkColors.white,
         dayName: darkColors.greyRGBA,
-        taskLabelText: darkColors.white,
+        taskLabelText: darkColors.darkBG,
         lowTaskBg: darkColors.bluePriority,
         mediumTaskBg: darkColors.orangePriority,
         hightTaskBg: darkColors.redPriority,
@@ -255,6 +266,7 @@ export const darkTheme = {
         addTaskBtnText: darkColors.white,
         addTaskBtnBg: darkColors.blue,
         addTaskBtnBorder: darkColors.blue,
+        darkText: darkColors.lightRGBA,
       },
     },
     statisticsPage: {
@@ -298,11 +310,18 @@ export const darkTheme = {
         cancelBtnBg: darkColors.blackBG,
       },
       task: {
+        taskBG: darkColors.darkBG,
+        taskInput: darkColors.darkBG,
+        taskInputText: darkColors.white,
+        taskFormBorder: darkColors.transparent,
         cancelBtnBg: darkColors.greyElements,
         cancelBtnText: darkColors.blackText,
+        closeBtn: darkColors.white,
+        saveBtnText: darkColors.white,
         lowIcon: darkColors.bluePriority,
         mediumIcon: darkColors.orangePriority,
         hightIcon: darkColors.redPriority,
+        popUpBorder: darkColors.whiteRGBA,
       },
     },
   },
