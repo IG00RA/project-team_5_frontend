@@ -6,7 +6,7 @@ export const Wrap = styled.div`
   align-items: center;
   justify-content: center;
 	flex-direction: column;
-  background-color: #F7F6F9;
+  background-color: ${p => p.theme.colors.notFoundPage.bg};
   padding: 264px 61px 246px 62px;
 
   @media screen and (min-width: 375px) {
@@ -25,7 +25,7 @@ export const PictureWrap = styled.div`
   width: 252px;
   height: 150px;
 
-  color: #3E85F3;
+  color: ${p => p.theme.colors.notFoundPage.titeText};
   text-shadow: 0px 9.399999618530273px 57.6875px rgba(0, 0, 0, 0.04), 0px 47px 355px rgba(0, 0, 0, 0.07);
   font-size: 100px;
   font-weight: 700;
@@ -53,7 +53,7 @@ export const Text = styled.p`
   margin-top: 28px;
   max-width: 281px;
   text-align: center;
-  color: rgba(17, 17, 17, 0.70);
+  color: ${p => p.theme.colors.notFoundPage.darkText};
   text-align: center;
   font-family: Inter;
   font-size: 14px;
@@ -63,7 +63,7 @@ export const Text = styled.p`
 
   @media screen and (min-width: 375px) {
     margin-top: 80px;
-    max-width: 387px;
+    min-width: 387px;
   }
 `
 
@@ -75,7 +75,7 @@ export const HomeButton = styled.button`
   gap: 6px;
   padding: 14px 32px;
   margin-top: 28px;
-  color: var(--white);
+  color: ${p => p.theme.colors.notFoundPage.buttonColor};
   font-size: 14px;
   font-weight: 600;
   line-height: 18px;
@@ -83,8 +83,10 @@ export const HomeButton = styled.button`
   cursor: pointer;
 
   border-radius: 16px;
-  background: var(--blue);
+  background: ${p => p.theme.colors.notFoundPage.titeText};
   box-shadow: 4px 2px 16px 0px rgba(136, 165, 191, 0.48);
+  transition: background-color 350ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 450ms cubic-bezier(0.4, 0, 0.2, 1);
 
   @media screen and (min-width: 375px) {
     margin-top: 32px;
@@ -99,10 +101,8 @@ export const HomeButton = styled.button`
 
   &:hover,
   &:focus {
-    border: 1px solid var(--white);
-    color: var(--white);
-    background-color: #2b78ef;
-    stroke: var(--white);
+    color: ${p => p.theme.colors.notFoundPage.titeText};
+    background-color: ${p => p.theme.colors.notFoundPage.hoverBg};
 
     @media screen and (min-width: 375px) {
       width: 213px;

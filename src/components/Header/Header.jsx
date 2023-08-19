@@ -7,14 +7,17 @@ import { UserInfo } from '../UserInfo/UserInfo';
 import svgSprite from '../../images/svg-sprite/symbol-defs.svg';
 import gooseMotivation from '../../images/svg/motivation-goose.svg';
 import {
+  AccentText,
   MenuIcon,
   MotivationImg,
+  MotivationText,
   Title,
   UserWrap,
   Wrap,
   MotivationText,
   LetGoSpan,
-} from './Header.styled';
+
+]} from './Header.styled';
 import { AddFeedbackModal } from 'components/AddFeedbackModal/AddFeedbackModal';
 
 const Header = ({ isModalMenuOpen, openMenu }) => {
@@ -74,15 +77,17 @@ const Header = ({ isModalMenuOpen, openMenu }) => {
           {pageCalendarDay && haveTask() && (
             <MotivationText>
               <LetGoSpan>Let go </LetGoSpan>of the past and focus on the
+
+              <AccentText>Let go </AccentText>of the past and focus on the
+
               present!
             </MotivationText>
           )}
         </div>
 
-        <MenuIcon onClick={openMenu} isOpen={isModalMenuOpen}>
+        <MenuIcon onClick={openMenu} open={isModalMenuOpen}>
           <use href={svgSprite + `#icon-menu`} />
         </MenuIcon>
-
         <UserWrap>
           <FeedbackButton onClick={openModal} />
           <UserInfo />

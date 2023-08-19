@@ -5,7 +5,7 @@ const media = {
   l: '1440px',
 };
 
-const lightColors = {
+export const lightColors = {
   blackText: '#111111',
   blue: '#3e85f3',
   darkBlue: '#2B78EF',
@@ -36,6 +36,9 @@ const lightColors = {
   borderRGBA: 'rgba(220, 227, 229, 0.8)',
   redPriorityRGBA: 'rgba(234, 61, 101, 0.2)',
   lightRGBA: 'rgba(17, 17, 17, 0.15)',
+  semiDarkRGBA: 'rgba(17, 17, 17, 0.70)',
+  darkRGBA: 'rgba(17, 17, 17, 0.90)',
+  shadowRGBA: 'rgba(136, 165, 191, 0.48)',
 };
 
 const darkColors = {
@@ -61,12 +64,22 @@ const darkColors = {
   greyRGBA: 'rgba(250, 250, 250, 0.3)',
   blueRGBA: 'rgba(227, 243, 255, 0.15)',
   redPriorityRGBA: 'rgba(234, 61, 101, 0.2)',
+  shadowRGBA: 'rgba(136, 165, 191, 0.30)',
 };
 
 // props => props.theme.colors.MainLayout.bg
 
 export const lightTheme = {
   colors: {
+    homePage: {
+      bg: lightColors.white,
+      titleText: lightColors.blue,
+      lightBg: lightColors.lightBlue1,
+      darkTitle: darkColors.darkBG,
+      imageBg: lightColors.lightBlue2,
+      darkText: lightColors.darkRGBA,
+      hoverColor: lightColors.bluePriority,
+    },
     mainLayout: {
       bg: lightColors.greyCard,
     },
@@ -103,6 +116,7 @@ export const lightTheme = {
       todayText: lightColors.white,
       todayBg: lightColors.blue,
       border: lightColors.borderRGBA,
+      iconFocus: lightColors.grey,
 
       mounth: {
         mainText: lightColors.grey,
@@ -140,6 +154,9 @@ export const lightTheme = {
       titeText: lightColors.blue,
       littleText: lightColors.blackText,
       bg: lightColors.greyCard,
+      darkText: lightColors.semiDarkRGBA,
+      buttonColor: lightColors.white,
+      hoverBg: lightColors.lightBlue1,
     },
     button: {
       mainBg: lightColors.blue,
@@ -147,6 +164,7 @@ export const lightTheme = {
       text: lightColors.white,
       textDisabled: lightColors.darkGrey,
       bgDisabled: lightColors.greyElements,
+      shadow: lightColors.shadowRGBA,
     },
     modal: {
       bg: lightColors.white,
@@ -215,6 +233,7 @@ export const darkTheme = {
       todayText: darkColors.white,
       todayBg: darkColors.blue,
       border: darkColors.whiteRGBA,
+      iconFocus: darkColors.white,
 
       mounth: {
         mainText: darkColors.white,
@@ -259,6 +278,7 @@ export const darkTheme = {
       text: darkColors.white,
       textDisabled: darkColors.white,
       bgDisabled: darkColors.darkBG,
+      shadow: darkColors.shadowRGBA,
     },
     modal: {
       bg: darkColors.darkBG,
