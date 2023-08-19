@@ -13,7 +13,7 @@ import {
   UserWrap,
   Wrap,
   MotivationText,
-  LetGoSpan
+  LetGoSpan,
 } from './Header.styled';
 import { AddFeedbackModal } from 'components/AddFeedbackModal/AddFeedbackModal';
 
@@ -21,9 +21,11 @@ const Header = ({ isModalMenuOpen, openMenu }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const location = useLocation();
   const currentPath = location.pathname;
+
   const openModal = () => {
     setIsModalOpen(true);
   };
+
   const closeModal = () => {
     setIsModalOpen(false);
   };
@@ -32,7 +34,7 @@ const Header = ({ isModalMenuOpen, openMenu }) => {
   const pageCalendarDay = currentPath.startsWith('/calendar/day');
   const tasksDay = useSelector(selectTasks);
   const haveTask = () => {
-     const tasksForToday = tasksDay.filter(task => task.date === currentDay);
+    const tasksForToday = tasksDay.filter(task => task.date === currentDay);
     if (tasksForToday.length > 0) {
       const tasksInProgress = tasksDay.find(
         task => task.category === 'to-do' || task.category === 'in-progress'
@@ -63,12 +65,19 @@ const Header = ({ isModalMenuOpen, openMenu }) => {
           <p><span>Let go </span>of the past and focus on the present!</p>
         </div> */}
 
-
-        <Wrap>{pageCalendarDay && haveTask() && (<MotivationImg src={gooseMotivation} alt="goose" />)}
+      <Wrap>
+        {pageCalendarDay && haveTask() && (
+          <MotivationImg src={gooseMotivation} alt="goose" />
+        )}
         <div>
           <Title>{title}</Title>
-          {pageCalendarDay && haveTask() && (< MotivationText><LetGoSpan>Let go </LetGoSpan>of the past and focus on the present!</ MotivationText>)}
-        </div> 
+          {pageCalendarDay && haveTask() && (
+            <MotivationText>
+              <LetGoSpan>Let go </LetGoSpan>of the past and focus on the
+              present!
+            </MotivationText>
+          )}
+        </div>
 
         <MenuIcon onClick={openMenu} isOpen={isModalMenuOpen}>
           <use href={svgSprite + `#icon-menu`} />

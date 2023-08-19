@@ -15,7 +15,10 @@ export const AddFeedbackModal = ({ isOpen, onRequestClose, handleClose }) => {
   //   setIsModalActive(prev => '')
   // }
   return (
-    <ModalContainer /*className={('modal' + isModalActive).trim()}}*/ isOpen={isOpen} onRequestClose={onRequestClose}>
+    <ModalContainer
+      /*className={('modal' + isModalActive).trim()}}*/ isOpen={isOpen}
+      onRequestClose={onRequestClose}
+    >
       <FeedbackForm handleClose={handleClose} />
       <CloseBtn type="button" onClick={handleClose}>
         <CloseIcon className="feedBackModalClose" width="24" height="24">
