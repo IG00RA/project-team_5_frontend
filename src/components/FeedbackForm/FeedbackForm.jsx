@@ -1,5 +1,6 @@
 import React from 'react';
 import { Formik, Form } from 'formik';
+import PropTypes from 'prop-types';
 import * as Yup from 'yup';
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
@@ -148,4 +149,8 @@ export const FeedbackForm = ({ handleClose }) => {
       )}
     </Formik>
   );
+};
+
+FeedbackForm.propTypes = {
+  handleClose: PropTypes.func.isRequired,
 };
