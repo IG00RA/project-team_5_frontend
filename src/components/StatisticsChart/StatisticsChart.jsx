@@ -77,30 +77,20 @@ export default function StatisticsChart({
         height={440}
         data={data}
         margin={{
-          top: 0,
+          top: 10,
           right: 0,
           left: 0,
           bottom: 0,
         }}
-        title={'Tasks'}
       >
-        <CartesianGrid
-          strokeDasharray="3 1 2"
-          fill="transparent"
-          horizontal={false}
-          vertical={false}
-        ></CartesianGrid>
-        <XAxis
-          // axisLine="false"
-          dataKey="name"
-          // stroke="transparent"
-        />
+        <CartesianGrid fill="transparent" horizontal={false} vertical={false} />
+        <XAxis dataKey="name" />
         <YAxis
           domain={['dataMin-10', 0]}
-          tickCount={32}
+          tickCount={7}
           ticks={percentages}
-          // tick={{ dy: -16 }}
-          tickSize={21}
+          // tick={{ dx: 32 }}
+          tickSize={32}
         />
 
         <Tooltip cursor={{ fill: 'transparent' }} />
@@ -137,22 +127,7 @@ export default function StatisticsChart({
 
 // {"email":"ivan@gmail.com","password":"passwordIvan"}
 
-// <StyledBarChart width={860} height={440} data={data}>
-//   {/* <CartesianGrid vertical={false} /> */}
-//   <XAxis dataKey="name" />
-//   <YAxis tickCount={6} ticks={[0, 20, 40, 60, 80, 100]} />
-//   <Tooltip />
-//   <Legend
-//     iconType="circle"
-//     verticalAlign="top"
-//     height={36}
-//     // wrapperStyle={{ fontSize: '10px' }}
-//   />
-//   <Bar fill="#FFD2DD" background={{ fill: 'white' }} />
-//   <Bar dataKey="byMonth" fill="#3E85F3" />
-//   <ReferenceLine y={20} stroke="red" />
-//   <ReferenceLine y={40} stroke="red" />
-//   <ReferenceLine y={60} stroke="red" />
-//   <ReferenceLine y={80} stroke="red" />
-//   <ReferenceLine y={100} stroke="red" ifOverflow= />
-// </StyledBarChart>
+// YAxis;
+// tickCount = { 6} - кількість позначок на вісі
+// ticks = { percentages } - найменування позначок на шкалі
+// tickSize={32} - визначає довжину позначок на вісі

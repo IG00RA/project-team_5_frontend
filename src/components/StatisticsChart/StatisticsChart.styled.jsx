@@ -11,11 +11,18 @@ export const Wrapper = styled.div`
 `;
 
 export const Text = styled.p`
-  padding: 40px 24px;
+  padding: 40px 14px 10px;
+
+  @media (min-width: ${p => p.theme.media.m}) {
+    padding: 32px 24px 22px;
+  }
+  @media (min-width: ${p => p.theme.media.l}) {
+    padding: 40px 24px 30px;
+  }
 `;
 
 export const StyledLegend = styled(Legend)`
-  /* position: absolute; */
+  position: fixed;
 `;
 
 export const StyledBarChart = styled(BarChart)`
