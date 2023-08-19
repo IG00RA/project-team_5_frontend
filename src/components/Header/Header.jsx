@@ -21,9 +21,11 @@ const Header = ({ isModalMenuOpen, openMenu }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const location = useLocation();
   const currentPath = location.pathname;
+
   const openModal = () => {
     setIsModalOpen(true);
   };
+
   const closeModal = () => {
     setIsModalOpen(false);
   };
