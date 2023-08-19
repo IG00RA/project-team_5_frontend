@@ -7,6 +7,8 @@ align-items: center;
 
 padding: 10px 46px 10px 46px;
 
+border-radius: 8px;
+border: 1px solid rgba(220, 227, 229, 0.80);
 background-color: #fff;
 `;
 
@@ -16,7 +18,7 @@ flex-direction: column;
 align-items: center;
 gap: 8px;
 
-/* font-family: Inter; */
+font-family: Inter;
 font-size: 14px;
 font-weight: 600;
 line-height: 1.28;
@@ -33,5 +35,5 @@ font-weight: 700;
 line-height: 1.12;
 
 border-radius: 8px;
-background-color: ${p => p.currentday === p.day && '#3E85F3'};
+background-color: ${p => p.$currentday === p.$day && '#3E85F3'};
 `;

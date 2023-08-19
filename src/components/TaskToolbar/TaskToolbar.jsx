@@ -1,9 +1,49 @@
-export const TaskToolbar = () => {
+import sprite from '../../images/svg-sprite/symbol-defs.svg';
+import { useDispatch } from 'react-redux';
+import { Wrapper, Icon, CategoryBtn, WrapperPopUp, PopUpBtn, Button } from './TaskToolbar.styled';
+import { deleteTask, updateTask } from 'redux/tasks/tasksOperations';
+
+const columnsList = ['To do', 'In progress', 'Done'];
+
+export const TaskToolbar = ({ openModal, task, ColumnTitle }) => {
+
+  const buttonsList = columnsList.filter(btn => btn !== ColumnTitle);
+
+  const dispatch = useDispatch();
+
+  const normalizedStringCategory = (text) => {
+    return text?.split(' ').join('-').toLowerCase();
+  };
+
   return (
-    <div>
-      <button>1</button>
-      <button>2</button>
-      <button>3</button>
-    </div>
+    <Wrapper>
+      <CategoryBtn type='button'>
+        <Icon>
+          <use href={sprite + '#icon-icon-exit'}></use>
+        </Icon>
+      </CategoryBtn>
+
+      <WrapperPopUp >
+        {buttonsList.map(btn => (
+          <PopUpBtn onClick={() => dispatch(updateTask({id: task._id, task: {category: normalizedStringCategory(btn)} }))} key={btn} type="button">
+            <span>{btn}</span>
+            <Icon>
+              <use href={sprite + '#icon-icon-exit'}></use>
+            </Icon>
+          </PopUpBtn>
+        ))}
+      </WrapperPopUp>
+
+      <Button type='button' onClick={() => openModal(task)}>
+        <Icon>
+          <use href={sprite + '#icon-pencil'}></use>
+        </Icon>
+      </Button>
+      <Button onClick={() => dispatch(deleteTask(task._id))} type='button'>
+        <Icon>
+          <use href={sprite + '#icon-trash-box'}></use>
+        </Icon>
+      </Button>
+    </Wrapper>
   );
 };

@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "https://ig00ra.github.io/project-team_5_frontend/",
   "dependencies": {
-    "@craco/craco": "^7.1.0",
+    "@react-input/mask": "^1.0.15",
     "@reduxjs/toolkit": "^1.9.5",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^14.0.0",

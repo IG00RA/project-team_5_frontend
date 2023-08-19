@@ -1,7 +1,12 @@
-import { Btn } from "./AddTaskBtn.styled";
+import sprite from '../../images/svg-sprite/symbol-defs.svg';
+import { Btn, Icon } from "./AddTaskBtn.styled";
 
-export const AddTaskBtn = () => {
+export const AddTaskBtn = ({openModal}) => {
   return (
-    <Btn type="button">+ Add task</Btn>
+    <Btn type="button" onClick={openModal}>
+      <Icon>
+        <use href={sprite + '#icon-plus'}></use>
+      </Icon>
+      Add task</Btn>
   );
 };

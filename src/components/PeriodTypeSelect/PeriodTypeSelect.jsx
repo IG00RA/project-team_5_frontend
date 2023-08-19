@@ -1,11 +1,25 @@
-import { BtnDay, BtnMonth } from './PeriodTypeSelect.styled';
+import moment from 'moment';
+import { BtnWrapper, PeriodTypeBtn } from './PeriodTypeSelect.styled';
 
-const PeriodTypeSelect = ({ selectedDay }) => {
+const PeriodTypeSelect = () => {
   return (
-    <div>
-      <BtnMonth to={`month/${selectedDay}`}>Month</BtnMonth>
-      <BtnDay to={`day/${selectedDay}`}>Day</BtnDay>
-    </div>
+    <BtnWrapper>
+      <PeriodTypeBtn
+        $activeClassName="active"
+        type="month"
+        $isMonth
+        to={`month/${moment().format('YYYY-MM-DD')}`}
+      >
+        Month
+      </PeriodTypeBtn>
+      <PeriodTypeBtn
+        $activeClassName="active"
+        type="day"
+        to={`day/${moment().format('YYYY-MM-DD')}`}
+      >
+        Day
+      </PeriodTypeBtn>
+    </BtnWrapper>
   );
 };
 

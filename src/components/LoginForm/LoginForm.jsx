@@ -1,8 +1,11 @@
 import React from 'react';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
+import { useState } from 'react';
 import { login } from 'redux/auth/operations';
 import { Formik } from 'formik';
+import { ReactComponent as ShowPasswordIcon } from '../../images/svg/view-show-icon.svg';
+import { ReactComponent as HidePasswordIcon } from '../../images/svg/hidden-eye-close-hide-icon-232825.svg';
 import {
   Form,
   FormTitle,
@@ -16,7 +19,9 @@ import {
   ErrorIcon,
 } from './LoginForm.styled';
 
+import { ToggleButton } from 'components/RegisterForm/RegisterForm.styled';
 import sprite from '../../images/svg-sprite/symbol-defs.svg';
+
 const emailRegexp = /^\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/;
 
 const validationSchema = Yup.object().shape({
@@ -32,6 +37,10 @@ const validationSchema = Yup.object().shape({
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
+  const [showPassword, setShowPassword] = useState(false);
+  const handlePasswordVisibility = () => {
+    setShowPassword(prevShowPassword => !prevShowPassword);
+  };
 
   return (
     <Formik
@@ -51,7 +60,7 @@ export const LoginForm = () => {
             : '';
 
         return (
-          <Form onSubmit={handleSubmit}>
+          <Form onSubmit={handleSubmit} autoComplete="off">
             <FormTitle>Log In</FormTitle>
             <Label className={isValid('email')}>
               Email
@@ -84,23 +93,21 @@ export const LoginForm = () => {
               Password
               <Wrapper>
                 <Field
+                  autoComplete="new-password"
                   className={isValid('password')}
-                  type="password"
+                  type={showPassword ? 'text' : 'password'}
                   name="password"
                   placeholder="Enter password"
                   title="Password must contain at least one number, one lowercase and one uppercase letter, and be at least 6 characters long."
                   value={values.password}
                 />
-                {isValid('password') === 'is-valid' && (
-                  <SuccessIcon>
-                    <use href={sprite + '#icon-done-logo'}></use>
-                  </SuccessIcon>
-                )}
-                {isValid('password') === 'is-invalid' && (
-                  <ErrorIcon>
-                    <use href={sprite + '#icon-error-logo'}></use>
-                  </ErrorIcon>
-                )}
+                <ToggleButton
+                  type="button"
+                  aria-label="show-hide password"
+                  onClick={handlePasswordVisibility}
+                >
+                  {showPassword ? <HidePasswordIcon /> : <ShowPasswordIcon />}
+                </ToggleButton>
               </Wrapper>
               {isValid('password') === 'is-valid' && (
                 <p>This is a CORRECT password</p>

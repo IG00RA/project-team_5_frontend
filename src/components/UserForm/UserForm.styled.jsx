@@ -1,3 +1,4 @@
+import { ErrorMessage } from 'formik';
 import styled from 'styled-components';
 
 export const UserInfoForm = styled.form`
@@ -11,7 +12,7 @@ export const UserInfoForm = styled.form`
 
   border-radius: 16px;
 
-  background-color: #dbdbdb;
+  background-color: ${props => props.theme.colors.accountPage.mainBg};
 
   @media screen and (min-width: 768px) {
     padding-top: 40px;
@@ -61,7 +62,7 @@ export const UserData = styled.div`
 `;
 
 export const UserName = styled.p`
-  color: var(--grey);
+  color: ${props => props.theme.colors.accountPage.mainText};
   font-size: 14px;
   font-weight: 700;
   line-height: calc(18 / 18);
@@ -72,7 +73,7 @@ export const UserName = styled.p`
 `;
 
 export const UserLabel = styled.p`
-  color: var(--grey);
+  color: ${props => props.theme.colors.accountPage.secondText};
   font-size: 12px;
   font-weight: 600;
   line-height: calc(14 / 12);
@@ -101,7 +102,7 @@ export const AvatarImg = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border: 2px solid var(--blue);
+  border: 2px solid ${props => props.theme.colors.accountPage.accent};
   border-radius: 50%;
 `;
 
@@ -113,13 +114,19 @@ export const AvatarTextContainer = styled.div`
   width: 100%;
   height: 100%;
 
-  background-color: var(--darkBG);
+  background-color: ${props => props.theme.colors.accountPage.avatarBg};
+  border: 2px solid ${props => props.theme.colors.accountPage.accent};
+  border-radius: 50%;
 `;
 
 export const AvatarText = styled.span`
   font-size: 38px;
   font-weight: 600;
-  color: var(--greySub);
+  color: ${props => props.theme.colors.accountPage.secondText};
+
+  @media screen and (min-width: 768px) {
+    font-size: 60px;
+  }
 `;
 
 export const FileInput = styled.input`
@@ -133,9 +140,10 @@ export const CommonInput = styled.input`
   height: 42px;
   padding: 12px 14px;
   border-radius: 8px;
-  border: 1px solid rgba(17, 17, 17, 0.1);
+  border: 1px solid ${props => props.theme.colors.accountPage.border};
+  background-color: ${props => props.theme.colors.accountPage.mainBg};
 
-  color: var(--black);
+  color: ${props => props.theme.colors.accountPage.mainText};
   font-family: Inter;
   font-size: 14px;
   font-style: normal;
@@ -151,7 +159,7 @@ export const CommonInput = styled.input`
 
 export const Label = styled.p`
   margin-bottom: 8px;
-  color: var(--black);
+  color: ${props => props.theme.colors.accountPage.secondText};
   font-size: 12px;
   line-height: calc(14 / 12);
 
@@ -162,6 +170,7 @@ export const Label = styled.p`
 `;
 
 export const CommonField = styled.label`
+  position: relative;
   width: 100%;
   max-width: 354px;
 `;
@@ -171,7 +180,10 @@ export const AvatarField = styled.label`
   position: relative;
 `;
 
-export const SvgWrapper = styled.div`
+export const Icon = styled.svg`
+  stroke: ${props => props.theme.colors.accountPage.icon};
+  fill: transparent;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -183,7 +195,7 @@ export const SvgWrapper = styled.div`
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background-color: var(--blue);
+  background-color: ${props => props.theme.colors.accountPage.accent};
 
   @media screen and (min-width: 768px) {
     width: 24px;
@@ -191,8 +203,7 @@ export const SvgWrapper = styled.div`
   }
 `;
 
-export const Svg = styled.svg`
-  stroke: var(--white);
+export const Use = styled.use`
   height: 8px;
   width: 8px;
 
@@ -206,4 +217,18 @@ export const ButtonWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
+`;
+
+export const ErrorText = styled(ErrorMessage)`
+  position: absolute;
+  bottom: -16px;
+  right: 4px;
+  color: #e74a3b;
+  font-size: 11px;
+  line-height: calc(14 / 12);
+
+  @media screen and (min-width: 768px) {
+    bottom: -18px;
+    font-size: 12px;
+  }
 `;

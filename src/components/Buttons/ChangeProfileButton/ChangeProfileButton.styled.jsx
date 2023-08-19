@@ -1,7 +1,7 @@
-import Loader from 'components/loader/loader';
 import styled from 'styled-components';
 
 export const Button = styled.button`
+  cursor: pointer;
   width: 195px;
   height: 46px;
   margin-top: 22px;
@@ -9,21 +9,19 @@ export const Button = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--blue);
-  box-shadow: 4px 2px 16px 0px #88a5bf7a;
+  background-color: ${props => props.theme.colors.button.mainBg};
 
   &:hover,
   &:focus {
-    background-color: #2b78ef;
-    box-shadow: 4px 2px 16px 0px #88a5bf7a;
+    background-color: ${props => props.theme.colors.button.hoverBg};
   }
 
   &:disabled {
-    background-color: var(--greyElements);
+    background-color: ${props => props.theme.colors.button.bgDisabled};
     box-shadow: none;
 
     p {
-      color: var(--blackText);
+      color: ${props => props.theme.colors.button.textDisabled};
     }
   }
 
@@ -38,7 +36,7 @@ export const Text = styled.p`
   font-weight: 600;
   font-size: 14px;
   line-height: 1.29;
-  color: var(--white);
+  color: ${props => props.theme.colors.button.text};
 
   @media screen and (min-width: 768px) {
     font-size: 18px;
@@ -46,6 +44,8 @@ export const Text = styled.p`
   }
 `;
 
-export const CastomLoader = styled(Loader)`
-  height: 15px;
+export const CastomLoader = styled.div`
+  position: relative;
+  bottom: 20px;
+  transform: scale(0.4);
 `;

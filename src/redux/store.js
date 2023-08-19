@@ -12,6 +12,8 @@ import {
 } from 'redux-persist';
 import { authReducer } from './auth/slice';
 import { tasksReducer } from './tasks/tasksSlice';
+import { userReducer } from './user/slice';
+import { reviewReducer } from './review/reviewSlice';
 
 const middleware = [
   ...getDefaultMiddleware({
@@ -26,10 +28,18 @@ const authPersistConfig = {
   whitelist: ['token'],
 };
 
+const userPersistConfig = {
+  key: 'user',
+  storage,
+  whitelist: ['theme'],
+};
+
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
+    user: persistReducer(userPersistConfig, userReducer),
     tasks: tasksReducer,
+    review: reviewReducer,
   },
   middleware,
 });

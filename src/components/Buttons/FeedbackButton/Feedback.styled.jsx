@@ -8,16 +8,16 @@ export const FeedbackBtn = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--blue);
+  background-color: ${props => props.theme.colors.button.mainBg};
   font-family: 'Inter', sans-serif;
   font-weight: 600;
   font-size: 12px;
   line-height: 1.33;
-  color: var(--white);
+  color: ${props => props.theme.colors.button.text};
 
   &:hover,
   &:focus {
-    background-color: #2b78ef;
+    background-color: ${props => props.theme.colors.button.hoverBg};
   }
 
   @media screen and (min-width: 768px) {

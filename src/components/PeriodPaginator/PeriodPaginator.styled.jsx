@@ -2,40 +2,74 @@ import styled from 'styled-components';
 
 export const PaginatorWrapper = styled.div`
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 8px;
+
+  @media screen and (min-width: 768px) {
+    gap: 8px;
+  }
 `;
 
 export const Period = styled.div`
-  padding: 8px 12px;
-  border-radius: 8px;
   text-align: center;
+  font-family: Inter;
+  font-size: 14px;
   font-weight: 700;
-  line-height: calc(18 / 16);
+  line-height: calc(18 / 14);
   text-transform: uppercase;
-  background-color: #3e85f3;
-  color: #fff;
+  border-radius: 8px;
+  padding: 6px 12px;
+  background-color: ${props => props.theme.colors.calendarPage.todayBg};
+  /* box-shadow: 4px 2px 16px 0px ${props =>
+    props.theme.colors.button.shadow}; */
+  color: ${props => props.theme.colors.calendarPage.todayText};
+
+  @media screen and (min-width: 768px) {
+    padding: 8px 12px;
+    font-size: 16px;
+    line-height: calc(18 / 16);
+  }
 `;
 
-export const BtnPrev = styled.button`
-  width: 38px;
-  height: 34px;
-  border-radius: 8px 0px 0px 8px;
-  border: 1px solid rgba(220, 227, 229, 0.8);
-  background-color: #fff;
-  color: rgba(52, 52, 52, 1);
+export const PaginatorBtn = styled.button`
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 36px;
+  height: 30px;
+  padding: 7px 10px;
   font-weight: 700;
-  cursor: pointer;
+  border-radius: ${p => (p.$isPrevBtn ? '8px 0px 0px 8px' : '0px 8px 8px 0px')};
+  border: 1px solid ${props => props.theme.colors.calendarPage.border};
+  background-color: ${props => props.theme.colors.calendarPage.mainBg};
+  color: ${props =>
+    props.disabled
+      ? props.theme.colors.calendarPage.accent
+      : props.theme.colors.calendarPage.secondText};
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    box-shadow: 0px 1px 7px 1px rgba(0, 0, 0, 0.1);
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 38px;
+    height: 34px;
+  }
 `;
 
-export const BtnNext = styled.button`
-  width: 38px;
-  height: 34px;
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px;
-  border: 1px solid rgba(220, 227, 229, 0.8);
-  background-color: #fff;
-  color: rgba(52, 52, 52, 1);
-  font-weight: 700;
-  cursor: pointer;
+export const Icon = styled.svg`
+  display: inline-block;
+  height: 18px;
+  width: 18px;
+  stroke-width: 0;
+  stroke: ${props => props.theme.colors.calendarPage.border};
+  fill: transparent;
+  transition: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    stroke: ${props => props.theme.colors.calendarPage.iconFocus};
+  }
 `;

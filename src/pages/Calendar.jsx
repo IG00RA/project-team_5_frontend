@@ -6,26 +6,23 @@ import CalendarToolbar from '../components/CalendarToolbar/CalendarToolbar';
 
 export default function Calendar() {
   moment.updateLocale('en', { week: { dow: 1 } });
+  
   const [selectedDay, setSelectedDay] = useState(moment());
-
-  const prevMonthHandler = () => {
-    setSelectedDay(prev => prev.clone().subtract(1, 'month'));
-  };
-
-  const nextMonthHandler = () => {
-    setSelectedDay(prev => prev.clone().add(1, 'month'));
-  };
+  const [updatedDate, setUpdatedDate] = useState(selectedDay);
+  const [isChoosedDay, setIsChoosedDay] = useState(false);
 
   return (
     <>
       <CalendarToolbar
+        isChoosedDay={isChoosedDay}
         selectedDay={selectedDay}
-        prevMonthHandler={prevMonthHandler}
-        nextMonthHandler={nextMonthHandler}
+        updatedDate={updatedDate}
+        setSelectedDay={setSelectedDay}
+        setUpdatedDate={setUpdatedDate}
       />
       <Suspense fallback={<div>Loading subpage...</div>}>
-        <Outlet context={[selectedDay]} />
+        <Outlet context={[selectedDay, setIsChoosedDay, updatedDate, setUpdatedDate, setSelectedDay]} />
       </Suspense>
     </>
   );
-}
+};

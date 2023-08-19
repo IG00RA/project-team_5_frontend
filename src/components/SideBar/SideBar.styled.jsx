@@ -2,28 +2,41 @@ import styled from 'styled-components';
 
 export const SideBarWrap = styled.div`
   display: flex;
-  flex-direction: column;
-  position: fixed;
+
+  justify-content: space-between;
+  top: 0;
+  /* left: ${({ isOpen }) => (isOpen ? '0' : '-100%')}; */
   z-index: 2;
+  flex-direction: column;
   box-sizing: border-box;
-  height: 100vh;
   width: 225px;
   padding: 24px 20px;
-  background-color: #ffffff;
-  border-right: 1px solid;
-  box-shadow: 0px 0px 7px 1px;
+  background-color: ${props => props.theme.colors.sideBar.mainBg};
+  position: absolute;
+  min-height: 100vh;
 
   @media screen and (min-width: 768px) {
     width: 289px;
-    padding: 32px;
+    padding: 24px 32px;
+    /* min-height: 100vh; */
   }
 
-  @media screen and (max-width: 1440px) {
+  @media screen and (min-width: 1440px) {
+    position: static;
+    width: 289px;
+    padding: 32px 24px 24px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    min-height: 900px;
+  }
+
+  @media screen and (max-width: 1439px) {
     left: 0;
     transform: translateX(-100%);
     transition: transform 350ms ease-in-out;
     &.openModalMenu {
-      display: block;
+      /* display: block; */
       transform: translateX(0px);
     }
   }
@@ -40,17 +53,18 @@ export const Overlay = styled.div`
 `;
 
 export const StyledTitle = styled.span`
-  color: #3e85f3;
-  margin: 0;
+  display: flex;
+  flex-direction: row;
+  color: ${props => props.theme.colors.sideBar.logoText};
   font-family: 'Coolvetica';
   font-size: 16px;
-  line-height: 1.375;
+  line-height: 24px;
   font-weight: 400;
-  text-shadow: 0px 47px 355px rgba(0, 0, 0, 0.07),
+  text-shadow:
+    0px 47px 355px rgba(0, 0, 0, 0.07),
     0px 9.4px 57.6875px rgba(0, 0, 0, 0.035);
 
   @media screen and (min-width: 768px) {
-    font-size: 18px;
     line-height: 1.33;
   }
 
@@ -59,32 +73,58 @@ export const StyledTitle = styled.span`
     line-height: 1;
   }
 `;
-export const TopWrap = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 39px;
-}
+
+export const SpanSpec = styled.p`
+  font-style: italic;
+  @media (min-width: 768px) {
+    font-size: 18px;
+  }
+  @media (min-width: 1440px) {
+    font-size: 24px;
+  }
 `;
+
+export const TopWrap = styled.div`
+  margin-bottom: 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* align-items: center; */
+  /* justify-content: center;
+  margin-right: 39px; */
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 50px;
+  }
+  @media screen and (min-width: 1440px) {
+    display: block;
+    margin-bottom: 32px;
+  }
+`;
+
+export const LogoAndNavWrap = styled.div``;
 
 export const StyledLogoWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 64px;
-  
+  /* margin-bottom: 64px; */
+
   @media (min-width: 768px) {
-    margin-bottom: 32px;
-}
+    /* margin-bottom: 32px; */
+  }
+  @media (min-width: 1440px) {
+    justify-content: flex-start;
+    margin-bottom: 0px;
+  }
 `;
 
-export const SideBarImg = styled.picture`
+export const SideBarImg = styled.img`
   margin-right: 6px;
   width: 36px;
   height: 35px;
 
   @media screen and (min-width: 768px) {
-    margin-right: 10px;
     width: 60px;
     height: 58px;
   }
@@ -96,20 +136,25 @@ export const SideBarImg = styled.picture`
   }
 `;
 
-export const StyledCloseButton = styled.button`
-  display: block;
-  width: 33px;
-  height: 33px;
+export const StyledCloseButton = styled.svg`
+  width: 24px;
+  height: 24px;
   transition: all 250ms;
-  stroke: #343434;
+  stroke: ${props => props.theme.colors.sideBar.mainText};
+  fill: transparent;
+  cursor: pointer;
 
+  @media screen and (min-width: 768px) {
+    width: 34px;
+    height: 34px;
+  }
   @media screen and (min-width: 1440px) {
     display: none;
   }
 
   &:hover,
   &:focus {
-    stroke: #3e85f3;
+    stroke: ${props => props.theme.colors.sideBar.accentBg};
     transform: rotate(180deg);
   }
 `;

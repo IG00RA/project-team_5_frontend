@@ -1,6 +1,7 @@
 import { styled } from 'styled-components';
 import gooseImage from '../../images/registration-page/goose-login.webp';
 import gooseImage2x from '../../images/registration-page/goose-login-2x.webp';
+import { lightColors } from 'utils/theme';
 
 export const PageContainer = styled.div`
   position: relative;
@@ -9,7 +10,7 @@ export const PageContainer = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-color: #dcebf7;
+  background-color: ${lightColors.lightBlue1};
 `;
 
 export const FormContainer = styled.div`
@@ -21,10 +22,10 @@ export const FormContainer = styled.div`
     width: 100%;
     max-width: 335px;
   }
-  @media screen and (min-width: 375px) {
+  @media screen and (min-width: ${props => props.theme.media.s}) {
     width: 335px;
   }
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: ${props => props.theme.media.m}) {
     width: 480px;
     margin-bottom: 24px;
   }

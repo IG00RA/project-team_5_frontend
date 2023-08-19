@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import FeedbackButton from '../components/Buttons/FeedbackButton/FeedbackButton';
 import ModalContainer from '../components/Modal/ModalConatiner';
-// import Loader from '../components/loader/loader';
 import { AuthSection } from '../components/AuthSection/AuthSection';
 import { Description } from '../components/Description/Description';
-/* import ReviewsSlider from 'components/ReviewsSlider/ReviewsSlider'; */
-import { fetchReviewsData } from 'components/ReviewsSlider/reviewsService';
-
+import ReviewsSlider from 'components/ReviewsSlider/ReviewsSlider'; 
+import ScrollToTop from 'components/ScrollToTop/ScrollToTop';
+import { AddFeedbackModal } from '../components/AddFeedbackModal/AddFeedbackModal';
 
 export default function Home() {
   const [isModalOpen1, setIsModalOpen1] = useState(false);
@@ -37,15 +36,14 @@ export default function Home() {
   return (
     <>
       <div>
-        {/* <Loader /> */}
         <AuthSection />
         <Description />
-        {/* <ReviewsSlider reviewsData={reviewskData}/> */}
+        <ReviewsSlider reviewsData={reviewskData}/>
+        <ScrollToTop />
+
         <FeedbackButton onClick={openModal1} />
         <FeedbackButton onClick={openModal2} />
-        <ModalContainer isOpen={isModalOpen1} onRequestClose={closeModal1}>
-          <p>HELLO</p>
-        </ModalContainer>
+        <AddFeedbackModal isOpen={isModalOpen1} onRequestClose={closeModal1} />
         <ModalContainer isOpen={isModalOpen2} onRequestClose={closeModal2}>
           <p>HELLO2</p>
         </ModalContainer>
