@@ -73,45 +73,25 @@ export default function StatisticsChart({
   return (
     <Wrapper>
       <Text>Tasks</Text>
-      <BarChart
+      <StyledBarChart
         width={780}
         height={440}
         data={data}
         barGap={8}
         barCategoryGap={75}
         margin={{
-          top: 0,
+          top: 10,
           right: 0,
           left: 0,
           bottom: 0,
         }}
-        title={'Tasks'}
       >
-        <defs>
-          <linearGradient
-            id="paint0_linear_10533_2456"
-            x1="11.4074"
-            y1="147"
-            x2="11.4074"
-            y2="5.34366e-08"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stop-color="#FFD2DD" />
-            <stop offset="0.96875" stop-color="#FFD2DD" stop-opacity="0" />
-          </linearGradient>
-          <linearGradient
-            id="paint0_linear_10533_2457"
-            x1="11.4074"
-            y1="246"
-            x2="11.4074"
-            y2="8.94245e-08"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stop-color="#3E85F3" />
-            <stop offset="1" stop-color="#3E85F3" stop-opacity="0" />
-          </linearGradient>
-        </defs>
-        <CartesianGrid x={100} stroke="#E3F3FF" vertical={false} />
+        <CartesianGrid
+          strokeDasharray="3 1 2"
+          fill="transparent"
+          horizontal={false}
+          vertical={false}
+        ></CartesianGrid>
         <XAxis
           // axisLine="false"
           dataKey="name"
@@ -119,10 +99,10 @@ export default function StatisticsChart({
         />
         <YAxis
           domain={['dataMin-10', 0]}
-          tickCount={32}
+          tickCount={7}
           ticks={percentages}
-          // tick={{ dy: -16 }}
-          tickSize={21}
+          // tick={{ dx: 32 }}
+          tickSize={32}
         />
 
         <Tooltip cursor={{ fill: 'transparent' }} />
@@ -130,18 +110,19 @@ export default function StatisticsChart({
 
         <Bar
           dataKey="byDay"
-          fill="url(#paint0_linear_10533_2456)"
-          radius={[0, 0, 7, 7]}
-          barSize={22}
+          fill="#FFD2DD"
+          radius={[0, 0, 10, 10]}
+          // barSize={27}
         >
           <LabelList dataKey="byDay" position={'top'} />
         </Bar>
 
         <Bar
           dataKey="byMonth"
-          fill="url(#paint0_linear_10533_2457)"
-          barSize={22}
-          radius={[0, 0, 7, 7]}
+          fill="#3E85F3"
+          // barSize={27}
+          width="20"
+          radius={[0, 0, 10, 10]}
         >
           <LabelList dataKey="byMonth" position={'top'} fill="black" />
         </Bar>
@@ -158,22 +139,7 @@ export default function StatisticsChart({
 
 // {"email":"ivan@gmail.com","password":"passwordIvan"}
 
-// <StyledBarChart width={860} height={440} data={data}>
-//   {/* <CartesianGrid vertical={false} /> */}
-//   <XAxis dataKey="name" />
-//   <YAxis tickCount={6} ticks={[0, 20, 40, 60, 80, 100]} />
-//   <Tooltip />
-//   <Legend
-//     iconType="circle"
-//     verticalAlign="top"
-//     height={36}
-//     // wrapperStyle={{ fontSize: '10px' }}
-//   />
-//   <Bar fill="#FFD2DD" background={{ fill: 'white' }} />
-//   <Bar dataKey="byMonth" fill="#3E85F3" />
-//   <ReferenceLine y={20} stroke="red" />
-//   <ReferenceLine y={40} stroke="red" />
-//   <ReferenceLine y={60} stroke="red" />
-//   <ReferenceLine y={80} stroke="red" />
-//   <ReferenceLine y={100} stroke="red" ifOverflow= />
-// </StyledBarChart>
+// YAxis;
+// tickCount = { 6} - кількість позначок на вісі
+// ticks = { percentages } - найменування позначок на шкалі
+// tickSize={32} - визначає довжину позначок на вісі
