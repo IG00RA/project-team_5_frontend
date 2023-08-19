@@ -1,14 +1,21 @@
-import { BarChart } from 'recharts';
+import { BarChart, Legend } from 'recharts';
 import styled from 'styled-components';
 
-// export const StyledReferenceLine = styled(ReferenceLine)`
-//   .recharts-cartesian-grid-horizontal {
-//     margin-left: 100px;
-//   }
-// `;
 export const Wrapper = styled.div`
+  position: relative;
   width: 860px;
-  height: 440px;
+  min-height: 440px;
+  border: 0.8px solid #e3f3ff;
+  border-radius: 29px;
+  margin: 0 auto;
+`;
+
+export const Text = styled.p`
+  padding: 40px 24px;
+`;
+
+export const StyledLegend = styled(Legend)`
+  /* position: absolute; */
 `;
 
 export const StyledBarChart = styled(BarChart)`
@@ -22,27 +29,20 @@ export const StyledBarChart = styled(BarChart)`
     line-height: 150%;
   }
 
+  /* контейнер загального чарту */
+  .recharts-wrapper {
+    width: 500px;
+    height: 800px;
+  }
+
+  /* графік і дані в контейнері чарту */
+  .recharts-surface {
+  }
+
+  /* вісь */
   .recharts-cartesian-axis-line,
   .recharts-cartesian-axis-tick-line {
     stroke: transparent;
-  }
-
-  .recharts-wrapper {
-    display: flex;
-    gap: 50px;
-  }
-
-  .recharts-bar-rectangle {
-    width: 27px;
-  }
-
-  /* .recharts-cartesian-grid-horizontal line {
-    stroke: blue;
-    stroke-dasharray: none;
-  } */
-
-  .recharts-cartesian-grid {
-    border-color: red;
   }
 
   .recharts-layer .recharts-cartesian-axis .recharts-xAxis.xAxis {
@@ -51,19 +51,18 @@ export const StyledBarChart = styled(BarChart)`
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
-    line-height: 150%; /* 21px */
+    line-height: calc(21 / 14);
   }
-
-  .recharts-text {
+  / .recharts-text {
     color: #343434;
     font-family: Inter;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
-    line-height: 150%; /* 21px */
+    line-height: calc(21 / 14);
   }
 
-  .recharts-cartesian-axis-tick-value {
+  /* .recharts-cartesian-axis-tick-value {
     padding: 50px, 50px;
-  }
+  } */
 `;

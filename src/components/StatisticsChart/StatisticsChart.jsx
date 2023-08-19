@@ -1,15 +1,18 @@
 import {
-  // BarChart,
   Bar,
   XAxis,
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend,
   LabelList,
   ReferenceLine,
 } from 'recharts';
-import { StyledBarChart, Wrapper } from './StatisticsChart.styled';
+import {
+  StyledBarChart,
+  Wrapper,
+  StyledLegend,
+  Text,
+} from './StatisticsChart.styled';
 export default function StatisticsChart({
   selectedDate,
   setSelectedDate,
@@ -68,6 +71,7 @@ export default function StatisticsChart({
 
   return (
     <Wrapper>
+      <Text>Tasks</Text>
       <StyledBarChart
         width={780}
         height={440}
@@ -92,7 +96,7 @@ export default function StatisticsChart({
           // stroke="transparent"
         />
         <YAxis
-          domain={['dataMin-10', 'dataMax + 10']}
+          domain={['dataMin-10', 0]}
           tickCount={32}
           ticks={percentages}
           // tick={{ dy: -16 }}
@@ -100,14 +104,13 @@ export default function StatisticsChart({
         />
 
         <Tooltip cursor={{ fill: 'transparent' }} />
-        <Legend verticalAlign="top" />
+        <StyledLegend verticalAlign="top" />
 
         <Bar
           dataKey="byDay"
           fill="#FFD2DD"
-          background={{ fill: 'white' }}
           radius={[0, 0, 10, 10]}
-          barSize={27}
+          // barSize={27}
         >
           <LabelList dataKey="byDay" position={'top'} />
         </Bar>
@@ -115,7 +118,7 @@ export default function StatisticsChart({
         <Bar
           dataKey="byMonth"
           fill="#3E85F3"
-          barSize={27}
+          // barSize={27}
           width="20"
           radius={[0, 0, 10, 10]}
         >

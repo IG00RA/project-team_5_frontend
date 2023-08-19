@@ -9,6 +9,7 @@ import {
 import { getAllTasks } from 'redux/tasks/tasksOperations';
 import moment from 'moment';
 import StatisticPaginator from 'components/StatisticPaginator/StatisticPaginator';
+import { StatisticsWrapper } from './Statistics/Statistics.styled';
 
 export default function Statistics() {
   const tasks = useSelector(selectTasks);
@@ -36,8 +37,7 @@ export default function Statistics() {
   }, [dispatch, selectedDate]);
 
   return (
-    <div>
-      <p>Statistics Page</p>
+    <StatisticsWrapper>
       <StatisticPaginator
         selectedDate={selectedDate}
         typeOfPeriod={'day'}
@@ -75,6 +75,6 @@ export default function Statistics() {
         filteredTasksByDate={filteredTasksByDate}
         filteredTasksByMonth={filteredTasksByMonth}
       />
-    </div>
+    </StatisticsWrapper>
   );
 }

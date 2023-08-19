@@ -3,9 +3,10 @@ import {
   BtnPrev,
   PaginatorWrapper,
   Period,
+  ButtonsWrap,
 } from './StatisticPaginator.styled';
 
-export default function StatisticPaginator({
+export default function StyledPaginator({
   selectedDate,
   onDateChange,
   typeOfPeriod,
@@ -31,10 +32,10 @@ export default function StatisticPaginator({
   return (
     <PaginatorWrapper>
       <Period>{formattedPeriod}</Period>
-      <div>
+      <ButtonsWrap>
         <BtnPrev onClick={prevHandler}>&lt;</BtnPrev>
         <BtnNext onClick={nextHandler}>&gt;</BtnNext>
-      </div>
+      </ButtonsWrap>
     </PaginatorWrapper>
   );
 }

@@ -2,11 +2,19 @@ import styled from 'styled-components';
 
 export const PaginatorWrapper = styled.div`
   display: flex;
-  justify-content: space-between;
   align-items: center;
-
-  @media screen and (min-width: 768px) {
+  gap: 114px;
+  padding-top: 28px;
+  padding-left: 14px;
+  margin-bottom: 40px;
+  @media (min-width: ${p => p.theme.media.m}) {
+    padding-top: 132px;
+    padding-left: 64px;
     gap: 8px;
+  }
+  @media (min-width: ${p => p.theme.media.l}) {
+    padding-top: 134px;
+    padding-left: 153px;
   }
 `;
 
@@ -23,11 +31,14 @@ export const Period = styled.div`
   box-shadow: 4px 2px 16px 0px rgba(136, 165, 191, 0.48);
   color: #fff;
 
-  @media screen and (min-width: 768px) {
-    padding: 8px 12px;
+  @media (min-width: ${p => p.theme.media.m}) {
     font-size: 16px;
     line-height: calc(18 / 16);
   }
+`;
+
+export const ButtonsWrap = styled.div`
+  display: flex;
 `;
 
 export const BtnNext = styled.button`
