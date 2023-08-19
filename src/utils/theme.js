@@ -36,6 +36,8 @@ const lightColors = {
   borderRGBA: 'rgba(220, 227, 229, 0.8)',
   redPriorityRGBA: 'rgba(234, 61, 101, 0.2)',
   lightRGBA: 'rgba(17, 17, 17, 0.15)',
+  semiDarkRGBA: 'rgba(17, 17, 17, 0.70)',
+  darkRGBA: 'rgba(17, 17, 17, 0.90)',
 };
 
 const darkColors = {
@@ -67,6 +69,15 @@ const darkColors = {
 
 export const lightTheme = {
   colors: {
+    homePage: {
+      bg: lightColors.white,
+      titleText: lightColors.blue,
+      lightBg: lightColors.lightBlue1,
+      darkTitle: darkColors.darkBG,
+      imageBg: lightColors.lightBlue2,
+      darkText: lightColors.darkRGBA,
+      hoverColor: lightColors.bluePriority,
+    },
     mainLayout: {
       bg: lightColors.greyCard,
     },
@@ -140,6 +151,9 @@ export const lightTheme = {
       titeText: lightColors.blue,
       littleText: lightColors.blackText,
       bg: lightColors.greyCard,
+      darkText: lightColors.semiDarkRGBA,
+      buttonColor: lightColors.white,
+      hoverBg: lightColors.lightBlue1,
     },
     button: {
       mainBg: lightColors.blue,

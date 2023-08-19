@@ -20,8 +20,13 @@ export const ScrollToTopButton = styled.div`
   line-height: 18px;
   letter-spacing: -0.28px;
   border-radius: 16px;
+  transition: background-color 350ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 450ms cubic-bezier(0.4, 0, 0.2, 1);
 
-  &:hover {
+  &:hover,
+  &:focus {
     opacity: 1;
+    color: ${p => p.theme.colors.notFoundPage.titeText};
+    background-color: ${p => p.theme.colors.notFoundPage.hoverBg};
   }
 `;
