@@ -15,25 +15,41 @@ export const Icon = styled.svg`
 
 export const WrapperPopUp = styled.div`
   display: none;
+  padding: 20px 24px;
 
-  width: 200px;
-  height: 100px;
-
-  background-color: #fff;
+  border-radius: 8px;
+  background: #FFF;
+  box-shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.10);
 
   &:hover {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 14px;
     position: absolute;
   }
 `;
 
 export const CategoryBtn = styled.button`
   &:hover + ${WrapperPopUp} {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 14px;
     position: absolute;
   }
 `;
 
 export const PopUpBtn = styled.button`
-  border: 1px solid black;
+  width: 100%;
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
+
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1,28;
+
+  color: #343434;
 `;

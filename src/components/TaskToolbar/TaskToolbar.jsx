@@ -1,7 +1,7 @@
 import sprite from '../../images/svg-sprite/symbol-defs.svg';
 import { useDispatch } from 'react-redux';
 import { Wrapper, Icon, CategoryBtn, WrapperPopUp, PopUpBtn } from './TaskToolbar.styled';
-import { deleteTask } from 'redux/tasks/tasksOperations';
+import { deleteTask, updateTask } from 'redux/tasks/tasksOperations';
 
 const columnsList = ['To do', 'In progress', 'Done'];
 
@@ -10,6 +10,10 @@ export const TaskToolbar = ({ openModal, task, ColumnTitle }) => {
   const buttonsList = columnsList.filter(btn => btn !== ColumnTitle);
 
   const dispatch = useDispatch();
+
+  const normalizedStringCategory = (text) => {
+    return text?.split(' ').join('-').toLowerCase();
+  };
 
   return (
     <Wrapper>
@@ -21,7 +25,12 @@ export const TaskToolbar = ({ openModal, task, ColumnTitle }) => {
 
       <WrapperPopUp >
         {buttonsList.map(btn => (
-          <PopUpBtn type="button">{btn}</PopUpBtn>
+          <PopUpBtn onClick={() => dispatch(updateTask({id: task._id, task: {category: normalizedStringCategory(btn)} }))} key={btn} type="button">
+            <span>{btn}</span>
+            <Icon>
+              <use href={sprite + '#icon-icon-exit'}></use>
+            </Icon>
+          </PopUpBtn>
         ))}
       </WrapperPopUp>
 
