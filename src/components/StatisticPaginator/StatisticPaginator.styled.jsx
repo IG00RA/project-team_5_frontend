@@ -34,12 +34,15 @@ export const Period = styled.div`
 export const DatePickerWrapper = styled.div`
   .react-datepicker {
     background-color: #3e85f3;
-    /* color: white; */
-
     border-radius: 16px;
 
-    /* width: 327px;
-    height: 354px; */
+    width: 316px;
+    height: 354px;
+
+    @media screen and (min-width: 768px) {
+      width: 327px;
+      height: 354px;
+    }
   }
 
   .react-datepicker__day--weekend {
@@ -96,6 +99,15 @@ export const DatePickerWrapper = styled.div`
     outline: #fff;
   }
 
+  .react-datepicker__navigation--next {
+    background: url(../images/rightArrow.png) no-repeat;
+    margin-top: 24px;
+    margin-right: 18px;
+    width: 15px;
+    height: 15px;
+    border: none;
+  }
+
   /* .react-datepicker__day--today {
     display: inline-flex;
     justify-content: center;
@@ -107,17 +119,17 @@ export const DatePickerWrapper = styled.div`
     outline: #fff;
   } */
 
-  .react-datepicker__day
+  /* .react-datepicker__day
     .react-datepicker__day--selected
     .react-datepicker__day--today
     .react-datepicker__day--weekend {
-  }
+  } */
 
   /* .react-datepicker__day-names,
   .react-datepicker__week {
   } */
 
-  span
+  /* span
     .react-datepicker__navigation-icon
     .react-datepicker__navigation-icon--next::before {
     content: 'Next Month';
@@ -127,14 +139,14 @@ export const DatePickerWrapper = styled.div`
     color: #fff;
     stroke: #fff;
     fill: currentColor;
-  }
+  } */
   /* 
   .react-datepicker .react-datepicker__day--weekend {
     color: ${p => (p.selected ? '#3e85f3' : 'rgba(255, 255, 255, 0.4)')};
   } */
 
-  .react-datepicker__day .eact-datepicker__day--outside-month {
-  }
+  /* .react-datepicker__day .eact-datepicker__day--outside-month {
+  } */
 
   /* @media screen and (min-width: 768px) {
    
