@@ -35,5 +35,5 @@ font-weight: 700;
 line-height: 1.12;
 
 border-radius: 8px;
-background-color: ${p => p.currentday === p.day && '#3E85F3'};
+background-color: ${p => p.$currentday === p.$day && '#3E85F3'};
 `;

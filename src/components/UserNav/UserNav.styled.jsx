@@ -39,7 +39,7 @@ export const UserNavTitle = styled.div`
   box-sizing: border-box;
   font-size: 12px;
   line-height: 15px;
-  color: #343434;
+  color: ${props => props.theme.colors.sideBar.titleText};
   margin-bottom: 24px;
 
   @media screen and (min-width: 768px) {
@@ -55,25 +55,23 @@ export const UserNavItem = styled(NavLink)`
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
-  line-height: 17px;
+  line-height: calc(17 / 14);
   padding: 12px;
   gap: 8px;
   width: 100%;
   text-decoration: none;
-  color: #343434;
+  color: ${props => props.theme.colors.sideBar.mainText};
   margin-bottom: 18px;
   &.active {
-    color: #3e85f3;
-    background-color: #e3f3ff;
+    color: ${props => props.theme.colors.sideBar.accentText};
+    background-color: ${props => props.theme.colors.sideBar.accentBg};
     border-radius: 8px;
   }
-  :hover:not(.active),
-  :focus-visible:not(.active) {
-    color: #3e85f3;
+  &:hover:not(.active),
+  &:focus-visible:not(.active) {
+    color: ${props => props.theme.colors.sideBar.accentText};
     border-radius: 8px;
   }
-  font-size: 14px;
-  line-height: 1.21;
 
   @media screen and (min-width: 768px) {
     font-size: 16px;

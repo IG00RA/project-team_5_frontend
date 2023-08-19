@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const SideBarWrap = styled.div`
   display: flex;
+
   justify-content: space-between;
   top: 0;
   /* left: ${({ isOpen }) => (isOpen ? '0' : '-100%')}; */
@@ -10,17 +11,18 @@ export const SideBarWrap = styled.div`
   box-sizing: border-box;
   width: 225px;
   padding: 24px 20px;
-  background-color: #ffffff;
+  background-color: ${props => props.theme.colors.sideBar.mainBg};
   position: absolute;
-  min-height: 812px;
+  min-height: 100vh;
 
   @media screen and (min-width: 768px) {
     width: 289px;
     padding: 24px 32px;
-    min-height: 1024px;
+    /* min-height: 100vh; */
   }
 
   @media screen and (min-width: 1440px) {
+    position: static;
     width: 289px;
     padding: 32px 24px 24px;
     display: flex;
@@ -53,7 +55,7 @@ export const Overlay = styled.div`
 export const StyledTitle = styled.span`
   display: flex;
   flex-direction: row;
-  color: #3e85f3;
+  color: ${props => props.theme.colors.sideBar.logoText};
   font-family: 'Coolvetica';
   font-size: 16px;
   line-height: 24px;
@@ -138,7 +140,7 @@ export const StyledCloseButton = styled.svg`
   width: 24px;
   height: 24px;
   transition: all 250ms;
-  stroke: #343434;
+  stroke: ${props => props.theme.colors.sideBar.mainText};
   fill: transparent;
   cursor: pointer;
 
@@ -152,7 +154,7 @@ export const StyledCloseButton = styled.svg`
 
   &:hover,
   &:focus {
-    stroke: #3e85f3;
+    stroke: ${props => props.theme.colors.sideBar.accentBg};
     transform: rotate(180deg);
   }
 `;

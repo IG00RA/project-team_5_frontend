@@ -78,7 +78,7 @@ export const ButtonsContainer = styled.div`
   }
 `
 
-export const ButtonsWrap = styled.a`
+export const ButtonsWrap = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -118,10 +118,9 @@ export const LogInButton = styled.button`
 
   background-color: ${p => p.theme.colors.homePage.bg};
   cursor: pointer;
-
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-`
+  `
 
 export const SignUpLink = styled.a`
   color: ${p => p.theme.colors.homePage.bg};

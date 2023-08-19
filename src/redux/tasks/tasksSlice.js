@@ -30,7 +30,7 @@ const handleFulfilledAdd = (state, action) => {
 
 const handleFulfilledUpdate = (state, action) => {
   state.isLoading = false;
-  const idx = state.tasks.findIndex(task => task._id === action.payload._id);
+  const idx = state.tasks.findIndex(task => task?._id === action.payload._id);
 
   if (idx !== -1) {
     state.tasks.splice(idx, 1, action.payload);
@@ -40,7 +40,7 @@ const handleFulfilledUpdate = (state, action) => {
 
 const handleFulfilledDelete = (state, action) => {
   state.isLoading = false;
-  state.tasks = state.tasks.filter(task => task._id !== action.payload._id);
+  state.tasks = state.tasks.filter(task => task?._id !== action.payload._id);
   state.error = '';
 };
 
