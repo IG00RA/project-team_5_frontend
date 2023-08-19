@@ -73,7 +73,7 @@ export default function StatisticsChart({
   return (
     <Wrapper>
       <Text>Tasks</Text>
-      <StyledBarChart
+      <BarChart
         width={780}
         height={440}
         data={data}
@@ -86,12 +86,31 @@ export default function StatisticsChart({
           bottom: 0,
         }}
       >
-        <CartesianGrid
-          strokeDasharray="3 1 2"
-          fill="transparent"
-          horizontal={false}
-          vertical={false}
-        ></CartesianGrid>
+        <CartesianGrid x={100} stroke="#E3F3FF" vertical={false} />
+        <defs>
+          <linearGradient
+            id="paint0_linear_10533_2456"
+            x1="11.4074"
+            y1="147"
+            x2="11.4074"
+            y2="5.34366e-08"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stop-color="#FFD2DD" />
+            <stop offset="0.96875" stop-color="#FFD2DD" stop-opacity="0" />
+          </linearGradient>
+          <linearGradient
+            id="paint0_linear_10533_2457"
+            x1="11.4074"
+            y1="246"
+            x2="11.4074"
+            y2="8.94245e-08"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stop-color="#3E85F3" />
+            <stop offset="1" stop-color="#3E85F3" stop-opacity="0" />
+          </linearGradient>
+        </defs>
         <XAxis
           // axisLine="false"
           dataKey="name"
@@ -110,19 +129,18 @@ export default function StatisticsChart({
 
         <Bar
           dataKey="byDay"
-          fill="#FFD2DD"
-          radius={[0, 0, 10, 10]}
-          // barSize={27}
+          fill="url(#paint0_linear_10533_2456)"
+          radius={[0, 0, 7, 7]}
+          barSize={22}
         >
           <LabelList dataKey="byDay" position={'top'} />
         </Bar>
 
         <Bar
           dataKey="byMonth"
-          fill="#3E85F3"
-          // barSize={27}
-          width="20"
-          radius={[0, 0, 10, 10]}
+          fill="url(#paint0_linear_10533_2457)"
+          barSize={22}
+          radius={[0, 0, 7, 7]}
         >
           <LabelList dataKey="byMonth" position={'top'} fill="black" />
         </Bar>
