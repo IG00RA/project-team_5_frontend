@@ -27,13 +27,13 @@ const UserNav = ({ closeModalMenu }) => {
       </UserNavItem>
       <UserNavItem
         to={`/calendar/month/${currentDay.format('YYYY-MM-DD')}`}
-        onClick={handleCloseModalMenu}
-        isActive={(match, location) => {
-          if (!match) {
-            return false;
-          }
-          return location.pathname.includes("/calendar");
+        isActive={(_match, location) => {
+          return (
+            location.pathname.startsWith(`/calendar/month/${currentDay.format('YYYY-MM-DD')}`) ||
+            location.pathname.startsWith(`/calendar/day/${currentDay.format('YYYY-MM-DD')}`)
+          );
         }}
+        onClick={handleCloseModalMenu}
       >
         <StyledIcon>
           <use href={sprite + '#icon-nav-calendar'} />
