@@ -1,4 +1,3 @@
-// import { useState } from 'react';
 import ModalContainer from '../Modal/ModalConatiner';
 import { FeedbackForm } from 'components/FeedbackForm/FeedbackForm';
 import {
@@ -8,14 +7,8 @@ import {
 } from './feedBackModal.styled';
 import svgSprite from '../../images/svg-sprite/symbol-defs.svg';
 export const AddFeedbackModal = ({ isOpen, onRequestClose, handleClose }) => {
-  // const [isModalActive, setIsModalActive] = useState('');
-  // if (isOpen) {
-  //   setIsModalActive(prev => 'active')
-  // } else {
-  //   setIsModalActive(prev => '')
-  // }
   return (
-    <ModalContainer /*className={('modal' + isModalActive).trim()}}*/ isOpen={isOpen} onRequestClose={onRequestClose}>
+    <ModalContainer isOpen={isOpen} onRequestClose={onRequestClose}>
       <FeedbackForm handleClose={handleClose} />
       <CloseBtn type="button" onClick={handleClose}>
         <CloseIcon className="feedBackModalClose" width="24" height="24">

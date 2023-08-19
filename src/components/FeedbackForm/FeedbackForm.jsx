@@ -27,7 +27,6 @@ const validationSchema = Yup.object().shape({
 export const FeedbackForm = ({ handleClose }) => {
   // const dispatch = useDispatch();
   // const [isEditActive, setIsEditActive] = useState(false);
-
   return (
     <Formik
       initialValues={{

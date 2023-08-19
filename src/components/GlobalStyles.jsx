@@ -64,4 +64,32 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+.ReactModal__Overlay {
+  opacity: 0;
+  transition: all 100ms ease-in-out;
+}
+
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+}
+
+.ReactModal__Overlay--before-close {
+  opacity: 0;
+}
+.ReactModal__Content {
+  transform: perspective(600px) translate(0px, -100%) rotateX(45deg);
+  transition: transform 500ms ease-in-out, opacity 300ms ease-in-out; 
+  opacity: 0;
+}
+
+.ReactModal__Content--after-open {
+  transform: perspective(600px) translate(0px, 0px) rotateX(0);
+  opacity: 1;
+}
+
+.ReactModal__Content--before-close {
+  transform: perspective(600px) translate(0px, -100%) rotateX(45deg);
+  opacity: 0;
+}
 `;
