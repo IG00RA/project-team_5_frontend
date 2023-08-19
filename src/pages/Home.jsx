@@ -4,6 +4,7 @@ import ModalContainer from '../components/Modal/ModalConatiner';
 import { AuthSection } from '../components/AuthSection/AuthSection';
 import { Description } from '../components/Description/Description';
 import { AddFeedbackModal } from '../components/AddFeedbackModal/AddFeedbackModal';
+// import ScrollToTop from 'components/ScrollToTop/ScrollToTop';
 
 export default function Home() {
   const [isModalOpen1, setIsModalOpen1] = useState(false);
@@ -28,6 +29,7 @@ export default function Home() {
       <div>
         <AuthSection />
         <Description />
+        {/* <ScrollToTop /> */}
         <FeedbackButton onClick={openModal1} />
         <FeedbackButton onClick={openModal2} />
         <AddFeedbackModal isOpen={isModalOpen1} onRequestClose={closeModal1} />
@@ -38,4 +40,3 @@ export default function Home() {
     </>
   );
 }
-

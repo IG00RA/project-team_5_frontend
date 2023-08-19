@@ -15,8 +15,6 @@ export const UserInfo = () => {
   const user = useSelector(selectUser);
   const name = user.userName ? user.userName.split(' ')[0] : user.userName;
 
-  console.log(user.userName);
-
   return (
     <Container>
       <ThemeToggler />

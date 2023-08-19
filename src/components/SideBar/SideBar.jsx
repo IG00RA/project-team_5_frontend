@@ -15,6 +15,7 @@ import LogoutButton from '../Buttons/LogoutButton/LogoutButton';
 import GooseDeskLogo2x from '../../images/goose-logo/goose-logo-desktop-2x.webp';
 import { useDispatch } from 'react-redux';
 import { logout } from '../../redux/auth/operations';
+import sprite from '../../images/svg-sprite/symbol-defs.svg';
 
 export const SideBar = ({ isModalMenuOpen, closeModalMenu }) => {
   const dispatch = useDispatch();
@@ -78,10 +79,11 @@ export const SideBar = ({ isModalMenuOpen, closeModalMenu }) => {
               <StyledTitle>
                 G<SpanSpec>oo</SpanSpec>seTrack
               </StyledTitle>
+              {/* <SideBarClose src={`${GooseDeskLogo2x}`} /> */}
             </StyledLogoWrapper>
-            <StyledCloseButton
-              onClick={handleCloseModalMenu}
-            ></StyledCloseButton>
+            <StyledCloseButton onClick={handleCloseModalMenu}>
+              <use href={sprite + '#icon-x-close'} />
+            </StyledCloseButton>
           </TopWrap>
           <UserNav closeModalMenu={closeModalMenu} />
         </LogoAndNavWrap>
