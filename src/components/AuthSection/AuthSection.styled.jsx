@@ -8,7 +8,7 @@ export const Wrap = styled.div`
   align-items: center;
   flex-direction: column;
   background-color: ${p => p.theme.colors.homePage.titleText};
-  padding: 256px 59px 256px 58px;v
+  padding: 256px 59px 256px 58px;
 
   @media screen and (min-width: 375px) {
     padding: 331px 92px 330px 91px;
@@ -19,7 +19,7 @@ export const Wrap = styled.div`
     padding: 187px auto 200px auto;
     min-height: 770px;
   }
-`
+`;
 
 export const Logo = styled.img`
   width: 142px;
@@ -36,7 +36,7 @@ export const Logo = styled.img`
     width: 150px;
     height: 149px;
   }
-`
+`;
 
 export const Title = styled.h1`
   color: ${p => p.theme.colors.homePage.bg};
@@ -58,11 +58,11 @@ export const Title = styled.h1`
     font-size: 120px;
     line-height: 150px;
   }
-`
+`;
 
 export const TextStyle = styled.span`
   font-style: oblique;
-`
+`;
 
 export const ButtonsContainer = styled.div`
   display: flex;
@@ -76,7 +76,7 @@ export const ButtonsContainer = styled.div`
     gap: 24px;
     margin-top: 40px;
   }
-`
+`;
 
 export const ButtonsWrap = styled.div`
   display: flex;
@@ -98,7 +98,7 @@ export const ButtonsWrap = styled.div`
       color: ${p => p.theme.colors.homePage.bg};
     }
   }
-`
+`;
 
 export const LogInButton = styled.button`
   display: flex;
@@ -120,7 +120,7 @@ export const LogInButton = styled.button`
   cursor: pointer;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  `
+`;
 
 export const SignUpLink = styled.a`
   color: ${p => p.theme.colors.homePage.bg};
@@ -142,7 +142,7 @@ export const SignUpLink = styled.a`
     font-size: 14px;
     line-height: 18px;
   }
-`
+`;
 
 export const LogInIcon = styled.svg`
   stroke: ${p => p.theme.colors.homePage.titleText};
@@ -154,4 +154,4 @@ export const LogInIcon = styled.svg`
     height: 20px;
     width: 20px;
   }
-`
+`;
