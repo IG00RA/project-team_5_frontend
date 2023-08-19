@@ -5,12 +5,19 @@ export const Wrapper = styled.div`
   gap: 10px;
 `;
 
+// этот стилизированный компонент тут пустой не случайно, так нужно, не трогать!
+export const Button = styled.button``;
 export const Icon = styled.svg`
   height: 16px;
   width: 16px;
   
   stroke: #111;
   fill: transparent;
+  transition: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  ${Button}:hover & {
+    stroke: #3E85F3;
+  }
 `;
 
 export const WrapperPopUp = styled.div`
