@@ -73,6 +73,8 @@ export default function StatisticsChart({
     <Wrapper>
       <Text>Tasks</Text>
       <StyledBarChart
+        barCategoryGap={7}
+        barGap={8}
         width={780}
         height={440}
         data={data}
@@ -100,7 +102,7 @@ export default function StatisticsChart({
           dataKey="byDay"
           fill="#FFD2DD"
           radius={[0, 0, 10, 10]}
-          // barSize={27}
+          barSize={27}
         >
           <LabelList dataKey="byDay" position={'top'} />
         </Bar>
@@ -108,7 +110,7 @@ export default function StatisticsChart({
         <Bar
           dataKey="byMonth"
           fill="#3E85F3"
-          // barSize={27}
+          barSize={27}
           width="20"
           radius={[0, 0, 10, 10]}
         >
