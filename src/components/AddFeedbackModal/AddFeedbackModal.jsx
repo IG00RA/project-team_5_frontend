@@ -1,5 +1,7 @@
 // import { useState } from 'react';
 import ModalContainer from '../Modal/ModalConatiner';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { FeedbackForm } from 'components/FeedbackForm/FeedbackForm';
 import {
   CloseBtn,
@@ -7,6 +9,8 @@ import {
   FeedBackModalStyles,
 } from './feedBackModal.styled';
 import svgSprite from '../../images/svg-sprite/symbol-defs.svg';
+import { fetchQwnReview } from 'redux/review/reviewOperations';
+
 export const AddFeedbackModal = ({ isOpen, onRequestClose, handleClose }) => {
   // const [isModalActive, setIsModalActive] = useState('');
   // if (isOpen) {
@@ -14,6 +18,12 @@ export const AddFeedbackModal = ({ isOpen, onRequestClose, handleClose }) => {
   // } else {
   //   setIsModalActive(prev => '')
   // }
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchQwnReview());
+  }, [dispatch]);
+
   return (
     <ModalContainer
       /*className={('modal' + isModalActive).trim()}}*/ isOpen={isOpen}

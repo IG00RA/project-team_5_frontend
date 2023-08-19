@@ -1,12 +1,11 @@
 import React from 'react';
 import { Formik, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import sprite from '../../images/svg-sprite/symbol-defs.svg';
 import { selectRating, selectReview } from 'redux/review/reviewSelectors';
 import {
-  fetchQwnReview,
   addReview,
   updateReview,
   removeReview,
@@ -41,10 +40,6 @@ export const FeedbackForm = ({ handleClose }) => {
   const userReview = useSelector(selectReview);
   const userRating = useSelector(selectRating);
   const [isEditActive, setIsEditActive] = useState(false);
-
-  useEffect(() => {
-    dispatch(fetchQwnReview());
-  }, [dispatch]);
 
   const handleSubmit = (values, { setSubmitting }) => {
     if (isEditActive) {
