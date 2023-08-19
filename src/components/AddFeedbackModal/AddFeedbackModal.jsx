@@ -1,4 +1,6 @@
 import ModalContainer from '../Modal/ModalConatiner';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { FeedbackForm } from 'components/FeedbackForm/FeedbackForm';
 import {
   CloseBtn,
@@ -6,7 +8,14 @@ import {
   FeedBackModalStyles,
 } from './feedBackModal.styled';
 import svgSprite from '../../images/svg-sprite/symbol-defs.svg';
+import { fetchQwnReview } from 'redux/review/reviewOperations';
+
 export const AddFeedbackModal = ({ isOpen, onRequestClose, handleClose }) => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchQwnReview());
+  }, [dispatch]);
+
   return (
     <ModalContainer isOpen={isOpen} onRequestClose={onRequestClose}>
       <FeedbackForm handleClose={handleClose} />

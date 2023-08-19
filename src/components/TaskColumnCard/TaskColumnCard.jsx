@@ -3,7 +3,7 @@ import { Img, Item, ItemWrapper, Text, TextWrapper, Title, UserWrapper } from ".
 import { useSelector } from "react-redux";
 import { selectUser } from "redux/user/selectors";
 
-export const TaskColumnCard = ({ task, openModal }) => {
+export const TaskColumnCard = ({ task, openModal, ColumnTitle }) => {
   const { avatarURL } = useSelector(selectUser);
 
   return (
@@ -12,9 +12,9 @@ export const TaskColumnCard = ({ task, openModal }) => {
       <ItemWrapper>
         <UserWrapper>
           <Img src={avatarURL} alt="" />
-          <TextWrapper priority={task.priority}><Text>{task.priority}</Text></TextWrapper>
+          <TextWrapper $priority={task.priority}><Text>{task.priority}</Text></TextWrapper>
         </UserWrapper>
-        <TaskToolbar id={task._id} openModal={openModal} task={task} />
+        <TaskToolbar openModal={openModal} task={task} ColumnTitle={ColumnTitle} />
       </ItemWrapper>
     </Item>
   );

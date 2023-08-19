@@ -28,10 +28,16 @@ const authPersistConfig = {
   whitelist: ['token'],
 };
 
+const userPersistConfig = {
+  key: 'user',
+  storage,
+  whitelist: ['theme'],
+};
+
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
-    user: userReducer,
+    user: persistReducer(userPersistConfig, userReducer),
     tasks: tasksReducer,
     review: reviewReducer,
   },

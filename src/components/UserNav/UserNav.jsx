@@ -20,8 +20,8 @@ const UserNav = ({ closeModalMenu }) => {
     <UserNavWrap>
       <UserNavTitle>{`User Panel`} </UserNavTitle>
       <UserNavItem to="/account" onClick={handleCloseModalMenu}>
-      <StyledIcon>
-            <use href={sprite + '#icon-user-check'} />
+        <StyledIcon>
+          <use href={sprite + '#icon-user-check'} />
         </StyledIcon>
         {`My Account`}
       </UserNavItem>
@@ -30,13 +30,13 @@ const UserNav = ({ closeModalMenu }) => {
         onClick={handleCloseModalMenu}
       >
         <StyledIcon>
-             <use href={sprite + '#icon-nav-calendar'} />
-         </StyledIcon>
+          <use href={sprite + '#icon-nav-calendar'} />
+        </StyledIcon>
         {`Calendar`}
       </UserNavItem>
       <UserNavItem to="/statistics" onClick={handleCloseModalMenu}>
-      <StyledIconChart>
-           <use href={sprite + '#icon-nav-chart'} />
+        <StyledIconChart>
+          <use href={sprite + '#icon-nav-chart'} />
         </StyledIconChart>
         {`Statistics`}
       </UserNavItem>

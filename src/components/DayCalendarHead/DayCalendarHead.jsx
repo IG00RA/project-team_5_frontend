@@ -11,7 +11,7 @@ export const DayCalendarHead = ({ currentDay, updatedDate, setUpdatedDate }) => 
       {daysOfWeek.map((day) => (
         <DayCalendarBtn onClick={() => setUpdatedDate(day)} type='button' key={day}>
           {day.format('ddd')}
-          <NumberDay currentday={updatedDate} day={day.format('YYYY-MM-DD')}>{day.format('D')}</NumberDay>
+          <NumberDay $currentday={updatedDate} $day={day.format('YYYY-MM-DD')}>{day.format('D')}</NumberDay>
         </DayCalendarBtn>
       ))}
     </DayCalendarWrapper>

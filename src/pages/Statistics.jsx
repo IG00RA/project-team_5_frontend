@@ -20,7 +20,6 @@ export default function Statistics() {
   };
 
   const selectedDateFormat = selectedDate.format('YYYY-MM-DD');
-  console.log(selectedDate);
 
   const filteredTasksByDate = selectFilteredTasksByDate(
     tasks,
@@ -36,9 +35,6 @@ export default function Statistics() {
     dispatch(getAllTasks());
   }, [dispatch, selectedDate]);
 
-  console.log(tasks);
-  console.log(filteredTasksByDate);
-  console.log(filteredTasksByMonth);
   return (
     <div>
       <p>Statistics Page</p>
@@ -47,7 +43,7 @@ export default function Statistics() {
         typeOfPeriod={'day'}
         onDateChange={handleDateChange}
       />
-      <div style={{ marginLeft: '500px' }}>
+      {/* <div style={{ marginLeft: '500px' }}>
         <ul style={{ display: 'flex', gap: '20px' }}>
           <li style={{ display: 'flex' }}>
             <div
@@ -72,7 +68,7 @@ export default function Statistics() {
             <p>By Month</p>
           </li>
         </ul>
-      </div>
+      </div> */}
       <StatisticsChart
         selectedDate={selectedDateFormat}
         setSelectedDate={setSelectedDate}

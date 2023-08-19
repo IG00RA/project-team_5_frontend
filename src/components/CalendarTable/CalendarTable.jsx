@@ -55,14 +55,8 @@ const CalendarTable = ({ startDay, selectedDay }) => {
               </DayWrapper>
             </ShowDayWrapper>
             <TasksListWrapper>
-              {tasks
-                .filter(
-                  task =>
-                    task.date >= dayItem.format('YYYY-MM-DD') &&
-                    task.date <=
-                      dayItem.clone().endOf('day').format('YYYY-MM-DD')
-                )
-                .map(task => (
+              {tasks?.filter(task => task?.date >= dayItem.format('YYYY-MM-DD') && task?.date <= dayItem.clone().endOf('day').format('YYYY-MM-DD'))
+              .map(task => (
                   <li key={task._id}>
                     <TaskItemWrapper $priority={task.priority}>
                       {task.title}
