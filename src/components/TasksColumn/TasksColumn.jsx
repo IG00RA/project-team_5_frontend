@@ -18,7 +18,7 @@ export const TasksColumn = ({ ColumnTitle, tasksColection }) => {
     <>
       <Item>
         <ColumnHeadBar ColumnTitle={ColumnTitle} openModal={openModal} />
-        {tasksColection?.length !== 0 && <ColumnTasksList openModal={openModal} tasksColection={tasksColection} />}
+        {tasksColection?.length !== 0 && <ColumnTasksList openModal={openModal} tasksColection={tasksColection} ColumnTitle={ColumnTitle} />}
         <AddTaskBtn openModal={openModal} />
       </Item>
       <TaskModal ColumnTitle={ColumnTitle} task={task} isModalOpen={isModalOpen} closeModal={closeModal} />

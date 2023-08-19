@@ -1,24 +1,36 @@
-import { useDispatch } from 'react-redux';
 import sprite from '../../images/svg-sprite/symbol-defs.svg';
-import { Wrapper, Icon } from './TaskToolbar.styled';
+import { useDispatch } from 'react-redux';
+import { Wrapper, Icon, CategoryBtn, WrapperPopUp, PopUpBtn } from './TaskToolbar.styled';
 import { deleteTask } from 'redux/tasks/tasksOperations';
 
-export const TaskToolbar = ({id, openModal, task}) => {
+const columnsList = ['To do', 'In progress', 'Done'];
+
+export const TaskToolbar = ({ openModal, task, ColumnTitle }) => {
+
+  const buttonsList = columnsList.filter(btn => btn !== ColumnTitle);
+
   const dispatch = useDispatch();
 
   return (
     <Wrapper>
-      <button type='button'>
+      <CategoryBtn type='button'>
         <Icon>
           <use href={sprite + '#icon-icon-exit'}></use>
         </Icon>
-      </button>
+      </CategoryBtn>
+
+      <WrapperPopUp >
+        {buttonsList.map(btn => (
+          <PopUpBtn type="button">{btn}</PopUpBtn>
+        ))}
+      </WrapperPopUp>
+
       <button type='button' onClick={() => openModal(task)}>
         <Icon>
           <use href={sprite + '#icon-pencil'}></use>
         </Icon>
       </button>
-      <button onClick={() => dispatch(deleteTask(id))} type='button'>
+      <button onClick={() => dispatch(deleteTask(task._id))} type='button'>
         <Icon>
           <use href={sprite + '#icon-trash-box'}></use>
         </Icon>
