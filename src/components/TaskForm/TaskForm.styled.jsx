@@ -17,11 +17,10 @@ export const IconClose = styled.svg`
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 28px;
   
   padding: 40px 28px;
   width: 396px;
-  height: 360px;
 
   border-radius: 8px;
   border: 1px solid rgba(220, 227, 229, 0.80);
