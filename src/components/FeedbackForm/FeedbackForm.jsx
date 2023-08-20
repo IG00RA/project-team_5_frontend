@@ -1,5 +1,6 @@
 import React from 'react';
-import { Formik, Form, ErrorMessage } from 'formik';
+import { Formik, Form } from 'formik';
+import PropTypes from 'prop-types';
 import * as Yup from 'yup';
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
@@ -15,6 +16,7 @@ import {
   InputWrapper,
   ReviewWrapper,
   Input,
+  ErrorMessage,
   FormBtn,
   FormBtnWrapper,
   CancelBtn,
@@ -75,7 +77,7 @@ export const FeedbackForm = ({ handleClose }) => {
             key={ratingValue}
             type="radio"
             name="rating"
-            className="mask mask-star-2 bg-orange-400"
+            className="mask mask-star-2 bg-stars-color"
             checked={value === ratingValue.toString()}
             onChange={() => setFieldValue('raiting', ratingValue.toString())}
           />
@@ -110,28 +112,13 @@ export const FeedbackForm = ({ handleClose }) => {
                     type="button"
                     disabled={!userReview}
                   >
-                    <svg
-                      style={{
-                        width: '16px',
-                        height: '16px',
-                        stroke: '#FFFFFF',
-                        fill: 'none',
-                      }}
-                    >
+                    <svg>
                       <use href={sprite + '#icon-pencil'}></use>
                     </svg>
                   </EditBtn>
                   <DeleteBtn type="button" onClick={handleDelete}>
-                    <svg
-                      style={{
-                        width: '16px',
-                        height: '16px',
-                        stroke: '#EA3D65',
-                        fill: '#EA3D65',
-                        strokeWidth: '1.5',
-                      }}
-                    >
-                      <use href={sprite + '#icon-trash-box'}></use>
+                    <svg>
+                      <use href={sprite + '#icon-trash-2'}></use>
                     </svg>
                   </DeleteBtn>
                 </EditWrapper>
@@ -147,8 +134,7 @@ export const FeedbackForm = ({ handleClose }) => {
               disabled={!isEditActive && userReview}
               value={values.review || ''}
             />
-
-            <ErrorMessage name="review" component="div" />
+            <ErrorMessage name="review" component="p" />
           </InputWrapper>
 
           {(!userReview || isEditActive) && (
@@ -163,4 +149,8 @@ export const FeedbackForm = ({ handleClose }) => {
       )}
     </Formik>
   );
+};
+
+FeedbackForm.propTypes = {
+  handleClose: PropTypes.func.isRequired,
 };

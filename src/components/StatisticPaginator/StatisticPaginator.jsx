@@ -1,19 +1,19 @@
+import sprite from '../../images/svg-sprite/symbol-defs.svg';
+import DatePickerComponent from 'components/DatePickerComponent/DatePickerComponent';
+import { useState } from 'react';
 import {
-  BtnNext,
-  BtnPrev,
+  Icon,
+  PaginatorBtn,
   PaginatorWrapper,
-  Period,
 } from './StatisticPaginator.styled';
 
-export default function StatisticPaginator({
-  selectedDate,
-  onDateChange,
-  typeOfPeriod,
-}) {
-  const formattedPeriod =
-    typeOfPeriod === 'month'
-      ? selectedDate.format('MMMM YYYY')
-      : selectedDate.format('D MMMM YYYY');
+const StatisticPaginator = ({ selectedDate, onDateChange, typeOfPeriod }) => {
+  const [startDate, setStartDate] = useState(new Date());
+
+  // const formattedPeriod =
+  //   typeOfPeriod === 'month'
+  //     ? selectedDate.format('MMMM YYYY')
+  //     : selectedDate.format('D MMMM YYYY');
   const prevHandler = () => {
     if (typeOfPeriod === 'month') {
       onDateChange(prev => prev.clone().subtract(1, 'month'));
@@ -28,13 +28,24 @@ export default function StatisticPaginator({
       onDateChange(prev => prev.clone().add(1, 'day'));
     }
   };
+
   return (
     <PaginatorWrapper>
-      <Period>{formattedPeriod}</Period>
+      <DatePickerComponent startDate={startDate} setStartDate={setStartDate} />
       <div>
-        <BtnPrev onClick={prevHandler}>&lt;</BtnPrev>
-        <BtnNext onClick={nextHandler}>&gt;</BtnNext>
+        <PaginatorBtn $isPrevBtn onClick={prevHandler}>
+          <Icon>
+            <use href={sprite + '#icon-chevron-left'}></use>
+          </Icon>
+        </PaginatorBtn>
+        <PaginatorBtn onClick={nextHandler}>
+          <Icon>
+            <use href={sprite + '#icon-chevron-right'}></use>
+          </Icon>
+        </PaginatorBtn>
       </div>
     </PaginatorWrapper>
   );
-}
+};
+
+export default StatisticPaginator;

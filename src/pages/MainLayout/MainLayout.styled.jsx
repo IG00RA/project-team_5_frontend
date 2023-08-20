@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  /* position: relative; */
   margin: 0 auto;
   max-width: 375px;
   min-height: 844px;
@@ -11,24 +10,18 @@ export const Container = styled.div`
     min-height: 1024px;
   }
   @media (min-width: ${p => p.theme.media.l}) {
-    min-height: 900px;
+    height: 100%;
     margin: 0 auto;
-    max-width: 1600px;
+    max-width: 1440px;
   }
 `;
 export const Wrapper = styled.div`
   display: block;
-  width: 100%;
   padding: 24px 20px 40px;
-  /* height: 100vh; */
   @media (min-width: ${p => p.theme.media.m}) {
     padding: 24px 32px 38px;
   }
   @media (min-width: ${p => p.theme.media.l}) {
     padding: 40px 32px 32px;
-    /* margin-left: 289px; */
-    /* padding-left: auto;
-    padding-right: auto; */
-    /* width: 1087px; */
   }
 `;
