@@ -62,7 +62,24 @@ export default function StatisticsChart({
     },
   ];
 
+  // const sizes = {
+  //   mobile: {
+  //     width: 335,
+  //   },
+  //   laptop: {
+  //     width: 640,
+  //   },
+  //   desctop: {
+  //     width: 860,
+  //   },
+  // };
+
+  // const currentWidth = window.innerWidth;
+  // const viewport =
+  //   currentWidth < 768 ? 'mobile' : currentWidth < 1440 ? 'laptop' : 'desctop';
+
   const percentages = [0, 20, 40, 60, 80, 100];
+  const customFormatter = value => `${value}%`;
 
   return (
     <>
@@ -84,10 +101,10 @@ export default function StatisticsChart({
           <defs>
             <linearGradient
               id="paint0_linear_10525_1738"
-              x1="14"
-              y1="181"
-              x2="14"
-              y2="6.57961e-08"
+              x1="11.4074"
+              y1="246"
+              x2="11.4074"
+              y2="8.94245e-08"
               gradientUnits="userSpaceOnUse"
             >
               <stop stopColor="#FFD2DD" />
@@ -95,9 +112,9 @@ export default function StatisticsChart({
             </linearGradient>
             <linearGradient
               id="paint0_linear_10525_1741"
-              x1="14"
-              y1="265"
-              x2="14"
+              x1="11.4074"
+              y1="246"
+              x2="11.4074"
               y2="9.63313e-08"
               gradientUnits="userSpaceOnUse"
             >
@@ -106,15 +123,23 @@ export default function StatisticsChart({
             </linearGradient>
           </defs>
           <XAxis
-            // axisLine="false"
+            axisLine="true"
             // tick={false}
             dataKey="name"
-            axisLine={{ display: 'none' }}
-            tickLine={{ stroke: 'transparent' }}
-            // stroke="transparent"
+            label={{
+              value: 'Name of Category',
+              position: 'bottom',
+              offset: -10,
+              fill: '#343434', // Колір тексту
+              fontFamily: 'Poppins',
+              fontSize: 14,
+              fontWeight: 400,
+            }}
+            tickLine={false}
+            stroke="transparent"
           />
           <YAxis
-            domain={['dataMin-10', 0]}
+            domain={[0, 0]}
             tickCount={6}
             ticks={percentages}
             axisLine={{ stroke: 'transparent' }}
@@ -122,9 +147,7 @@ export default function StatisticsChart({
             tick={{ dx: 32 }}
             tickSize={32}
           />
-
           {/* <Tooltip cursor={{ fill: 'transparent' }} /> */}
-
           <Bar
             dataKey="byDay"
             fill="url(#paint0_linear_10525_1738)"
@@ -136,16 +159,25 @@ export default function StatisticsChart({
               position="top"
               fill="black"
               content="hello"
+              formatter={customFormatter}
             />
           </Bar>
-
           <Bar
             dataKey="byMonth"
             fill="url(#paint0_linear_10525_1741)"
             barSize={22}
             radius={[0, 0, 7, 7]}
           >
-            <LabelList dataKey="byMonth" position={'top'} fill="black" />
+            <LabelList
+              dataKey="byMonth"
+              position={'top'}
+              fill="#343434"
+              fontFamily="Poppins"
+              fontSize={16}
+              // fontWeight={500}
+              formatter={customFormatter}
+              isAnimationActive={false}
+            />
           </Bar>
         </BarChart>
       </ResponsiveContainer>

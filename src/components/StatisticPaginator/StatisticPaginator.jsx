@@ -1,10 +1,18 @@
 import {
-  BtnNext,
-  BtnPrev,
   PaginatorWrapper,
   Period,
   ButtonsWrap,
+  Wrapper,
+  CategoryText,
+  PaginatorBtn,
 } from './StatisticPaginator.styled';
+import {
+  List,
+  ListItem,
+  ColoredSquare,
+  Icon,
+} from './StatisticPaginator.styled';
+import sprite from '../../images/svg-sprite/symbol-defs.svg';
 
 export default function StyledPaginator({
   selectedDate,
@@ -30,12 +38,32 @@ export default function StyledPaginator({
     }
   };
   return (
-    <PaginatorWrapper>
-      <Period>{formattedPeriod}</Period>
-      <ButtonsWrap>
-        <BtnPrev onClick={prevHandler}>&lt;</BtnPrev>
-        <BtnNext onClick={nextHandler}>&gt;</BtnNext>
-      </ButtonsWrap>
-    </PaginatorWrapper>
+    <Wrapper>
+      <PaginatorWrapper>
+        <Period>{formattedPeriod}</Period>
+        <ButtonsWrap>
+          <PaginatorBtn onClick={prevHandler} $isPrevBtn>
+            <Icon>
+              <use href={sprite + '#icon-chevron-left'}></use>
+            </Icon>
+          </PaginatorBtn>
+          <PaginatorBtn onClick={nextHandler}>
+            <Icon>
+              <use href={sprite + '#icon-chevron-right'}></use>
+            </Icon>
+          </PaginatorBtn>
+        </ButtonsWrap>
+      </PaginatorWrapper>
+      <List>
+        <ListItem>
+          <ColoredSquare color="#FFD2DD"></ColoredSquare>
+          <CategoryText fontFamily="Inter">By Day</CategoryText>
+        </ListItem>
+        <ListItem>
+          <ColoredSquare color=" #3E85F3;"></ColoredSquare>
+          <CategoryText fontFamily="Poppins">By Month</CategoryText>
+        </ListItem>
+      </List>
+    </Wrapper>
   );
 }
