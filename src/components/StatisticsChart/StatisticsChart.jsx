@@ -122,7 +122,7 @@ export default function StatisticsChart({
               <stop
                 offset={maxByDayOffset}
                 stopColor="#FFD2DD"
-                stopOpacity="0"
+                stopOpacity="0.1"
               />
             </linearGradient>
             <linearGradient
@@ -137,7 +137,7 @@ export default function StatisticsChart({
               <stop
                 offset={maxByMonthOffset}
                 stopColor="#3E85F3"
-                stopOpacity="0"
+                stopOpacity="0.1"
               />
             </linearGradient>
           </defs>
