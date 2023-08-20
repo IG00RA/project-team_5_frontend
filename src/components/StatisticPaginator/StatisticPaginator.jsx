@@ -18,33 +18,13 @@ import { parseISO } from 'date-fns';
 
 import moment from 'moment';
 
-export default function StatisticPaginator({
-  selectedDate,
-  setSelectedDate,
-  onDateChange,
-  typeOfPeriod,
-}) {
-  // const formattedPeriod =
-  //   typeOfPeriod === 'month'
-  //     ? selectedDate.format('MMMM YYYY')
-  //     : selectedDate.format('D MMMM YYYY');
-
-  // console.log(selectedDate);
-  // console.log(setSelectedDate);
+export default function StatisticPaginator({ selectedDate, setSelectedDate }) {
   const prevHandler = () => {
-    if (typeOfPeriod === 'month') {
-      onDateChange(prev => prev.clone().subtract(1, 'month'));
-    } else if (typeOfPeriod === 'day') {
-      onDateChange(prev => prev.clone().subtract(1, 'day'));
-    }
+    setSelectedDate(prev => prev.clone().subtract(1, 'day'));
   };
 
   const nextHandler = () => {
-    if (typeOfPeriod === 'month') {
-      onDateChange(prev => prev.clone().add(1, 'month'));
-    } else if (typeOfPeriod === 'day') {
-      onDateChange(prev => prev.clone().add(1, 'day'));
-    }
+    setSelectedDate(prev => prev.clone().add(1, 'day'));
   };
 
   return (
@@ -54,7 +34,6 @@ export default function StatisticPaginator({
           startDate={parseISO(selectedDate)}
           setStartDate={date => setSelectedDate(moment(date))}
         />
-        {/* <Period>{selectedDate}</Period> */}
         <ButtonsWrap>
           <PaginatorBtn onClick={prevHandler} $isPrevBtn>
             <Icon>

@@ -16,9 +16,6 @@ export default function Statistics() {
   const dispatch = useDispatch();
 
   const [selectedDate, setSelectedDate] = useState(moment());
-  const handleDateChange = newDate => {
-    setSelectedDate(newDate);
-  };
 
   const selectedDateFormat = selectedDate.format('YYYY-MM-DD');
 
@@ -40,8 +37,6 @@ export default function Statistics() {
     <StatisticsWrapper>
       <StatisticPaginator
         selectedDate={selectedDateFormat}
-        typeOfPeriod={'day'}
-        onDateChange={handleDateChange}
         setSelectedDate={setSelectedDate}
       />
       <ChartWrapper>
