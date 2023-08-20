@@ -15,16 +15,20 @@ export default function StatisticsChart({
   filteredTasksByMonth,
 }) {
   const allTasksByDay = filteredTasksByDate.length;
+
   const allTasksByMonth = filteredTasksByMonth.length;
+
   const toDoByDayPercent =
     (filteredTasksByDate?.filter(task => task?.category === 'to-do').length /
       allTasksByDay) *
     100;
+
   const inProgressByDayPercent =
     (filteredTasksByDate?.filter(task => task?.category === 'in-progress')
       .length /
       allTasksByDay) *
     100;
+
   const doneByDayPercent =
     (filteredTasksByDate.filter(task => task?.category === 'done').length /
       allTasksByDay) *
@@ -34,11 +38,13 @@ export default function StatisticsChart({
     (filteredTasksByDate?.filter(task => task?.category === 'to-do').length /
       allTasksByMonth) *
     100;
+
   const inProgressByMonthPercent =
     (filteredTasksByMonth?.filter(task => task?.category === 'in-progress')
       .length /
       allTasksByMonth) *
     100;
+
   const doneByMonthPercent =
     (filteredTasksByMonth.filter(task => task?.category === 'done').length /
       allTasksByMonth) *
@@ -104,7 +110,7 @@ export default function StatisticsChart({
               x1="11.4074"
               y1="246"
               x2="11.4074"
-              y2="8.94245e-08"
+              y2="2"
               gradientUnits="userSpaceOnUse"
             >
               <stop stopColor="#FFD2DD" />
@@ -115,7 +121,7 @@ export default function StatisticsChart({
               x1="11.4074"
               y1="246"
               x2="11.4074"
-              y2="9.63313e-08"
+              y2="2"
               gradientUnits="userSpaceOnUse"
             >
               <stop stopColor="#3E85F3" />
@@ -124,22 +130,25 @@ export default function StatisticsChart({
           </defs>
           <XAxis
             axisLine="true"
-            // tick={false}
             dataKey="name"
-            label={{
-              value: 'Name of Category',
-              position: 'bottom',
-              offset: -10,
-              fill: '#343434', // Колір тексту
-              fontFamily: 'Poppins',
-              fontSize: 14,
-              fontWeight: 400,
-            }}
             tickLine={false}
             stroke="transparent"
+            tick={props => (
+              <text
+                x={props.x}
+                y={props.y}
+                dy={16}
+                textAnchor="middle"
+                fill="#343434"
+                fontFamily="Poppins"
+                fontSize={14}
+                fontWeight={400}
+              >
+                {props.payload.value}
+              </text>
+            )}
           />
           <YAxis
-            domain={[0, 0]}
             tickCount={6}
             ticks={percentages}
             axisLine={{ stroke: 'transparent' }}
@@ -147,7 +156,6 @@ export default function StatisticsChart({
             tick={{ dx: 32 }}
             tickSize={32}
           />
-          {/* <Tooltip cursor={{ fill: 'transparent' }} /> */}
           <Bar
             dataKey="byDay"
             fill="url(#paint0_linear_10525_1738)"
@@ -184,10 +192,3 @@ export default function StatisticsChart({
     </>
   );
 }
-
-// {"email":"ivan@gmail.com","password":"passwordIvan"}
-
-// YAxis;
-// tickCount = { 6} - кількість позначок на вісі
-// ticks = { percentages } - найменування позначок на шкалі
-// tickSize={32} - визначає довжину позначок на вісі

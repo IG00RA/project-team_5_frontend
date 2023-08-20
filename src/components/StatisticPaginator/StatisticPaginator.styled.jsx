@@ -1,15 +1,17 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 28px;
-  margin-bottom: 40px;
+  display: block;
+  padding: 28px 14px 0px;
+  margin-bottom: 20px;
   @media (min-width: ${p => p.theme.media.m}) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
     padding-top: 132px;
     padding-left: 64px;
+    margin-bottom: 40px;
   }
   @media (min-width: ${p => p.theme.media.l}) {
     padding-top: 134px;
@@ -22,8 +24,10 @@ export const PaginatorWrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   padding-left: 14px;
+  margin-bottom: 26px;
   @media (min-width: ${p => p.theme.media.m}) {
     gap: 8px;
+    margin-bottom: 0;
   }
 `;
 
@@ -59,6 +63,10 @@ export const CategoryText = styled.p`
   font-weight: 400;
   line-height: 1.29;
   font-family: ${props => props.fontFamily};
+  @media (min-width: ${p => p.theme.media.m}) {
+    font-size: 16px;
+    line-height: 1.13;
+  }
 `;
 
 export const Period = styled.div`
