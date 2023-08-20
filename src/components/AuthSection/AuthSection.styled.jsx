@@ -10,16 +10,16 @@ export const Wrap = styled.div`
   background-color: ${p => p.theme.colors.homePage.titleText};
   padding: 256px 59px 256px 58px;
 
-  @media screen and (min-width: 375px) {
+  @media screen and (min-width: 768px) {
     padding: 331px 92px 330px 91px;
     min-height: 1024px;
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1067px) {
     padding: 187px auto 200px auto;
     min-height: 770px;
   }
-`;
+`
 
 export const Logo = styled.img`
   width: 142px;
@@ -28,16 +28,16 @@ export const Logo = styled.img`
   margin: 0 auto;
   object-fit: cover;
 
-  @media screen and (min-width: 375px) {
-    width: 150px;
-    height: 149px;
-  }
-
   @media screen and (min-width: 768px) {
     width: 150px;
     height: 149px;
   }
-`;
+
+  @media screen and (min-width: 1067px) {
+    width: 150px;
+    height: 149px;
+  }
+`
 
 export const Title = styled.h1`
   color: ${p => p.theme.colors.homePage.bg};
@@ -46,24 +46,24 @@ export const Title = styled.h1`
     0px 47px 355px rgba(0, 0, 0, 0.07);
   font-size: 44px;
   font-weight: 700;
-  line-height: 48px;
+  line-height: 1.09;
   margin-top: 2px;
 
-  @media screen and (min-width: 375px) {
+  @media screen and (min-width: 768px) {
     font-size: 100px;
-    line-height: 130px;
+    line-height: 1.3;
     margin-top: 0px;
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1067px) {
     font-size: 120px;
-    line-height: 150px;
+    line-height: 1.25;
   }
-`;
+`
 
 export const TextStyle = styled.span`
   font-style: oblique;
-`;
+`
 
 export const ButtonsContainer = styled.div`
   display: flex;
@@ -72,12 +72,12 @@ export const ButtonsContainer = styled.div`
   gap: 16px;
   margin-top: 32px;
 
-  @media screen and (min-width: 375px) {
+  @media screen and (min-width: 768px) {
     flex-direction: row-reverse;
     gap: 24px;
     margin-top: 40px;
   }
-`;
+`
 
 export const ButtonsWrap = styled.div`
   display: flex;
@@ -99,7 +99,7 @@ export const ButtonsWrap = styled.div`
       color: ${p => p.theme.colors.homePage.bg};
     }
   }
-`;
+`
 
 export const LogInButton = styled.button`
   display: flex;
@@ -110,7 +110,7 @@ export const LogInButton = styled.button`
   color: ${p => p.theme.colors.homePage.titleText};
   font-size: 14px;
   font-weight: 600;
-  line-height: 18px;
+  line-height: 1.28;
   letter-spacing: -0.28px;
   cursor: pointer;
 
@@ -121,7 +121,7 @@ export const LogInButton = styled.button`
   cursor: pointer;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-`;
+`
 
 export const SignUpLink = styled.button`
   color: ${p => p.theme.colors.homePage.bg};
@@ -130,7 +130,7 @@ export const SignUpLink = styled.button`
     0px 47px 355px rgba(0, 0, 0, 0.07);
   font-size: 12px;
   font-weight: 600;
-  line-height: 14px;
+  line-height: 1.16;
   text-decoration-line: underline;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -139,11 +139,11 @@ export const SignUpLink = styled.button`
     color: ${p => p.theme.colors.homePage.hoverColor};
   }
 
-  @media screen and (min-width: 375px) {
+  @media screen and (min-width: 768px) {
     font-size: 14px;
-    line-height: 18px;
+    line-height: 1.28;
   }
-`;
+`
 
 export const LogInIcon = styled.svg`
   stroke: ${p => p.theme.colors.homePage.titleText};
@@ -151,8 +151,8 @@ export const LogInIcon = styled.svg`
   width: 18px;
   fill: transparent;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1067px) {
     height: 20px;
     width: 20px;
   }
-`;
+`

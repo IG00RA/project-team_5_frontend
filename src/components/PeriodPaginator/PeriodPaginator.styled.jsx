@@ -6,6 +6,8 @@ export const PaginatorWrapper = styled.div`
   align-items: center;
 
   @media screen and (min-width: 768px) {
+    justify-content: flex-start;
+    width: 100%;
     gap: 8px;
   }
 `;
@@ -20,8 +22,7 @@ export const Period = styled.div`
   border-radius: 8px;
   padding: 6px 12px;
   background-color: ${props => props.theme.colors.calendarPage.todayBg};
-  /* box-shadow: 4px 2px 16px 0px ${props =>
-    props.theme.colors.button.shadow}; */
+  box-shadow: 4px 2px 16px 0px ${props => props.theme.colors.button.shadow};
   color: ${props => props.theme.colors.calendarPage.todayText};
 
   @media screen and (min-width: 768px) {
@@ -43,14 +44,16 @@ export const PaginatorBtn = styled.button`
   border-radius: ${p => (p.$isPrevBtn ? '8px 0px 0px 8px' : '0px 8px 8px 0px')};
   border: 1px solid ${props => props.theme.colors.calendarPage.border};
   background-color: ${props => props.theme.colors.calendarPage.mainBg};
+  color: ${props => props.theme.colors.calendarPage.iconFocus};
   color: ${props =>
     props.disabled
       ? props.theme.colors.calendarPage.accent
       : props.theme.colors.calendarPage.secondText};
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
 
   &:hover {
-    box-shadow: 0px 1px 7px 1px rgba(0, 0, 0, 0.1);
+    box-shadow: 4px 2px 16px 0px ${props => props.theme.colors.button.shadow};
   }
 
   @media screen and (min-width: 768px) {
@@ -64,12 +67,7 @@ export const Icon = styled.svg`
   height: 18px;
   width: 18px;
   stroke-width: 0;
-  stroke: ${props => props.theme.colors.calendarPage.border};
+  stroke: currentColor;
   fill: transparent;
   transition: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-  &:hover,
-  &:focus {
-    stroke: ${props => props.theme.colors.calendarPage.iconFocus};
-  }
 `;
