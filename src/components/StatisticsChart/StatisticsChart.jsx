@@ -85,7 +85,8 @@ export default function StatisticsChart({
   //   currentWidth < 768 ? 'mobile' : currentWidth < 1440 ? 'laptop' : 'desctop';
 
   const percentages = [0, 20, 40, 60, 80, 100];
-  const customFormatter = value => `${value}%`;
+  // const customFormatter = value => `${value}%`;
+  const customFormatter = value => (!value ? '' : `${value}%`);
 
   return (
     <>
@@ -103,7 +104,6 @@ export default function StatisticsChart({
             bottom: 0,
           }}
         >
-          <CartesianGrid x={125} stroke="#E3F3FF" vertical={false} />
           <defs>
             <linearGradient
               id="paint0_linear_10525_1738"
@@ -129,7 +129,7 @@ export default function StatisticsChart({
             </linearGradient>
           </defs>
           <XAxis
-            axisLine="true"
+            axisLine={{ stroke: 'transparent' }}
             dataKey="name"
             tickLine={false}
             stroke="transparent"
@@ -149,7 +149,7 @@ export default function StatisticsChart({
             )}
           />
           <YAxis
-            tickCount={6}
+            tickCount={7}
             ticks={percentages}
             axisLine={{ stroke: 'transparent' }}
             tickLine={{ stroke: 'transparent' }}
@@ -165,8 +165,8 @@ export default function StatisticsChart({
             <LabelList
               dataKey="byDay"
               position="top"
+              offset={8}
               fill="black"
-              content="hello"
               formatter={customFormatter}
             />
           </Bar>
@@ -187,6 +187,12 @@ export default function StatisticsChart({
               isAnimationActive={false}
             />
           </Bar>
+          <CartesianGrid
+            x={125}
+            stroke="#E3F3FF"
+            vertical={false}
+            // width={500}
+          />
         </BarChart>
       </ResponsiveContainer>
     </>
