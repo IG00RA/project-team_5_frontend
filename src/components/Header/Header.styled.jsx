@@ -4,11 +4,14 @@ export const Wrap = styled.div`
   justify-content: space-between;
   margin-bottom: 64px;
   align-items: center;
+
   @media (min-width: 768px) {
+    /* min-width: 704px; */
     margin-bottom: 4rem;
   }
 
   @media (min-width: 1440px) {
+    max-width: 1067px;
     margin-bottom: 32px;
   }
 `;

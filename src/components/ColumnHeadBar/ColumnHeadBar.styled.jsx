@@ -1,4 +1,4 @@
-import { styled } from "styled-components";
+import { styled } from 'styled-components';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -9,9 +9,9 @@ export const Title = styled.h2`
   font-family: Inter;
   font-size: 20px;
   font-weight: 700;
-  line-height: 1.20;
+  line-height: 1.2;
 
-  color: #111;
+  color: ${props => props.theme.colors.calendarPage.day.taskCardTitle};
 `;
 
 export const Icon = styled.svg`
@@ -21,7 +21,7 @@ export const Icon = styled.svg`
 
   height: 24px;
   width: 24px;
-  
-  stroke: #111;
+
+  stroke: ${props => props.theme.colors.calendarPage.day.taskCardTitle};
   fill: transparent;
 `;
