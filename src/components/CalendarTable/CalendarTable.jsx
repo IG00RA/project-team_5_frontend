@@ -20,7 +20,6 @@ const TOTAL_CELLS = 35;
 
 const CalendarTable = ({ startDay }) => {
   const date = useSelector(selectDate);
-  const momentDate = moment(date);
 
   const day = startDay.clone().subtract(1, 'day');
   const dayCellsInCalendar = [...Array(TOTAL_CELLS)]?.map(() =>
@@ -28,7 +27,7 @@ const CalendarTable = ({ startDay }) => {
   );
 
   const isCurrentDay = day => moment().isSame(day, 'day');
-  const isSelectedMonth = day => momentDate.isSame(day, 'month');
+  const isSelectedMonth = day => moment(date).isSame(day, 'month');
 
   const tasks = useSelector(selectTasks);
 

@@ -5,17 +5,11 @@ import {
   Period,
 } from './PeriodPaginator.styled';
 import sprite from '../../images/svg-sprite/symbol-defs.svg';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectDate } from 'redux/date/selectors';
-import { useEffect, useState } from 'react';
-import moment from 'moment';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 import { updateDate } from 'redux/date/slice';
 
-export default function PeriodPaginator({ changePeriod }) {
-  
-  const date = useSelector(selectDate);
-  const [momentDate, setMomentDate] = useState(moment(date));
-
+export default function PeriodPaginator({ changePeriod, momentDate, setMomentDate }) {
   const dispatch = useDispatch();
 
   const checkDaysOfWeek = momentDate.format('ddd');

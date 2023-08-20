@@ -10,7 +10,7 @@ import { selectIsRefreshing } from 'redux/auth/selectors';
 import { selectTheme } from 'redux/user/selectors';
 import { ThemeProvider } from 'styled-components';
 import { darkTheme, lightTheme } from '../../utils/theme';
-import Loader from '../loader/loader';
+import Loader from '../Loader/Loader';
 import MainLayout from 'pages/MainLayout/MainLayout';
 import { setMainStyles } from 'helpers/setMainStyles';
 import { LoaderWrapper } from './App.styled';

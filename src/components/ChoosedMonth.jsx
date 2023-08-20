@@ -6,9 +6,8 @@ import { selectDate } from 'redux/date/selectors';
 
 export default function ChoosedMonth() {
   const date = useSelector(selectDate);
-  const momentDate = moment(date);
-
-  const startDay = momentDate.clone().startOf('month').startOf('week');
+  
+  const startDay = moment(date).clone().startOf('month').startOf('week');
   const endDay = moment().endOf('month').endOf('week');
 
   const calendar = [];
@@ -25,4 +24,4 @@ export default function ChoosedMonth() {
       <CalendarTable startDay={startDay} />
     </div>
   );
-}
+};
