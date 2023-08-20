@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { Notify } from 'notiflix';
 
 export const fetchQwnReview = createAsyncThunk(
   'review/fetchReviews',
@@ -18,8 +19,10 @@ export const addReview = createAsyncThunk(
   async (reviewData, thunkAPI) => {
     try {
       const response = await axios.post('/reviews/own', reviewData);
+      Notify.success('You add your own review!');
       return response.data;
     } catch (e) {
+      Notify.failure('Please try again');
       return thunkAPI.rejectWithValue(e.message);
     }
   }
@@ -30,8 +33,10 @@ export const updateReview = createAsyncThunk(
   async (reviewData, thunkAPI) => {
     try {
       const response = await axios.patch('/reviews/own', reviewData);
+      Notify.success('You successfully updated your review!');
       return response.data;
     } catch (e) {
+      Notify.failure('Please try again');
       return thunkAPI.rejectWithValue(e.message);
     }
   }
@@ -42,9 +47,21 @@ export const removeReview = createAsyncThunk(
   async (__, thunkAPI) => {
     try {
       const response = await axios.delete(`/reviews/own`);
+      Notify.success('Your review was deleted successfully');
       return response.data;
     } catch (e) {
+      Notify.failure('Please try again');
       return thunkAPI.rejectWithValue(e.message);
     }
   }
 );
+
+export const fetchReviewsData = async () => {
+  try {
+    const response = await axios.get(`/reviews`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching reviews:', error);
+    throw error;
+  }
+};

@@ -39,10 +39,9 @@ const NotFound = () => {
         We’re sorry, the page you requested could not be found. Please go back
         to the homepage.
       </Text>
-
-      <HomeButton type="button">
-        <Link to="/">Back to home</Link>
-      </HomeButton>
+      <Link to="/">
+        <HomeButton type="button">Back to home</HomeButton>
+      </Link>
     </Wrap>
   );
 };

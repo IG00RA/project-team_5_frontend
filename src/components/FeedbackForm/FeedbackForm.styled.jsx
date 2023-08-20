@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { lightColors } from 'utils/theme';
 
 import { Field, ErrorMessage as FormikErrorMessage } from 'formik';
 
@@ -8,17 +9,17 @@ export const Wrapper = styled.div`
   padding: 28px 20px;
   border-radius: 16px;
   width: 335px;
-  background: #fff;
+  background: ${lightColors.white};
   box-shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.1);
 
-  @media (min-width: 768px) {
+  @media (min-width: ${props => props.theme.media.m}) {
     width: 468px;
     padding: 32px;
   }
 `;
 
 export const Label = styled.label`
-  color: rgba(52, 52, 52, 0.8);
+  color: ${lightColors.lightGreyRGBA};
   display: block;
   margin-bottom: 8px;
   font-weight: 500;
@@ -45,20 +46,29 @@ export const EditBtn = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #3e85f3;
+  background-color: ${lightColors.lightBlue2};
   border: none;
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  stroke: #3e85f3;
-
   cursor: pointer;
+  & svg {
+    width: 16px;
+    height: 16px;
+    stroke: ${lightColors.blue};
+    fill: transparent;
+  }
 
   &:hover,
   &:focus {
-    stroke: #ffffff;
-    background-color: #3e85f3;
+    background-color: ${lightColors.blue};
+    & svg {
+      stroke: ${lightColors.white};
+      fill: transparent;
+    }
   }
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 `;
 
 export const DeleteBtn = styled.button`
@@ -69,23 +79,33 @@ export const DeleteBtn = styled.button`
   width: 30px;
   height: 30px;
   background-color: #ea3d6533;
-  stroke: #ea3d65;
+  color: ${lightColors.redPriority};
   border: none;
   border-radius: 50%;
   cursor: pointer;
 
+  & svg {
+    width: 16px;
+    height: 16px;
+    stroke: ${lightColors.redPriority};
+    fill: transparent;
+  }
+
   &:hover,
   &:focus {
-    background-color: #ea3d65;
+    background-color: ${lightColors.redPriority};
+    color: ${lightColors.white};
     & svg {
-      stroke: #ffffff;
-      fill: #ffffff;
+      stroke: currentColor;
+      fill: transparent;
     }
   }
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 `;
 
 export const InputWrapper = styled.div`
-  margin-bottom: 14px;
+  margin-bottom: 18px;
 `;
 
 export const Input = styled(Field)`
@@ -98,16 +118,16 @@ export const Input = styled(Field)`
   font-weight: 600;
   font-size: 14px;
   line-height: calc((18 / 14) * 100%);
-  color: #343434;
+  color: ${lightColors.grey};
 
-  background-color: #f6f6f6;
+  background-color: ${lightColors.grey2};
   border-radius: 8px;
 
-  @media (min-width: 768px) {
+  @media (min-width: ${props => props.theme.media.m}) {
     width: 404px;
   }
 
-  @media (min-width: 1440px) {
+  @media (min-width: ${props => props.theme.media.l}) {
     margin-bottom: 18px;
   }
   &:disabled {
@@ -130,7 +150,7 @@ export const ErrorMessage = styled(FormikErrorMessage)`
   max-width: 240px;
   font-size: 12px;
   font-weight: 500;
-  @media (min-width: 768px) {
+  @media (min-width: ${props => props.theme.media.m}) {
     max-width: 330px;
   }
 `;
@@ -143,8 +163,8 @@ export const FormBtnWrapper = styled.div`
 `;
 
 export const FormBtn = styled.button`
-  color: #ffffff;
-  background-color: #3e85f3;
+  color: ${lightColors.white};
+  background-color: ${lightColors.blue};
   text-transform: none;
   width: 262px;
   height: 48px;
@@ -155,17 +175,19 @@ export const FormBtn = styled.button`
   cursor: pointer;
   &:hover,
   &:focus {
-    background-color: #2b78ef;
+    background-color: ${lightColors.darkBlue};
   }
 
   &:disabled {
     cursor: not-allowed;
   }
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 `;
 
 export const CancelBtn = styled.button`
-  color: #343434;
-  background-color: #e5edfa;
+  color: ${lightColors.grey};
+  background-color: ${lightColors.lightBlue3};
   text-transform: none;
   width: 262px;
   height: 48px;

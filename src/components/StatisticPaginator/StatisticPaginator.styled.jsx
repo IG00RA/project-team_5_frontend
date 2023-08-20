@@ -102,6 +102,7 @@ export const PaginatorBtn = styled.button`
   padding: 7px 10px;
   font-weight: 700;
   border-radius: ${p => (p.$isPrevBtn ? '8px 0px 0px 8px' : '0px 8px 8px 0px')};
+
   border: 1px solid rgba(220, 227, 229, 0.8);
   background-color: #fff;
   color: ${p =>
@@ -111,7 +112,6 @@ export const PaginatorBtn = styled.button`
   &:hover {
     box-shadow: 0px 1px 7px 1px rgba(0, 0, 0, 0.1);
   }
-
   @media screen and (min-width: 768px) {
     width: 38px;
     height: 34px;

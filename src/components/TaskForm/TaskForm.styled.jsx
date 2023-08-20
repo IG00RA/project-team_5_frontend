@@ -1,32 +1,43 @@
-import { styled } from "styled-components";
+import { styled } from 'styled-components';
 
 export const CloseBtn = styled.button`
   position: relative;
   top: 42px;
   left: 356px;
+  color: ${props => props.theme.colors.modal.task.closeBtn};
+  transform: rotate(0);
+
+  transition:
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    color: ${props => props.theme.colors.button.hoverBg};
+    transform: rotate(90deg);
+  }
 `;
 
 export const IconClose = styled.svg`
   height: 24px;
   width: 24px;
-  
-  stroke: #111;
+
+  stroke: currentColor;
   fill: transparent;
 `;
 
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  
+  gap: 28px;
+
   padding: 40px 28px;
   width: 396px;
-  height: 360px;
 
   border-radius: 8px;
-  border: 1px solid rgba(220, 227, 229, 0.80);
-  background-color: #FFF;
-  box-shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.10);
+  border: 1px solid ${props => props.theme.colors.modal.task.taskFormBorder};
+  background-color: ${props => props.theme.colors.modal.task.taskBG};
+  box-shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.1);
 `;
 
 export const InputWrapper = styled.div`
@@ -50,7 +61,7 @@ export const InputLabel = styled.label`
   font-weight: 500;
   line-height: 1.16;
 
-  color: rgba(52, 52, 52, 0.80);
+  color: rgba(52, 52, 52, 0.8);
 `;
 
 export const InputText = styled.input`
@@ -63,9 +74,10 @@ export const InputText = styled.input`
   font-weight: 600;
   line-height: 1.28;
 
-  color: #343434;
+  color: ${props => props.theme.colors.modal.task.taskInputText};
   border-radius: 8px;
-  background-color: #F6F6F6;
+  background-color: ${props => props.theme.colors.modal.task.taskInput};
+  border: 1px solid ${props => props.theme.colors.modal.task.popUpBorder};
 
   &::placeholder {
     font-family: Inter;
@@ -73,7 +85,7 @@ export const InputText = styled.input`
     font-weight: 600;
     line-height: 1.28;
 
-    color: #343434;
+    color: ${props => props.theme.colors.modal.task.taskInputText};
   }
 `;
 
@@ -87,13 +99,14 @@ export const InputTime = styled.input`
   font-weight: 600;
   line-height: 1.28;
 
-  color: #343434;
+  color: ${props => props.theme.colors.modal.task.taskInputText};
   border-radius: 8px;
-  background-color: #F6F6F6;
+  background-color: ${props => props.theme.colors.modal.task.taskInput};
+  border: 1px solid ${props => props.theme.colors.modal.task.popUpBorder};
 
   &::-webkit-calendar-picker-indicator {
     display: none;
-}
+  }
 `;
 
 export const BottomWrapper = styled.div`
@@ -119,7 +132,7 @@ export const Label = styled.label`
   font-weight: 600;
   line-height: 1.28;
 
-  color: #343434;
+  color: ${props => props.theme.colors.modal.task.taskInputText};
 `;
 
 export const WrapperBtn = styled.div`
@@ -142,15 +155,20 @@ export const FormSubmitBtn = styled.button`
   line-height: 1.28;
 
   border-radius: 8px;
-  color: #FFF;
-  background-color: #3E85F3;
+  color: ${props => props.theme.colors.modal.task.saveBtnText};
+  background-color: ${props => props.theme.colors.calendarPage.todayBg};
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    box-shadow: 4px 2px 16px 0px rgba(136, 165, 191, 0.48);
+  }
 `;
 
 export const IconInBtn = styled.svg`
   height: 18px;
   width: 18px;
-  
-  stroke: #fff;
+
+  stroke: ${props => props.theme.colors.modal.task.saveBtnText};
   fill: transparent;
 `;
 
@@ -168,8 +186,14 @@ export const CancelBtn = styled.button`
   line-height: 1.28;
 
   border-radius: 8px;
-  color: #111;
-  background-color: #EFEFEF;
+  color: ${props => props.theme.colors.modal.task.cancelBtnText};
+  background-color: ${props => props.theme.colors.modal.task.cancelBtnBg};
+
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    box-shadow: 4px 2px 16px 0px rgba(136, 165, 191, 0.48);
+  }
 `;
 
 export const RadioNone = styled.input`
@@ -187,13 +211,13 @@ export const RadioCustom = styled.span`
   background-color: ${p => {
     switch (p.color) {
       case 'low':
-        return '#72C2F8'
+        return p.theme.colors.calendarPage.month.lowTaskText;
       case 'medium':
-        return '#F3B249'
+        return p.theme.colors.calendarPage.month.mediumTaskText;
       case 'high':
-        return '#EA3D65'
+        return p.theme.colors.calendarPage.month.hightTaskText;
       default:
-        return
+        return;
     }
   }};
 `;
@@ -211,24 +235,25 @@ export const RadioCustomCheck = styled.span`
     border: 1px solid;
     background-color: transparent;
     border-color: ${p => {
-    switch (p.color) {
-      case 'low':
-        return 'rgba(114, 194, 248, 0.50);'
-      case 'medium':
-        return 'rgba(243, 178, 73, 0.50);'
-      case 'high':
-        return 'rgba(234, 61, 101, 0.50);'
-      default:
-        return
-    }
-  }}};
+      switch (p.color) {
+        case 'low':
+          return 'rgba(114, 194, 248, 0.50);';
+        case 'medium':
+          return 'rgba(243, 178, 73, 0.50);';
+        case 'high':
+          return 'rgba(234, 61, 101, 0.50);';
+        default:
+          return;
+      }
+    }};
+  }
 `;
 
 export const Error = styled.div`
   font-family: Inter;
   text-align: center;
   font-size: 12px;
-  line-height: 1.16; 
+  line-height: 1.16;
 
-  color: #EA3D65;
+  color: ${props => props.theme.colors.calendarPage.month.hightTaskBg};
 `;

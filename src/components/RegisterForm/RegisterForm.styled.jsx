@@ -5,20 +5,22 @@ import {
   Field as FormikField,
 } from 'formik';
 
+import { lightColors } from 'utils/theme';
+
 export const Form = styled(FormikForm)`
   display: flex;
   flex-direction: column;
   padding: 40px 24px;
 
-  background-color: white;
+  background-color: ${lightColors.white};
   border-radius: 8px;
 
-  @media screen and (max-width: 345px) {
+  @media screen and (max-width: ${props => props.theme.media.s}) {
     margin-left: 5px;
     margin-right: 5px;
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: ${props => props.theme.media.m}) {
     padding: 40px;
   }
 `;
@@ -28,16 +30,16 @@ export const Label = styled.label`
   font-weight: 600;
   font-size: 12px;
   line-height: 1.25;
-  color: #111;
+  color: ${lightColors.blackText};
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: ${props => props.theme.media.m}) {
     font-size: 14px;
     line-height: 1.21;
   }
 
   &:not(:last-child) {
     margin-bottom: 24px;
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: ${props => props.theme.media.m}) {
       margin-bottom: 18px;
     }
   }
@@ -45,7 +47,7 @@ export const Label = styled.label`
   &:nth-of-type(3) {
     margin-bottom: 32px;
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: ${props => props.theme.media.m}) {
       margin-bottom: 48px;
     }
   }
@@ -65,7 +67,7 @@ export const Label = styled.label`
     margin-left: 18px;
     font-family: Inter;
     font-size: 12px;
-    line-height: 14px; /* 116.667% */
+    line-height: 1.17;
     color: #3cbc81;
   }
 `;
@@ -84,13 +86,13 @@ export const Field = styled(FormikField)`
   font-weight: 600;
   line-height: 1.29px;
 
-  background-color: #fff;
-  color: #111;
+  background-color: ${lightColors.white};
+  color: ${lightColors.blackText};
   outline: none;
   border: 1px solid #dce3e5;
   border-radius: 8px;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: ${props => props.theme.media.m}) {
     padding: 18px;
     font-size: 16px;
     line-height: 1.12;
@@ -101,7 +103,7 @@ export const Field = styled(FormikField)`
     font-family: Inter;
     font-size: 14px;
     line-height: 1.29;
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: ${props => props.theme.media.m}) {
       font-size: 16px;
       line-height: 1.12;
     }
@@ -109,7 +111,7 @@ export const Field = styled(FormikField)`
 
   &:hover,
   &:focus {
-    border: 1px solid #111;
+    border: 1px solid ${lightColors.blackText};
   }
 
   &.is-valid {
@@ -124,7 +126,7 @@ export const Field = styled(FormikField)`
 export const FormTitle = styled.p`
   margin-top: 0;
   margin-bottom: 32px;
-  color: #3e85f3;
+  color: ${lightColors.blue};
   font-family: Inter;
   font-weight: 600;
   font-size: 18px;
@@ -134,7 +136,7 @@ export const FormTitle = styled.p`
     0px 47px 355px rgba(0, 0, 0, 0.07),
     0px 9.4px 57.6875px rgba(0, 0, 0, 0.035);
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: ${props => props.theme.media.m}) {
     margin-bottom: 40px;
     font-size: 24px;
     line-height: 1;
@@ -142,7 +144,7 @@ export const FormTitle = styled.p`
 `;
 
 export const ErrorMessage = styled(FormikErrorMessage)`
-  color: red;
+  color: ${lightColors.redPriority};
   font-size: 0.8rem;
   margin-top: 0.2rem;
   margin-left: 18px;
@@ -156,7 +158,7 @@ export const Button = styled.button`
   gap: 11px;
   padding-top: 14px;
   padding-bottom: 14px;
-  color: #fff;
+  color: ${lightColors.white};
   font-family: Inter;
   font-size: 14px;
   font-style: normal;
@@ -169,11 +171,11 @@ export const Button = styled.button`
   border-radius: 16px;
   box-shadow: 4px 2px 16px rgba(136, 165, 191, 0.48);
 
-  color: #fff;
-  background-color: #3e85f3;
+  color: ${lightColors.white};
+  background-color: ${lightColors.blue};
   cursor: pointer;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: ${props => props.theme.media.m}) {
     font-size: 18px;
     line-height: 1.33;
     padding-top: 16px;
@@ -182,24 +184,26 @@ export const Button = styled.button`
 
   &:hover,
   &:focus {
-    background-color: #2b78ef;
+    background-color: ${lightColors.darkBlue};
   }
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 `;
 
 export const LoginIcon = styled.svg`
-  stroke: #fff;
+  stroke: ${lightColors.white};
   height: 18px;
   width: 18px;
   fill: transparent;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: ${props => props.theme.media.m}) {
     height: 20px;
     width: 20px;
   }
 `;
 
 export const ToggleButton = styled.button`
-  color: #111;
+  color: ${lightColors.blackText};
   position: absolute;
   right: 18px;
   top: 50%;
