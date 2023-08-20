@@ -5,33 +5,39 @@ export const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(5, 1fr);
-  grid-gap: 1px;
-  background-color: ${props => props.theme.colors.calendarPage.border};
-  border: 1px solid ${props => props.theme.colors.calendarPage.border};
+  grid-gap: 1.2px;
+
   border-radius: 8px;
   overflow: hidden;
   text-align: center;
+
   min-width: 270px;
   height: 380px;
+  width: 100%;
+
+  background-color: ${props => props.theme.colors.calendarPage.border};
+  border: 1px solid ${props => props.theme.colors.calendarPage.border};
 
   @media screen and (min-width: 375px) {
     min-width: 335px;
     min-height: 470px;
   }
+
   @media screen and (min-width: 768px) {
     min-width: 704px;
     min-height: 720px;
   }
+  
   @media screen and (min-width: 1440px) {
-    width: 1067px;
+    min-width: 1067px;
     min-height: 625px;
   }
 `;
 
 export const Cell = styled(Link)`
   background-color: ${props => props.theme.colors.calendarPage.mainBg};
-  min-width: 30px;
-  min-height: 40px;
+  min-width: 100%;
+  min-height: 100%;
 
   overflow: hidden;
   overflow-y: scroll;
@@ -40,19 +46,6 @@ export const Cell = styled(Link)`
   &::-webkit-scrollbar {
     width: 0;
     height: 0;
-  }
-
-  @media screen and (min-width: 375px) {
-    min-width: 46px;
-    min-height: 94px;
-  }
-  @media screen and (min-width: 768px) {
-    min-width: 100px;
-    min-height: 144px;
-  }
-  @media screen and (min-width: 1440px) {
-    width: 152px;
-    min-height: 125px;
   }
 `;
 

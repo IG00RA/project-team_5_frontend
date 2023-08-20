@@ -1,20 +1,17 @@
 import styled from 'styled-components';
+
 export const Wrap = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 64px;
   align-items: center;
-
-  @media (min-width: 768px) {
-    /* min-width: 704px; */
-    margin-bottom: 4rem;
-  }
-
+  width: 100%;
+  
   @media (min-width: 1440px) {
-    max-width: 1067px;
     margin-bottom: 32px;
   }
 `;
+
 export const UserWrap = styled.div`
   display: flex;
   gap: 18px;

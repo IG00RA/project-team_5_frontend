@@ -8,6 +8,7 @@ export const UserInfoForm = styled.form`
   gap: 18px;
 
   width: 100%;
+  min-height: 653px;
   padding: 0 18px 40px;
 
   border-radius: 16px;
@@ -16,6 +17,7 @@ export const UserInfoForm = styled.form`
 
   @media screen and (min-width: 768px) {
     padding-top: 40px;
+    min-height: 854px;
   }
 
   @media screen and (min-width: 1440px) {
@@ -23,6 +25,8 @@ export const UserInfoForm = styled.form`
     flex-direction: row;
     gap: 24px;
     column-gap: 50px;
+
+    min-height: 752px;
 
     padding-top: 60px;
     padding-bottom: 60px;

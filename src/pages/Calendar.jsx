@@ -9,6 +9,7 @@ export default function Calendar() {
   
   const [selectedDay, setSelectedDay] = useState(moment());
   const [updatedDate, setUpdatedDate] = useState(selectedDay);
+  
   const [isChoosedDay, setIsChoosedDay] = useState(false);
 
   return (
