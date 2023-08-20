@@ -208,6 +208,15 @@ export const lightTheme = {
 
 export const darkTheme = {
   colors: {
+    homePage: {
+      bg: lightColors.white,
+      titleText: lightColors.blue,
+      lightBg: lightColors.lightBlue1,
+      darkTitle: darkColors.darkBG,
+      imageBg: lightColors.lightBlue2,
+      darkText: lightColors.darkRGBA,
+      hoverColor: lightColors.bluePriority,
+    },
     mainLayout: {
       bg: darkColors.darkBG,
     },
