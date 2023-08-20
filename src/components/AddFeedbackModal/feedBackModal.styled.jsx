@@ -13,7 +13,7 @@ export const CloseBtn = styled.button`
   cursor: pointer;
 `;
 export const CloseIcon = styled.svg`
-  stroke: black;
+  stroke: ${props => props.theme.colors.header.titleText};
   height: 24px;
   width: 24px;
 `;
@@ -24,9 +24,9 @@ export const FeedBackModalStyles = createGlobalStyle`
   padding: 9px 18px;
   position: relative;
   border-radius: 8px;
-  border: 1px solid rgba(220, 227, 229, 0.80);
+  border: 1px solid ${props => props.theme.colors.modal.task.popUpBorder};
   box-shadow: 0px 4px 57px 0px rgba(17, 17, 17, 0.05);
-  background-color: #fff;
+  background-color: ${props => props.theme.colors.modal.task.taskBG};
   @media screen and (min-width: 768px) {
   padding: 32px;
   width: 468px;
