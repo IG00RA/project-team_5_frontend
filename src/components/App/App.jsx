@@ -20,7 +20,7 @@ const RegisterPage = lazy(() => import('../../pages/Register/Register'));
 const LoginPage = lazy(() => import('../../pages/Login/Login'));
 const AccountPage = lazy(() => import('../../pages/Account/Account'));
 const CalendarPage = lazy(() => import('../../pages/Calendar'));
-const StatisticsPage = lazy(() => import('../../pages/Statistics'));
+const StatisticsPage = lazy(() => import('../../pages/Statistics/Statistics'));
 const ChoosedMonthModule = lazy(() => import('../ChoosedMonth'));
 const ChoosedDayModule = lazy(() => import('../ChoosedDay'));
 

@@ -1,42 +1,36 @@
 import styled from 'styled-components';
 
 export const SideBarWrap = styled.div`
-  display: flex;
-
-  justify-content: space-between;
-  top: 0;
-  /* left: ${({ isOpen }) => (isOpen ? '0' : '-100%')}; */
-  z-index: 2;
-  flex-direction: column;
-  box-sizing: border-box;
-  width: 225px;
-  padding: 24px 20px;
-  background-color: ${props => props.theme.colors.sideBar.mainBg};
   position: absolute;
-  min-height: 100vh;
+  z-index: 1;
+  
+  padding: 24px 20px;
+
+  width: 225px;
+  min-height: 900px;
+
+  background-color: ${props => props.theme.colors.sideBar.mainBg};
 
   @media screen and (min-width: 768px) {
     width: 289px;
     padding: 24px 32px;
-    /* min-height: 100vh; */
   }
 
   @media screen and (min-width: 1440px) {
     position: static;
-    width: 289px;
-    padding: 32px 24px 24px;
+
     display: flex;
     justify-content: space-between;
-    position: relative;
-    min-height: 900px;
+    flex-direction: column;
+
+    padding: 32px 24px 24px;
   }
 
   @media screen and (max-width: 1439px) {
-    left: 0;
     transform: translateX(-100%);
     transition: transform 350ms ease-in-out;
+
     &.openModalMenu {
-      /* display: block; */
       transform: translateX(0px);
     }
   }
