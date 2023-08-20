@@ -1,12 +1,12 @@
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { BottomWrapper, CancelBtn, CloseBtn, Form, FormSubmitBtn, IconClose, IconInBtn, InputLabel, InputText, InputTime, InputTimeWrapper, InputWrapper, Label, RadioNone, RadioCustomCheck, RedioWrapper, WrapperBtn, RadioCustom, Error } from "./TaskForm.styled";
-import { useOutletContext } from "react-router";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addTask, updateTask } from 'redux/tasks/tasksOperations';
 import sprite from '../../images/svg-sprite/symbol-defs.svg';
 import moment from 'moment';
 import { useState } from 'react';
+import { selectDate } from 'redux/date/selectors';
 
 const Schema = Yup.object({
   title: Yup.string().min(3, 'Please enter at least 3 characters').required('This field is required'),
@@ -20,7 +20,7 @@ const radioButtonsList = ['low', 'medium', 'high'];
 export const TaskForm = ({ task: { _id, title = '', start = moment().format('HH:mm'), end = moment().add(1, 'hour').format('HH:mm'), priority = 'low' }, closeModal, ColumnTitle }) => {
 
   const [checked, setChecked] = useState(priority);
-  const [, , updatedDate] = useOutletContext();
+  const date = useSelector(selectDate);
   const dispatch = useDispatch();
   const normalizedStringCategory = ColumnTitle?.split(' ').join('-').toLowerCase();
 
@@ -33,7 +33,7 @@ export const TaskForm = ({ task: { _id, title = '', start = moment().format('HH:
     },
     validationSchema: Schema,
     onSubmit: (value, { resetForm }) => {
-      const request = { ...value, category: normalizedStringCategory, date: updatedDate.format('YYYY-MM-DD') };
+      const request = { ...value, category: normalizedStringCategory, date,};
       if (!_id) {
         dispatch(addTask(request));
         resetForm();

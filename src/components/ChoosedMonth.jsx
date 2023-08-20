@@ -1,12 +1,14 @@
 import moment from 'moment';
-import { useOutletContext } from 'react-router-dom';
 import MonthCalendarHead from './MonthCalendarHead/MonthCalendarHead';
 import CalendarTable from './CalendarTable/CalendarTable';
+import { useSelector } from 'react-redux';
+import { selectDate } from 'redux/date/selectors';
 
 export default function ChoosedMonth() {
-  const [selectedDay] = useOutletContext();
+  const date = useSelector(selectDate);
+  const momentDate = moment(date);
 
-  const startDay = selectedDay.clone().startOf('month').startOf('week');
+  const startDay = momentDate.clone().startOf('month').startOf('week');
   const endDay = moment().endOf('month').endOf('week');
 
   const calendar = [];
@@ -20,7 +22,7 @@ export default function ChoosedMonth() {
   return (
     <div>
       <MonthCalendarHead startDay={startDay} />
-      <CalendarTable startDay={startDay} selectedDay={selectedDay} />
+      <CalendarTable startDay={startDay} />
     </div>
   );
 }

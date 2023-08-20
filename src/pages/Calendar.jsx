@@ -7,22 +7,15 @@ import CalendarToolbar from '../components/CalendarToolbar/CalendarToolbar';
 export default function Calendar() {
   moment.updateLocale('en', { week: { dow: 1 } });
   
-  const [selectedDay, setSelectedDay] = useState(moment());
-  const [updatedDate, setUpdatedDate] = useState(selectedDay);
-  
-  const [isChoosedDay, setIsChoosedDay] = useState(false);
+  const [changePeriod, setChangePeriod] = useState('month');
 
   return (
     <>
       <CalendarToolbar
-        isChoosedDay={isChoosedDay}
-        selectedDay={selectedDay}
-        updatedDate={updatedDate}
-        setSelectedDay={setSelectedDay}
-        setUpdatedDate={setUpdatedDate}
+        changePeriod={changePeriod}
       />
       <Suspense fallback={<div>Loading subpage...</div>}>
-        <Outlet context={[selectedDay, setIsChoosedDay, updatedDate, setUpdatedDate, setSelectedDay]} />
+        <Outlet context={[setChangePeriod]} />
       </Suspense>
     </>
   );

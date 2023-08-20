@@ -14,6 +14,7 @@ import { authReducer } from './auth/slice';
 import { tasksReducer } from './tasks/tasksSlice';
 import { userReducer } from './user/slice';
 import { reviewReducer } from './review/reviewSlice';
+import { dateReducer } from './date/slice';
 
 const middleware = [
   ...getDefaultMiddleware({
@@ -40,6 +41,7 @@ export const store = configureStore({
     user: persistReducer(userPersistConfig, userReducer),
     tasks: tasksReducer,
     review: reviewReducer,
+    date: dateReducer,
   },
   middleware,
 });
