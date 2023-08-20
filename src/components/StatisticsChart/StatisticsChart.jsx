@@ -48,6 +48,13 @@ export default function StatisticsChart({
     (filteredTasksByMonth.filter(task => task?.category === 'done').length /
       allTasksByMonth) *
     100;
+  const maxByDayOffset =
+    Math.max(toDoByDayPercent, inProgressByDayPercent, doneByDayPercent) / 100;
+  console.log(maxByDayOffset);
+
+  const maxByMonthOffset =
+    Math.max(toDoByMonthPercent, inProgressByMonthPercent, doneByMonthPercent) /
+    100;
 
   const data = [
     {
@@ -106,24 +113,32 @@ export default function StatisticsChart({
             <linearGradient
               id="paint0_linear_10525_1738"
               x1="11.4074"
-              y1="246"
+              y1="410"
               x2="11.4074"
               y2="2"
               gradientUnits="userSpaceOnUse"
             >
               <stop stopColor="#FFD2DD" />
-              <stop offset="0.96875" stopColor="#FFD2DD" />
+              <stop
+                offset={maxByDayOffset}
+                stopColor="#FFD2DD"
+                stopOpacity="0"
+              />
             </linearGradient>
             <linearGradient
               id="paint0_linear_10525_1741"
               x1="11.4074"
-              y1="246"
+              y1="410"
               x2="11.4074"
               y2="2"
               gradientUnits="userSpaceOnUse"
             >
               <stop stopColor="#3E85F3" />
-              <stop offset="1" stopColor="#3E85F3" stopOpacity="0" />
+              <stop
+                offset={maxByMonthOffset}
+                stopColor="#3E85F3"
+                stopOpacity="0"
+              />
             </linearGradient>
           </defs>
           <CartesianGrid
