@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import StatisticsChart from '../../components/StatisticsChart/StatisticsChart';
 import {
   selectFilteredTasksByDate,
   selectTasks,
   selectFilteredTasksByMonth,
 } from 'redux/tasks/tasksSelectors';
+import StatisticsChart from '../../components/StatisticsChart/StatisticsChart';
 import { getAllTasks } from 'redux/tasks/tasksOperations';
-import moment from 'moment';
 import StatisticPaginator from 'components/StatisticPaginator/StatisticPaginator';
 import { StatisticsWrapper, ChartWrapper, Text } from './Statistics.styled';
+import moment from 'moment';
 
 export default function Statistics() {
   const tasks = useSelector(selectTasks);

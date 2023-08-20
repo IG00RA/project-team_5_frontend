@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 export const StatisticsWrapper = styled.div`
   max-width: 1087px;
   height: 752px;
@@ -24,6 +25,7 @@ export const ChartWrapper = styled.div`
     min-height: 440px;
   }
 `;
+
 export const Text = styled.p`
   margin-bottom: 20px;
   color: #343434;
