@@ -1,6 +1,6 @@
 import sprite from '../../images/svg-sprite/symbol-defs.svg';
 import DatePickerComponent from 'components/DatePickerComponent/DatePickerComponent';
-import { useState } from 'react';
+
 import {
   PaginatorWrapper,
   Period,
@@ -15,7 +15,6 @@ import {
   ColoredSquare,
   Icon,
 } from './StatisticPaginator.styled';
-import sprite from '../../images/svg-sprite/symbol-defs.svg';
 
 export default function StyledPaginator({
   selectedDate,
@@ -26,7 +25,7 @@ export default function StyledPaginator({
     typeOfPeriod === 'month'
       ? selectedDate.format('MMMM YYYY')
       : selectedDate.format('D MMMM YYYY');
-  
+
   const prevHandler = () => {
     if (typeOfPeriod === 'month') {
       onDateChange(prev => prev.clone().subtract(1, 'month'));
@@ -45,7 +44,10 @@ export default function StyledPaginator({
   return (
     <Wrapper>
       <PaginatorWrapper>
-          <DatePickerComponent startDate={startDate} setStartDate={setStartDate} />
+        <DatePickerComponent
+          startDate={'startDate'}
+          setStartDate={'setStartDate'}
+        />
         <Period>{formattedPeriod}</Period>
         <ButtonsWrap>
           <PaginatorBtn onClick={prevHandler} $isPrevBtn>
@@ -71,8 +73,5 @@ export default function StyledPaginator({
         </ListItem>
       </List>
     </Wrapper>
-
   );
-};
-
-export default StatisticPaginator;
+}
