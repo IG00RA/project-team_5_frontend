@@ -5,11 +5,11 @@ export const CloseBtn = styled.button`
   top: 42px;
   left: 356px;
   color: ${props => props.theme.colors.modal.task.closeBtn};
-  transform: rotate(0);
+  transform: rotate(-90deg);
 
   transition:
-    color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    color 250ms linear,
+    transform 250ms linear;
 
   &:hover,
   &:focus {
