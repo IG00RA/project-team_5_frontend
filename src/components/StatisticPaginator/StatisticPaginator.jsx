@@ -1,9 +1,8 @@
 import sprite from '../../images/svg-sprite/symbol-defs.svg';
 import DatePickerComponent from 'components/DatePickerComponent/DatePickerComponent';
-import { useState } from 'react';
+
 import {
   PaginatorWrapper,
-  Period,
   ButtonsWrap,
   Wrapper,
   CategoryText,
@@ -15,18 +14,23 @@ import {
   ColoredSquare,
   Icon,
 } from './StatisticPaginator.styled';
-import sprite from '../../images/svg-sprite/symbol-defs.svg';
+import { parseISO } from 'date-fns';
 
-export default function StyledPaginator({
+import moment from 'moment';
+
+export default function StatisticPaginator({
   selectedDate,
+  setSelectedDate,
   onDateChange,
   typeOfPeriod,
 }) {
-  const formattedPeriod =
-    typeOfPeriod === 'month'
-      ? selectedDate.format('MMMM YYYY')
-      : selectedDate.format('D MMMM YYYY');
-  
+  // const formattedPeriod =
+  //   typeOfPeriod === 'month'
+  //     ? selectedDate.format('MMMM YYYY')
+  //     : selectedDate.format('D MMMM YYYY');
+
+  // console.log(selectedDate);
+  // console.log(setSelectedDate);
   const prevHandler = () => {
     if (typeOfPeriod === 'month') {
       onDateChange(prev => prev.clone().subtract(1, 'month'));
@@ -34,6 +38,7 @@ export default function StyledPaginator({
       onDateChange(prev => prev.clone().subtract(1, 'day'));
     }
   };
+
   const nextHandler = () => {
     if (typeOfPeriod === 'month') {
       onDateChange(prev => prev.clone().add(1, 'month'));
@@ -45,8 +50,11 @@ export default function StyledPaginator({
   return (
     <Wrapper>
       <PaginatorWrapper>
-          <DatePickerComponent startDate={startDate} setStartDate={setStartDate} />
-        <Period>{formattedPeriod}</Period>
+        <DatePickerComponent
+          startDate={parseISO(selectedDate)}
+          setStartDate={date => setSelectedDate(moment(date))}
+        />
+        {/* <Period>{selectedDate}</Period> */}
         <ButtonsWrap>
           <PaginatorBtn onClick={prevHandler} $isPrevBtn>
             <Icon>
@@ -71,8 +79,5 @@ export default function StyledPaginator({
         </ListItem>
       </List>
     </Wrapper>
-
   );
-};
-
-export default StatisticPaginator;
+}

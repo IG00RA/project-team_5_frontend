@@ -39,9 +39,10 @@ export default function Statistics() {
   return (
     <StatisticsWrapper>
       <StatisticPaginator
-        selectedDate={selectedDate}
+        selectedDate={selectedDateFormat}
         typeOfPeriod={'day'}
         onDateChange={handleDateChange}
+        setSelectedDate={setSelectedDate}
       />
       <ChartWrapper>
         <Text>Tasks</Text>

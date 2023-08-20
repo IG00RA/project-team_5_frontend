@@ -49,12 +49,12 @@ export default function StatisticsChart({
       allTasksByMonth) *
     100;
   const maxByDayOffset =
-    Math.max(toDoByDayPercent, inProgressByDayPercent, doneByDayPercent) / 100;
-  console.log(maxByDayOffset);
+    Math.max(toDoByDayPercent, inProgressByDayPercent, doneByDayPercent) /
+      100 || 0;
 
   const maxByMonthOffset =
     Math.max(toDoByMonthPercent, inProgressByMonthPercent, doneByMonthPercent) /
-    100;
+      100 || 0;
 
   const data = [
     {
@@ -168,7 +168,7 @@ export default function StatisticsChart({
             )}
           />
           <YAxis
-            tickCount={3}
+            tickCount={6}
             ticks={percentages}
             axisLine={{ stroke: 'transparent' }}
             tickLine={{ stroke: 'transparent' }}
