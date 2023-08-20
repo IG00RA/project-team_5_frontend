@@ -67,21 +67,21 @@ export default function StatisticsChart({
     },
   ];
 
-  // const sizes = {
-  //   mobile: {
-  //     width: 335,
-  //   },
-  //   laptop: {
-  //     width: 640,
-  //   },
-  //   desctop: {
-  //     width: 860,
-  //   },
-  // };
+  const sizes = {
+    mobile: {
+      gap: 3,
+    },
+    laptop: {
+      gap: 8,
+    },
+    desctop: {
+      gap: 8,
+    },
+  };
 
-  // const currentWidth = window.innerWidth;
-  // const viewport =
-  //   currentWidth < 768 ? 'mobile' : currentWidth < 1440 ? 'laptop' : 'desctop';
+  const currentWidth = window.innerWidth;
+  const viewport =
+    currentWidth < 768 ? 'mobile' : currentWidth < 1440 ? 'laptop' : 'desctop';
 
   const percentages = [0, 20, 40, 60, 80, 100];
   // const customFormatter = value => `${value}%`;
@@ -94,7 +94,7 @@ export default function StatisticsChart({
           width={780}
           height={440}
           data={data}
-          barGap={8}
+          barGap={sizes[viewport].gap}
           margin={{
             top: 0,
             right: 0,
@@ -126,6 +126,12 @@ export default function StatisticsChart({
               <stop offset="1" stopColor="#3E85F3" stopOpacity="0" />
             </linearGradient>
           </defs>
+          <CartesianGrid
+            // x={125}
+            stroke="#E3F3FF"
+            vertical={false}
+            // width={500}
+          />
           <XAxis
             axisLine={{ stroke: 'transparent' }}
             dataKey="name"
@@ -147,7 +153,7 @@ export default function StatisticsChart({
             )}
           />
           <YAxis
-            // tickCount={6}
+            tickCount={3}
             ticks={percentages}
             axisLine={{ stroke: 'transparent' }}
             tickLine={{ stroke: 'transparent' }}
@@ -186,12 +192,6 @@ export default function StatisticsChart({
               isAnimationActive={false}
             />
           </Bar>
-          <CartesianGrid
-            // x={125}
-            stroke="#E3F3FF"
-            vertical={false}
-            // width={500}
-          />
         </BarChart>
       </ResponsiveContainer>
     </>
