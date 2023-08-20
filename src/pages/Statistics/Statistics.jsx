@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import StatisticsChart from '../components/StatisticsChart/StatisticsChart';
+import StatisticsChart from '../../components/StatisticsChart/StatisticsChart';
 import {
   selectFilteredTasksByDate,
   selectTasks,
@@ -9,7 +9,7 @@ import {
 import { getAllTasks } from 'redux/tasks/tasksOperations';
 import moment from 'moment';
 import StatisticPaginator from 'components/StatisticPaginator/StatisticPaginator';
-import { StatisticsWrapper } from './Statistics/Statistics.styled';
+import { StatisticsWrapper } from './Statistics.styled';
 
 export default function Statistics() {
   const tasks = useSelector(selectTasks);
