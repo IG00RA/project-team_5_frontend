@@ -129,12 +129,6 @@ export const AvatarText = styled.span`
   }
 `;
 
-export const FileInput = styled.input`
-  opacity: 0;
-  visibility: hidden;
-  position: absolute;
-`;
-
 export const CommonInput = styled.input`
   width: 100%;
   height: 42px;
@@ -155,6 +149,18 @@ export const CommonInput = styled.input`
     font-size: 16px;
     line-height: calc(18 / 16);
   }
+`;
+
+export const FileInput = styled.input`
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+`;
+
+export const BirthdayInput = styled.input`
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
 `;
 
 export const Label = styled.p`
