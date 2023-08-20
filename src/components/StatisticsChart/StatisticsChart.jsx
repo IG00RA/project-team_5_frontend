@@ -7,7 +7,6 @@ import {
   BarChart,
   ResponsiveContainer,
 } from 'recharts';
-import { Text } from './StatisticsChart.styled';
 export default function StatisticsChart({
   selectedDate,
   setSelectedDate,
@@ -90,7 +89,6 @@ export default function StatisticsChart({
 
   return (
     <>
-      <Text>Tasks</Text>
       <ResponsiveContainer width="100%" height={440}>
         <BarChart
           width={780}
@@ -149,11 +147,12 @@ export default function StatisticsChart({
             )}
           />
           <YAxis
-            tickCount={7}
+            // tickCount={6}
             ticks={percentages}
             axisLine={{ stroke: 'transparent' }}
             tickLine={{ stroke: 'transparent' }}
-            tick={{ dx: 32 }}
+            // tick={{ dx: 32 }}
+            // tick={{ dy: -2 }}
             tickSize={32}
           />
           <Bar
@@ -188,7 +187,7 @@ export default function StatisticsChart({
             />
           </Bar>
           <CartesianGrid
-            x={125}
+            // x={125}
             stroke="#E3F3FF"
             vertical={false}
             // width={500}

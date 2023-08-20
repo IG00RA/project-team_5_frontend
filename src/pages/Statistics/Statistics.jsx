@@ -9,7 +9,7 @@ import {
 import { getAllTasks } from 'redux/tasks/tasksOperations';
 import moment from 'moment';
 import StatisticPaginator from 'components/StatisticPaginator/StatisticPaginator';
-import { StatisticsWrapper } from './Statistics.styled';
+import { StatisticsWrapper, ChartWrapper, Text } from './Statistics.styled';
 
 export default function Statistics() {
   const tasks = useSelector(selectTasks);
@@ -43,13 +43,15 @@ export default function Statistics() {
         typeOfPeriod={'day'}
         onDateChange={handleDateChange}
       />
-
-      <StatisticsChart
-        selectedDate={selectedDateFormat}
-        setSelectedDate={setSelectedDate}
-        filteredTasksByDate={filteredTasksByDate}
-        filteredTasksByMonth={filteredTasksByMonth}
-      />
+      <ChartWrapper>
+        <Text>Tasks</Text>
+        <StatisticsChart
+          selectedDate={selectedDateFormat}
+          setSelectedDate={setSelectedDate}
+          filteredTasksByDate={filteredTasksByDate}
+          filteredTasksByMonth={filteredTasksByMonth}
+        />
+      </ChartWrapper>
     </StatisticsWrapper>
   );
 }
