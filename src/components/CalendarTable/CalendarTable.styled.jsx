@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-export const GridWrapper = styled.div`
+export const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(5, 1fr);
   grid-gap: 1px;
-  background-color: rgba(220, 227, 229, 0.8);
-  border: 1px solid rgba(220, 227, 229, 0.8);
+  background-color: ${props => props.theme.colors.calendarPage.border};
+  border: 1px solid ${props => props.theme.colors.calendarPage.border};
   border-radius: 8px;
   overflow: hidden;
   text-align: center;
@@ -28,12 +28,12 @@ export const GridWrapper = styled.div`
   }
 `;
 
-export const CellWrapper = styled(Link)`
-  background-color: #fff;
+export const Cell = styled(Link)`
+  background-color: ${props => props.theme.colors.calendarPage.mainBg};
   min-width: 30px;
   min-height: 40px;
 
-  /* overflow: hidden; */
+  overflow: hidden;
   overflow-y: scroll;
   scrollbar-width: none;
 
@@ -62,7 +62,7 @@ export const RowInCell = styled.div`
   justify-content: flex-end;
 `;
 
-export const ShowDayWrapper = styled.div`
+export const ShowDay = styled.div`
   display: flex;
   justify-content: flex-end;
   margin-top: 4px;
@@ -81,7 +81,7 @@ export const ShowDayWrapper = styled.div`
   }
 `;
 
-export const DayWrapper = styled.div`
+export const Day = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -93,7 +93,10 @@ export const DayWrapper = styled.div`
   font-weight: 700;
   line-height: calc(14 / 12);
 
-  color: ${p => (p.$isSelectedMonth ? '#343434' : 'transparent')};
+  color: ${props =>
+    props.$isSelectedMonth
+      ? props.theme.colors.calendarPage.iconFocus
+      : 'transparent'};
 
   @media screen and (min-width: 768px) {
     height: ${p => (p.$isNotCurrentDay ? '26px' : '0')};
@@ -114,8 +117,8 @@ export const CurrentDay = styled.div`
   padding: 4px 6px;
   border-radius: 6px;
 
-  background-color: #3e85f3;
-  color: #fff;
+  background-color: ${props => props.theme.colors.calendarPage.todayBg};
+  color: ${props => props.theme.colors.calendarPage.mainBg};
 
   @media screen and (min-width: 768px) {
     height: 26px;
@@ -125,21 +128,12 @@ export const CurrentDay = styled.div`
   }
 `;
 
-export const TasksListWrapper = styled.ul`
+export const TasksList = styled.ul`
   margin: 0;
   text-align: center;
   list-style-position: inside;
   padding-left: 2px;
   padding-right: 2px;
-
-  /* overflow: hidden; */
-  /* overflow-y: scroll;
-  scrollbar-width: none;
-
-  &::-webkit-scrollbar {
-    width: 0;
-    height: 0;
-  } */
 
   @media screen and (min-width: 768px) {
     padding-left: 4px;
@@ -147,7 +141,7 @@ export const TasksListWrapper = styled.ul`
   }
 `;
 
-export const TaskItemWrapper = styled.button`
+export const TaskItem = styled.button`
   position: relative;
   margin: 0;
   margin-bottom: 1px;
@@ -166,26 +160,26 @@ export const TaskItemWrapper = styled.button`
   border: none;
   border-radius: 8px;
 
-  background-color: ${p => {
-    switch (p.$priority) {
+  background-color: ${props => {
+    switch (props.$priority) {
       case 'high':
-        return '#FFD2DD';
+        return props.theme.colors.calendarPage.month.hightTaskBg;
       case 'medium':
-        return '#FCF0D4';
+        return props.theme.colors.calendarPage.month.mediumTaskBg;
       case 'low':
-        return '#CEEEFD';
+        return props.theme.colors.calendarPage.month.lowTaskBg;
       default:
         return;
     }
   }};
-  color: ${p => {
-    switch (p.$priority) {
+  color: ${props => {
+    switch (props.$priority) {
       case 'high':
-        return ' #EA3D65';
+        return props.theme.colors.calendarPage.month.hightTaskText;
       case 'medium':
-        return '#F3B249';
+        return props.theme.colors.calendarPage.month.mediumTaskText;
       case 'low':
-        return '#3E85F3';
+        return props.theme.colors.calendarPage.month.lowTaskText;
       default:
         return;
     }

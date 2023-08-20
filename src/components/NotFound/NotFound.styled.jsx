@@ -9,11 +9,11 @@ export const Wrap = styled.div`
   background-color: ${p => p.theme.colors.notFoundPage.bg};
   padding: 264px 61px 246px 62px;
 
-  @media screen and (min-width: 375px) {
+  @media screen and (min-width: 768px) {
     padding: 323px 133px 247px 132px;
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1067px) {
     padding: 262px 468px 184px 469px;
   }
 `
@@ -29,11 +29,11 @@ export const PictureWrap = styled.div`
   text-shadow: 0px 9.399999618530273px 57.6875px rgba(0, 0, 0, 0.04), 0px 47px 355px rgba(0, 0, 0, 0.07);
   font-size: 100px;
   font-weight: 700;
-  line-height: 150px;
+  line-height: 1.5;
 
-  @media screen and (min-width: 375px) {
+  @media screen and (min-width: 768px) {
     font-size: 200px;
-    line-height: 250px;
+    line-height: 0.75;
     z-index: 1;
     width: 503px;
   }
@@ -45,7 +45,7 @@ export const Picture = styled.img`
   transform: translate(-50%, -50%);
   height: 188px;
 
-  @media screen and (min-width: 375px) {
+  @media screen and (min-width: 768px) {
     height: 414px;
   }
 `
@@ -59,9 +59,9 @@ export const Text = styled.p`
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
-  line-height: 18px;
+  line-height: 1.28;
 
-  @media screen and (min-width: 375px) {
+  @media screen and (min-width: 768px) {
     margin-top: 80px;
     min-width: 387px;
   }
@@ -78,7 +78,7 @@ export const HomeButton = styled.button`
   color: ${p => p.theme.colors.notFoundPage.buttonColor};
   font-size: 14px;
   font-weight: 600;
-  line-height: 18px;
+  line-height: 1.28;
   letter-spacing: -0.28px;
   cursor: pointer;
 
@@ -88,14 +88,14 @@ export const HomeButton = styled.button`
   transition: background-color 350ms cubic-bezier(0.4, 0, 0.2, 1);
   transition: color 450ms cubic-bezier(0.4, 0, 0.2, 1);
 
-  @media screen and (min-width: 375px) {
+  @media screen and (min-width: 768px) {
     margin-top: 32px;
     padding: 16px 48px;
     width: 211px;
     height: 56px;
 
     font-size: 18px;
-    line-height: 24px;
+    line-height: 1.33;
     letter-spacing: -0.36px;
   }
 
@@ -104,7 +104,7 @@ export const HomeButton = styled.button`
     color: ${p => p.theme.colors.notFoundPage.titeText};
     background-color: ${p => p.theme.colors.notFoundPage.hoverBg};
 
-    @media screen and (min-width: 375px) {
+    @media screen and (min-width: 768px) {
       width: 213px;
     }
   }

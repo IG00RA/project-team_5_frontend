@@ -1,14 +1,14 @@
 import moment from 'moment';
 
 import {
-  CellWrapper,
+  Cell,
   CurrentDay,
-  DayWrapper,
-  GridWrapper,
+  Day,
+  Grid,
   RowInCell,
-  ShowDayWrapper,
-  TaskItemWrapper,
-  TasksListWrapper,
+  ShowDay,
+  TaskItem,
+  TasksList,
 } from './CalendarTable.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectTasks } from 'redux/tasks/tasksSelectors';
@@ -19,7 +19,7 @@ const TOTAL_CELLS = 35;
 
 const CalendarTable = ({ startDay, selectedDay }) => {
   const day = startDay.clone().subtract(1, 'day');
-  const daysCellsInCalendar = [...Array(TOTAL_CELLS)].map(() =>
+  const dayCellsInCalendar = [...Array(TOTAL_CELLS)]?.map(() =>
     day.add(1, 'day').clone()
   );
 
@@ -35,39 +35,41 @@ const CalendarTable = ({ startDay, selectedDay }) => {
   }, [dispatch]);
 
   return (
-    <GridWrapper>
-      {daysCellsInCalendar.map(dayItem => (
-        <CellWrapper
+    <Grid>
+      {dayCellsInCalendar?.map(dayItem => (
+        <Cell
           key={dayItem.unix()}
           to={`/calendar/day/${dayItem.format('YYYY-MM-DD')}`}
         >
           <RowInCell>
-            <ShowDayWrapper>
-              <DayWrapper
-                $isNotCurrentDay
-                $isSelectedMonth={isSelectedMonth(dayItem)}
-              >
+            <ShowDay>
+              <Day $isNotCurrentDay $isSelectedMonth={isSelectedMonth(dayItem)}>
                 {isCurrentDay(dayItem) ? (
                   <CurrentDay>{dayItem.format('D')}</CurrentDay>
                 ) : (
                   dayItem.format('D')
                 )}
-              </DayWrapper>
-            </ShowDayWrapper>
-            <TasksListWrapper>
-              {tasks?.filter(task => task?.date >= dayItem.format('YYYY-MM-DD') && task?.date <= dayItem.clone().endOf('day').format('YYYY-MM-DD'))
-              .map(task => (
+              </Day>
+            </ShowDay>
+
+            <TasksList>
+              {tasks
+                ?.filter(
+                  task =>
+                    task?.date >= dayItem.format('YYYY-MM-DD') &&
+                    task?.date <=
+                      dayItem.clone().endOf('day').format('YYYY-MM-DD')
+                )
+                .map(task => (
                   <li key={task._id}>
-                    <TaskItemWrapper $priority={task.priority}>
-                      {task.title}
-                    </TaskItemWrapper>
+                    <TaskItem $priority={task.priority}>{task.title}</TaskItem>
                   </li>
                 ))}
-            </TasksListWrapper>
+            </TasksList>
           </RowInCell>
-        </CellWrapper>
+        </Cell>
       ))}
-    </GridWrapper>
+    </Grid>
   );
 };
 

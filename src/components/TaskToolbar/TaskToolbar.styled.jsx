@@ -1,4 +1,4 @@
-import { styled } from "styled-components";
+import { styled } from 'styled-components';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -10,13 +10,13 @@ export const Button = styled.button``;
 export const Icon = styled.svg`
   height: 16px;
   width: 16px;
-  
-  stroke: #111;
+
+  stroke: ${props => props.theme.colors.header.titleText};
   fill: transparent;
   transition: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   ${Button}:hover & {
-    stroke: #3E85F3;
+    stroke: ${props => props.theme.colors.header.accent};
   }
 `;
 
@@ -25,8 +25,9 @@ export const WrapperPopUp = styled.div`
   padding: 20px 24px;
 
   border-radius: 8px;
-  background: #FFF;
-  box-shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.10);
+  background: ${props => props.theme.colors.modal.task.taskBG};
+  border: 1px solid ${props => props.theme.colors.modal.task.popUpBorder};
+  box-shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.1);
 
   &:hover {
     display: flex;
@@ -56,7 +57,7 @@ export const PopUpBtn = styled.button`
   font-family: Inter;
   font-size: 14px;
   font-weight: 500;
-  line-height: 1,28;
+  line-height: 1, 28;
 
-  color: #343434;
+  color: ${props => props.theme.colors.header.titleText};
 `;
