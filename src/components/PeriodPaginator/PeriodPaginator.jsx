@@ -7,7 +7,7 @@ import {
 import sprite from '../../images/svg-sprite/symbol-defs.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectDate } from 'redux/date/selectors';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import moment from 'moment';
 import { updateDate } from 'redux/date/slice';
 
@@ -20,16 +20,18 @@ export default function PeriodPaginator({ changePeriod }) {
 
   const checkDaysOfWeek = momentDate.format('ddd');
 
-  const prevMonthHandler = () => {
+  useEffect(() => {
+    dispatch(updateDate(momentDate.format('YYYY-MM-DD')));
+  }, [dispatch, momentDate]);
+
+  const prevMonthHandler = async () => {
     if (changePeriod === 'month') {
       setMomentDate(prev => prev.clone().subtract(1, 'month'));
-      dispatch(updateDate(momentDate.format('YYYY-MM-DD')));
       return;
     }
 
     if (changePeriod === 'day') {
       setMomentDate(prev => prev.clone().subtract(1, 'day'));
-      dispatch(updateDate(momentDate.format('YYYY-MM-DD')));
       return;
     }
   };
@@ -37,13 +39,11 @@ export default function PeriodPaginator({ changePeriod }) {
   const nextMonthHandler = () => {
     if (changePeriod === 'month') {
       setMomentDate(prev => prev.clone().add(1, 'month'));
-      dispatch(updateDate(momentDate.format('YYYY-MM-DD')));
       return;
     }
 
     if (changePeriod === 'day') {
       setMomentDate(prev => prev.clone().add(1, 'day'));
-      dispatch(updateDate(momentDate.format('YYYY-MM-DD')));
       return;
     }
   };
