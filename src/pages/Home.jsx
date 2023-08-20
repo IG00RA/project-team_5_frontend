@@ -8,6 +8,7 @@ import { Description } from '../components/Description/Description';
 // import { AddFeedbackModal } from '../components/AddFeedbackModal/AddFeedbackModal';
 // import { fetchReviewsData } from 'redux/review/reviewOperations';
 
+
 export default function Home() {
   // const [isModalOpen1, setIsModalOpen1] = useState(false);
   // const [isModalOpen2, setIsModalOpen2] = useState(false);

@@ -7,13 +7,14 @@ export const Wrap = styled.div`
   flex-direction: column;
   gap: 64px;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1067px) {
     padding: 64px 128px 100px 128px;
+    overflow: hidden; 
   }
 `
 
 export const SectionWrap = styled.div`
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1067px) {
     display: flex;
     display: flex;
     gap: 228px;
@@ -24,13 +25,13 @@ export const SectionWrap = styled.div`
   }
 `
 export const SecondSectionWrap = styled.div`
-  @media screen and (min-width: 375px) {  
+  @media screen and (min-width: 768px) {  
 
     margin-left: auto;
     max-width: 275px;
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1067px) {
     display: flex;
     flex-direction: column;
     justify-contant: space-evenly;
@@ -38,7 +39,7 @@ export const SecondSectionWrap = styled.div`
   }
 `
 export const DesktopSectionWrap = styled.div`
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1067px) {
     display: flex;
     gap: 228px;
     justify-content: space-around;
@@ -54,7 +55,7 @@ export const Number = styled.h1`
   letter-spacing: -4px;
   color: ${p => p.theme.colors.homePage.titleText};
 
-  @media screen and (min-width: 375px) {
+  @media screen and (min-width: 768px) {
     font-size: 104px;
   }
 `
@@ -62,7 +63,7 @@ export const Number = styled.h1`
 export const Title = styled.h2`
   font-size: 32px;
   font-weight: 700;
-  line-height: 40px;
+  line-height: 1.25;
   text-transform: uppercase;
   color: ${p => p.theme.colors.homePage.titleText};
   background: ${p => p.theme.colors.homePage.lightBg};
@@ -75,19 +76,19 @@ export const Title = styled.h2`
   justify-content: center;
   margin-top: 14px;
 
-  @media screen and (min-width: 375px) {
+  @media screen and (min-width: 768px) {
     width: 264px;
     height: 56px;
     margin-top: 20px;
     font-size: 40px;
-    line-height: 44px;
+    line-height: 1.1;
   }
 `
 
 export const DarkTitle = styled.h2`
   font-size: 32px;
   font-weight: 700;
-  line-height: 40px;
+  line-height: 1.25;
   text-transform: uppercase;
   color: ${p => p.theme.colors.homePage.darkTitle};
 
@@ -95,16 +96,16 @@ export const DarkTitle = styled.h2`
   height: 40px;
   margin-top: 14px;
 
-  @media screen and (min-width: 375px) {
+  @media screen and (min-width: 768px) {
     font-size: 40px;
-    line-height: 44px;
+    line-height: 1.1;
   }
 `
 
 export const LastTitle = styled.h2`
   font-size: 32px;
   font-weight: 700;
-  line-height: 40px;
+  line-height: 1.25;
   text-transform: uppercase;
   color: ${p => p.theme.colors.homePage.titleText};
   background: ${p => p.theme.colors.homePage.lightBg};
@@ -121,15 +122,15 @@ export const LastTitle = styled.h2`
 export const Subtitle = styled.h2`
   font-size: 32px;
   font-weight: 700;
-  line-height: 40px;
+  line-height: 1.25;
   text-transform: uppercase;
   color: ${p => p.theme.colors.homePage.darkTitle};
   margin-top: 8px;
 
-  @media screen and (min-width: 375px) {
+  @media screen and (min-width: 768px) {
     font-family: Inter;
     font-size: 40px;
-    line-height: 44px;
+    line-height: 1.1;
     margin-top: 14px;
   }
 `
@@ -141,7 +142,7 @@ export const Text = styled.p`
   line-height: 18px;
   margin-top: 14px;
 
-  @media screen and (min-width: 375px) {
+  @media screen and (min-width: 768px) {
     max-width: 275px;
   }
 `
@@ -153,7 +154,7 @@ export const Image = styled.img`
   margin-top: 40px;
   text-align: center;
 
-  @media screen and (min-width: 375px) {
+  @media screen and (min-width: 768px) {
     width: 704px;
     height: 700px;
     border-radius: 100px;
@@ -162,7 +163,7 @@ export const Image = styled.img`
     margin-right: auto;
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1067px) {
     width: 604px;
     height: 700px;
     margin-top: 0px;
