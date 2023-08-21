@@ -122,6 +122,7 @@ export const Input = styled(Field)`
 
   background-color: ${props => props.theme.colors.modal.textAreaBg};
   border-radius: 8px;
+  border: 1px solid ${props => props.theme.colors.modal.textAreaBorder};
 
   @media (min-width: ${props => props.theme.media.m}) {
     width: 404px;
@@ -137,7 +138,7 @@ export const Input = styled(Field)`
   &::placeholder {
     font-family: Inter;
     opacity: 1;
-    color: #343434;
+    color: ${props => props.theme.colors.modal.mainText};
     font-weight: 600;
     font-size: 14px;
   }
