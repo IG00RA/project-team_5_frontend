@@ -62,7 +62,7 @@ const darkColors = {
   lightBlue2: '#e3f3ff',
   darkBG: '#171820',
   hoverIcon: '#ffffff',
-  colorIcon: 'red',
+  colorIcon: 'rgba(255, 255, 255, 0.15)',
   darkScrollBarBG: '#2d3037',
   whiteRGBA: 'rgba(255, 255, 255, 0.15)',
   greyRGBA: 'rgba(250, 250, 250, 0.3)',
