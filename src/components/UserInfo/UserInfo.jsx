@@ -10,6 +10,7 @@ import {
   UserName,
 } from './UserInfo.styled';
 import { ThemeToggler } from 'components/ThemeToggler/ThemeToggler';
+import { Link } from 'react-router-dom';
 
 export const UserInfo = () => {
   const user = useSelector(selectUser);
@@ -22,12 +23,16 @@ export const UserInfo = () => {
       <AvatarField>
         {user.avatarURL ? (
           <AvatarContainer>
-            <AvatarImg src={user.avatarURL} alt="User avatar" />
+            <Link to="/account">
+              <AvatarImg src={user.avatarURL} alt="User avatar" />
+            </Link>
           </AvatarContainer>
         ) : (
           <AvatarContainer>
             <AvatarTextContainer>
-              <AvatarText>{user.userName ? user.userName[0] : ''}</AvatarText>
+              <Link to="/account">
+                <AvatarText>{user.userName ? user.userName[0] : ''}</AvatarText>
+              </Link>
             </AvatarTextContainer>
           </AvatarContainer>
         )}
