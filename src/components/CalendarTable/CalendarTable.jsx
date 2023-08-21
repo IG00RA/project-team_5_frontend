@@ -28,6 +28,20 @@ const CalendarTable = ({ startDay, selectedDay }) => {
 
   const tasks = useSelector(selectTasks);
 
+  const setDayTask = dayItem => {
+    return tasks
+      ?.filter(
+        task =>
+          task?.date >= dayItem.format('YYYY-MM-DD') &&
+          task?.date <= dayItem.clone().endOf('day').format('YYYY-MM-DD')
+      )
+      .map(task => (
+        <li key={task._id}>
+          <TaskItem $priority={task.priority}>{task.title}</TaskItem>
+        </li>
+      ));
+  };
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -52,20 +66,7 @@ const CalendarTable = ({ startDay, selectedDay }) => {
               </Day>
             </ShowDay>
 
-            <TasksList>
-              {tasks
-                ?.filter(
-                  task =>
-                    task?.date >= dayItem.format('YYYY-MM-DD') &&
-                    task?.date <=
-                      dayItem.clone().endOf('day').format('YYYY-MM-DD')
-                )
-                .map(task => (
-                  <li key={task._id}>
-                    <TaskItem $priority={task.priority}>{task.title}</TaskItem>
-                  </li>
-                ))}
-            </TasksList>
+            <TasksList>{setDayTask(dayItem)}</TasksList>
           </RowInCell>
         </Cell>
       ))}
