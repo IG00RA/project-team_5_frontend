@@ -37,6 +37,7 @@ const UserNav = ({ closeModalMenu }) => {
         //     )
         //   );
         // }}
+
         onClick={handleCloseModalMenu}
         // isActive={(match, location) => {
         //   if (!match) {
