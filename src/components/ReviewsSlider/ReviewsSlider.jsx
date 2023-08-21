@@ -1,5 +1,6 @@
 import 'slick-carousel/slick/slick.css';
 import sprite from '../../images/svg-sprite/symbol-defs.svg';
+import userLogo from '../../images/landing-page/user-logo-review.webp';
 import { StyledSliser, ReviewsWrapper, Title, Img, ReviewWrapper, Name, Review, BtnArrowPrev, BtnArrowNext, Icon } from './ReviewsSlider.styled';
 import { useEffect, useState } from 'react';
 
@@ -78,7 +79,12 @@ export const ReviewsSlider = ({ reviews }) => {
           {reviews.map((review) => (
             <li key={review.owner._id}>
               <ReviewWrapper>
-                <Img src={review.owner.avatarURL} alt={review.owner.userName} />
+                <Img src={review.owner.avatarURL}
+                  alt={review.owner.userName}
+                  onError={(e) => {
+                    e.target.src = { userLogo };
+                  }}
+                />
                 <div>
                   <Name>{review.owner.userName}</Name>
                   <RatingComponent value={review.raiting} />
