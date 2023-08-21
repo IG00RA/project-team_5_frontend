@@ -1,6 +1,7 @@
 import sprite from '../../images/svg-sprite/symbol-defs.svg';
 import DatePickerComponent from 'components/DatePickerComponent/DatePickerComponent';
 
+
 import {
   PaginatorWrapper,
   ButtonsWrap,
@@ -19,6 +20,7 @@ import { parseISO } from 'date-fns';
 import moment from 'moment';
 
 export default function StatisticPaginator({ selectedDate, setSelectedDate }) {
+
   const prevHandler = () => {
     setSelectedDate(prev => prev.clone().subtract(1, 'day'));
   };
@@ -34,6 +36,7 @@ export default function StatisticPaginator({ selectedDate, setSelectedDate }) {
           startDate={parseISO(selectedDate)}
           setStartDate={date => setSelectedDate(moment(date))}
         />
+
         <ButtonsWrap>
           <PaginatorBtn onClick={prevHandler} $isPrevBtn>
             <Icon>

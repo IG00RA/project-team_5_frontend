@@ -26,6 +26,7 @@ export const Logo = styled.img`
   height: 142px;
   flex-shrink: 0;
   margin: 0 auto;
+  object-fit: cover;
 
   @media screen and (min-width: 768px) {
     width: 150px;

@@ -44,6 +44,7 @@ export const Picture = styled.img`
   left: 50%;
   transform: translate(-50%, -50%);
   height: 188px;
+  object-fit: cover;
 
   @media screen and (min-width: 768px) {
     height: 414px;

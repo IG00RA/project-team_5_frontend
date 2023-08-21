@@ -20,12 +20,15 @@ import {
   Icon,
   Use,
   ErrorText,
+  BirthdayInput,
 } from './UserForm.styled';
 import { selectIsLoadingUser } from '../../redux/user/selectors';
 import ChangeProfileButton from '../Buttons/ChangeProfileButton/ChangeProfileButton';
 import { changeProfile } from 'redux/user/operations';
 import { selectUser } from 'redux/user/selectors';
 import sprite from '../../images/svg-sprite/symbol-defs.svg';
+import DatePickerComponent from 'components/DatePickerComponent/DatePickerComponent';
+import { DatePickerUserFormInput } from 'components/DatePickerUserFormInput/DatePickerUserFormInput';
 
 export default function UserForm() {
   const dispatch = useDispatch();
@@ -101,6 +104,29 @@ export default function UserForm() {
             setSubmitButtonActive();
           };
 
+          const setStartDate = date => {
+            const formatedDate = date
+              .toLocaleString()
+              .split(',')[0]
+              .split('.')
+              .reverse()
+              .join('-');
+
+            setFieldValue('birthday', formatedDate);
+            compareWithRedux('birthday', formatedDate)
+              ? setSubmitButtonDisabled()
+              : setSubmitButtonActive();
+          };
+
+          // const birthdayHandler = e => {
+          //   const { name, value } = e.target;
+          //   setFieldValue(name, value);
+
+          //   compareWithRedux(name, value)
+          //     ? setSubmitButtonDisabled()
+          //     : setSubmitButtonActive();
+          // };
+
           return (
             <UserInfoForm onSubmit={handleSubmit}>
               <UserPreview>
@@ -163,7 +189,12 @@ export default function UserForm() {
 
               <CommonField>
                 <Label>Birthday</Label>
-                <CommonInput
+                <DatePickerComponent
+                  startDate={new Date(values.birthday)}
+                  setStartDate={setStartDate}
+                  customInput={<DatePickerUserFormInput />}
+                />
+                <BirthdayInput
                   name="birthday"
                   type="date"
                   value={values.birthday}
