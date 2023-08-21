@@ -39,6 +39,13 @@ export const Cell = styled(Link)`
   min-width: 100%;
   min-height: 100%;
 
+  transition: box-shadow 250ms linear;
+
+  &:hover {
+    box-shadow: 5px 5px 15px 5px
+      ${props => props.theme.colors.calendarPage.hoverCell};
+  }
+
   overflow: hidden;
   overflow-y: scroll;
   scrollbar-width: none;
@@ -89,7 +96,7 @@ export const Day = styled.div`
   color: ${props =>
     props.$isSelectedMonth
       ? props.theme.colors.calendarPage.iconFocus
-      : 'transparent'};
+      : props.theme.colors.calendarPage.notCurrentMonthDate};
 
   @media screen and (min-width: 768px) {
     height: ${p => (p.$isNotCurrentDay ? '26px' : '0')};
@@ -111,7 +118,7 @@ export const CurrentDay = styled.div`
   border-radius: 6px;
 
   background-color: ${props => props.theme.colors.calendarPage.todayBg};
-  color: ${props => props.theme.colors.calendarPage.mainBg};
+  color: ${props => props.theme.colors.calendarPage.todayText};
 
   @media screen and (min-width: 768px) {
     height: 26px;

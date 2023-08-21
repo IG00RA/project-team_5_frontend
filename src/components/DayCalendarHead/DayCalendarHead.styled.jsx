@@ -50,10 +50,20 @@ export const NumberDay = styled.div`
   font-weight: 700;
 
   border-radius: 8px;
-  color: ${props => props.theme.colors.calendarPage.iconFocus};
+  color: ${props =>
+    props.$currentday === props.$day
+      ? props.theme.colors.calendarPage.todayText
+      : props.theme.colors.calendarPage.iconFocus};
   background-color: ${props =>
     props.$currentday === props.$day &&
     props.theme.colors.calendarPage.todayBg};
+
+  transition: box-shadow 250ms linear;
+
+  &:hover {
+    box-shadow: 2px 2px 10px 2px
+      ${props => props.theme.colors.calendarPage.hoverCell};
+  }
 
   @media screen and (min-width: 768px) {
     padding: 4px 8px;

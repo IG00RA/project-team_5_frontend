@@ -60,4 +60,18 @@ export const PopUpBtn = styled.button`
   line-height: 1, 28;
 
   color: ${props => props.theme.colors.header.titleText};
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    color: ${props => props.theme.colors.header.accent};
+  }
+`;
+
+export const IconPopUp = styled.svg`
+  height: 16px;
+  width: 16px;
+
+  fill: transparent;
+  stroke: currentColor;
 `;

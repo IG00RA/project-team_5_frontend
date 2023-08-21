@@ -14,6 +14,16 @@ export const Title = styled.h2`
   color: ${props => props.theme.colors.calendarPage.day.taskCardTitle};
 `;
 
+export const IconBtn = styled.button`
+  color: ${props => props.theme.colors.calendarPage.day.taskCardTitle};
+
+  transition: color 250ms linear;
+
+  &:hover {
+    color: ${props => props.theme.colors.calendarPage.todayBg};
+  }
+`;
+
 export const Icon = styled.svg`
   display: flex;
   justify-content: center;
@@ -22,6 +32,6 @@ export const Icon = styled.svg`
   height: 24px;
   width: 24px;
 
-  stroke: ${props => props.theme.colors.calendarPage.day.taskCardTitle};
+  stroke: currentColor;
   fill: transparent;
 `;
