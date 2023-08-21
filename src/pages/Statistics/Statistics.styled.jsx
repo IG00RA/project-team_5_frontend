@@ -12,14 +12,12 @@ export const StatisticsWrapper = styled.div`
     padding-bottom: 224px;
   }
   @media (min-width: ${p => p.theme.media.l}) {
-    max-width: 1087px;
     min-height: 752px;
     padding: 134px 114px 104px 113px;
   }
 `;
 
 export const ChartWrapper = styled.div`
-  /* width: 307px; */
   min-height: 413px;
   border: 0.8px solid
     ${props => props.theme.colors.statisticsPage.statisticsBorder};
@@ -27,13 +25,11 @@ export const ChartWrapper = styled.div`
   margin: 0 auto;
   padding: 14px;
   @media (min-width: ${p => p.theme.media.m}) {
-    /* width: 640px; */
     min-height: 424px;
     padding: 32px;
   }
   @media (min-width: ${p => p.theme.media.l}) {
     padding: 40px;
-    /* width: 860px; */
     min-height: 440px;
   }
 `;
