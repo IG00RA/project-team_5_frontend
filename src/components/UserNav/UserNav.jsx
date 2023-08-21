@@ -34,6 +34,12 @@ const UserNav = ({ closeModalMenu }) => {
           );
         }}
         onClick={handleCloseModalMenu}
+        isActive={(match, location) => {
+          if (!match) {
+            return false;
+          }
+          return location.pathname.includes("/calendar");
+        }}
       >
         <StyledIcon>
           <use href={sprite + '#icon-nav-calendar'} />
