@@ -16,7 +16,7 @@ export default function Home() {
   }, []);
   
   return (
-      <div>
+    <div>
         <AuthSection />
         <Description />
         <ReviewsSlider reviews={reviews} />

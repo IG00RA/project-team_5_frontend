@@ -23,7 +23,6 @@ export const SideBar = ({ isModalMenuOpen, closeModalMenu }) => {
     dispatch(logout());
   };
 
-
   const handleCloseModalMenu = () => {
     closeModalMenu(false);
 
@@ -36,9 +35,7 @@ export const SideBar = ({ isModalMenuOpen, closeModalMenu }) => {
 
   return (
     <>
-      <SideBarWrap
-        className={isModalMenuOpen && 'openModalMenu'}
-      >
+      <SideBarWrap className={isModalMenuOpen && 'openModalMenu'}>
         <LogoAndNavWrap>
           <TopWrap>
             <StyledLogoWrapper>
