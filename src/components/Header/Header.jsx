@@ -36,7 +36,7 @@ const Header = ({ isModalMenuOpen, openMenu }) => {
 
   const haveTask = () => {
     if (fileredTask.length > 0) {
-      return fileredTask.find(task => task.category === 'to-do' || task.category === 'in-progress');
+      return fileredTask?.find(task => task?.category === 'to-do' || task?.category === 'in-progress');
     };
   };
 

@@ -113,7 +113,7 @@ export const Icon = styled.svg`
   width: 50px;
   height: 50px;
 
-  stroke: ${props => props.theme.colors.header.titleText};
+  stroke: #111;
   fill: transparent;
 
   @media screen and (min-width: 768px) {
