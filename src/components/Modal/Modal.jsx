@@ -17,6 +17,7 @@ const overlayStyles = {
   zIndex: 1050,
 };
 const contentStyles = {
+  position: 'relative',
   // position: 'absolute',
   // top: '50%',
   // left: '50%',

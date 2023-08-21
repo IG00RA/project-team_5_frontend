@@ -2,10 +2,10 @@ import { Suspense, useEffect, useState } from 'react';
 import SideBar from '../../components/SideBar/SideBar';
 import { Container, Wrapper } from './MainLayout.styled';
 import { Outlet } from 'react-router-dom';
-import Loader from 'components/Loader/Loader';
 import Header from 'components/Header/Header';
 import { useDispatch } from 'react-redux';
 import { fetchUser } from 'redux/user/operations';
+import Loader from 'components/Loader/Loader';
 
 const MainLayout = () => {
   const [isModalMenuOpen, setIsModalMenuOpen] = useState(false);

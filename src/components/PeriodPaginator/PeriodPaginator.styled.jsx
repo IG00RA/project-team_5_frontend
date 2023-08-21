@@ -44,13 +44,11 @@ export const PaginatorBtn = styled.button`
   border-radius: ${p => (p.$isPrevBtn ? '8px 0px 0px 8px' : '0px 8px 8px 0px')};
   border: 1px solid ${props => props.theme.colors.calendarPage.border};
   background-color: ${props => props.theme.colors.calendarPage.mainBg};
-  color: ${props => props.theme.colors.calendarPage.iconFocus};
   color: ${props =>
     props.disabled
-      ? props.theme.colors.calendarPage.accent
-      : props.theme.colors.calendarPage.secondText};
+      ? props.theme.colors.calendarPage.periodPaginatorDisabled
+      : props.theme.colors.calendarPage.paginatorActive};
   transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
 
   &:hover {
     box-shadow: 4px 2px 16px 0px ${props => props.theme.colors.button.shadow};

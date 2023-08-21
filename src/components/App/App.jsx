@@ -10,10 +10,10 @@ import { selectIsRefreshing } from 'redux/auth/selectors';
 import { selectTheme } from 'redux/user/selectors';
 import { ThemeProvider } from 'styled-components';
 import { darkTheme, lightTheme } from '../../utils/theme';
-import Loader from '../Loader/Loader';
 import MainLayout from 'pages/MainLayout/MainLayout';
 import { setMainStyles } from 'helpers/setMainStyles';
 import { LoaderWrapper } from './App.styled';
+import Loader from 'components/Loader/Loader';
 
 const HomePage = lazy(() => import('../../pages/Home'));
 const RegisterPage = lazy(() => import('../../pages/Register/Register'));

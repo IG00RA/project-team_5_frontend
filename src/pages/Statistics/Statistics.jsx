@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  selectFilteredTasksByDate,
+  selectFilteredTasksByDateStat,
   selectTasks,
   selectFilteredTasksByMonth,
 } from 'redux/tasks/tasksSelectors';
@@ -19,7 +19,10 @@ export default function Statistics() {
 
   const selectedDateFormat = selectedDate.format('YYYY-MM-DD');
 
-  const filteredTasksByDate = useSelector(selectFilteredTasksByDate);
+  const filteredTasksByDate = selectFilteredTasksByDateStat(
+    tasks,
+    selectedDateFormat
+  );
 
   const filteredTasksByMonth = selectFilteredTasksByMonth(
     tasks,

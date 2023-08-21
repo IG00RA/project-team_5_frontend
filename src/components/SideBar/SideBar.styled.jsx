@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const SideBarWrap = styled.div`
   position: absolute;
   z-index: 1;
-  
+
   padding: 24px 20px;
 
   width: 225px;
@@ -43,7 +43,7 @@ export const Overlay = styled.div`
   right: 0;
   bottom: 0;
   background-color: transparent;
-  z-index: 1;
+  z-index: 0;
 `;
 
 export const StyledTitle = styled.span`

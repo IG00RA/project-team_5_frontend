@@ -1,93 +1,94 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import { ReviewRaiting, ReviewPhoto, ReviewUsername, ReviewWrap, Title, Wrap, UserWrap, ReviewContainer, ReviewText, PhotoWrap, CarouselWrap } from 'components/ReviewsSlider/ReviewsSlider.styled';
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from "react-responsive-carousel";
-import { CustomCarouselButtons } from './CustomCarouselButtons'
+import 'slick-carousel/slick/slick.css';
+import sprite from '../../images/svg-sprite/symbol-defs.svg';
+import { StyledSliser, ReviewsWrapper, Title, Img, ReviewWrapper, Name, Review, BtnArrowPrev, BtnArrowNext, Icon } from './ReviewsSlider.styled';
+import { useEffect, useState } from 'react';
 
-const ReviewsSlider = ({ reviewsData }) => {
-
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const totalSlides = 25;
-
-  const handlePrevClick = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1);
-    }
-  };
-
-  const handleNextClick = () => {
-    if (currentIndex < totalSlides - 1) {
-      setCurrentIndex(currentIndex + 1);
-    }
-  };
-
+const RatingComponent = ({ value }) => {
+  const maxRating = 5;
+  const ratingArray = Array.from(
+    { length: maxRating },
+    (_, index) => index + 1
+  );
 
   return (
-    <Wrap>
-      <Title>Reviews</Title>          
-      <div>
-        <CarouselWrap>
-        <Carousel
-            autoPlay={true}
-            selectedItem={currentIndex}
-            infiniteLoop={true}
-            showStatus={false}
-            showThumbs={true}
-            centerMode={false}
-            showIndicators={false}
-            stopOnHover={true}
-            emulateTouch={true}
-            interval={1500}
-            transitionTime={500} 
-            showArrows={false}
-          >
-            {reviewsData.map((review) => (
-              <ReviewWrap key={review._id}>
-                <ReviewContainer>
-                  <PhotoWrap>
-                    <ReviewPhoto src={review.owner.avatarURL} alt='Photo'/>
-                  </PhotoWrap>
-                    <UserWrap key={review.owner._id}>
-                      <ReviewUsername>{review.owner.userName}</ReviewUsername>
-                    <div className="rating">
-                          {[...Array(5)].map((item, i) => {
-                            return (
-                              <ReviewRaiting>
-                              <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400"
-                              checked={Number(review.raiting) === (i + 1)}/>
-                              </ReviewRaiting>
-                              )})}
-                        </div>
-                    </UserWrap>
-                  </ReviewContainer>
-                <ReviewText>{review.review}</ReviewText>
-              </ReviewWrap>
+    <div className="rating">
+      {ratingArray.map(ratingValue => (
+        <input
+          key={ratingValue}
+          type="checkbox"
+          name="rating"
+          className="mask mask-star-2 bg-stars-color"
+          checked={value === ratingValue.toString()}
+        />
+      ))}
+    </div>
+  );
+};
+
+export const ReviewsSlider = ({ reviews }) => {
+  const [slide, setSlide] = useState(1);
+  
+  useEffect(() => {
+    const handleViewportChange = () => {
+      if (window.innerWidth >= 1440) {
+        setSlide(2)
+        return
+      }
+
+      if (window.innerWidth < 1440) {
+        setSlide(1)
+        return
+      }
+    };
+
+    window.addEventListener('resize', handleViewportChange);
+
+    return () => {
+      window.removeEventListener('resize', handleViewportChange);
+    }
+  }, []);
+  
+  const CustomNextArrow = props => <BtnArrowNext {...props}>
+    <Icon>
+      <use href={sprite + '#icon-down-arrow-right'}></use>
+    </Icon>
+  </BtnArrowNext>
+  
+  const CustomPrevArrow = props => <BtnArrowPrev {...props}>
+    <Icon>
+      <use href={sprite + '#icon-down-arrow-left'}></use>
+    </Icon>
+  </BtnArrowPrev>
+
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: slide,
+    slidesToScroll: slide,
+    prevArrow: <CustomPrevArrow />,
+    nextArrow: <CustomNextArrow />,
+  };
+
+  return (
+    <ReviewsWrapper>
+      <Title>Reviews</Title>
+      <ul>
+        <StyledSliser {...settings}>
+          {reviews.map((review) => (
+            <li key={review.owner._id}>
+              <ReviewWrapper>
+                <Img src={review.owner.avatarURL} alt={review.owner.userName} />
+                <div>
+                  <Name>{review.owner.userName}</Name>
+                  <RatingComponent value={review.raiting} />
+                  <Review>{review.review}</Review>
+                </div>
+              </ReviewWrapper>
+            </li>
           ))}
-        </Carousel>
-        </CarouselWrap>
-      </div>
-      <CustomCarouselButtons
-        currentIndex={currentIndex}
-        totalSlides={totalSlides}
-        onPrevClick={handlePrevClick}
-        onNextClick={handleNextClick}
-      />
-    </Wrap>
-  )
-}
-
-ReviewsSlider.propTypes = {
-  reviewsData: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    raiting: PropTypes.number.isRequired,
-    review: PropTypes.string.isRequired,
-    owner: PropTypes.shape({
-      _id: PropTypes.string.isRequired,
-      userName: PropTypes.string.isRequired,
-      avatarURL: PropTypes.string.isRequired,
-    }),
-  })).isRequired,
-}
-
-export default ReviewsSlider;
+        </StyledSliser>
+      </ul>
+    </ReviewsWrapper>
+  );
+};
