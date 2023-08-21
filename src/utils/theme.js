@@ -165,9 +165,6 @@ export const lightTheme = {
       titeText: lightColors.blue,
       littleText: lightColors.blackText,
       bg: lightColors.greyCard,
-      darkText: lightColors.semiDarkRGBA,
-      buttonColor: lightColors.white,
-      hoverBg: lightColors.lightBlue1,
     },
     button: {
       mainBg: lightColors.blue,
