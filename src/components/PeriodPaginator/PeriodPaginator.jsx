@@ -5,45 +5,54 @@ import {
   Period,
 } from './PeriodPaginator.styled';
 import sprite from '../../images/svg-sprite/symbol-defs.svg';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { updateDate } from 'redux/date/slice';
 
-export default function PeriodPaginator({
-  isChoosedDay,
-  selectedDay,
-  updatedDate,
-  setSelectedDay,
-  setUpdatedDate,
-}) {
-  const checkDaysOfWeek = updatedDate.format('ddd');
+export default function PeriodPaginator({ changePeriod, momentDate, setMomentDate }) {
+  const dispatch = useDispatch();
 
-  const prevMonthHandler = () => {
-    if (!isChoosedDay) {
-      setSelectedDay(prev => prev.clone().subtract(1, 'month'));
+  const checkDaysOfWeek = momentDate.format('ddd');
+
+  useEffect(() => {
+    dispatch(updateDate(momentDate.format('YYYY-MM-DD')));
+  }, [dispatch, momentDate]);
+
+  const prevMonthHandler = async () => {
+    if (changePeriod === 'month') {
+      setMomentDate(prev => prev.clone().subtract(1, 'month'));
       return;
     }
-    setSelectedDay(prev => prev.clone().subtract(1, 'day'));
-    setUpdatedDate(prev => prev.clone().subtract(1, 'day'));
+
+    if (changePeriod === 'day') {
+      setMomentDate(prev => prev.clone().subtract(1, 'day'));
+      return;
+    }
   };
 
   const nextMonthHandler = () => {
-    if (!isChoosedDay) {
-      setSelectedDay(prev => prev.clone().add(1, 'month'));
+    if (changePeriod === 'month') {
+      setMomentDate(prev => prev.clone().add(1, 'month'));
       return;
     }
-    setSelectedDay(prev => prev.clone().add(1, 'day'));
-    setUpdatedDate(prev => prev.clone().add(1, 'day'));
+
+    if (changePeriod === 'day') {
+      setMomentDate(prev => prev.clone().add(1, 'day'));
+      return;
+    }
   };
 
   return (
     <PaginatorWrapper>
       <Period>
-        {isChoosedDay
-          ? updatedDate.format('DD MMM YYYY')
-          : selectedDay.format('MMMM YYYY')}
+        {changePeriod === 'day'
+          ? momentDate.format('DD MMM YYYY')
+          : momentDate.format('MMMM YYYY')}
       </Period>
       <div>
         <PaginatorBtn
           $isPrevBtn
-          disabled={isChoosedDay && checkDaysOfWeek === 'Mon'}
+          disabled={changePeriod === 'day' && checkDaysOfWeek === 'Mon'}
           onClick={prevMonthHandler}
         >
           <Icon>
@@ -51,7 +60,7 @@ export default function PeriodPaginator({
           </Icon>
         </PaginatorBtn>
         <PaginatorBtn
-          disabled={isChoosedDay && checkDaysOfWeek === 'Sun'}
+          disabled={changePeriod === 'day' && checkDaysOfWeek === 'Sun'}
           onClick={nextMonthHandler}
         >
           <Icon>
@@ -61,4 +70,4 @@ export default function PeriodPaginator({
       </div>
     </PaginatorWrapper>
   );
-}
+};

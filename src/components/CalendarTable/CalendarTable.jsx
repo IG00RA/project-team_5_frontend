@@ -14,17 +14,20 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectTasks } from 'redux/tasks/tasksSelectors';
 import { useEffect } from 'react';
 import { getAllTasks } from 'redux/tasks/tasksOperations';
+import { selectDate } from 'redux/date/selectors';
 
 const TOTAL_CELLS = 35;
 
-const CalendarTable = ({ startDay, selectedDay }) => {
+const CalendarTable = ({ startDay }) => {
+  const date = useSelector(selectDate);
+
   const day = startDay.clone().subtract(1, 'day');
   const dayCellsInCalendar = [...Array(TOTAL_CELLS)]?.map(() =>
     day.add(1, 'day').clone()
   );
 
   const isCurrentDay = day => moment().isSame(day, 'day');
-  const isSelectedMonth = day => selectedDay.isSame(day, 'month');
+  const isSelectedMonth = day => moment(date).isSame(day, 'month');
 
   const tasks = useSelector(selectTasks);
 

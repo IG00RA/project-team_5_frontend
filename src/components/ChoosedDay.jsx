@@ -5,32 +5,31 @@ import { TasksColumnsList } from "./TasksColumnsList/TasksColumnsList";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllTasks } from "redux/tasks/tasksOperations";
-import { selectFilteredTasksByDate, selectTasks } from "redux/tasks/tasksSelectors";
+import { selectFilteredTasksByDate } from "redux/tasks/tasksSelectors";
+import { updateDate } from "redux/date/slice";
 import moment from "moment";
 
 export default function ChoosedDay() {
   const { currentDay } = useParams();
-  const [, setIsChoosedDay, updatedDate, setUpdatedDate] = useOutletContext();
+
+  const [setChangePeriod, setMomentDate] = useOutletContext();
+  
   const dispatch = useDispatch();
-  const tasks = useSelector(selectTasks);
-  const formatUpdatedDate = updatedDate.format('YYYY-MM-DD');
-  const filteredTask = selectFilteredTasksByDate(tasks, formatUpdatedDate);
+  
+  const filteredTask = useSelector(selectFilteredTasksByDate);
 
   useEffect(() => {
     dispatch(getAllTasks());
-  }, [dispatch, updatedDate]);
+    setChangePeriod('day');
+    setMomentDate(moment(currentDay));
+    dispatch(updateDate(currentDay));
 
-  useEffect(() => {
-    setIsChoosedDay(true);
-    setUpdatedDate(moment(new Date(currentDay.split('-'))));
-
-    return () => setIsChoosedDay(false);
-
-  }, [setIsChoosedDay, currentDay, setUpdatedDate ]);
+    return () => setChangePeriod('month');
+  }, [dispatch, setChangePeriod, setMomentDate, currentDay]);
 
   return (
     <div>
-      <DayCalendarHead currentDay={currentDay} updatedDate={formatUpdatedDate} setUpdatedDate={setUpdatedDate} />
+      <DayCalendarHead setMomentDate={setMomentDate} />
       <TasksColumnsList tasks={filteredTask} />
     </div>
   );

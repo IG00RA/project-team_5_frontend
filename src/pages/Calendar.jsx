@@ -1,28 +1,23 @@
 import moment from 'moment';
+import CalendarToolbar from '../components/CalendarToolbar/CalendarToolbar';
+
 import { Suspense, useState } from 'react';
 import { Outlet } from 'react-router-dom';
-
-import CalendarToolbar from '../components/CalendarToolbar/CalendarToolbar';
+import { useSelector } from 'react-redux';
+import { selectDate } from 'redux/date/selectors';
 
 export default function Calendar() {
   moment.updateLocale('en', { week: { dow: 1 } });
-  
-  const [selectedDay, setSelectedDay] = useState(moment());
-  const [updatedDate, setUpdatedDate] = useState(selectedDay);
-  
-  const [isChoosedDay, setIsChoosedDay] = useState(false);
+
+  const date = useSelector(selectDate);
+  const [momentDate, setMomentDate] = useState(moment(date));
+  const [changePeriod, setChangePeriod] = useState('month');
 
   return (
     <>
-      <CalendarToolbar
-        isChoosedDay={isChoosedDay}
-        selectedDay={selectedDay}
-        updatedDate={updatedDate}
-        setSelectedDay={setSelectedDay}
-        setUpdatedDate={setUpdatedDate}
-      />
+      <CalendarToolbar changePeriod={changePeriod} momentDate={momentDate} setMomentDate={setMomentDate} />
       <Suspense fallback={<div>Loading subpage...</div>}>
-        <Outlet context={[selectedDay, setIsChoosedDay, updatedDate, setUpdatedDate, setSelectedDay]} />
+        <Outlet context={[setChangePeriod, setMomentDate]} />
       </Suspense>
     </>
   );

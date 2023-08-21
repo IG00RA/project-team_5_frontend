@@ -1,22 +1,20 @@
 import { styled } from 'styled-components';
 
 export const Wrap = styled.div`
-  height: 100vh;
-  width: 100%;
-  min-height: 812px;
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
+
+  min-height: 812px;
+
   background-color: ${p => p.theme.colors.homePage.titleText};
-  padding: 256px 59px 256px 58px;
 
   @media screen and (min-width: 768px) {
-    padding: 331px 92px 330px 91px;
     min-height: 1024px;
   }
 
   @media screen and (min-width: 1067px) {
-    padding: 187px auto 200px auto;
     min-height: 770px;
   }
 `

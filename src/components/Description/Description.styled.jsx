@@ -16,10 +16,10 @@ export const Wrap = styled.div`
 export const SectionWrap = styled.div`
   @media screen and (min-width: 1067px) {
     display: flex;
-    display: flex;
-    gap: 228px;
-    justify-content: space-around;
     flex-direction: row;
+    align-items: center;
+    gap: 228px;
+    
     padding-left: 77px;
     padding-right: 0px;
   }
@@ -41,9 +41,10 @@ export const SecondSectionWrap = styled.div`
 export const DesktopSectionWrap = styled.div`
   @media screen and (min-width: 1067px) {
     display: flex;
-    gap: 228px;
-    justify-content: space-around;
     flex-direction: row-reverse;
+    align-items: center;
+    gap: 228px;
+    
     margin-left: 0px;
   }
 `
@@ -148,16 +149,14 @@ export const Text = styled.p`
 `
 export const Image = styled.img`
   width: 335px;
-  height: 457px;
   border-radius: 40px;
   background: ${p => p.theme.colors.homePage.imageBg};
   margin-top: 40px;
-  text-align: center;
-  object-fit: cover;
+  object-fit: contain;
+
 
   @media screen and (min-width: 768px) {
     width: 704px;
-    height: 700px;
     border-radius: 100px;
     margin-top: 48px;
     margin-left: auto;
@@ -166,7 +165,6 @@ export const Image = styled.img`
 
   @media screen and (min-width: 1067px) {
     width: 604px;
-    height: 700px;
     margin-top: 0px;
   }
 `
