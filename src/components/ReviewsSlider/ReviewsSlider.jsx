@@ -1,5 +1,7 @@
 import 'slick-carousel/slick/slick.css';
-import { Btn, StyledSlider } from './ReviewsSlider.styled';
+import sprite from '../../images/svg-sprite/symbol-defs.svg';
+import { StyledSliser, ReviewsWrapper, Title, Img, ReviewWrapper, Name, Review, BtnArrowPrev, BtnArrowNext, Icon } from './ReviewsSlider.styled';
+import { useEffect, useState } from 'react';
 
 const RatingComponent = ({ value }) => {
   const maxRating = 5;
@@ -24,31 +26,69 @@ const RatingComponent = ({ value }) => {
 };
 
 export const ReviewsSlider = ({ reviews }) => {
-
-  const CustomNextArrow = props => <Btn {...props}>Next</Btn>
+  const [slide, setSlide] = useState(1);
   
-  const CustomPrevArrow = props => <Btn {...props}>Prev</Btn>
+  useEffect(() => {
+    const handleViewportChange = () => {
+      if (window.innerWidth >= 1440) {
+        setSlide(2)
+        return
+      }
+
+      if (window.innerWidth < 1440) {
+        setSlide(1)
+        return
+      }
+    };
+
+    window.addEventListener('resize', handleViewportChange);
+
+    return () => {
+      window.removeEventListener('resize', handleViewportChange);
+    }
+  }, []);
+  
+  const CustomNextArrow = props => <BtnArrowNext {...props}>
+    <Icon>
+      <use href={sprite + '#icon-down-arrow-right'}></use>
+    </Icon>
+  </BtnArrowNext>
+  
+  const CustomPrevArrow = props => <BtnArrowPrev {...props}>
+    <Icon>
+      <use href={sprite + '#icon-down-arrow-left'}></use>
+    </Icon>
+  </BtnArrowPrev>
 
   const settings = {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 2,
-    slidesToScroll: 2,
+    slidesToShow: slide,
+    slidesToScroll: slide,
     prevArrow: <CustomPrevArrow />,
     nextArrow: <CustomNextArrow />,
   };
 
   return (
-    <ul>
-      <StyledSlider {...settings}>
-        {reviews.map((review, idx) => (
-          <li key={idx}>
-            {review.review}
-            <RatingComponent value={review.raiting} />{' '}
-          </li>
-        ))}
-      </StyledSlider>
-    </ul>
+    <ReviewsWrapper>
+      <Title>Reviews</Title>
+      <ul>
+        <StyledSliser {...settings}>
+          {reviews.map((review) => (
+            <li key={review.owner._id}>
+              <ReviewWrapper>
+                <Img src={review.owner.avatarURL} alt={review.owner.userName} />
+                <div>
+                  <Name>{review.owner.userName}</Name>
+                  <RatingComponent value={review.raiting} />
+                  <Review>{review.review}</Review>
+                </div>
+              </ReviewWrapper>
+            </li>
+          ))}
+        </StyledSliser>
+      </ul>
+    </ReviewsWrapper>
   );
 };
