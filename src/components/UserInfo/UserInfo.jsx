@@ -30,7 +30,9 @@ export const UserInfo = () => {
         ) : (
           <AvatarContainer>
             <AvatarTextContainer>
-              <AvatarText>{user.userName ? user.userName[0] : ''}</AvatarText>
+              <Link to="/account">
+                <AvatarText>{user.userName ? user.userName[0] : ''}</AvatarText>
+              </Link>
             </AvatarTextContainer>
           </AvatarContainer>
         )}
