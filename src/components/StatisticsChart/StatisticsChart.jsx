@@ -96,14 +96,15 @@ export default function StatisticsChart({
 
   return (
     <>
-      <ResponsiveContainer width="100%" height={440}>
+      <ResponsiveContainer width="100%" minHeight={440}>
         <BarChart
           // width={780}
           // height={440}
+          minHeight={440}
           data={data}
           barGap={sizes[viewport].gap}
           margin={{
-            top: 0,
+            top: 10,
             right: 0,
             left: 0,
             bottom: 0,
