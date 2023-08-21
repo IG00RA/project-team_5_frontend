@@ -17,7 +17,7 @@ const Schema = Yup.object({
 
 const radioButtonsList = ['low', 'medium', 'high'];
 
-export const TaskForm = ({ task: { _id, title = '', start = moment().format('HH:mm'), end = moment().add(1, 'hour').format('HH:mm'), priority = 'low' }, closeModal, ColumnTitle }) => {
+export const TaskForm = ({ task: { _id, title = '', start = moment().format('HH:mm'), end = moment().add(1, 'minute').format('HH:mm'), priority = 'low' }, closeModal, ColumnTitle }) => {
 
   const [checked, setChecked] = useState(priority);
   const date = useSelector(selectDate);
