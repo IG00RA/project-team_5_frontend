@@ -99,6 +99,7 @@ export const InputText = styled.input`
   border-radius: 8px;
   background-color: ${props => props.theme.colors.modal.task.taskInput};
   border: 1px solid ${props => props.theme.colors.modal.task.popUpBorder};
+  cursor: pointer;
 
   &::placeholder {
     font-family: Inter;
@@ -158,6 +159,7 @@ export const Label = styled.label`
   line-height: 1.28;
 
   color: ${props => props.theme.colors.modal.task.taskInputText};
+  cursor: pointer;
 `;
 
 export const WrapperBtn = styled.div`
