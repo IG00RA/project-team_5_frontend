@@ -3,8 +3,6 @@ import { Btn, StyledSlider } from './ReviewsSlider.styled';
 
 const RatingComponent = ({ value }) => {
   const maxRating = 5;
-  console.log(value)
-  
   const ratingArray = Array.from(
     { length: maxRating },
     (_, index) => index + 1
@@ -12,17 +10,15 @@ const RatingComponent = ({ value }) => {
 
   return (
     <div className="rating">
-      <div>
-        {ratingArray.map(ratingValue => (
-          <input
-            key={ratingValue}
-            type="radio"
-            name="rating"
-            className="mask mask-star-2 bg-orange-400"
-            defaultChecked={ratingValue === value}
-          />
-        ))}
-      </div>
+      {ratingArray.map(ratingValue => (
+        <input
+          key={ratingValue}
+          type="checkbox"
+          name="rating"
+          className="mask mask-star-2 bg-stars-color"
+          checked={value === ratingValue.toString()}
+        />
+      ))}
     </div>
   );
 };
