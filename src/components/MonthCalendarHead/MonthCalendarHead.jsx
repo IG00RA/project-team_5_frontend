@@ -7,7 +7,7 @@ const MonthCalendarHead = ({ startDay }) => {
 
   const currentWidth = window.innerWidth;
   const viewport =
-    currentWidth < 768 ? 'mobile' : currentWidth < 1440 ? 'laptop' : 'desctop';
+    currentWidth < 768 ? 'mobile' : currentWidth < 1440 ? 'laptop' : 'desktop';
 
   const setFormat = idx => {
     return viewport === 'mobile'
