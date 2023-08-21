@@ -3,6 +3,7 @@ import sprite from '../../images/svg-sprite/symbol-defs.svg';
 import userLogo from '../../images/landing-page/user-logo-review.webp';
 import { StyledSliser, ReviewsWrapper, Title, Img, ReviewWrapper, Name, Review, BtnArrowPrev, BtnArrowNext, Icon } from './ReviewsSlider.styled';
 import { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 
 const RatingComponent = ({ value }) => {
   const maxRating = 5;
@@ -98,3 +99,15 @@ export const ReviewsSlider = ({ reviews }) => {
     </ReviewsWrapper>
   );
 };
+
+ReviewsSlider.propTypes = {
+  reviews: PropTypes.arrayOf(PropTypes.shape({
+    raiting: PropTypes.number.isRequired,
+    review: PropTypes.string.isRequired,
+    owner: PropTypes.shape({
+      _id: PropTypes.string.isRequired,
+      userName: PropTypes.string.isRequired,
+      avatarURL: PropTypes.string.isRequired,
+    }),
+  })).isRequired,
+}
