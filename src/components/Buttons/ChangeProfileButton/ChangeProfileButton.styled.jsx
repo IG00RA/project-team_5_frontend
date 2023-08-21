@@ -10,6 +10,9 @@ export const Button = styled.button`
   justify-content: center;
   align-items: center;
   background-color: ${props => props.theme.colors.button.mainBg};
+  transition:
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
   &:focus {
