@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { selectTasks } from 'redux/tasks/tasksSelectors';
-import { useLocation, useParams } from 'react-router-dom';
+import { selectFilteredTasksByDate } from 'redux/tasks/tasksSelectors';
+import { useLocation } from 'react-router-dom';
 import FeedbackButton from '../Buttons/FeedbackButton/FeedbackButton';
 import { UserInfo } from '../UserInfo/UserInfo';
 import svgSprite from '../../images/svg-sprite/symbol-defs.svg';
@@ -19,8 +19,12 @@ import { AddFeedbackModal } from 'components/AddFeedbackModal/AddFeedbackModal';
 
 const Header = ({ isModalMenuOpen, openMenu }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+
   const location = useLocation();
   const currentPath = location.pathname;
+  const pageCalendarDay = currentPath.startsWith('/calendar/day');
+
+  const fileredTask = useSelector(selectFilteredTasksByDate);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -30,21 +34,14 @@ const Header = ({ isModalMenuOpen, openMenu }) => {
     setIsModalOpen(false);
   };
 
-  const { currentDay } = useParams();
-  const pageCalendarDay = currentPath.startsWith('/calendar/day');
-  const tasksDay = useSelector(selectTasks);
   const haveTask = () => {
-    const tasksForToday = tasksDay.filter(task => task.date === currentDay);
-    if (tasksForToday.length > 0) {
-      const tasksInProgress = tasksForToday.find(
-        task => task.category === 'to-do' || task.category === 'in-progress'
-      );
-
-      return tasksInProgress;
-    }
+    if (fileredTask.length > 0) {
+      return fileredTask.find(task => task.category === 'to-do' || task.category === 'in-progress');
+    };
   };
 
   let title = '';
+  
   if (currentPath.startsWith('/account')) {
     title = 'User Profile';
   } else if (currentPath.startsWith('/calendar')) {
@@ -53,11 +50,10 @@ const Header = ({ isModalMenuOpen, openMenu }) => {
     title = 'Statistics';
   } else {
     title = '';
-  }
+  };
 
   return (
-    <>
-       <Wrap>
+      <Wrap>
         {pageCalendarDay && haveTask() && (
           <MotivationImg src={gooseMotivation} alt="goose" />
         )}
@@ -84,7 +80,6 @@ const Header = ({ isModalMenuOpen, openMenu }) => {
           />
         </UserWrap>
       </Wrap>
-    </>
   );
 };
 
