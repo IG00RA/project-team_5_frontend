@@ -31,8 +31,7 @@ const UserNav = ({ closeModalMenu }) => {
           return (
             location.pathname.startsWith((
               `/calendar/month/${currentDay.format('YYYY-MM-DD')}`
-              `/calendar/month/${currentDay.format('YYYY-MM-DD')}`
-            )
+                         )
             ||
             location.pathname.startsWith(
               `/calendar/day/${currentDay.format('YYYY-MM-DD')}`
