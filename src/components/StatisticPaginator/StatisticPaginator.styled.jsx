@@ -2,19 +2,16 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   display: block;
-  padding: 28px 14px 0px;
+  padding-left: 28;
   margin-bottom: 20px;
   @media (min-width: ${p => p.theme.media.m}) {
     display: flex;
-    justify-content: center;
     align-items: center;
     justify-content: space-between;
-    padding-top: 132px;
     padding-left: 64px;
     margin-bottom: 40px;
   }
   @media (min-width: ${p => p.theme.media.l}) {
-    padding-top: 134px;
     padding-left: 153px;
   }
 `;
@@ -57,7 +54,7 @@ export const ColoredSquare = styled.div`
 `;
 
 export const CategoryText = styled.p`
-  color: #343434;
+  color: ${props => props.theme.colors.statisticsPage.mainText};
   font-family: Inter;
   font-size: 14px;
   font-weight: 400;
@@ -69,27 +66,36 @@ export const CategoryText = styled.p`
   }
 `;
 
-export const Period = styled.div`
-  text-align: center;
-  font-family: Inter;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: calc(18 / 14);
-  text-transform: uppercase;
-  border-radius: 8px;
-  padding: 6px 12px;
-  background-color: #3e85f3;
-  color: #fff;
+// export const Period = styled.div`
+//   text-align: center;
+//   font-family: Inter;
+//   font-size: 14px;
+//   font-weight: 700;
+//   line-height: calc(18 / 14);
+//   text-transform: uppercase;
+//   border-radius: 8px;
+//   padding: 6px 12px;
+//   background-color: #3e85f3;
+//   color: #fff;
 
-  @media (min-width: ${p => p.theme.media.m}) {
-    padding: 8px 12px;
-    font-size: 16px;
-    line-height: calc(18 / 16);
-  }
-`;
+//   @media (min-width: ${p => p.theme.media.m}) {
+//     padding: 8px 12px;
+//     font-size: 16px;
+//     line-height: calc(18 / 16);
+//   }
+// `;
 
 export const ButtonsWrap = styled.div`
   display: flex;
+`;
+export const Icon = styled.svg`
+  display: inline-block;
+  height: 18px;
+  width: 18px;
+  stroke-width: 0;
+  stroke: ${props => props.theme.colors.statisticsPage.colorIcon};
+  fill: transparent;
+  transition: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
 `;
 
 export const PaginatorBtn = styled.button`
@@ -102,15 +108,12 @@ export const PaginatorBtn = styled.button`
   padding: 7px 10px;
   font-weight: 700;
   border-radius: ${p => (p.$isPrevBtn ? '8px 0px 0px 8px' : '0px 8px 8px 0px')};
-
-  border: 1px solid rgba(220, 227, 229, 0.8);
-  background-color: #fff;
-  color: ${p =>
-    p.disabled ? 'rgba(220, 227, 229, 1)' : 'rgba(52, 52, 52, 1)'};
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
+  border: 1px solid ${props => props.theme.colors.statisticsPage.todayBorder};
   &:hover {
-    box-shadow: 0px 1px 7px 1px rgba(0, 0, 0, 0.1);
+    box-shadow: 4px 2px 16px 0px ${props => props.theme.colors.button.shadow};
+    ${Icon} {
+      stroke: ${props => props.theme.colors.statisticsPage.hoverIcon};
+    }
   }
   @media screen and (min-width: 768px) {
     width: 38px;
@@ -118,17 +121,22 @@ export const PaginatorBtn = styled.button`
   }
 `;
 
-export const Icon = styled.svg`
-  display: inline-block;
-  height: 18px;
-  width: 18px;
-  stroke-width: 0;
-  stroke: #dce3e5;
-  fill: transparent;
-  transition: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
+// export const PaginatorBtn = styled.button`
+//   display: inline-flex;
+//   justify-content: center;
+//   align-items: center;
 
-  &:hover,
-  &:focus {
-    stroke: #343434;
-  }
-`;
+//   width: 36px;
+//   height: 30px;
+//   padding: 7px 10px;
+//   font-weight: 700;
+//   border-radius: ${p => (p.$isPrevBtn ? '8px 0px 0px 8px' : '0px 8px 8px 0px')};
+//   border: 1px solid ${props => props.theme.colors.statisticsPage.todayBorder};
+//   &:hover {
+//     box-shadow: 4px 2px 16px 0px ${props => props.theme.colors.button.shadow};
+//   }
+//   @media screen and (min-width: 768px) {
+//     width: 38px;
+//     height: 34px;
+//   }
+// `;

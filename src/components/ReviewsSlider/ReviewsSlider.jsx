@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { ReviewRaiting, ReviewPhoto, ReviewUsername, ReviewWrap, Title, Wrap, UserWrap, ReviewContainer, ReviewText, PhotoWrap, CarouselWrap } from 'components/ReviewsSlider/ReviewsSlider.styled';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
@@ -74,6 +75,19 @@ const ReviewsSlider = ({ reviewsData }) => {
       />
     </Wrap>
   )
+}
+
+ReviewsSlider.propTypes = {
+  reviewsData: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    raiting: PropTypes.number.isRequired,
+    review: PropTypes.string.isRequired,
+    owner: PropTypes.shape({
+      _id: PropTypes.string.isRequired,
+      userName: PropTypes.string.isRequired,
+      avatarURL: PropTypes.string.isRequired,
+    }),
+  })).isRequired,
 }
 
 export default ReviewsSlider;

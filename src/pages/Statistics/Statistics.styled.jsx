@@ -1,17 +1,29 @@
 import styled from 'styled-components';
 
 export const StatisticsWrapper = styled.div`
-  max-width: 1087px;
-  height: 752px;
+  max-width: 335px;
+  height: 684px;
   border-radius: 16px;
-  background: #fff;
+  background: ${props => props.theme.colors.statisticsPage.mainBg};
+  padding: 28px 14px 135px 14px;
+  @media (min-width: ${p => p.theme.media.m}) {
+    max-width: 704px;
+    height: 854px;
+    padding-top: 132px;
+    padding-bottom: 224px;
+  }
+  @media (min-width: ${p => p.theme.media.l}) {
+    max-width: 1087px;
+    min-height: 752px;
+    padding: 134px 114px 104px 113px;
+  }
 `;
 
 export const ChartWrapper = styled.div`
-  padding: 40 14px;
   width: 307px;
   min-height: 413px;
-  border: 0.8px solid #e3f3ff;
+  border: 0.8px solid
+    ${props => props.theme.colors.statisticsPage.statisticsBorder};
   border-radius: 29px;
   margin: 0 auto;
   @media (min-width: ${p => p.theme.media.m}) {
@@ -28,7 +40,7 @@ export const ChartWrapper = styled.div`
 
 export const Text = styled.p`
   margin-bottom: 20px;
-  color: #343434;
+  color: ${props => props.theme.colors.statisticsPage.mainText};
   font-family: Inter;
   font-size: 14px;
   font-weight: 600;

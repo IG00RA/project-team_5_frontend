@@ -154,6 +154,7 @@ export const Image = styled.img`
   margin-top: 40px;
   object-fit: contain;
 
+
   @media screen and (min-width: 768px) {
     width: 704px;
     border-radius: 100px;
