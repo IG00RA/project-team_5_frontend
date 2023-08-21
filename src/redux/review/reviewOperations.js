@@ -19,10 +19,10 @@ export const addReview = createAsyncThunk(
   async (reviewData, thunkAPI) => {
     try {
       const response = await axios.post('/reviews/own', reviewData);
-      Notify.success('You add your own review!');
+      Notify.success('You add your own review!', { timeout: 1000 });
       return response.data;
     } catch (e) {
-      Notify.failure('Please try again');
+      Notify.failure('Please try again', { timeout: 1000 });
       return thunkAPI.rejectWithValue(e.message);
     }
   }
@@ -33,10 +33,12 @@ export const updateReview = createAsyncThunk(
   async (reviewData, thunkAPI) => {
     try {
       const response = await axios.patch('/reviews/own', reviewData);
-      Notify.success('You successfully updated your review!');
+      Notify.success('You successfully updated your review!', {
+        timeout: 1000,
+      });
       return response.data;
     } catch (e) {
-      Notify.failure('Please try again');
+      Notify.failure('Please try again', { timeout: 1000 });
       return thunkAPI.rejectWithValue(e.message);
     }
   }
@@ -47,10 +49,10 @@ export const removeReview = createAsyncThunk(
   async (__, thunkAPI) => {
     try {
       const response = await axios.delete(`/reviews/own`);
-      Notify.success('Your review was deleted successfully');
+      Notify.success('Your review was deleted successfully', { timeout: 1000 });
       return response.data;
     } catch (e) {
-      Notify.failure('Please try again');
+      Notify.failure('Please try again', { timeout: 1000 });
       return thunkAPI.rejectWithValue(e.message);
     }
   }

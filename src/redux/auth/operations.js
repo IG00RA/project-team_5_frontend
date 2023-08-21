@@ -17,10 +17,10 @@ export const register = createAsyncThunk(
   async (userData, thunkAPI) => {
     try {
       const res = await axios.post('auth/register', userData);
-      Notify.success("You've register succeed"); //
+      Notify.success("You've register succeed", { timeout: 1000 }); //
       return res.data;
     } catch (e) {
-      Notify.failure('Incorrect data');
+      Notify.failure('Incorrect data', { timeout: 1000 });
       return thunkAPI.rejectWithValue(e.message);
     }
   }
@@ -34,7 +34,7 @@ export const login = createAsyncThunk(
       setAuthHeader(res.data.token);
       return res.data;
     } catch (e) {
-      Notify.failure('Incorrect data');
+      Notify.failure('Incorrect data', { timeout: 1000 });
       return thunkAPI.rejectWithValue(e.message);
     }
   }
@@ -44,7 +44,7 @@ export const logout = createAsyncThunk('auth/logout', async (__, thunkAPI) => {
   try {
     await axios.post('auth/logout');
     clearAuthHeader();
-    Notify.success('LogOut success');
+    Notify.success('LogOut success', { timeout: 1000 });
   } catch (e) {
     // Notify.failure(e);
     return thunkAPI.rejectWithValue(e.message);
