@@ -19,7 +19,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Label = styled.label`
-  color: ${lightColors.lightGreyRGBA};
+  color: ${props => props.theme.colors.modal.labelText};
   display: block;
   margin-bottom: 8px;
   font-weight: 500;
@@ -46,7 +46,7 @@ export const EditBtn = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${lightColors.lightBlue2};
+  background-color: ${props => props.theme.colors.modal.rewiev.pencilIconBg};
   border: none;
   width: 30px;
   height: 30px;
@@ -55,15 +55,15 @@ export const EditBtn = styled.button`
   & svg {
     width: 16px;
     height: 16px;
-    stroke: ${lightColors.blue};
+    stroke: ${props => props.theme.colors.modal.rewiev.pencilIcon};
     fill: transparent;
   }
 
   &:hover,
   &:focus {
-    background-color: ${lightColors.blue};
+    background-color: ${props => props.theme.colors.modal.rewiev.pencilIcon};
     & svg {
-      stroke: ${lightColors.white};
+      stroke: ${props => props.theme.colors.modal.rewiev.pencilIconHover};
       fill: transparent;
     }
   }
@@ -78,8 +78,8 @@ export const DeleteBtn = styled.button`
 
   width: 30px;
   height: 30px;
-  background-color: #ea3d6533;
-  color: ${lightColors.redPriority};
+  background-color: ${props => props.theme.colors.modal.rewiev.trashIconBg};
+  color: ${props => props.theme.colors.modal.rewiev.trashIcon};
   border: none;
   border-radius: 50%;
   cursor: pointer;
@@ -87,14 +87,14 @@ export const DeleteBtn = styled.button`
   & svg {
     width: 16px;
     height: 16px;
-    stroke: ${lightColors.redPriority};
+    stroke: ${props => props.theme.colors.modal.rewiev.trashIcon};
     fill: transparent;
   }
 
   &:hover,
   &:focus {
-    background-color: ${lightColors.redPriority};
-    color: ${lightColors.white};
+    background-color: ${props => props.theme.colors.modal.rewiev.trashIcon};
+    color: ${props => props.theme.colors.modal.rewiev.trashIconHover};
     & svg {
       stroke: currentColor;
       fill: transparent;
@@ -118,9 +118,9 @@ export const Input = styled(Field)`
   font-weight: 600;
   font-size: 14px;
   line-height: calc((18 / 14) * 100%);
-  color: ${lightColors.grey};
+  color: ${props => props.theme.colors.modal.mainText};
 
-  background-color: ${lightColors.grey2};
+  background-color: ${props => props.theme.colors.modal.textAreaBg};
   border-radius: 8px;
 
   @media (min-width: ${props => props.theme.media.m}) {
@@ -163,8 +163,8 @@ export const FormBtnWrapper = styled.div`
 `;
 
 export const FormBtn = styled.button`
-  color: ${lightColors.white};
-  background-color: ${lightColors.blue};
+  color: ${props => props.theme.colors.button.text};
+  background-color: ${props => props.theme.colors.button.mainBg};
   text-transform: none;
   width: 262px;
   height: 48px;
@@ -175,7 +175,7 @@ export const FormBtn = styled.button`
   cursor: pointer;
   &:hover,
   &:focus {
-    background-color: ${lightColors.darkBlue};
+    background-color: ${props => props.theme.colors.button.hoverBg};
   }
 
   &:disabled {
@@ -186,8 +186,8 @@ export const FormBtn = styled.button`
 `;
 
 export const CancelBtn = styled.button`
-  color: ${lightColors.grey};
-  background-color: ${lightColors.lightBlue3};
+  color: ${props => props.theme.colors.modal.mainText};
+  background-color: ${props => props.theme.colors.modal.rewiev.cancelBtnBg};
   text-transform: none;
   width: 262px;
   height: 48px;
@@ -196,4 +196,12 @@ export const CancelBtn = styled.button`
   border: none;
   border-radius: 8px;
   cursor: pointer;
+
+  &:hover,
+  &:focus {
+    color: ${props => props.theme.colors.button.text};
+    background-color: ${props => props.theme.colors.button.hoverBg};
+  }
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 `;
