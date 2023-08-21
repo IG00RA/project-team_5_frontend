@@ -1,10 +1,9 @@
 import sprite from '../../images/svg-sprite/symbol-defs.svg';
-// import DatePickerComponent from 'components/DatePickerComponent/DatePickerComponent';
-// import { useState } from 'react';
+import DatePickerComponent from 'components/DatePickerComponent/DatePickerComponent';
+
 
 import {
   PaginatorWrapper,
-  Period,
   ButtonsWrap,
   Wrapper,
   CategoryText,
@@ -16,33 +15,28 @@ import {
   ColoredSquare,
   Icon,
 } from './StatisticPaginator.styled';
+import { parseISO } from 'date-fns';
 
-function StatisticPaginator({ selectedDate, onDateChange, typeOfPeriod }) {
-  const formattedPeriod =
-    typeOfPeriod === 'month'
-      ? selectedDate.format('MMMM YYYY')
-      : selectedDate.format('D MMMM YYYY');
+import moment from 'moment';
+
+export default function StatisticPaginator({ selectedDate, setSelectedDate }) {
 
   const prevHandler = () => {
-    if (typeOfPeriod === 'month') {
-      onDateChange(prev => prev.clone().subtract(1, 'month'));
-    } else if (typeOfPeriod === 'day') {
-      onDateChange(prev => prev.clone().subtract(1, 'day'));
-    }
+    setSelectedDate(prev => prev.clone().subtract(1, 'day'));
   };
+
   const nextHandler = () => {
-    if (typeOfPeriod === 'month') {
-      onDateChange(prev => prev.clone().add(1, 'month'));
-    } else if (typeOfPeriod === 'day') {
-      onDateChange(prev => prev.clone().add(1, 'day'));
-    }
+    setSelectedDate(prev => prev.clone().add(1, 'day'));
   };
 
   return (
     <Wrapper>
       <PaginatorWrapper>
-        {/* <DatePickerComponent startDate={startDate} setStartDate={setStartDate} /> */}
-        <Period>{formattedPeriod}</Period>
+        <DatePickerComponent
+          startDate={parseISO(selectedDate)}
+          setStartDate={date => setSelectedDate(moment(date))}
+        />
+
         <ButtonsWrap>
           <PaginatorBtn onClick={prevHandler} $isPrevBtn>
             <Icon>
@@ -69,6 +63,3 @@ function StatisticPaginator({ selectedDate, onDateChange, typeOfPeriod }) {
     </Wrapper>
   );
 }
-
-export default StatisticPaginator;
-
