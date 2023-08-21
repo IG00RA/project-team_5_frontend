@@ -153,6 +153,7 @@ export const Image = styled.img`
   background: ${p => p.theme.colors.homePage.imageBg};
   margin-top: 40px;
   text-align: center;
+  object-fit: cover;
 
   @media screen and (min-width: 768px) {
     width: 704px;

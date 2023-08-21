@@ -23,54 +23,21 @@ export const SideBar = ({ isModalMenuOpen, closeModalMenu }) => {
     dispatch(logout());
   };
 
-  //   const node = useRef();
-  //   const useOnClickOutside = (ref, handler) => {
-  //     useEffect(() => {
-  //     const listener = event => {
-  //       if (!ref.current || ref.current.contains(event.target)) {
-  //         return;
-  //       }
-  //       handler(event);
-  //     };
-  //     document.addEventListener('mousedown', listener);
-  //     return () => {
-  //       document.removeEventListener('mousedown', listener);
-  //     };
-  //   }, [ref, handler]);
-  // };
-
-  // useOnClickOutside(node, () => {
-  //   if (isModalMenuOpen) {
-  //     closeModalMenu();
-  //   }
-  // });
 
   const handleCloseModalMenu = () => {
     closeModalMenu(false);
 
     if (isModalMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
       document.body.style.overflow = 'auto';
+    } else {
+      document.body.style.overflow = 'hidden';
     }
   };
-
-  // useEffect(() => {
-  //   const close = e => {
-  //     closeModalMenu(false);
-  //   };
-  //   isModalMenuOpen && window.addEventListener('keydown', close);
-  //   return () => {
-  //     window.removeEventListener('keydown', close);
-  //     document.body.style.overflow = 'auto';
-  //   };
-  // }, [isModalMenuOpen, closeModalMenu]);
 
   return (
     <>
       <SideBarWrap
         className={isModalMenuOpen && 'openModalMenu'}
-        // ref={node}
       >
         <LogoAndNavWrap>
           <TopWrap>
@@ -79,7 +46,6 @@ export const SideBar = ({ isModalMenuOpen, closeModalMenu }) => {
               <StyledTitle>
                 G<SpanSpec>oo</SpanSpec>seTrack
               </StyledTitle>
-              {/* <SideBarClose src={`${GooseDeskLogo2x}`} /> */}
             </StyledLogoWrapper>
             <StyledCloseButton onClick={handleCloseModalMenu}>
               <use href={sprite + '#icon-x-close'} />
