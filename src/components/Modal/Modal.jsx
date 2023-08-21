@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactModal from 'react-modal';
 
 // const isMobile = window.innerWidth <= 768;
@@ -31,12 +30,11 @@ const contentStyles = {
   // borderRadius: '20px',
   outline: 'none',
   overflow: 'hidden',
-  };
+};
 
 const Modal = ({ isOpen, onRequestClose, children }) => {
   return (
     <ReactModal
-    
       isOpen={
         isOpen
       } /* Boolean describing if the modal should be shown or not. */

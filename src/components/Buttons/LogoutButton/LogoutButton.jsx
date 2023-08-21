@@ -1,4 +1,3 @@
-import React from 'react';
 import sprite from '../../../images/svg-sprite/symbol-defs.svg';
 import { LogoutBtn, LogoutBtnText, LogoutIcon } from './Logout.styled';
 

@@ -1,7 +1,5 @@
-import React from 'react';
 import { Button, CastomLoader, Text } from './ChangeProfileButton.styled';
 import Loader from 'components/Loader/Loader';
-
 
 const ChangeProfileButton = ({ onClick, isLoading, disabled }) => {
   return (

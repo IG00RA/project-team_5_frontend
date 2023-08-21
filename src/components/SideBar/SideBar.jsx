@@ -1,4 +1,3 @@
-import React from 'react';
 import UserNav from '../UserNav/UserNav';
 import {
   SideBarWrap,

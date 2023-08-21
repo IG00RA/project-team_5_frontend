@@ -19,7 +19,6 @@ export default function StatisticsChart({
   filteredTasksByMonth,
 }) {
   const allTasksByDay = filteredTasksByDate.length;
-  console.log(allTasksByDay);
 
   const allTasksByMonth = filteredTasksByMonth.length;
 

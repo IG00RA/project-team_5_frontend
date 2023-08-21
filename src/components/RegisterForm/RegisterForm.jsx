@@ -1,4 +1,3 @@
-import React from 'react';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';

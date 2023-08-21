@@ -1,5 +1,4 @@
-import React from 'react';
-import {FeedbackBtn} from './Feedback.styled';
+import { FeedbackBtn } from './Feedback.styled';
 
 const FeedbackButton = ({ onClick }) => {
   return (
