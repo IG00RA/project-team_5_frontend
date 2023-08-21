@@ -19,10 +19,7 @@ export default function Statistics() {
 
   const selectedDateFormat = selectedDate.format('YYYY-MM-DD');
 
-  const filteredTasksByDate = selectFilteredTasksByDate(
-    tasks,
-    selectedDateFormat
-  );
+  const filteredTasksByDate = useSelector(selectFilteredTasksByDate);
 
   const filteredTasksByMonth = selectFilteredTasksByMonth(
     tasks,
