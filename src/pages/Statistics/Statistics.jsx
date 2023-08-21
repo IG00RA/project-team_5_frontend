@@ -14,6 +14,7 @@ import moment from 'moment';
 export default function Statistics() {
   const tasks = useSelector(selectTasks);
   const dispatch = useDispatch();
+  console.log(tasks);
 
   const [selectedDate, setSelectedDate] = useState(moment());
 
