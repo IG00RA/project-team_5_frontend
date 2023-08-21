@@ -29,12 +29,14 @@ const UserNav = ({ closeModalMenu }) => {
         to={`/calendar/month/${currentDay.format('YYYY-MM-DD')}`}
         isActive={(_match, location) => {
           return (
-            location.pathname.startsWith(
+            location.pathname.startsWith((
               `/calendar/month/${currentDay.format('YYYY-MM-DD')}`
-            ) ||
+              `/calendar/month/${currentDay.format('YYYY-MM-DD')}`
+            )
+            ||
             location.pathname.startsWith(
               `/calendar/day/${currentDay.format('YYYY-MM-DD')}`
-            )
+            ))
           );
         }}
         onClick={handleCloseModalMenu}
