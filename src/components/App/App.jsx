@@ -45,7 +45,13 @@ export const App = () => {
           <Loader />
         </LoaderWrapper>
       ) : (
-        <Suspense fallback={null}>
+        <Suspense
+          fallback={
+            <LoaderWrapper>
+              <Loader />
+            </LoaderWrapper>
+          }
+        >
           <Routes>
             <Route
               path="/"
