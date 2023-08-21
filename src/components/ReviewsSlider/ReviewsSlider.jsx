@@ -1,93 +1,58 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import { ReviewRaiting, ReviewPhoto, ReviewUsername, ReviewWrap, Title, Wrap, UserWrap, ReviewContainer, ReviewText, PhotoWrap, CarouselWrap } from 'components/ReviewsSlider/ReviewsSlider.styled';
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from "react-responsive-carousel";
-import { CustomCarouselButtons } from './CustomCarouselButtons'
+import 'slick-carousel/slick/slick.css';
+import { Btn, StyledSlider } from './ReviewsSlider.styled';
 
-const ReviewsSlider = ({ reviewsData }) => {
-
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const totalSlides = 25;
-
-  const handlePrevClick = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1);
-    }
-  };
-
-  const handleNextClick = () => {
-    if (currentIndex < totalSlides - 1) {
-      setCurrentIndex(currentIndex + 1);
-    }
-  };
-
+const RatingComponent = ({ value }) => {
+  const maxRating = 5;
+  console.log(value)
+  
+  const ratingArray = Array.from(
+    { length: maxRating },
+    (_, index) => index + 1
+  );
 
   return (
-    <Wrap>
-      <Title>Reviews</Title>          
+    <div className="rating">
       <div>
-        <CarouselWrap>
-        <Carousel
-            autoPlay={true}
-            selectedItem={currentIndex}
-            infiniteLoop={true}
-            showStatus={false}
-            showThumbs={true}
-            centerMode={false}
-            showIndicators={false}
-            stopOnHover={true}
-            emulateTouch={true}
-            interval={1500}
-            transitionTime={500} 
-            showArrows={false}
-          >
-            {reviewsData.map((review) => (
-              <ReviewWrap key={review._id}>
-                <ReviewContainer>
-                  <PhotoWrap>
-                    <ReviewPhoto src={review.owner.avatarURL} alt='Photo'/>
-                  </PhotoWrap>
-                    <UserWrap key={review.owner._id}>
-                      <ReviewUsername>{review.owner.userName}</ReviewUsername>
-                    <div className="rating">
-                          {[...Array(5)].map((item, i) => {
-                            return (
-                              <ReviewRaiting>
-                              <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400"
-                              checked={Number(review.raiting) === (i + 1)}/>
-                              </ReviewRaiting>
-                              )})}
-                        </div>
-                    </UserWrap>
-                  </ReviewContainer>
-                <ReviewText>{review.review}</ReviewText>
-              </ReviewWrap>
-          ))}
-        </Carousel>
-        </CarouselWrap>
+        {ratingArray.map(ratingValue => (
+          <input
+            key={ratingValue}
+            type="radio"
+            name="rating"
+            className="mask mask-star-2 bg-orange-400"
+            defaultChecked={ratingValue === value}
+          />
+        ))}
       </div>
-      <CustomCarouselButtons
-        currentIndex={currentIndex}
-        totalSlides={totalSlides}
-        onPrevClick={handlePrevClick}
-        onNextClick={handleNextClick}
-      />
-    </Wrap>
-  )
-}
+    </div>
+  );
+};
 
-ReviewsSlider.propTypes = {
-  reviewsData: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    raiting: PropTypes.number.isRequired,
-    review: PropTypes.string.isRequired,
-    owner: PropTypes.shape({
-      _id: PropTypes.string.isRequired,
-      userName: PropTypes.string.isRequired,
-      avatarURL: PropTypes.string.isRequired,
-    }),
-  })).isRequired,
-}
+export const ReviewsSlider = ({ reviews }) => {
 
-export default ReviewsSlider;
+  const CustomNextArrow = props => <Btn {...props}>Next</Btn>
+  
+  const CustomPrevArrow = props => <Btn {...props}>Prev</Btn>
+
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 2,
+    slidesToScroll: 2,
+    prevArrow: <CustomPrevArrow />,
+    nextArrow: <CustomNextArrow />,
+  };
+
+  return (
+    <ul>
+      <StyledSlider {...settings}>
+        {reviews.map((review, idx) => (
+          <li key={idx}>
+            {review.review}
+            <RatingComponent value={review.raiting} />{' '}
+          </li>
+        ))}
+      </StyledSlider>
+    </ul>
+  );
+};
