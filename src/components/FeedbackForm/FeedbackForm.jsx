@@ -79,7 +79,11 @@ export const FeedbackForm = ({ handleClose }) => {
             name="rating"
             className="mask mask-star-2 bg-stars-color"
             checked={value === ratingValue.toString()}
-            onChange={() => setFieldValue('raiting', ratingValue.toString())}
+            onChange={() => {
+              if (isEditActive || !userReview) {
+                setFieldValue('raiting', ratingValue.toString());
+              }
+            }}
           />
         ))}
       </div>
