@@ -7,12 +7,16 @@ export const SideBarWrap = styled.div`
   padding: 24px 20px;
 
   width: 225px;
-  min-height: 900px;
+  height: 812px;
 
   background-color: ${props => props.theme.colors.sideBar.mainBg};
+ display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   @media screen and (min-width: 768px) {
     width: 289px;
+    height: 1024px;
     padding: 24px 32px;
   }
 
