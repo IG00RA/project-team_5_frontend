@@ -91,7 +91,7 @@ export default function StatisticsChart({
     currentWidth < 768 ? 'mobile' : currentWidth < 1440 ? 'laptop' : 'desctop';
 
   const percentages = [0, 20, 40, 60, 80, 100];
-  // const customFormatter = value => `${value}%`;
+
   const customFormatter = value => (!value ? '' : `${value}%`);
 
   return (

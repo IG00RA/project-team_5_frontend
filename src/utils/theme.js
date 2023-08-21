@@ -295,6 +295,8 @@ export const darkTheme = {
       dayIcon: darkColors.pinkStatus,
       monthIcon: darkColors.blue,
       statisticsBorder: darkColors.blueRGBA,
+      hoverIcon: darkColors.hoverIcon,
+      colorIcon: darkColors.colorIcon,
     },
     notFoundPage: {
       titeText: darkColors.blue,
