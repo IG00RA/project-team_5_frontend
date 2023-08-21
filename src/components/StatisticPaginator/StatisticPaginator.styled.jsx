@@ -1,27 +1,28 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  display: block;
-  padding-left: 28;
   margin-bottom: 20px;
+
   @media (min-width: ${p => p.theme.media.m}) {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding-left: 64px;
+    justify-content: space-around;
     margin-bottom: 40px;
   }
+
   @media (min-width: ${p => p.theme.media.l}) {
-    padding-left: 153px;
+    justify-content: space-between;
+    padding-left: 32px;
+    padding-right: 32px;
   }
 `;
 
 export const PaginatorWrapper = styled.div`
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding-left: 14px;
+  align-items: center;
   margin-bottom: 26px;
+
   @media (min-width: ${p => p.theme.media.m}) {
     gap: 8px;
     margin-bottom: 0;
@@ -31,13 +32,8 @@ export const PaginatorWrapper = styled.div`
 export const List = styled.div`
   display: flex;
   gap: 20px;
+
   align-items: center;
-  @media (min-width: ${p => p.theme.media.m}) {
-    padding-right: 64px;
-  }
-  @media (min-width: ${p => p.theme.media.l}) {
-    padding-right: 154px;
-  }
 `;
 
 export const ListItem = styled.li`
@@ -65,25 +61,6 @@ export const CategoryText = styled.p`
     line-height: 1.13;
   }
 `;
-
-// export const Period = styled.div`
-//   text-align: center;
-//   font-family: Inter;
-//   font-size: 14px;
-//   font-weight: 700;
-//   line-height: calc(18 / 14);
-//   text-transform: uppercase;
-//   border-radius: 8px;
-//   padding: 6px 12px;
-//   background-color: #3e85f3;
-//   color: #fff;
-
-//   @media (min-width: ${p => p.theme.media.m}) {
-//     padding: 8px 12px;
-//     font-size: 16px;
-//     line-height: calc(18 / 16);
-//   }
-// `;
 
 export const ButtonsWrap = styled.div`
   display: flex;
@@ -120,23 +97,3 @@ export const PaginatorBtn = styled.button`
     height: 34px;
   }
 `;
-
-// export const PaginatorBtn = styled.button`
-//   display: inline-flex;
-//   justify-content: center;
-//   align-items: center;
-
-//   width: 36px;
-//   height: 30px;
-//   padding: 7px 10px;
-//   font-weight: 700;
-//   border-radius: ${p => (p.$isPrevBtn ? '8px 0px 0px 8px' : '0px 8px 8px 0px')};
-//   border: 1px solid ${props => props.theme.colors.statisticsPage.todayBorder};
-//   &:hover {
-//     box-shadow: 4px 2px 16px 0px ${props => props.theme.colors.button.shadow};
-//   }
-//   @media screen and (min-width: 768px) {
-//     width: 38px;
-//     height: 34px;
-//   }
-// `;
