@@ -100,6 +100,10 @@ export const ReviewsSlider = ({ reviews }) => {
   );
 };
 
+RatingComponent.propTypes = {
+  value: PropTypes.string.isRequired,
+}
+
 ReviewsSlider.propTypes = {
   reviews: PropTypes.arrayOf(PropTypes.shape({
     raiting: PropTypes.number.isRequired,
