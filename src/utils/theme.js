@@ -10,7 +10,7 @@ export const lightColors = {
   blue: '#3e85f3',
   darkBlue: '#2B78EF',
   lightBlue1: '#dcebf7',
-  lightBlue2: '##E3F3FF',
+  lightBlue2: '#E3F3FF',
   lightBlue3: '#E5EDFA',
   lightBlueActive: '#cae8ff',
   lightGrey: '#F8F8F8',
