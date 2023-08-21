@@ -6,7 +6,7 @@ export const DatePickerWrapper = styled.div`
     border-radius: 16px;
     font-family: inherit;
 
-    width: 100%;
+    width: 300px;
 
     @media screen and (min-width: 375px) {
       width: 327px;
@@ -21,12 +21,13 @@ export const DatePickerWrapper = styled.div`
     color: rgba(255, 255, 255, 0.2);
   }
 
-  .react-datepicker__header {
-  }
-
   .react-datepicker__month-container {
     width: 100%;
-    padding: 9px 13px;
+    padding: 5px 10px;
+
+    @media screen and (min-width: 375px) {
+      padding: 9px 13px;
+    }
 
     @media screen and (min-width: 768px) {
       padding: 9px 18px;
@@ -45,9 +46,14 @@ export const DatePickerWrapper = styled.div`
   .react-datepicker__current-month {
     color: #fff;
     text-align: center;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 600;
-    line-height: calc(24 / 20);
+    line-height: calc(20 / 16);
+
+    @media screen and (min-width: 375px) {
+      font-size: 20px;
+      line-height: calc(24 / 20);
+    }
 
     @media screen and (min-width: 768px) {
       font-size: 24px;
@@ -92,15 +98,20 @@ export const DatePickerWrapper = styled.div`
     align-items: center;
 
     border-radius: 50%;
-    padding: 12px 22px;
+    padding: 10px 18px;
 
-    text-align: center;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 400;
-    line-height: calc(18 / 14);
+    line-height: calc(16 / 12);
     color: #fff;
 
+    @media screen and (min-width: 375px) {
+      font-size: 14px;
+      line-height: calc(18 / 14);
+    }
+
     @media screen and (min-width: 768px) {
+      padding: 12px 22px;
       font-size: 18px;
       line-height: calc(24 / 18);
     }
@@ -122,32 +133,32 @@ export const DatePickerWrapper = styled.div`
   }
 
   .react-datepicker__navigation--next {
-    background: url(../images/rightArrow.png) no-repeat;
-    color: #fff;
-    margin-top: 24px;
-    margin-right: 18px;
-    width: 15px;
-    height: 15px;
-    border: none;
-  }
-
-  .react-datepicker__navigation--next {
-    margin-top: 24px;
+    margin-top: 18px;
     margin-right: 18px;
     font-weight: 400;
     width: 15px;
     height: 15px;
     border: none;
     color: #fff;
+
+    @media screen and (min-width: 375px) {
+      margin-top: 24px;
+      margin-right: 18px;
+    }
   }
 
   .react-datepicker__navigation--previous {
-    margin-top: 24px;
+    margin-top: 18px;
     margin-left: 18px;
     font-weight: 400;
     width: 15px;
     height: 15px;
     border: none;
+
+    @media screen and (min-width: 375px) {
+      margin-top: 24px;
+      margin-right: 18px;
+    }
   }
 
   .react-datepicker-wrapper {
