@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: repeat(5, 1fr);
+  grid-template-rows: repeat(6, 1fr);
   grid-gap: 1.2px;
 
   border-radius: 8px;
@@ -27,7 +27,7 @@ export const Grid = styled.div`
     min-width: 704px;
     min-height: 720px;
   }
-  
+
   @media screen and (min-width: 1440px) {
     min-width: 1067px;
     min-height: 625px;
