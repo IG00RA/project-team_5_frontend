@@ -6,7 +6,7 @@ export const DatePickerWrapper = styled.div`
     border-radius: 16px;
     font-family: inherit;
 
-    width: 316px;
+    width: 100%;
 
     @media screen and (min-width: 375px) {
       width: 327px;

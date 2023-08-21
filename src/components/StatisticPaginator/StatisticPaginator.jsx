@@ -1,6 +1,7 @@
 import sprite from '../../images/svg-sprite/symbol-defs.svg';
 // import DatePickerComponent from 'components/DatePickerComponent/DatePickerComponent';
 // import { useState } from 'react';
+
 import {
   PaginatorWrapper,
   Period,
@@ -70,3 +71,4 @@ function StatisticPaginator({ selectedDate, onDateChange, typeOfPeriod }) {
 }
 
 export default StatisticPaginator;
+

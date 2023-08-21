@@ -3,18 +3,24 @@ import { styled } from 'styled-components';
 export const CloseBtn = styled.button`
   position: relative;
   top: 42px;
-  left: 356px;
+  left: 268px;
+
   color: ${props => props.theme.colors.modal.task.closeBtn};
-  transform: rotate(0);
+  transform: rotate(-90deg);
 
   transition:
-    color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    color 250ms linear,
+    transform 250ms linear;
 
   &:hover,
   &:focus {
     color: ${props => props.theme.colors.button.hoverBg};
     transform: rotate(90deg);
+  }
+
+  @media (min-width: 768px) {
+    top: 42px;
+    left: 356px;
   }
 `;
 
@@ -29,26 +35,41 @@ export const IconClose = styled.svg`
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 16px;
 
-  padding: 40px 28px;
-  width: 396px;
+  padding: 40px 18px;
+  width: 303px;
 
   border-radius: 8px;
   border: 1px solid ${props => props.theme.colors.modal.task.taskFormBorder};
   background-color: ${props => props.theme.colors.modal.task.taskBG};
   box-shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.1);
+
+  @media (min-width: 768px) {
+    gap: 28px;
+
+    padding: 40px 28px;
+    width: 396px;
+  }
 `;
 
 export const InputWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 18px;
+
+  @media (min-width: 768px) {
+    gap: 16px;
+  }
 `;
 
 export const InputTimeWrapper = styled.div`
   display: flex;
-  gap: 14px;
+  gap: 15px;
+
+  @media (min-width: 768px) {
+    gap: 14px;
+  }
 `;
 
 export const InputLabel = styled.label`
@@ -66,7 +87,7 @@ export const InputLabel = styled.label`
 
 export const InputText = styled.input`
   padding: 14px 18px;
-  width: 340px;
+  width: 100%;
   height: 46px;
 
   font-family: Inter;
@@ -91,7 +112,7 @@ export const InputText = styled.input`
 
 export const InputTime = styled.input`
   padding: 14px 18px;
-  width: 163px;
+  min-width: 126px;
   height: 46px;
 
   font-family: Inter;
@@ -106,6 +127,10 @@ export const InputTime = styled.input`
 
   &::-webkit-calendar-picker-indicator {
     display: none;
+  }
+
+  @media (min-width: 768px) {
+    min-width: 163px;
   }
 `;
 

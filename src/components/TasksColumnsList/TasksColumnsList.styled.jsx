@@ -3,6 +3,8 @@ import { styled } from 'styled-components';
 export const List = styled.ul`
   display: flex;
   gap: 16px;
+  flex-basis: calc((100% - 16px) / 3);
+  width: 100%;
 
   margin-top: 16px;
   padding-bottom: 34px;
@@ -12,10 +14,7 @@ export const List = styled.ul`
   white-space: nowrap;
 
   @media (min-width: 768px) {
-    /* overflow: auto;
-    white-space: nowrap; */
-  }
-
-  @media screen and (min-width: 1440px) {
+    overflow: auto;
+    white-space: nowrap;
   }
 `;

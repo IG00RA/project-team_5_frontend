@@ -5,6 +5,7 @@ export const DayCalendarWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
 
+  width: 100%;
   padding: 14px 18px 14px 18px;
 
   border-radius: 8px;
@@ -12,13 +13,10 @@ export const DayCalendarWrapper = styled.div`
   background-color: ${props => props.theme.colors.calendarPage.mainBg};
 
   @media screen and (min-width: 768px) {
-    /* justify-content: space-between;
-    min-width: 704px; */
     padding: 10px 46px 10px 46px;
   }
 
   @media screen and (min-width: 1440px) {
-    max-width: 1067px;
     padding: 10px 46px 10px 46px;
   }
 `;
