@@ -32,6 +32,7 @@ export const lightColors = {
   scrollBarBG: '#f2f2f2',
   hoverIcon: '#343434',
   colorIcon: '#DCE3E5',
+  colorLine: '#E3F3FF',
   lightGreyRGBA: 'rgba(52, 52, 52, 0.8)',
   greyRGBA: 'rgba(52, 52, 52, 0.5)',
   blueRGBA: 'rgba(62, 133, 243, 0.2)',
@@ -63,6 +64,7 @@ const darkColors = {
   darkBG: '#171820',
   hoverIcon: '#ffffff',
   colorIcon: 'rgba(255, 255, 255, 0.15)',
+  colorLine: 'rgba(227, 243, 255, 0.15)',
   darkScrollBarBG: '#2d3037',
   whiteRGBA: 'rgba(255, 255, 255, 0.15)',
   greyRGBA: 'rgba(250, 250, 250, 0.3)',
@@ -159,6 +161,7 @@ export const lightTheme = {
       statisticsBorder: lightColors.lightBlue2,
       hoverIcon: lightColors.hoverIcon,
       colorIcon: lightColors.colorIcon,
+      colorLine: lightColors.colorLine,
     },
     notFoundPage: {
       titeText: lightColors.blue,
@@ -297,6 +300,7 @@ export const darkTheme = {
       statisticsBorder: darkColors.blueRGBA,
       hoverIcon: darkColors.hoverIcon,
       colorIcon: darkColors.colorIcon,
+      colorLine: darkColors.colorLine,
     },
     notFoundPage: {
       titeText: darkColors.blue,

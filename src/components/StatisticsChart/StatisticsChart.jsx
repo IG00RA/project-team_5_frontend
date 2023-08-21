@@ -1,3 +1,4 @@
+import { useSelector } from 'react-redux';
 import {
   Bar,
   XAxis,
@@ -7,13 +8,21 @@ import {
   BarChart,
   ResponsiveContainer,
 } from 'recharts';
+import { selectFilteredTasksByDate } from 'redux/tasks/tasksSelectors';
+import { selectTheme } from 'redux/user/selectors';
+import { darkTheme, lightTheme } from 'utils/theme';
 export default function StatisticsChart({
   selectedDate,
   setSelectedDate,
-  filteredTasksByDate,
+  // filteredTasksByDate,
   filteredTasksByMonth,
 }) {
+  const filteredTasksByDate = useSelector(
+    selectFilteredTasksByDate(selectedDate)
+  );
+  console.log(filteredTasksByDate);
   const allTasksByDay = filteredTasksByDate.length;
+  console.log(allTasksByDay);
 
   const allTasksByMonth = filteredTasksByMonth.length;
 
@@ -74,15 +83,29 @@ export default function StatisticsChart({
     },
   ];
 
+  const theme = useSelector(selectTheme);
+  const themeSwitch = theme === 'light' ? lightTheme : darkTheme;
+
+  const colors = {
+    category: themeSwitch.colors.statisticsPage.mainText,
+    line: themeSwitch.colors.statisticsPage.colorLine,
+  };
+
   const sizes = {
     mobile: {
       gap: 3,
+      fontSizeCategory: 12,
+      lineHeight: 1.33,
     },
     laptop: {
       gap: 8,
+      fontSizeCategory: 14,
+      lineHeight: 1.5,
     },
     desctop: {
       gap: 8,
+      fontSizeCategory: 14,
+      lineHeight: 1.5,
     },
   };
 
@@ -93,6 +116,8 @@ export default function StatisticsChart({
   const percentages = [0, 20, 40, 60, 80, 100];
 
   const customFormatter = value => (!value ? '' : `${value}%`);
+
+  console.log(colors.line);
 
   return (
     <>
@@ -141,12 +166,7 @@ export default function StatisticsChart({
               />
             </linearGradient>
           </defs>
-          <CartesianGrid
-            // x={125}
-            stroke="#E3F3FF"
-            vertical={false}
-            // width={500}
-          />
+          <CartesianGrid stroke={colors.line} vertical={false} />
           <XAxis
             axisLine={{ stroke: 'transparent' }}
             dataKey="name"
@@ -158,10 +178,11 @@ export default function StatisticsChart({
                 y={props.y}
                 dy={16}
                 textAnchor="middle"
-                fill="#343434"
+                fill={colors.category}
                 fontFamily="Poppins"
-                fontSize={14}
+                fontSize={sizes[viewport].fontSizeCategory}
                 fontWeight={400}
+                style={{ lineHeight: sizes[viewport].lineHeight }}
               >
                 {props.payload.value}
               </text>
@@ -204,7 +225,6 @@ export default function StatisticsChart({
               fontSize={16}
               // fontWeight={500}
               formatter={customFormatter}
-              isAnimationActive={false}
             />
           </Bar>
         </BarChart>

@@ -54,7 +54,9 @@ export const ColoredSquare = styled.div`
 `;
 
 export const CategoryText = styled.p`
-  color: ${props => props.theme.colors.statisticsPage.mainText};
+  color: ${props => {
+    return props.theme.colors.statisticsPage.mainText;
+  }};
   font-family: Inter;
   font-size: 14px;
   font-weight: 400;
