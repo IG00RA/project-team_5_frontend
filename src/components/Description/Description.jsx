@@ -1,7 +1,18 @@
-import React from 'react';
-import {Wrap, SecondSectionWrap, DesktopSectionWrap, Number, Title, Subtitle, Text, Image, DarkTitle, LastTitle, SectionWrap} from './Description.styled'
+import {
+  Wrap,
+  SecondSectionWrap,
+  DesktopSectionWrap,
+  Number,
+  Title,
+  Subtitle,
+  Text,
+  Image,
+  DarkTitle,
+  LastTitle,
+  SectionWrap,
+} from './Description.styled';
 import CalendarMob from '../../images/landing-page/mobile/image-mobile-1.jpg';
-import CalendarMob2x from '../../images/landing-page/mobile/image-mobile-1-2x.jpg'
+import CalendarMob2x from '../../images/landing-page/mobile/image-mobile-1-2x.jpg';
 import SidebarMob from '../../images/landing-page/mobile/image-mobile-2.jpg';
 import SidebarMob2x from '../../images/landing-page/mobile/image-mobile-2-2x.jpg';
 import AllMob from '../../images/landing-page/mobile/image-mobile-3.jpg';
@@ -22,7 +33,6 @@ import AllDesk from '../../images/landing-page/desktop/image-desktop-3.jpg';
 import AllDesk2x from '../../images/landing-page/desktop/image-desktop-3-2x.jpg';
 
 export const Description = () => {
-
   const isRetina = window.devicePixelRatio > 1;
 
   const calendarPicture = ` ${isRetina ? CalendarMob2x : CalendarMob} 375w,
@@ -37,22 +47,22 @@ export const Description = () => {
                           ${isRetina ? AllTab2x : AllTab} 768w,
                           ${isRetina ? AllDesk2x : AllDesk} 769w`;
 
-  
   return (
     <Wrap>
-
       <SectionWrap>
         <div>
-        <Number>1.</Number>
-        <Title>Calendar</Title>
-        <Subtitle>View</Subtitle>
-        <Text>
-          GooseTrack's Calendar view provides a comprehensive overview of your schedule, displaying all your tasks, events, and appointments in a visually appealing and intuitive layout.
+          <Number>1.</Number>
+          <Title>Calendar</Title>
+          <Subtitle>View</Subtitle>
+          <Text>
+            GooseTrack's Calendar view provides a comprehensive overview of your
+            schedule, displaying all your tasks, events, and appointments in a
+            visually appealing and intuitive layout.
           </Text>
         </div>
         <Image
           srcSet={calendarPicture}
-          sizes='(max-width: 375px) 375px, (max-width: 768px) 768px, (min-width: 769px) 769px'
+          sizes="(max-width: 375px) 375px, (max-width: 768px) 768px, (min-width: 769px) 769px"
           src={CalendarMob}
           alt="Picture calendar"
         />
@@ -60,41 +70,45 @@ export const Description = () => {
 
       <SectionWrap>
         <DesktopSectionWrap>
-        <SecondSectionWrap>
-        <Number>2.</Number>
-        <DarkTitle>Sidebar</DarkTitle>
-        <Text>
-          GooseTrack offers easy access to your account settings, calendar, and filters. The "My Account" section allows you to manage your profile information and preferences, while the calendar provides a quick and convenient way to view your upcoming events and tasks.
-        </Text>
-        </SecondSectionWrap>
-        <Image
-          srcSet={sidebarPicture}
-          sizes='(max-width: 375px) 375px, (max-width: 768px) 768px, (min-width: 769px) 769px'
-          src={SidebarMob}
-          alt="Picture sidebar"
-        />
+          <SecondSectionWrap>
+            <Number>2.</Number>
+            <DarkTitle>Sidebar</DarkTitle>
+            <Text>
+              GooseTrack offers easy access to your account settings, calendar,
+              and filters. The "My Account" section allows you to manage your
+              profile information and preferences, while the calendar provides a
+              quick and convenient way to view your upcoming events and tasks.
+            </Text>
+          </SecondSectionWrap>
+          <Image
+            srcSet={sidebarPicture}
+            sizes="(max-width: 375px) 375px, (max-width: 768px) 768px, (min-width: 769px) 769px"
+            src={SidebarMob}
+            alt="Picture sidebar"
+          />
         </DesktopSectionWrap>
       </SectionWrap>
 
       <SectionWrap>
         <div>
-        <Number>3.</Number>
-        <LastTitle>All in</LastTitle>
-        <Subtitle>One</Subtitle>
-        <Text>
-          GooseTrack is an all-in-one productivity tool that helps you stay on top of your tasks, events, and deadlines. Say goodbye to scattered to-do lists and hello to streamlined productivity with GooseTrack.
-        </Text>
+          <Number>3.</Number>
+          <LastTitle>All in</LastTitle>
+          <Subtitle>One</Subtitle>
+          <Text>
+            GooseTrack is an all-in-one productivity tool that helps you stay on
+            top of your tasks, events, and deadlines. Say goodbye to scattered
+            to-do lists and hello to streamlined productivity with GooseTrack.
+          </Text>
         </div>
         <Image
           srcSet={allDeskPicture}
-          sizes='(max-width: 375px) 375px, (max-width: 768px) 768px, (min-width: 769px) 769px'
+          sizes="(max-width: 375px) 375px, (max-width: 768px) 768px, (min-width: 769px) 769px"
           src={AllMob}
           alt="Picture all application"
         />
       </SectionWrap>
-      
     </Wrap>
-  )
+  );
 };
 
 export default Description;

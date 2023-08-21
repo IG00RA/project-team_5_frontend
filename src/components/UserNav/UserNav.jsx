@@ -6,11 +6,15 @@ import {
   UserNavTitle,
   UserNavItem,
 } from './UserNav.styled';
-import React from 'react';
 import sprite from '../../images/svg-sprite/symbol-defs.svg';
+import { useLocation } from 'react-router-dom';
 
 const UserNav = ({ closeModalMenu }) => {
   const currentDay = moment();
+  const location = useLocation();
+  const locationURL = location.pathname;
+
+  const isCalendarActive = locationURL.startsWith('/calendar');
 
   const handleCloseModalMenu = () => {
     closeModalMenu(false);
@@ -27,25 +31,8 @@ const UserNav = ({ closeModalMenu }) => {
       </UserNavItem>
       <UserNavItem
         to={`/calendar/month/${currentDay.format('YYYY-MM-DD')}`}
-
-        // isActive={(_match, location) => {
-        //   return (
-        //     location.pathname.startsWith(
-        //       `/calendar/month/${currentDay.format('YYYY-MM-DD')}`
-        //     ) ||
-        //     location.pathname.startsWith(
-        //       `/calendar/day/${currentDay.format('YYYY-MM-DD')}`
-        //     )
-        //   );
-        // }}
-
+        className={isCalendarActive ? 'active' : ''}
         onClick={handleCloseModalMenu}
-        // isActive={(match, location) => {
-        //   if (!match) {
-        //     return false;
-        //   }
-        //   return location.pathname.includes('/calendar');
-        // }}
       >
         <StyledIcon>
           <use href={sprite + '#icon-nav-calendar'} />
