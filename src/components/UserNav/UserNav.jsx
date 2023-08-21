@@ -27,6 +27,7 @@ const UserNav = ({ closeModalMenu }) => {
       </UserNavItem>
       <UserNavItem
         to={`/calendar/month/${currentDay.format('YYYY-MM-DD')}`}
+
         // isActive={(_match, location) => {
         //   return (
         //     location.pathname.startsWith(
@@ -37,6 +38,7 @@ const UserNav = ({ closeModalMenu }) => {
         //     )
         //   );
         // }}
+
         onClick={handleCloseModalMenu}
         // isActive={(match, location) => {
         //   if (!match) {

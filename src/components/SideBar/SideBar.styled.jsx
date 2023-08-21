@@ -3,22 +3,22 @@ import styled from 'styled-components';
 export const SideBarWrap = styled.div`
   position: absolute;
   z-index: 1;
-
   padding: 24px 20px;
-
   width: 225px;
-  min-height: 900px;
-
+  height: 812px;
   background-color: ${props => props.theme.colors.sideBar.mainBg};
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   @media screen and (min-width: 768px) {
     width: 289px;
+    height: 1024px;
     padding: 24px 32px;
   }
 
   @media screen and (min-width: 1440px) {
     position: static;
-
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -27,6 +27,9 @@ export const SideBarWrap = styled.div`
   }
 
   @media screen and (max-width: 1439px) {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
     transform: translateX(-100%);
     transition: transform 350ms ease-in-out;
 

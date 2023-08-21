@@ -1,3 +1,5 @@
+import { useMemo } from 'react';
+import { useSelector } from 'react-redux';
 import {
   Bar,
   XAxis,
@@ -7,6 +9,9 @@ import {
   BarChart,
   ResponsiveContainer,
 } from 'recharts';
+
+import { selectTheme } from 'redux/user/selectors';
+import { darkTheme, lightTheme } from 'utils/theme';
 export default function StatisticsChart({
   selectedDate,
   setSelectedDate,
@@ -14,6 +19,7 @@ export default function StatisticsChart({
   filteredTasksByMonth,
 }) {
   const allTasksByDay = filteredTasksByDate.length;
+  console.log(allTasksByDay);
 
   const allTasksByMonth = filteredTasksByMonth.length;
 
@@ -56,33 +62,75 @@ export default function StatisticsChart({
     Math.max(toDoByMonthPercent, inProgressByMonthPercent, doneByMonthPercent) /
       100 || 0;
 
-  const data = [
-    {
-      name: 'To Do',
-      byDay: Math.ceil(toDoByDayPercent),
-      byMonth: Math.ceil(toDoByMonthPercent),
-    },
-    {
-      name: 'In Progress',
-      byDay: Math.ceil(inProgressByDayPercent),
-      byMonth: Math.ceil(inProgressByMonthPercent),
-    },
-    {
-      name: 'Done',
-      byDay: Math.ceil(doneByDayPercent),
-      byMonth: Math.ceil(doneByMonthPercent),
-    },
-  ];
+  const data = useMemo(
+    () => [
+      {
+        name: 'To Do',
+        byDay: Math.ceil(toDoByDayPercent),
+        byMonth: Math.ceil(toDoByMonthPercent),
+      },
+      {
+        name: 'In Progress',
+        byDay: Math.ceil(inProgressByDayPercent),
+        byMonth: Math.ceil(inProgressByMonthPercent),
+      },
+      {
+        name: 'Done',
+        byDay: Math.ceil(doneByDayPercent),
+        byMonth: Math.ceil(doneByMonthPercent),
+      },
+    ],
+    [
+      toDoByMonthPercent,
+      inProgressByMonthPercent,
+      doneByMonthPercent,
+      toDoByDayPercent,
+      inProgressByDayPercent,
+      doneByDayPercent,
+    ]
+  );
+
+  // const data = [
+  //   {
+  //     name: 'To Do',
+  //     byDay: Math.ceil(toDoByDayPercent),
+  //     byMonth: Math.ceil(toDoByMonthPercent),
+  //   },
+  //   {
+  //     name: 'In Progress',
+  //     byDay: Math.ceil(inProgressByDayPercent),
+  //     byMonth: Math.ceil(inProgressByMonthPercent),
+  //   },
+  //   {
+  //     name: 'Done',
+  //     byDay: Math.ceil(doneByDayPercent),
+  //     byMonth: Math.ceil(doneByMonthPercent),
+  //   },
+  // ];
+
+  const theme = useSelector(selectTheme);
+  const themeSwitch = theme === 'light' ? lightTheme : darkTheme;
+
+  const colors = {
+    category: themeSwitch.colors.statisticsPage.mainText,
+    line: themeSwitch.colors.statisticsPage.colorLine,
+  };
 
   const sizes = {
     mobile: {
-      gap: 3,
+      gap: 8,
+      fontSizeCategory: 12,
+      lineHeight: 1.33,
     },
     laptop: {
-      gap: 8,
+      gap: 14,
+      fontSizeCategory: 14,
+      lineHeight: 1.5,
     },
     desctop: {
-      gap: 8,
+      gap: 14,
+      fontSizeCategory: 14,
+      lineHeight: 1.5,
     },
   };
 
@@ -94,17 +142,19 @@ export default function StatisticsChart({
 
   const customFormatter = value => (!value ? '' : `${value}%`);
 
+  console.log(colors.line);
+
   return (
     <>
       <ResponsiveContainer width="100%" minHeight={440}>
         <BarChart
-          // width={780}
-          // height={440}
+          width={780}
+          height={440}
           minHeight={440}
           data={data}
           barGap={sizes[viewport].gap}
           margin={{
-            top: 10,
+            top: 20,
             right: 0,
             left: 0,
             bottom: 0,
@@ -142,12 +192,7 @@ export default function StatisticsChart({
               />
             </linearGradient>
           </defs>
-          <CartesianGrid
-            // x={125}
-            stroke="#E3F3FF"
-            vertical={false}
-            // width={500}
-          />
+          <CartesianGrid stroke={colors.line} vertical={false} />
           <XAxis
             axisLine={{ stroke: 'transparent' }}
             dataKey="name"
@@ -159,10 +204,11 @@ export default function StatisticsChart({
                 y={props.y}
                 dy={16}
                 textAnchor="middle"
-                fill="#343434"
+                fill={colors.category}
                 fontFamily="Poppins"
-                fontSize={14}
+                fontSize={sizes[viewport].fontSizeCategory}
                 fontWeight={400}
+                style={{ lineHeight: sizes[viewport].lineHeight }}
               >
                 {props.payload.value}
               </text>
@@ -205,7 +251,6 @@ export default function StatisticsChart({
               fontSize={16}
               // fontWeight={500}
               formatter={customFormatter}
-              isAnimationActive={false}
             />
           </Bar>
         </BarChart>
