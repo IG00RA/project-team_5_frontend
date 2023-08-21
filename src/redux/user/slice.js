@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { changeProfile, fetchUser, toggleTheme } from './operations';
+import { logout } from 'redux/auth/operations';
 
 const pendingReducer = state => {
   state.isLoading = true;
@@ -45,6 +46,18 @@ const toggleThemeReducer = (state, { payload }) => {
   state.isLoading = false;
 };
 
+const logoutReducer = state => {
+  state.userName = null;
+  state.birthday = null;
+  state.email = null;
+  state.phone = null;
+  state.skype = null;
+  state.avatarURL = null;
+  state.theme = null;
+  state.isLoading = false;
+  state.error = null;
+};
+
 const initialState = {
   userName: null,
   birthday: null,
@@ -69,7 +82,8 @@ const userSlice = createSlice({
       .addCase(fetchUser.fulfilled, fetchUserReducer)
       .addCase(fetchUser.rejected, rejectedReducer)
       .addCase(toggleTheme.fulfilled, toggleThemeReducer)
-      .addCase(toggleTheme.rejected, rejectedReducer),
+      .addCase(toggleTheme.rejected, rejectedReducer)
+      .addCase(logout.pending, logoutReducer),
 });
 
 export const userReducer = userSlice.reducer;

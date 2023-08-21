@@ -5,6 +5,7 @@ import {
   updateTask,
   deleteTask,
 } from './tasksOperations';
+import { logout } from 'redux/auth/operations';
 
 const tasksInitialState = {
   tasks: [],
@@ -49,6 +50,12 @@ const handleRejected = (state, action) => {
   state.error = action.payload;
 };
 
+const logoutReducer = state => {
+  state.tasks = [];
+  state.isLoading = false;
+  state.error = null;
+};
+
 const tasksSlice = createSlice({
   name: 'tasks',
   initialState: tasksInitialState,
@@ -58,6 +65,7 @@ const tasksSlice = createSlice({
       .addCase(addTask.fulfilled, handleFulfilledAdd)
       .addCase(updateTask.fulfilled, handleFulfilledUpdate)
       .addCase(deleteTask.fulfilled, handleFulfilledDelete)
+      .addCase(logout.pending, logoutReducer)
       .addMatcher(
         isAnyOf(
           getAllTasks.pending,

@@ -5,6 +5,7 @@ import {
   removeReview,
   updateReview,
 } from './reviewOperations';
+import { logout } from 'redux/auth/operations';
 
 const pendingReducer = state => {
   state.isLoading = true;
@@ -47,6 +48,11 @@ const removeReviewReducer = state => {
   state.raiting = null;
 };
 
+const logoutReducer = state => {
+  state.review = null;
+  state.raiting = null;
+};
+
 const reviewSlice = createSlice({
   name: 'review',
   initialState: {
@@ -69,7 +75,8 @@ const reviewSlice = createSlice({
       .addCase(updateReview.rejected, rejectedReducer)
       .addCase(removeReview.pending, pendingReducer)
       .addCase(removeReview.fulfilled, removeReviewReducer)
-      .addCase(removeReview.rejected, rejectedReducer),
+      .addCase(removeReview.rejected, rejectedReducer)
+      .addCase(logout.pending, logoutReducer),
 });
 
 export const reviewReducer = reviewSlice.reducer;
