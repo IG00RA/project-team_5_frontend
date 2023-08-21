@@ -10,10 +10,10 @@ export const SideBarWrap = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 100vh;
 
   @media screen and (min-width: 768px) {
     width: 289px;
-    height: 1024px;
     padding: 24px 32px;
   }
 
@@ -22,11 +22,12 @@ export const SideBarWrap = styled.div`
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-
+    max-height: 900px;
     padding: 32px 24px 24px;
   }
 
   @media screen and (max-width: 1439px) {
+    max-height: 1024px;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
