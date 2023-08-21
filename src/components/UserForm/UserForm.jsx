@@ -87,6 +87,10 @@ export default function UserForm() {
         onSubmit={onSubmit}
       >
         {({ values, setFieldValue, handleSubmit }) => {
+          const currentBirthday = values.birthday
+            ? new Date(values.birthday)
+            : new Date();
+
           const inputHandler = e => {
             const { name, value } = e.target;
             setFieldValue(name, value);
@@ -117,15 +121,6 @@ export default function UserForm() {
               ? setSubmitButtonDisabled()
               : setSubmitButtonActive();
           };
-
-          // const birthdayHandler = e => {
-          //   const { name, value } = e.target;
-          //   setFieldValue(name, value);
-
-          //   compareWithRedux(name, value)
-          //     ? setSubmitButtonDisabled()
-          //     : setSubmitButtonActive();
-          // };
 
           return (
             <UserInfoForm onSubmit={handleSubmit}>
@@ -190,7 +185,7 @@ export default function UserForm() {
               <CommonField>
                 <Label>Birthday</Label>
                 <DatePickerComponent
-                  startDate={new Date(values.birthday)}
+                  startDate={currentBirthday}
                   setStartDate={setStartDate}
                   customInput={<DatePickerUserFormInput />}
                 />
