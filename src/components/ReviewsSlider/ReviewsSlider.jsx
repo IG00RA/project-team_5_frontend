@@ -26,7 +26,7 @@ const RatingComponent = ({ value }) => {
 };
 
 export const ReviewsSlider = ({ reviews }) => {
-  const [slide, setSlide] = useState(1);
+  const [slide, setSlide] = useState(window.innerWidth >= 1440 ? 2 : 1);
   
   useEffect(() => {
     const handleViewportChange = () => {
