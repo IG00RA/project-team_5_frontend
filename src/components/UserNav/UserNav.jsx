@@ -8,6 +8,7 @@ import {
 } from './UserNav.styled';
 import sprite from '../../images/svg-sprite/symbol-defs.svg';
 import { useLocation } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const UserNav = ({ closeModalMenu }) => {
   const currentDay = moment();
@@ -47,6 +48,10 @@ const UserNav = ({ closeModalMenu }) => {
       </UserNavItem>
     </UserNavWrap>
   );
+};
+
+UserNav.propTypes = {
+  closeModalMenu: PropTypes.func.isRequired,
 };
 
 export default UserNav;
