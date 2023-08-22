@@ -13,7 +13,7 @@ export const StatisticsWrapper = styled.div`
   }
   @media (min-width: ${p => p.theme.media.l}) {
     max-height: 752px;
-    padding: 134px 114px 104px 113px;
+    padding: 75px 114px 104px 113px;
   }
 `;
 
