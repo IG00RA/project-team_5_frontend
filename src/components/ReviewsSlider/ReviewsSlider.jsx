@@ -1,7 +1,9 @@
 import 'slick-carousel/slick/slick.css';
 import sprite from '../../images/svg-sprite/symbol-defs.svg';
+import userLogo from '../../images/landing-page/user-logo-review.webp';
 import { StyledSliser, ReviewsWrapper, Title, Img, ReviewWrapper, Name, Review, BtnArrowPrev, BtnArrowNext, Icon } from './ReviewsSlider.styled';
 import { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 
 const RatingComponent = ({ value }) => {
   const maxRating = 5;
@@ -78,7 +80,12 @@ export const ReviewsSlider = ({ reviews }) => {
           {reviews.map((review) => (
             <li key={review.owner._id}>
               <ReviewWrapper>
-                <Img src={review.owner.avatarURL} alt={review.owner.userName} />
+                <Img src={review.owner.avatarURL}
+                  alt={review.owner.userName}
+                  onError={(e) => {
+                    e.target.src = { userLogo };
+                  }}
+                />
                 <div>
                   <Name>{review.owner.userName}</Name>
                   <RatingComponent value={review.raiting} />
@@ -92,3 +99,19 @@ export const ReviewsSlider = ({ reviews }) => {
     </ReviewsWrapper>
   );
 };
+
+RatingComponent.propTypes = {
+  value: PropTypes.string.isRequired,
+}
+
+ReviewsSlider.propTypes = {
+  reviews: PropTypes.arrayOf(PropTypes.shape({
+    raiting: PropTypes.number.isRequired,
+    review: PropTypes.string.isRequired,
+    owner: PropTypes.shape({
+      _id: PropTypes.string.isRequired,
+      userName: PropTypes.string.isRequired,
+      avatarURL: PropTypes.string.isRequired,
+    }),
+  })).isRequired,
+}

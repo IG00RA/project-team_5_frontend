@@ -147,6 +147,7 @@ export const CommonInput = styled.input`
   font-style: normal;
   font-weight: 600;
   line-height: calc(18 / 14);
+  cursor: pointer;
 
   @media screen and (min-width: 768px) {
     padding: 14px 18px;
