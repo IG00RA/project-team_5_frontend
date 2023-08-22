@@ -112,7 +112,7 @@ export default function StatisticsChart({
       labelLineHeight: 1.13,
       barSize: 27,
     },
-    desctop: {
+    desktop: {
       gap: 14,
       fontSizeCategory: 14,
       fontSizeLabel: 16,
@@ -124,7 +124,7 @@ export default function StatisticsChart({
 
   const currentWidth = window.innerWidth;
   const viewport =
-    currentWidth < 768 ? 'mobile' : currentWidth < 1440 ? 'laptop' : 'desctop';
+    currentWidth < 768 ? 'mobile' : currentWidth < 1440 ? 'laptop' : 'desktop';
 
   const percentages = [0, 20, 40, 60, 80, 100];
 
