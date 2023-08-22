@@ -80,3 +80,7 @@
 ###### ["Goose Track - Backend" ](https://github.com/IG00RA/project-team_5_backend)
 
 ---
+
+### Swagger документація до проєкту "Goose Track":
+
+###### ["Goose Track - Swagger" ](https://project-team-5-backend.onrender.com/api-docs/)
