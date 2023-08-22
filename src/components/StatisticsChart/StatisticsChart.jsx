@@ -187,7 +187,7 @@ export default function StatisticsChart({
                 dy={16}
                 textAnchor="middle"
                 fill={colors.category}
-                fontFamily="Poppins"
+                fontFamily="Inter"
                 fontSize={sizes[viewport].fontSizeCategory}
                 fontWeight={400}
                 style={{ lineHeight: sizes[viewport].lineHeight }}
@@ -201,9 +201,22 @@ export default function StatisticsChart({
             ticks={percentages}
             axisLine={{ stroke: 'transparent' }}
             tickLine={{ stroke: 'transparent' }}
-            // tick={{ dx: 32 }}
-            // tick={{ dy: -2 }}
             tickSize={32}
+            tick={props => (
+              <text
+                x={props.x}
+                y={props.y}
+                dy={3}
+                textAnchor="middle"
+                fill={colors.category}
+                fontFamily="Inter"
+                fontSize={14}
+                fontWeight={400}
+                style={{ lineHeight: 1.5 }}
+              >
+                {props.payload.value}
+              </text>
+            )}
           />
           <Bar
             dataKey="byDay"
