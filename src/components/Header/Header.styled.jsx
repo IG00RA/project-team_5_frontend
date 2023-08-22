@@ -2,10 +2,13 @@ import styled from 'styled-components';
 
 export const Wrap = styled.div`
   display: flex;
-  justify-content: space-between;
   margin-bottom: 64px;
   align-items: center;
   width: 100%;
+
+  @media (min-width: 375px) {
+    justify-content: space-between;
+  }
   
   @media (min-width: 1440px) {
     margin-bottom: 32px;
@@ -14,9 +17,14 @@ export const Wrap = styled.div`
 
 export const UserWrap = styled.div`
   display: flex;
-  gap: 18px;
+  margin-left: 4px;
   align-items: center;
-  margin-left: auto;
+
+  @media (min-width: 375px) {
+    margin-left: auto;
+    gap: 18px;
+  }
+
   @media (min-width: 768px) {
     gap: 24px;
   }
@@ -26,18 +34,25 @@ export const MenuIcon = styled.svg`
   display: ${({ open }) => (open ? 'none' : 'flex')};
   fill: transparent;
   stroke: ${props => props.theme.colors.header.titleText};
-  height: 24px;
-  width: 24px;
+  height: 22px;
+  width: 22px;
   cursor: pointer;
+
+  @media (min-width: 375px) {
+    height: 24px;
+    width: 24px;
+  }
 
   @media (min-width: 765px) {
     height: 34px;
     width: 34px;
   }
+
   @media (min-width: 1440px) {
     display: none;
   }
 `;
+
 export const Title = styled.h2`
   color: ${props => props.theme.colors.header.titleText};
   display: none;
@@ -67,6 +82,7 @@ export const MotivationText = styled.p`
 export const AccentText = styled.span`
   color: ${props => props.theme.colors.header.accent};
 `;
+
 export const MotivationImg = styled.img`
   display: none;
 

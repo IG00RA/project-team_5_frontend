@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import sprite from '../../images/svg-sprite/symbol-defs.svg';
 import { Icon, IconBtn, Title, Wrapper } from './ColumnHeadBar.styled';
 
@@ -12,4 +13,9 @@ export const ColumnHeadBar = ({ ColumnTitle, openModal }) => {
       </IconBtn>
     </Wrapper>
   );
+};
+
+ColumnHeadBar.propTypes = {
+  ColumnTitle: PropTypes.string.isRequired,
+  openModal: PropTypes.func.isRequired,
 };

@@ -19,6 +19,7 @@ const UserNav = ({ closeModalMenu }) => {
 
   const handleCloseModalMenu = () => {
     closeModalMenu(false);
+    document.body.style.overflow = 'auto';
   };
 
   return (

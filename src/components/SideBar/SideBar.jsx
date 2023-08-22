@@ -8,7 +8,6 @@ import {
   StyledCloseButton,
   Overlay,
   SpanSpec,
-  LogoAndNavWrap,
 } from './SideBar.styled';
 import LogoutButton from '../Buttons/LogoutButton/LogoutButton';
 import GooseDeskLogo2x from '../../images/goose-logo/goose-logo-desktop-2x.webp';
@@ -25,18 +24,13 @@ export const SideBar = ({ isModalMenuOpen, closeModalMenu }) => {
 
   const handleCloseModalMenu = () => {
     closeModalMenu(false);
-
-    if (isModalMenuOpen) {
-      document.body.style.overflow = 'auto';
-    } else {
-      document.body.style.overflow = 'hidden';
-    }
+    document.body.style.overflow = 'auto';
   };
 
   return (
     <>
       <SideBarWrap className={isModalMenuOpen && 'openModalMenu'}>
-        <LogoAndNavWrap>
+        <div>
           <TopWrap>
             <StyledLogoWrapper>
               <SideBarImg src={`${GooseDeskLogo2x}`} />
@@ -49,7 +43,7 @@ export const SideBar = ({ isModalMenuOpen, closeModalMenu }) => {
             </StyledCloseButton>
           </TopWrap>
           <UserNav closeModalMenu={closeModalMenu} />
-        </LogoAndNavWrap>
+        </div>
         <LogoutButton onClick={handleLogOut} />
       </SideBarWrap>
       {isModalMenuOpen && <Overlay onClick={handleCloseModalMenu} />}

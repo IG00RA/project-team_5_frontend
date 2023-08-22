@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { TaskColumnCard } from "components/TaskColumnCard/TaskColumnCard";
 import { List } from "./ColumnTasksList.styled";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
@@ -36,4 +37,10 @@ export const ColumnTasksList = ({ tasksColection, openModal, ColumnTitle }) => {
       </Droppable>
     </DragDropContext>
   );
+};
+
+ColumnTasksList.propTypes = {
+  ColumnTitle: PropTypes.string.isRequired,
+  tasksColection: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  openModal: PropTypes.func.isRequired,
 };

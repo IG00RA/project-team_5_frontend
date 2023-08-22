@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import {
@@ -171,4 +172,16 @@ export const TaskForm = ({
       </Form>
     </>
   );
+};
+
+TaskForm.propTypes = {
+  ColumnTitle: PropTypes.string.isRequired,
+  closeModal: PropTypes.func.isRequired,
+  task: PropTypes.shape({
+    _id: PropTypes.string,
+    title: PropTypes.string,
+    start: PropTypes.string,
+    end: PropTypes.string,
+    priority: PropTypes.string,
+  }),
 };

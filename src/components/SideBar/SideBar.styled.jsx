@@ -1,16 +1,20 @@
 import styled from 'styled-components';
 
 export const SideBarWrap = styled.div`
-  position: absolute;
-  z-index: 1;
-  padding: 24px 20px;
-  width: 225px;
-  height: 812px;
-  background-color: ${props => props.theme.colors.sideBar.mainBg};
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  position: absolute;
+  top: 0;
+  z-index: 1;
+
+  padding: 24px 20px;
+  
   height: 100vh;
+  width: 225px;
+
+  background-color: ${props => props.theme.colors.sideBar.mainBg};
 
   @media screen and (min-width: 768px) {
     width: 289px;
@@ -18,19 +22,11 @@ export const SideBarWrap = styled.div`
   }
 
   @media screen and (min-width: 1440px) {
-    position: static;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    max-height: 900px;
+    position: sticky;
     padding: 32px 24px 24px;
   }
 
   @media screen and (max-width: 1439px) {
-    max-height: 1024px;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
     transform: translateX(-100%);
     transition: transform 350ms ease-in-out;
 
@@ -87,9 +83,6 @@ export const TopWrap = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* align-items: center; */
-  /* justify-content: center;
-  margin-right: 39px; */
 
   @media screen and (min-width: 768px) {
     margin-bottom: 50px;
@@ -100,17 +93,11 @@ export const TopWrap = styled.div`
   }
 `;
 
-export const LogoAndNavWrap = styled.div``;
-
 export const StyledLogoWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* margin-bottom: 64px; */
 
-  @media (min-width: 768px) {
-    /* margin-bottom: 32px; */
-  }
   @media (min-width: 1440px) {
     justify-content: flex-start;
     margin-bottom: 0px;

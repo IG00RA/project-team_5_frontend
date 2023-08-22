@@ -14,6 +14,12 @@ const MainLayout = () => {
   useEffect(() => {
     dispatch(fetchUser());
   }, [dispatch]);
+
+  const openMenu = () => {
+    setIsModalMenuOpen(true)
+    document.body.style.overflow = 'hidden';
+  };
+
   return (
     <>
       <Container>
@@ -24,7 +30,7 @@ const MainLayout = () => {
         <Wrapper>
           <Header
             isModalMenuOpen={isModalMenuOpen}
-            openMenu={() => setIsModalMenuOpen(true)}
+            openMenu={openMenu}
           />
           <Suspense
             fallback={
