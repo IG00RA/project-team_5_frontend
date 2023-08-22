@@ -5,7 +5,7 @@ export const SideBarWrap = styled.div`
   flex-direction: column;
   justify-content: space-between;
 
-  position: sticky;
+  position: absolute;
   top: 0;
   z-index: 1;
 
@@ -22,6 +22,7 @@ export const SideBarWrap = styled.div`
   }
 
   @media screen and (min-width: 1440px) {
+    position: sticky;
     padding: 32px 24px 24px;
   }
 
