@@ -9,18 +9,16 @@ import {
   BarChart,
   ResponsiveContainer,
 } from 'recharts';
-
 import { selectTheme } from 'redux/user/selectors';
 import { darkTheme, lightTheme } from 'utils/theme';
+
 export default function StatisticsChart({
-  selectedDate,
-  setSelectedDate,
   filteredTasksByDate,
   filteredTasksByMonth,
 }) {
-  const allTasksByDay = filteredTasksByDate.length;
+  const allTasksByDay = filteredTasksByDate?.length;
 
-  const allTasksByMonth = filteredTasksByMonth.length;
+  const allTasksByMonth = filteredTasksByMonth?.length;
 
   const toDoByDayPercent =
     (filteredTasksByDate?.filter(task => task?.category === 'to-do').length /
@@ -34,7 +32,7 @@ export default function StatisticsChart({
     100;
 
   const doneByDayPercent =
-    (filteredTasksByDate.filter(task => task?.category === 'done').length /
+    (filteredTasksByDate?.filter(task => task?.category === 'done').length /
       allTasksByDay) *
     100;
 
@@ -50,7 +48,7 @@ export default function StatisticsChart({
     100;
 
   const doneByMonthPercent =
-    (filteredTasksByMonth.filter(task => task?.category === 'done').length /
+    (filteredTasksByMonth?.filter(task => task?.category === 'done').length /
       allTasksByMonth) *
     100;
   const maxByDayOffset =
@@ -89,24 +87,6 @@ export default function StatisticsChart({
     ]
   );
 
-  // const data = [
-  //   {
-  //     name: 'To Do',
-  //     byDay: Math.ceil(toDoByDayPercent),
-  //     byMonth: Math.ceil(toDoByMonthPercent),
-  //   },
-  //   {
-  //     name: 'In Progress',
-  //     byDay: Math.ceil(inProgressByDayPercent),
-  //     byMonth: Math.ceil(inProgressByMonthPercent),
-  //   },
-  //   {
-  //     name: 'Done',
-  //     byDay: Math.ceil(doneByDayPercent),
-  //     byMonth: Math.ceil(doneByMonthPercent),
-  //   },
-  // ];
-
   const theme = useSelector(selectTheme);
   const themeSwitch = theme === 'light' ? lightTheme : darkTheme;
 
@@ -119,19 +99,25 @@ export default function StatisticsChart({
     mobile: {
       gap: 8,
       fontSizeCategory: 12,
+      fontSizeLabel: 12,
       lineHeight: 1.33,
+      labelLineHeight: 1.33,
       barSize: 22,
     },
     laptop: {
       gap: 14,
       fontSizeCategory: 14,
+      fontSizeLabel: 16,
       lineHeight: 1.5,
+      labelLineHeight: 1.13,
       barSize: 27,
     },
     desctop: {
       gap: 14,
       fontSizeCategory: 14,
+      fontSizeLabel: 16,
       lineHeight: 1.5,
+      labelLineHeight: 1.13,
       barSize: 27,
     },
   };
@@ -144,23 +130,16 @@ export default function StatisticsChart({
 
   const customFormatter = value => (!value ? '' : `${value}%`);
 
-  console.log(colors.line);
-
   return (
     <>
       <ResponsiveContainer width="100%" minHeight={440}>
         <BarChart
           width={780}
           height={440}
-          minHeight={440}
-          barSize
           data={data}
           barGap={sizes[viewport].gap}
           margin={{
             top: 20,
-            right: 0,
-            left: 0,
-            bottom: 0,
           }}
         >
           <defs>
@@ -235,9 +214,13 @@ export default function StatisticsChart({
             <LabelList
               dataKey="byDay"
               position="top"
-              offset={8}
-              fill="black"
+              // offset={8}
+              fontFamily="Poppins"
+              fill={colors.category}
+              fontSize={sizes[viewport].fontSizeLabel}
+              fontWeight={500}
               formatter={customFormatter}
+              style={{ lineHeight: sizes[viewport].labelLineHeight }}
             />
           </Bar>
           <Bar
@@ -249,11 +232,12 @@ export default function StatisticsChart({
             <LabelList
               dataKey="byMonth"
               position={'top'}
-              fill="#343434"
+              fill={colors.category}
               fontFamily="Poppins"
-              fontSize={16}
-              // fontWeight={500}
+              fontSize={sizes[viewport].fontSizeLabel}
+              fontWeight={500}
               formatter={customFormatter}
+              style={{ lineHeight: sizes[viewport].labelLineHeight }}
             />
           </Bar>
         </BarChart>

@@ -43,8 +43,6 @@ export default function Statistics() {
       <ChartWrapper>
         <Text>Tasks</Text>
         <StatisticsChart
-          selectedDate={selectedDateFormat}
-          setSelectedDate={setSelectedDate}
           filteredTasksByDate={filteredTasksByDate}
           filteredTasksByMonth={filteredTasksByMonth}
         />
