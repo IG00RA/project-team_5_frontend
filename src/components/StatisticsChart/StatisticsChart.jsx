@@ -37,7 +37,7 @@ export default function StatisticsChart({
     100;
 
   const toDoByMonthPercent =
-    (filteredTasksByDate?.filter(task => task?.category === 'to-do').length /
+    (filteredTasksByMonth?.filter(task => task?.category === 'to-do').length /
       allTasksByMonth) *
     100;
 
