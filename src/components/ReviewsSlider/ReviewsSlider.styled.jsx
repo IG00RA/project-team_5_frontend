@@ -26,7 +26,6 @@ export const ReviewsWrapper = styled.div`
 
 export const ReviewWrapper = styled.div`
   padding: 32px;
-  margin-right: 24px;
 
   display: flex;
   gap: 18px;
@@ -38,6 +37,10 @@ export const ReviewWrapper = styled.div`
 
   @media screen and (min-width: 768px) {
     height: 187px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    margin-right: 24px;
   }
 `;
 
