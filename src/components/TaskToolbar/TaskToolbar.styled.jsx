@@ -1,6 +1,7 @@
 import { styled } from 'styled-components';
 
 export const Wrapper = styled.div`
+  position: relative;
   display: flex;
   gap: 10px;
 `;
@@ -35,6 +36,8 @@ export const WrapperPopUp = styled.div`
     align-items: start;
     gap: 14px;
     position: absolute;
+    bottom: 8px;
+    right: 68px;
   }
 `;
 
@@ -45,6 +48,8 @@ export const CategoryBtn = styled.button`
     align-items: start;
     gap: 14px;
     position: absolute;
+    bottom: 8px;
+    right: 68px;
   }
 `;
 
