@@ -1,6 +1,6 @@
 import sprite from '../../images/svg-sprite/symbol-defs.svg';
 import DatePickerComponent from 'components/DatePickerComponent/DatePickerComponent';
-
+import { DatePickerStatisticsInput } from 'components/DatePickerStatisticsInput/DatePickerStatisticsInput';
 import {
   PaginatorWrapper,
   ButtonsWrap,
@@ -15,9 +15,7 @@ import {
   Icon,
 } from './StatisticPaginator.styled';
 import { parseISO } from 'date-fns';
-
 import moment from 'moment';
-import { DatePickerStatisticsInput } from 'components/DatePickerStatisticsInput/DatePickerStatisticsInput';
 
 export default function StatisticPaginator({ selectedDate, setSelectedDate }) {
   const prevHandler = () => {
