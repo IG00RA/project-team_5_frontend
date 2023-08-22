@@ -11,6 +11,11 @@ export const CloseBtn = styled.button`
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  &:hover,
+  &:focus {
+    color: ${props => props.theme.colors.button.hoverBg};
+    transform: rotate(90deg);
+  }
 `;
 export const CloseIcon = styled.svg`
   stroke: ${props => props.theme.colors.header.titleText};
