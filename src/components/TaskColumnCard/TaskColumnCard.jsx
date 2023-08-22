@@ -3,11 +3,11 @@ import { Img, Item, ItemWrapper, Text, TextWrapper, Title, UserWrapper } from ".
 import { useSelector } from "react-redux";
 import { selectUser } from "redux/user/selectors";
 
-export const TaskColumnCard = ({ task, openModal, ColumnTitle }) => {
+export const TaskColumnCard = ({ task, openModal, ColumnTitle, provided }) => {
   const { avatarURL } = useSelector(selectUser);
 
   return (
-    <Item>
+    <Item {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
       <Title>{task.title}</Title>
       <ItemWrapper>
         <UserWrapper>
