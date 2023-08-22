@@ -1,70 +1,82 @@
-# Getting Started with Create React App
+# <div align=center>Ласкаво просимо в "GooseTrack" </div>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![GooseTrack](../src/images/readme/Goose1.png)](https://ig00ra.github.io/project-team_5_frontend/)
 
-## Available Scripts
+## Вміст
 
-In the project directory, you can run:
+- [Опис](#опис)
+- [Технології](#технології)
+- [Як користуватись "Goose Track"?](#інструкція)
 
-### `npm start`
+## Опис
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Додаток GooseTrack є потужним інструментом для планування завдань, керування
+робочим процесом та відстеження особистої продуктивності. Додавайте та керуйте
+завданнями, відзначайте їх виконання, переглядайте графік та аналізуйте
+статистику для досягнення максимальної ефективності.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Технології
 
-### `npm test`
+- `React`: використовується для розробки інтерфейсу користувача та побудови
+  компонентів.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- `Redux` та `React-Redux` : для управління станом додатка та зв'язку з React.
 
-### `npm run build`
+- `Redux Persist`: для збереження стану Redux у локальному сховищі.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- `reduxjs/toolkit`: набір утиліт для спрощення роботи з Redux.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- `React Router` та `React Router DOM`: для маршрутизації та навігації між
+  сторінками додатка.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- `Axios`: використовується для здійснення HTTP-запитів на сервер.
 
-### `npm run eject`
+- `Formik` та `Yup`: для створення та валідації форм.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- `Styled Components`: бібліотека для написання CSS-стилів на рівні компонентів.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- `Recharts`: бібліотека для створення графіків та діаграм.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- `React Modal`: бібліотека для створення модальних вікон.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- `React Slick`: бібліотека для створення слайдерів.
 
-## Learn More
+- `Moment`: для роботи з датами та часом.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- `Notiflix`: бібліотека для відображення повідомлень користувачу.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- `Tailwind CSS`: CSS-фреймворк для швидкої розробки стилів.
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Інструкція
 
-### Analyzing the Bundle Size
+1. Реєстрація або Вхід: Якщо ви вже маєте обліковий запис, увійдіть. Якщо ні,
+   створіть новий обліковий запис, щоб отримати доступ до всіх функцій додатка.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+2. Головна Панель: Після входу ви потрапите на головну панель. Тут ви зможете
+   здійснити наступні дії:
 
-### Making a Progressive Web App
+- Створення Задач.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Перегляд календарю задач, де задачі відображаються за датами. Клацніть на
+  конкретний день, щоб побачити задачі, заплановані на цей день.
 
-### Advanced Configuration
+- Статистика: Виберіть відповідний розділ, щоб переглянути статистику вашої
+  активності. Ви можете побачити кількість виконаних задач за певний період
+  часу.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- Налаштування: змініть тему, аватарку, додати власну контактну інформацію.
+  ***
 
-### Deployment
+Залишайте свої враження про додаток. Оцінюйте функціонал та фічі, які ви
+використовуєте. Нехай ваш додаток для керування задачами допомагає вам у
+плануванні, досягненні цілей та організації вашого дня!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+### Бекенд проєкту "Goose Track":
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+###### ["Goose Track - Backend" ](https://github.com/IG00RA/project-team_5_backend)
+
+---
