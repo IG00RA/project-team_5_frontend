@@ -228,7 +228,6 @@ export default function StatisticsChart({
             <LabelList
               dataKey="byDay"
               position="top"
-              // offset={8}
               fontFamily="Poppins"
               fill={colors.category}
               fontSize={sizes[viewport].fontSizeLabel}

@@ -31,9 +31,8 @@ export const PaginatorWrapper = styled.div`
 
 export const List = styled.div`
   display: flex;
-  gap: 20px;
-
   align-items: center;
+  gap: 20px;
 `;
 
 export const ListItem = styled.li`
@@ -57,7 +56,7 @@ export const CategoryText = styled.p`
   font-size: 14px;
   font-weight: 400;
   line-height: 1.29;
-  font-family: ${props => props.fontFamily};
+
   @media (min-width: ${p => p.theme.media.m}) {
     font-size: 16px;
     line-height: 1.13;
@@ -67,6 +66,7 @@ export const CategoryText = styled.p`
 export const ButtonsWrap = styled.div`
   display: flex;
 `;
+
 export const Icon = styled.svg`
   display: inline-block;
   height: 18px;
@@ -81,19 +81,20 @@ export const PaginatorBtn = styled.button`
   display: inline-flex;
   justify-content: center;
   align-items: center;
-
   width: 36px;
   height: 30px;
   padding: 7px 10px;
   font-weight: 700;
   border-radius: ${p => (p.$isPrevBtn ? '8px 0px 0px 8px' : '0px 8px 8px 0px')};
   border: 1px solid ${props => props.theme.colors.statisticsPage.todayBorder};
+
   &:hover {
     box-shadow: 4px 2px 16px 0px ${props => props.theme.colors.button.shadow};
     ${Icon} {
       stroke: ${props => props.theme.colors.statisticsPage.hoverIcon};
     }
   }
+
   @media screen and (min-width: 768px) {
     width: 38px;
     height: 34px;
