@@ -207,6 +207,7 @@ export default function StatisticsChart({
                 x={props.x}
                 y={props.y}
                 dy={3}
+                dx={-10}
                 textAnchor="middle"
                 fill={colors.category}
                 fontFamily="Inter"
