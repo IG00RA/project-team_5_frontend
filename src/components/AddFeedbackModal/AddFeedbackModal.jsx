@@ -1,5 +1,5 @@
 import ModalContainer from '../Modal/ModalConatiner';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { FeedbackForm } from 'components/FeedbackForm/FeedbackForm';
 import {
@@ -12,12 +12,25 @@ import { fetchQwnReview } from 'redux/review/reviewOperations';
 
 export const AddFeedbackModal = ({ isOpen, onRequestClose, handleClose }) => {
   const dispatch = useDispatch();
+  const [isLoading, setIsLoading] = useState(false);
+
   useEffect(() => {
-    dispatch(fetchQwnReview());
-  }, [dispatch]);
+    const fetchData = async () => {
+      setIsLoading(true);
+      await dispatch(fetchQwnReview());
+      setIsLoading(false);
+    };
+
+    if (isOpen) {
+      fetchData();
+    }
+  }, [isOpen, dispatch]);
 
   return (
-    <ModalContainer isOpen={isOpen} onRequestClose={onRequestClose}>
+    <ModalContainer
+      isOpen={isOpen && !isLoading}
+      onRequestClose={onRequestClose}
+    >
       <FeedbackForm handleClose={handleClose} />
       <CloseBtn type="button" onClick={handleClose}>
         <CloseIcon className="feedBackModalClose" width="24" height="24">
