@@ -15,6 +15,7 @@ import GooseDeskLogo2x from '../../images/goose-logo/goose-logo-desktop-2x.webp'
 import { useDispatch } from 'react-redux';
 import { logout } from '../../redux/auth/operations';
 import sprite from '../../images/svg-sprite/symbol-defs.svg';
+import PropTypes from 'prop-types';
 
 export const SideBar = ({ isModalMenuOpen, closeModalMenu }) => {
   const dispatch = useDispatch();
@@ -54,6 +55,11 @@ export const SideBar = ({ isModalMenuOpen, closeModalMenu }) => {
       {isModalMenuOpen && <Overlay onClick={handleCloseModalMenu} />}
     </>
   );
+};
+
+SideBar.propTypes = {
+  isModalMenuOpen: PropTypes.bool.isRequired,
+  closeModalMenu: PropTypes.func.isRequired,
 };
 
 export default SideBar;
