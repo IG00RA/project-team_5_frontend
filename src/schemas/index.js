@@ -1,0 +1,1 @@
+export { validationSchema } from './userForm';

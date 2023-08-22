@@ -2,28 +2,43 @@
   "name": "project-team_5_frontend",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://ig00ra.github.io/project-team_5_frontend/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
     "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^14.4.3",
     "axios": "^1.4.0",
+    "date-fns": "^2.30.0",
     "formik": "^2.4.3",
     "modern-normalize": "^2.0.0",
+    "moment": "^2.29.4",
+    "notiflix": "^3.2.6",
     "react": "^18.2.0",
+    "react-beautiful-dnd": "^13.1.1",
+    "react-datepicker": "^4.16.0",
     "react-dom": "^18.2.0",
+    "react-modal": "^3.16.1",
     "react-redux": "^8.1.2",
     "react-router": "^6.14.2",
+    "react-router-dom": "^6.15.0",
     "react-scripts": "5.0.1",
+    "react-slick": "^0.29.0",
     "recharts": "^2.7.2",
-    "web-vitals": "^2.1.4",
+    "redux-persist": "^6.0.0",
+    "slick-carousel": "^1.8.1",
+    "styled-components": "^6.0.7",
+    "web-vitals": "^3.4.0",
     "yup": "^1.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint:js": "eslint src/**/*.{js,jsx}",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -42,5 +57,18 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/core": "7.22.5",
+    "@babel/eslint-parser": "7.22.5",
+    "@babel/plugin-proposal-private-property-in-object": "7.21.11",
+    "@babel/preset-env": "7.22.5",
+    "daisyui": "^3.5.1",
+    "eslint": "^8.46.0",
+    "eslint-plugin-react": "^7.33.1",
+    "gh-pages": "^5.0.0",
+    "prettier": "^3.0.1",
+    "prop-types": "^15.8.1",
+    "tailwindcss": "^3.3.3"
   }
 }
