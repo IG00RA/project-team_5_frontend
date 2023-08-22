@@ -16,7 +16,7 @@ import { useEffect } from 'react';
 import { getAllTasks } from 'redux/tasks/tasksOperations';
 import { selectDate } from 'redux/date/selectors';
 
-const TOTAL_CELLS = 35;
+const TOTAL_CELLS = 42;
 
 const CalendarTable = ({ startDay }) => {
   const date = useSelector(selectDate);

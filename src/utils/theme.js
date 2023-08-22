@@ -126,6 +126,8 @@ export const lightTheme = {
       todayBg: lightColors.blue,
       border: lightColors.borderRGBA,
       iconFocus: lightColors.grey,
+      hoverCell: lightColors.shadowRGBA,
+      notCurrentMonthDate: lightColors.lightRGBA,
 
       month: {
         mainText: lightColors.grey,
@@ -263,6 +265,8 @@ export const darkTheme = {
       todayBg: darkColors.blue,
       border: darkColors.whiteRGBA,
       iconFocus: darkColors.white,
+      hoverCell: darkColors.whiteRGBA,
+      notCurrentMonthDate: darkColors.darkBG,
 
       month: {
         mainText: darkColors.white,
