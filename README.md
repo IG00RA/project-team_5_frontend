@@ -84,3 +84,11 @@
 ### Swagger документація до проєкту "Goose Track":
 
 ###### ["Goose Track - Swagger" ](https://project-team-5-backend.onrender.com/api-docs/)
+
+---
+
+### Над проектом "Goose Track" працювали:
+
+<a href="https://github.com/IG00RA/project-team_5_frontend/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=IG00RA/project-team_5_frontend" />
+</a>
