@@ -120,16 +120,19 @@ export default function StatisticsChart({
       gap: 8,
       fontSizeCategory: 12,
       lineHeight: 1.33,
+      barSize: 22,
     },
     laptop: {
       gap: 14,
       fontSizeCategory: 14,
       lineHeight: 1.5,
+      barSize: 27,
     },
     desctop: {
       gap: 14,
       fontSizeCategory: 14,
       lineHeight: 1.5,
+      barSize: 27,
     },
   };
 
@@ -150,6 +153,7 @@ export default function StatisticsChart({
           width={780}
           height={440}
           minHeight={440}
+          barSize
           data={data}
           barGap={sizes[viewport].gap}
           margin={{
@@ -226,7 +230,7 @@ export default function StatisticsChart({
             dataKey="byDay"
             fill="url(#paint0_linear_10525_1738)"
             radius={[0, 0, 7, 7]}
-            barSize={22}
+            barSize={sizes[viewport].barSize}
           >
             <LabelList
               dataKey="byDay"
@@ -239,7 +243,7 @@ export default function StatisticsChart({
           <Bar
             dataKey="byMonth"
             fill="url(#paint0_linear_10525_1741)"
-            barSize={22}
+            barSize={sizes[viewport].barSize}
             radius={[0, 0, 7, 7]}
           >
             <LabelList
