@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { TasksColumn } from "../TasksColumn/TasksColumn";
 import { List } from "./TasksColumnsList.styled";
 
@@ -17,4 +18,8 @@ export const TasksColumnsList = ({ tasks }) => {
         <TasksColumn key={item} ColumnTitle={item} tasksColection={getTasksColection(item)}></TasksColumn>)}
     </List>
   );
+};
+
+TasksColumnsList.propTypes = {
+  tasks: PropTypes.arrayOf(PropTypes.shape()).isRequired,
 };

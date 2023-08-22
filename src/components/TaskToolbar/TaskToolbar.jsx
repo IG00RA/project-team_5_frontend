@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import sprite from '../../images/svg-sprite/symbol-defs.svg';
 import { useDispatch } from 'react-redux';
 import {
@@ -64,4 +65,10 @@ export const TaskToolbar = ({ openModal, task, ColumnTitle }) => {
       </Button>
     </Wrapper>
   );
+};
+
+TaskToolbar.propTypes = {
+  ColumnTitle: PropTypes.string.isRequired,
+  task: PropTypes.shape().isRequired,
+  openModal: PropTypes.func.isRequired,
 };

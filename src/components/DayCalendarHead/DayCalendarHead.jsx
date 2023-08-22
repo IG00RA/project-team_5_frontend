@@ -1,4 +1,5 @@
 import moment from 'moment';
+import PropTypes from 'prop-types';
 import {
   NumberDay,
   DayCalendarWrapper,
@@ -42,4 +43,8 @@ export const DayCalendarHead = ({ setMomentDate }) => {
       ))}
     </DayCalendarWrapper>
   );
+};
+
+DayCalendarHead.propTypes = {
+  setMomentDate: PropTypes.func.isRequired,
 };

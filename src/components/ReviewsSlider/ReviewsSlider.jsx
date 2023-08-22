@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import 'slick-carousel/slick/slick.css';
 import sprite from '../../images/svg-sprite/symbol-defs.svg';
 import {
@@ -106,4 +107,8 @@ export const ReviewsSlider = ({ reviews }) => {
       </ul>
     </ReviewsWrapper>
   );
+};
+
+ReviewsSlider.propTypes = {
+  reviews: PropTypes.arrayOf(PropTypes.shape()).isRequired,
 };
