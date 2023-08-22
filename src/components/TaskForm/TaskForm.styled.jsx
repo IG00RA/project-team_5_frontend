@@ -65,7 +65,11 @@ export const InputWrapper = styled.div`
 
 export const InputTimeWrapper = styled.div`
   display: flex;
-  gap: 15px;
+  gap: 13px;
+
+  @media (min-width: 375px) {
+    gap: 15px;
+  }
 
   @media (min-width: 768px) {
     gap: 14px;
@@ -119,7 +123,7 @@ export const InputText = styled.input`
 
 export const InputTime = styled.input`
   padding: 14px 18px;
-  min-width: 126px;
+  min-width: 122px;
   height: 46px;
 
   font-family: Inter;
@@ -132,6 +136,8 @@ export const InputTime = styled.input`
   background-color: ${props => props.theme.colors.modal.task.taskInput};
   border: 1px solid ${props => props.theme.colors.modal.task.popUpBorder};
 
+  cursor: pointer;
+
   &::-webkit-calendar-picker-indicator {
     display: none;
   }
@@ -140,6 +146,10 @@ export const InputTime = styled.input`
 
   &:hover {
     box-shadow: 2px 1px 10px 0px rgba(136, 165, 191, 0.48);
+  }
+
+  @media (min-width: 375px) {
+    min-width: 126px;
   }
 
   @media (min-width: 768px) {

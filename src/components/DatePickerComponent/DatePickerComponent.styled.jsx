@@ -166,4 +166,8 @@ export const DatePickerWrapper = styled.div`
   .react-datepicker-wrapper {
     width: 100%;
   }
+
+  .react-datepicker__input-container {
+    cursor: pointer;
+  }
 `;
