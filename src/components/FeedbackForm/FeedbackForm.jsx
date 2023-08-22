@@ -89,6 +89,11 @@ export const FeedbackForm = ({ handleClose }) => {
     );
   };
 
+  RatingComponent.propTypes = {
+    value: PropTypes.string.isRequired,
+    setFieldValue: PropTypes.func.isRequired,
+  };
+
   return (
     <Formik
       initialValues={{
