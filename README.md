@@ -1,6 +1,6 @@
 # <div align=center>Ласкаво просимо в "GooseTrack" </div>
 
-[![GooseTrack](../src/images/readme/Goose1.png)](https://ig00ra.github.io/project-team_5_frontend/)
+[![GooseTrack](./src/images/readme/Goose1.png)](https://ig00ra.github.io/project-team_5_frontend/)
 
 ## Вміст
 
