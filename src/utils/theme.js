@@ -42,6 +42,7 @@ export const lightColors = {
   semiDarkRGBA: 'rgba(17, 17, 17, 0.70)',
   darkRGBA: 'rgba(17, 17, 17, 0.90)',
   shadowRGBA: 'rgba(136, 165, 191, 0.48)',
+  scroll: 'rgba(231, 229, 229, 1)',
 };
 
 const darkColors = {
@@ -72,6 +73,7 @@ const darkColors = {
   redPriorityRGBA: 'rgba(234, 61, 101, 0.2)',
   shadowRGBA: 'rgba(136, 165, 191, 0.30)',
   transparent: 'transparent',
+  scroll: 'rgba(23, 24, 32, 1)',
 };
 
 // props => props.theme.colors.MainLayout.bg
@@ -209,6 +211,8 @@ export const lightTheme = {
         mediumIcon: lightColors.orangePriority,
         hightIcon: lightColors.redPriority,
         popUpBorder: lightColors.white,
+        taskScroll: lightColors.scroll,
+        taskScrollHover: lightColors.lightBlue2,
       },
     },
   },
@@ -348,6 +352,8 @@ export const darkTheme = {
         mediumIcon: darkColors.orangePriority,
         hightIcon: darkColors.redPriority,
         popUpBorder: darkColors.whiteRGBA,
+        taskScroll: darkColors.scroll,
+        taskScrollHover: darkColors.whiteRGBA,
       },
     },
   },
