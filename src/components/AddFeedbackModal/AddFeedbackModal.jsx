@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import ModalContainer from '../Modal/ModalConatiner';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
@@ -27,4 +28,8 @@ export const AddFeedbackModal = ({ isOpen, onRequestClose, handleClose }) => {
       <FeedBackModalStyles />
     </ModalContainer>
   );
+};
+
+AddFeedbackModal.propTypes = {
+  handleClose: PropTypes.func.isRequired,
 };
