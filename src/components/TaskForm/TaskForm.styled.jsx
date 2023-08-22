@@ -123,7 +123,7 @@ export const InputText = styled.input`
 
 export const InputTime = styled.input`
   padding: 14px 18px;
-  min-width: 122px;
+  min-width: 100px;
   height: 46px;
 
   font-family: Inter;
