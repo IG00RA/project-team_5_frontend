@@ -99,6 +99,13 @@ export const InputText = styled.input`
   border-radius: 8px;
   background-color: ${props => props.theme.colors.modal.task.taskInput};
   border: 1px solid ${props => props.theme.colors.modal.task.popUpBorder};
+  cursor: pointer;
+
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    box-shadow: 2px 1px 10px 0px rgba(136, 165, 191, 0.48);
+  }
 
   &::placeholder {
     font-family: Inter;
@@ -129,6 +136,12 @@ export const InputTime = styled.input`
     display: none;
   }
 
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    box-shadow: 2px 1px 10px 0px rgba(136, 165, 191, 0.48);
+  }
+
   @media (min-width: 768px) {
     min-width: 163px;
   }
@@ -140,7 +153,7 @@ export const BottomWrapper = styled.div`
   gap: 32px;
 `;
 
-export const RedioWrapper = styled.ul`
+export const RadioWrapper = styled.ul`
   display: flex;
   gap: 16px;
 `;
@@ -158,6 +171,7 @@ export const Label = styled.label`
   line-height: 1.28;
 
   color: ${props => props.theme.colors.modal.task.taskInputText};
+  cursor: pointer;
 `;
 
 export const WrapperBtn = styled.div`
@@ -245,6 +259,8 @@ export const RadioCustom = styled.span`
         return;
     }
   }};
+
+  cursor: pointer;
 `;
 
 export const RadioCustomCheck = styled.span`
