@@ -20,8 +20,8 @@ export const register = createAsyncThunk(
       Notify.success("You've register succeed", { timeout: 1000 }); //
       return res.data;
     } catch (e) {
-      Notify.failure('Incorrect data', { timeout: 1000 });
-      return thunkAPI.rejectWithValue(e.message);
+      Notify.failure(e.response.data.message, { timeout: 1000 });
+      return thunkAPI.rejectWithValue(e.response.data.message);
     }
   }
 );
@@ -34,8 +34,8 @@ export const login = createAsyncThunk(
       setAuthHeader(res.data.token);
       return res.data;
     } catch (e) {
-      Notify.failure('Incorrect data', { timeout: 1000 });
-      return thunkAPI.rejectWithValue(e.message);
+      Notify.failure(e.response.data.message, { timeout: 1000 });
+      return thunkAPI.rejectWithValue(e.response.data.message);
     }
   }
 );

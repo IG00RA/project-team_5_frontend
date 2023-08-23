@@ -22,8 +22,8 @@ export const addReview = createAsyncThunk(
       Notify.success('You add your own review!', { timeout: 1000 });
       return response.data;
     } catch (e) {
-      Notify.failure('Please try again', { timeout: 1000 });
-      return thunkAPI.rejectWithValue(e.message);
+      Notify.failure(e.response.data.message, { timeout: 1000 });
+      return thunkAPI.rejectWithValue(e.response.data.message);
     }
   }
 );
@@ -38,8 +38,8 @@ export const updateReview = createAsyncThunk(
       });
       return response.data;
     } catch (e) {
-      Notify.failure('Please try again', { timeout: 1000 });
-      return thunkAPI.rejectWithValue(e.message);
+      Notify.failure(e.response.data.message, { timeout: 1000 });
+      return thunkAPI.rejectWithValue(e.response.data.message);
     }
   }
 );
@@ -52,8 +52,8 @@ export const removeReview = createAsyncThunk(
       Notify.success('Your review was deleted successfully', { timeout: 1000 });
       return response.data;
     } catch (e) {
-      Notify.failure('Please try again', { timeout: 1000 });
-      return thunkAPI.rejectWithValue(e.message);
+      Notify.failure(e.response.data.message, { timeout: 1000 });
+      return thunkAPI.rejectWithValue(e.response.data.message);
     }
   }
 );
