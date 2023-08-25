@@ -8,13 +8,13 @@ import {
   StyledCloseButton,
   Overlay,
   SpanSpec,
-  LogoAndNavWrap,
 } from './SideBar.styled';
 import LogoutButton from '../Buttons/LogoutButton/LogoutButton';
 import GooseDeskLogo2x from '../../images/goose-logo/goose-logo-desktop-2x.webp';
 import { useDispatch } from 'react-redux';
 import { logout } from '../../redux/auth/operations';
 import sprite from '../../images/svg-sprite/symbol-defs.svg';
+import PropTypes from 'prop-types';
 
 export const SideBar = ({ isModalMenuOpen, closeModalMenu }) => {
   const dispatch = useDispatch();
@@ -24,18 +24,13 @@ export const SideBar = ({ isModalMenuOpen, closeModalMenu }) => {
 
   const handleCloseModalMenu = () => {
     closeModalMenu(false);
-
-    if (isModalMenuOpen) {
-      document.body.style.overflow = 'auto';
-    } else {
-      document.body.style.overflow = 'hidden';
-    }
+    document.body.style.overflow = 'auto';
   };
 
   return (
     <>
       <SideBarWrap className={isModalMenuOpen && 'openModalMenu'}>
-        <LogoAndNavWrap>
+        <div>
           <TopWrap>
             <StyledLogoWrapper>
               <SideBarImg src={`${GooseDeskLogo2x}`} />
@@ -48,12 +43,17 @@ export const SideBar = ({ isModalMenuOpen, closeModalMenu }) => {
             </StyledCloseButton>
           </TopWrap>
           <UserNav closeModalMenu={closeModalMenu} />
-        </LogoAndNavWrap>
+        </div>
         <LogoutButton onClick={handleLogOut} />
       </SideBarWrap>
       {isModalMenuOpen && <Overlay onClick={handleCloseModalMenu} />}
     </>
   );
+};
+
+SideBar.propTypes = {
+  isModalMenuOpen: PropTypes.bool.isRequired,
+  closeModalMenu: PropTypes.func.isRequired,
 };
 
 export default SideBar;

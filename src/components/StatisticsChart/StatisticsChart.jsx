@@ -9,18 +9,16 @@ import {
   BarChart,
   ResponsiveContainer,
 } from 'recharts';
-
 import { selectTheme } from 'redux/user/selectors';
 import { darkTheme, lightTheme } from 'utils/theme';
+
 export default function StatisticsChart({
-  selectedDate,
-  setSelectedDate,
   filteredTasksByDate,
   filteredTasksByMonth,
 }) {
-  const allTasksByDay = filteredTasksByDate.length;
+  const allTasksByDay = filteredTasksByDate?.length;
 
-  const allTasksByMonth = filteredTasksByMonth.length;
+  const allTasksByMonth = filteredTasksByMonth?.length;
 
   const toDoByDayPercent =
     (filteredTasksByDate?.filter(task => task?.category === 'to-do').length /
@@ -34,12 +32,12 @@ export default function StatisticsChart({
     100;
 
   const doneByDayPercent =
-    (filteredTasksByDate.filter(task => task?.category === 'done').length /
+    (filteredTasksByDate?.filter(task => task?.category === 'done').length /
       allTasksByDay) *
     100;
 
   const toDoByMonthPercent =
-    (filteredTasksByDate?.filter(task => task?.category === 'to-do').length /
+    (filteredTasksByMonth?.filter(task => task?.category === 'to-do').length /
       allTasksByMonth) *
     100;
 
@@ -50,7 +48,7 @@ export default function StatisticsChart({
     100;
 
   const doneByMonthPercent =
-    (filteredTasksByMonth.filter(task => task?.category === 'done').length /
+    (filteredTasksByMonth?.filter(task => task?.category === 'done').length /
       allTasksByMonth) *
     100;
   const maxByDayOffset =
@@ -89,24 +87,6 @@ export default function StatisticsChart({
     ]
   );
 
-  // const data = [
-  //   {
-  //     name: 'To Do',
-  //     byDay: Math.ceil(toDoByDayPercent),
-  //     byMonth: Math.ceil(toDoByMonthPercent),
-  //   },
-  //   {
-  //     name: 'In Progress',
-  //     byDay: Math.ceil(inProgressByDayPercent),
-  //     byMonth: Math.ceil(inProgressByMonthPercent),
-  //   },
-  //   {
-  //     name: 'Done',
-  //     byDay: Math.ceil(doneByDayPercent),
-  //     byMonth: Math.ceil(doneByMonthPercent),
-  //   },
-  // ];
-
   const theme = useSelector(selectTheme);
   const themeSwitch = theme === 'light' ? lightTheme : darkTheme;
 
@@ -119,44 +99,47 @@ export default function StatisticsChart({
     mobile: {
       gap: 8,
       fontSizeCategory: 12,
+      fontSizeLabel: 12,
       lineHeight: 1.33,
+      labelLineHeight: 1.33,
+      barSize: 22,
     },
     laptop: {
       gap: 14,
       fontSizeCategory: 14,
+      fontSizeLabel: 16,
       lineHeight: 1.5,
+      labelLineHeight: 1.13,
+      barSize: 27,
     },
-    desctop: {
+    desktop: {
       gap: 14,
       fontSizeCategory: 14,
+      fontSizeLabel: 16,
       lineHeight: 1.5,
+      labelLineHeight: 1.13,
+      barSize: 27,
     },
   };
 
   const currentWidth = window.innerWidth;
   const viewport =
-    currentWidth < 768 ? 'mobile' : currentWidth < 1440 ? 'laptop' : 'desctop';
+    currentWidth < 768 ? 'mobile' : currentWidth < 1440 ? 'laptop' : 'desktop';
 
   const percentages = [0, 20, 40, 60, 80, 100];
 
   const customFormatter = value => (!value ? '' : `${value}%`);
 
-  console.log(colors.line);
-
   return (
     <>
-      <ResponsiveContainer width="100%" minHeight={440}>
+      <ResponsiveContainer width="100%" minHeight={286}>
         <BarChart
-          width={780}
-          height={440}
-          minHeight={440}
+          // width={780}
+          // height={440}
           data={data}
           barGap={sizes[viewport].gap}
           margin={{
             top: 20,
-            right: 0,
-            left: 0,
-            bottom: 0,
           }}
         >
           <defs>
@@ -204,7 +187,7 @@ export default function StatisticsChart({
                 dy={16}
                 textAnchor="middle"
                 fill={colors.category}
-                fontFamily="Poppins"
+                fontFamily="Inter"
                 fontSize={sizes[viewport].fontSizeCategory}
                 fontWeight={400}
                 style={{ lineHeight: sizes[viewport].lineHeight }}
@@ -218,38 +201,56 @@ export default function StatisticsChart({
             ticks={percentages}
             axisLine={{ stroke: 'transparent' }}
             tickLine={{ stroke: 'transparent' }}
-            // tick={{ dx: 32 }}
-            // tick={{ dy: -2 }}
             tickSize={32}
+            tick={props => (
+              <text
+                x={props.x}
+                y={props.y}
+                dy={3}
+                dx={-10}
+                textAnchor="middle"
+                fill={colors.category}
+                fontFamily="Inter"
+                fontSize={14}
+                fontWeight={400}
+                style={{ lineHeight: 1.5 }}
+              >
+                {props.payload.value}
+              </text>
+            )}
           />
           <Bar
             dataKey="byDay"
             fill="url(#paint0_linear_10525_1738)"
             radius={[0, 0, 7, 7]}
-            barSize={22}
+            barSize={sizes[viewport].barSize}
           >
             <LabelList
               dataKey="byDay"
               position="top"
-              offset={8}
-              fill="black"
+              fontFamily="Poppins"
+              fill={colors.category}
+              fontSize={sizes[viewport].fontSizeLabel}
+              fontWeight={500}
               formatter={customFormatter}
+              style={{ lineHeight: sizes[viewport].labelLineHeight }}
             />
           </Bar>
           <Bar
             dataKey="byMonth"
             fill="url(#paint0_linear_10525_1741)"
-            barSize={22}
+            barSize={sizes[viewport].barSize}
             radius={[0, 0, 7, 7]}
           >
             <LabelList
               dataKey="byMonth"
               position={'top'}
-              fill="#343434"
+              fill={colors.category}
               fontFamily="Poppins"
-              fontSize={16}
-              // fontWeight={500}
+              fontSize={sizes[viewport].fontSizeLabel}
+              fontWeight={500}
               formatter={customFormatter}
+              style={{ lineHeight: sizes[viewport].labelLineHeight }}
             />
           </Bar>
         </BarChart>

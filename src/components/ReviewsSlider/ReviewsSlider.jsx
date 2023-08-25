@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import 'slick-carousel/slick/slick.css';
 import sprite from '../../images/svg-sprite/symbol-defs.svg';
 import {
@@ -13,6 +14,11 @@ import {
   Icon,
 } from './ReviewsSlider.styled';
 import { useEffect, useState } from 'react';
+
+import {
+  AvatarTextContainer,
+  AvatarText,
+} from 'components/UserForm/UserForm.styled';
 
 const RatingComponent = ({ value }) => {
   const maxRating = 5;
@@ -93,7 +99,28 @@ export const ReviewsSlider = ({ reviews }) => {
           {reviews.map(review => (
             <li key={review.owner._id}>
               <ReviewWrapper>
-                <Img src={review.owner.avatarURL} alt={review.owner.userName} />
+                {review.owner.avatarURL ? (
+                  <Img
+                    src={review.owner.avatarURL}
+                    alt={review.owner.userName}
+                  />
+                ) : (
+                  <AvatarTextContainer
+                    style={{
+                      height: '50px',
+                      width: '50px',
+                    }}
+                  >
+                    <AvatarText
+                      style={{
+                        fontSize: '22px',
+                      }}
+                    >
+                      {review.owner.userName ? review.owner.userName[0] : ''}
+                    </AvatarText>
+                  </AvatarTextContainer>
+                )}
+
                 <div>
                   <Name>{review.owner.userName}</Name>
                   <RatingComponent value={review.raiting} />
@@ -106,4 +133,8 @@ export const ReviewsSlider = ({ reviews }) => {
       </ul>
     </ReviewsWrapper>
   );
+};
+
+ReviewsSlider.propTypes = {
+  reviews: PropTypes.arrayOf(PropTypes.shape()).isRequired,
 };

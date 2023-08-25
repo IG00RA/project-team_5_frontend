@@ -1,34 +1,30 @@
 import React, { useState, useEffect } from 'react';
-import { ScrollToTopButton } from './ScrollToTop.styled'
+import { ScrollToTopButton } from './ScrollToTop.styled';
 
 const ScrollToTop = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [showButton, setShowButton] = useState(false);
 
   useEffect(() => {
-  const toggleVisibility = () => {
-    if (window.pageYOffset > 300) {
-      setIsVisible(true);
-    } else {
-      setIsVisible(false);
-    }
-  };
-
-  window.addEventListener('scroll', toggleVisibility);
-    return () => {
-      window.removeEventListener('scroll', toggleVisibility);
+    const checkScrollHeight = () => {
+      if (!showButton && window.pageYOffset > 400) {
+        setShowButton(true);
+      } else if (showButton && window.pageYOffset <= 400) {
+        setShowButton(false);
+      }
     };
-  }, []);
+    window.addEventListener('scroll', checkScrollHeight);
+    return () => {
+      window.removeEventListener('scroll', checkScrollHeight);
+    };
+  }, [showButton]);
 
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
-    <ScrollToTopButton visible={isVisible} onClick={scrollToTop}>
-      ↑ Scroll To Top ↑
+    <ScrollToTopButton isScrollButtonVisible={showButton} onClick={scrollToTop}>
+      ↑
     </ScrollToTopButton>
   );
 };

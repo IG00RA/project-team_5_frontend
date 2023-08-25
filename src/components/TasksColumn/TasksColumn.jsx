@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { TaskModal } from "components/TaskModal/TaskModal";
 import { AddTaskBtn } from "../AddTaskBtn/AddTaskBtn";
 import { ColumnHeadBar } from "../ColumnHeadBar/ColumnHeadBar";
@@ -24,4 +25,9 @@ export const TasksColumn = ({ ColumnTitle, tasksColection }) => {
       <TaskModal ColumnTitle={ColumnTitle} task={task} isModalOpen={isModalOpen} closeModal={closeModal} />
     </>
   );
+};
+
+TasksColumn.propTypes = {
+  ColumnTitle: PropTypes.string.isRequired,
+  tasksColection: PropTypes.arrayOf(PropTypes.shape()).isRequired,
 };
