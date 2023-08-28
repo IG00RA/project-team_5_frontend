@@ -1,6 +1,20 @@
+#### <div align=right>[ENG](README.eng.md)</div>
+
 # <div align=center>Ласкаво просимо в "GooseTrack" </div>
 
-[![GooseTrack](./src/images/readme/Goose1.png)](https://ig00ra.github.io/project-team_5_frontend/)
+<div style="display: flex; flex-wrap: no-wrap; gap:10px; ">
+  <a href="https://ig00ra.github.io/project-team_5_frontend/">
+    <img src="./src/images/landing-page/mobile/image-mobile-1.jpg" alt="GooseTrack" style="width: 200px; margin: 10px; border-radius:20px; ">
+  </a>
+
+  <a href="https://ig00ra.github.io/project-team_5_frontend/">
+    <img src="./src/images/landing-page/mobile/image-mobile-2.jpg" alt="GooseTrack" style="width: 200px; margin: 10px; border-radius:20px;">
+  </a>
+  <a href="https://ig00ra.github.io/project-team_5_frontend/">
+    <img src="./src/images/landing-page/mobile/image-mobile-3.jpg" alt="GooseTrack" style="width: 200px; margin: 10px;border-radius:20px;">
+  </a>
+
+</div>
 
 ## Вміст
 
@@ -80,8 +94,6 @@
 ###### ["Goose Track - Backend" ](https://github.com/IG00RA/project-team_5_backend)
 
 ---
-<<<<<<< HEAD
-=======
 
 ### Swagger документація до проєкту "Goose Track":
 
@@ -89,9 +101,8 @@
 
 ---
 
-### Над проектом "Goose Track" працювали:
+### Над проєктом "Goose Track" працювали:
 
 <a href="https://github.com/IG00RA/project-team_5_frontend/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=IG00RA/project-team_5_frontend" />
 </a>
->>>>>>> 17dc657ba20e530712f8cfe9d9cd5fa9211057aa
