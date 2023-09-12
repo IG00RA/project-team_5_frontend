@@ -1,12 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import {
-  // changeProfile,
-  login,
-  logout,
-  register,
-  refreshUser,
-} from './operations';
+import { login, logout, register, refreshUser } from './operations';
 
 const initialState = {
   token: null,
@@ -36,15 +30,6 @@ const rejectedReducer = (state, { payload }) => {
   state.error = payload;
 };
 
-// const logoutRejectedReducer = state => {
-//   state.isRefreshing = false;
-//   state.isLoggedIn = false;
-//   state.isLoading = false;
-//   state.error = null;
-//   state.token = null;
-//   state.user = {};
-// };
-
 const loginReducer = (state, { payload }) => {
   const { token } = payload;
 
@@ -71,20 +56,6 @@ const registerReducer = (state, { payload }) => {
   state.isLoggedIn = true;
 };
 
-// const changeProfileReducer = (state, { payload }) => {
-//   const { userName, birthday, email, phone, skype, avatarURL } = payload;
-
-//   state.isLoading = false;
-//   state.error = null;
-
-//   state.user.userName = userName;
-//   state.user.birthday = birthday;
-//   state.user.email = email;
-//   state.user.phone = phone;
-//   state.user.skype = skype;
-//   state.user.avatarURL = avatarURL;
-// };
-
 const refreshReducer = state => {
   state.isLoading = false;
   state.isLoggedIn = true;
@@ -100,9 +71,6 @@ const authSlice = createSlice({
       .addCase(login.fulfilled, loginReducer)
       .addCase(login.rejected, rejectedReducer)
       .addCase(logout.pending, logoutReducer)
-      // .addCase(changeProfile.pending, pendingReducer)
-      // .addCase(changeProfile.fulfilled, changeProfileReducer)
-      // .addCase(changeProfile.rejected, rejectedReducer)
       .addCase(register.pending, pendingReducer)
       .addCase(register.fulfilled, registerReducer)
       .addCase(register.rejected, rejectedReducer)
