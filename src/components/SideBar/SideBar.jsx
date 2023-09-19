@@ -15,11 +15,14 @@ import { useDispatch } from 'react-redux';
 import { logout } from '../../redux/auth/operations';
 import sprite from '../../images/svg-sprite/symbol-defs.svg';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router';
 
 export const SideBar = ({ isModalMenuOpen, closeModalMenu }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const handleLogOut = () => {
     dispatch(logout());
+    navigate('/', { replace: true });
   };
 
   const handleCloseModalMenu = () => {
