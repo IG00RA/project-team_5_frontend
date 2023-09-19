@@ -1,4 +1,4 @@
-import { Button, CastomLoader, Text } from './ChangeProfileButton.styled';
+import { Button, CustomLoader, Text } from './ChangeProfileButton.styled';
 import Loader from 'components/Loader/Loader';
 
 const ChangeProfileButton = ({ onClick, isLoading, disabled }) => {
@@ -10,9 +10,9 @@ const ChangeProfileButton = ({ onClick, isLoading, disabled }) => {
       id="changeProfileBtn"
     >
       {isLoading ? (
-        <CastomLoader>
+        <CustomLoader>
           <Loader />
-        </CastomLoader>
+        </CustomLoader>
       ) : (
         <Text>Save changes</Text>
       )}

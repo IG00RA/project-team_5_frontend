@@ -47,7 +47,7 @@ export const Text = styled.p`
   }
 `;
 
-export const CastomLoader = styled.div`
+export const CustomLoader = styled.div`
   position: relative;
   bottom: 20px;
   transform: scale(0.4);
