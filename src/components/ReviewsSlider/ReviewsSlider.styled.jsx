@@ -1,4 +1,4 @@
-import { styled } from "styled-components";
+import { styled } from 'styled-components';
 import Slider from 'react-slick';
 
 export const StyledSliser = styled(Slider)`
@@ -33,7 +33,7 @@ export const ReviewWrapper = styled.div`
   height: 194px;
 
   border-radius: 8px;
-  border: 1px solid rgba(17, 17, 17, 0.10);
+  border: 1px solid rgba(17, 17, 17, 0.1);
 
   @media screen and (min-width: 768px) {
     height: 187px;
@@ -44,7 +44,7 @@ export const ReviewWrapper = styled.div`
   }
 `;
 
-// 
+//
 
 export const Title = styled.h2`
   margin-bottom: 50px;
@@ -56,11 +56,11 @@ export const Title = styled.h2`
   text-align: center;
   text-transform: uppercase;
 
-  color: #3E85F3;
+  color: #3e85f3;
 
   @media screen and (min-width: 768px) {
     font-size: 40px;
-    line-height: 1.10;
+    line-height: 1.1;
   }
 `;
 
@@ -83,7 +83,7 @@ export const Review = styled.p`
   font-weight: 500;
   line-height: 1.28;
 
-  color: rgba(17, 17, 17, 0.70);
+  color: rgba(17, 17, 17, 0.7);
 `;
 
 export const Img = styled.img`
@@ -98,7 +98,7 @@ export const BtnArrowNext = styled.button`
   left: calc(50% + 5px);
 
   @media screen and (min-width: 768px) {
-      bottom: -80px;
+    bottom: -80px;
   }
 `;
 
@@ -108,7 +108,7 @@ export const BtnArrowPrev = styled.button`
   left: calc(50% - 80px);
 
   @media screen and (min-width: 768px) {
-      bottom: -80px;
+    bottom: -80px;
   }
 `;
 
@@ -118,9 +118,12 @@ export const Icon = styled.svg`
 
   stroke: #111;
   fill: transparent;
-
+  &:hover {
+    stroke: #3e85f3;
+    transition: stroke 0.3s ease;
+  }
   @media screen and (min-width: 768px) {
-      width: 61px;
-      height: 61px;
+    width: 61px;
+    height: 61px;
   }
 `;

@@ -16,7 +16,7 @@ const MainLayout = () => {
   }, [dispatch]);
 
   const openMenu = () => {
-    setIsModalMenuOpen(true)
+    setIsModalMenuOpen(true);
     document.body.style.overflow = 'hidden';
   };
 
@@ -28,10 +28,7 @@ const MainLayout = () => {
           closeModalMenu={setIsModalMenuOpen}
         />
         <Wrapper>
-          <Header
-            isModalMenuOpen={isModalMenuOpen}
-            openMenu={openMenu}
-          />
+          <Header isModalMenuOpen={isModalMenuOpen} openMenu={openMenu} />
           <Suspense
             fallback={
               <div>

@@ -4,24 +4,33 @@ import { Description } from '../components/Description/Description';
 import { useEffect, useState } from 'react';
 import { fetchReviewsData } from 'redux/review/reviewOperations';
 import ScrollToTop from 'components/ScrollToTop/ScrollToTop';
+import { CustomLoader } from 'components/Buttons/ChangeProfileButton/ChangeProfileButton.styled';
+import Loader from 'components/Loader/Loader';
 
 export default function Home() {
-
   const [reviews, setReviews] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     (async () => {
       const data = await fetchReviewsData();
       setReviews(data);
+      setIsLoading(false);
     })();
   }, []);
-  
+
   return (
     <div>
-        <AuthSection />
-        <Description />
+      <AuthSection />
+      <Description />
+      {isLoading ? (
+        <CustomLoader>
+          <Loader />
+        </CustomLoader>
+      ) : (
         <ReviewsSlider reviews={reviews} />
-        <ScrollToTop/>
-      </div>
+      )}
+      <ScrollToTop />
+    </div>
   );
-};
+}
