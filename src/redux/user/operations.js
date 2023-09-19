@@ -25,10 +25,10 @@ export const changeProfile = createAsyncThunk(
     try {
       const res = await axios.patch('user/change-profile', formData);
       setSubmitButtonDisabled();
-      Notify.success('Profile updated', { timeout: 1000 });
+      Notify.success('Profile updated', { timeout: 2000 });
       return res.data;
     } catch (e) {
-      Notify.failure('Failed to update, please try again', { timeout: 1000 });
+      Notify.failure('Failed to update, please try again', { timeout: 2000 });
       return thunkAPI.rejectWithValue(e.message);
     }
   }

@@ -19,10 +19,10 @@ export const addReview = createAsyncThunk(
   async (reviewData, thunkAPI) => {
     try {
       const response = await axios.post('/reviews/own', reviewData);
-      Notify.success('You add your own review!', { timeout: 1000 });
+      Notify.success('You add your own review!', { timeout: 2000 });
       return response.data;
     } catch (e) {
-      Notify.failure(e.response.data.message, { timeout: 1000 });
+      Notify.failure(e.response.data.message, { timeout: 2000 });
       return thunkAPI.rejectWithValue(e.response.data.message);
     }
   }
@@ -34,11 +34,11 @@ export const updateReview = createAsyncThunk(
     try {
       const response = await axios.patch('/reviews/own', reviewData);
       Notify.success('You successfully updated your review!', {
-        timeout: 1000,
+        timeout: 2000,
       });
       return response.data;
     } catch (e) {
-      Notify.failure(e.response.data.message, { timeout: 1000 });
+      Notify.failure(e.response.data.message, { timeout: 2000 });
       return thunkAPI.rejectWithValue(e.response.data.message);
     }
   }
@@ -49,10 +49,10 @@ export const removeReview = createAsyncThunk(
   async (__, thunkAPI) => {
     try {
       const response = await axios.delete(`/reviews/own`);
-      Notify.success('Your review was deleted successfully', { timeout: 1000 });
+      Notify.success('Your review was deleted successfully', { timeout: 2000 });
       return response.data;
     } catch (e) {
-      Notify.failure(e.response.data.message, { timeout: 1000 });
+      Notify.failure(e.response.data.message, { timeout: 2000 });
       return thunkAPI.rejectWithValue(e.response.data.message);
     }
   }
