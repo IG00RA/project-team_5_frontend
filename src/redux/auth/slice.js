@@ -68,6 +68,14 @@ const refreshReducer = state => {
   state.isRefreshing = false;
 };
 
+const setAuthTokenReducer = (state, action) => {
+        state.isLoggedIn = true;
+        state.token = action.payload;
+        state.isLoading = false;
+        state.error = null;
+      };
+
+
 const authSlice = createSlice({
   name: 'auth',
   initialState,
@@ -83,12 +91,7 @@ const authSlice = createSlice({
       .addCase(refreshUser.pending, pendingRefreshReducer)
       .addCase(refreshUser.fulfilled, refreshReducer)
       .addCase(refreshUser.rejected, rejectedRefreshReducer)
-      .addCase(setAuthToken, (state, action) => {
-        state.isLoggedIn = true;
-        state.token = action.payload;
-        state.isLoading = false;
-        state.error = null;
-      }),
+      .addCase(setAuthToken.fulfilled, setAuthTokenReducer),
 });
 
 export const authReducer = authSlice.reducer;

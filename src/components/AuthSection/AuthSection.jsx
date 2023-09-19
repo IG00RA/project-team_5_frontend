@@ -52,14 +52,6 @@ export const AuthSection = () => {
         <SignUpLink type="button">
           <Link to="/register">Sign up</Link>
         </SignUpLink>
-        <button type="button">
-          <a
-            href="https://project-google-auth.onrender.com/api/auth/google"
-            target="blank"
-          >
-            Login with Google
-          </a>
-        </button>
       </ButtonsContainer>
     </Wrap>
   );
