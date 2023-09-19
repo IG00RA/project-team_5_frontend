@@ -15,7 +15,7 @@ export default function Register() {
       <AuthNavigate link="/login" text="Log In" />
       <button type="button">
         <a
-          href="https://project-google-auth.onrender.com/api/auth/google"
+          href="https://project-team-5-backend.onrender.com/api/auth/google"
           target="blank"
         >
           Register with Google
