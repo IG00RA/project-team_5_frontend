@@ -1,7 +1,7 @@
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
-import { login } from 'redux/auth/operations';
+import { login, setAuthToken } from 'redux/auth/operations';
 import { Formik } from 'formik';
 import { ReactComponent as ShowPasswordIcon } from '../../images/svg/view-show-icon.svg';
 import { ReactComponent as HidePasswordIcon } from '../../images/svg/hidden-eye-close-hide-icon-232825.svg';
@@ -17,7 +17,7 @@ import {
   SuccessIcon,
   ErrorIcon,
 } from './LoginForm.styled';
-
+import { useSearchParams } from 'react-router-dom';
 import { ToggleButton } from 'components/RegisterForm/RegisterForm.styled';
 import sprite from '../../images/svg-sprite/symbol-defs.svg';
 
@@ -36,6 +36,11 @@ const validationSchema = Yup.object().shape({
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
+  const [searchParams] = useSearchParams();
+  const token = searchParams.get('token');
+  if (token) {
+    dispatch(setAuthToken(token));
+  }
   const [showPassword, setShowPassword] = useState(false);
   const handlePasswordVisibility = () => {
     setShowPassword(prevShowPassword => !prevShowPassword);

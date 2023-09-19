@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import { createAsyncThunk } from '@reduxjs/toolkit';
+import { createAction, createAsyncThunk } from '@reduxjs/toolkit';
 
 axios.defaults.baseURL = 'https://project-team-5-backend.onrender.com/api/';
 
@@ -70,3 +70,9 @@ export const refreshUser = createAsyncThunk(
     }
   }
 );
+
+export const setAuthToken = createAction('auth/setAuthToken', token => {
+  return {
+    payload: token,
+  };
+});
