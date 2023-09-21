@@ -43,7 +43,12 @@ export const Cell = styled(Link)`
 
   &:hover {
     box-shadow: 5px 5px 15px 5px
-      ${props => props.theme.colors.calendarPage.hoverCell};
+      ${props =>
+        props.$isSelectedMonth
+          ? props.theme.colors.calendarPage.hoverCell
+          : 'none'};
+
+    cursor: ${props => (props.$isSelectedMonth ? props.pointer : 'none')};
   }
 
   overflow: hidden;
