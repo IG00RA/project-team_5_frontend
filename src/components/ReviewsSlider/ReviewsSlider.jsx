@@ -123,7 +123,7 @@ export const ReviewsSlider = ({ reviews }) => {
 
                 <div>
                   <Name>{review.owner.userName}</Name>
-                  <RatingComponent value={review.raiting} />
+                  <RatingComponent value={review.rating} />
                   <Review>{review.review}</Review>
                 </div>
               </ReviewWrapper>

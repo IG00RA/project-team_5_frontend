@@ -21,7 +21,7 @@ const fetchtReviewReducer = (state, { payload }) => {
   state.error = null;
 
   state.review = payload.review;
-  state.raiting = payload.raiting;
+  state.rating = payload.rating;
 };
 
 const addReviewReducer = (state, { payload }) => {
@@ -29,7 +29,7 @@ const addReviewReducer = (state, { payload }) => {
   state.error = null;
 
   state.review = payload.review;
-  state.raiting = payload.raiting;
+  state.rating = payload.rating;
 };
 
 const updateReviewReducer = (state, { payload }) => {
@@ -37,7 +37,7 @@ const updateReviewReducer = (state, { payload }) => {
   state.error = null;
 
   state.review = payload.review;
-  state.raiting = payload.raiting;
+  state.rating = payload.rating;
 };
 
 const removeReviewReducer = state => {
@@ -45,19 +45,19 @@ const removeReviewReducer = state => {
   state.error = null;
 
   state.review = null;
-  state.raiting = null;
+  state.rating = null;
 };
 
 const logoutReducer = state => {
   state.review = null;
-  state.raiting = null;
+  state.rating = null;
 };
 
 const reviewSlice = createSlice({
   name: 'review',
   initialState: {
     review: null,
-    raiting: null,
+    rating: null,
     isLoading: false,
     error: null,
   },
