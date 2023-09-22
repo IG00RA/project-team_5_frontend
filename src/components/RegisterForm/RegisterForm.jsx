@@ -21,6 +21,7 @@ import { ReactComponent as ShowPasswordIcon } from '../../images/svg/view-show-i
 import { ReactComponent as HidePasswordIcon } from '../../images/svg/hidden-eye-close-hide-icon-232825.svg';
 
 import sprite from '../../images/svg-sprite/symbol-defs.svg';
+import GoogleBtn from 'components/Buttons/GoogleBtn/GoogleBtn';
 const emailRegexp = /^\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/;
 
 const validationSchema = Yup.object().shape({
@@ -158,6 +159,7 @@ export const RegisterForm = () => {
                 <use href={sprite + '#icon-log-in'}></use>
               </LoginIcon>
             </Button>
+            <GoogleBtn text="Sign Up with Google" />
           </Form>
         );
       }}
