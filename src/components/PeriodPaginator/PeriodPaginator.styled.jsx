@@ -20,12 +20,14 @@ export const Period = styled.div`
   line-height: calc(18 / 14);
   text-transform: uppercase;
   border-radius: 8px;
+  width: 150px;
   padding: 6px 12px;
   background-color: ${props => props.theme.colors.calendarPage.todayBg};
   box-shadow: 4px 2px 16px 0px ${props => props.theme.colors.button.shadow};
   color: ${props => props.theme.colors.calendarPage.todayText};
 
   @media screen and (min-width: 768px) {
+    width: 170px;
     padding: 8px 12px;
     font-size: 16px;
     line-height: calc(18 / 16);
