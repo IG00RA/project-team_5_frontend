@@ -89,10 +89,10 @@ export const InputLabel = styled.label`
   color: rgba(52, 52, 52, 0.8);
 `;
 
-export const InputText = styled.input`
+export const InputText = styled.textarea`
   padding: 14px 18px;
+  resize: none;
   width: 100%;
-  height: 46px;
 
   font-family: Inter;
   font-size: 14px;

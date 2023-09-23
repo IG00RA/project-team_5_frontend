@@ -95,7 +95,7 @@ export const TaskForm = ({
             Title
             <InputText
               placeholder="Enter text"
-              type="text"
+              rows={3}
               name="title"
               value={formik.values.title}
               onChange={formik.handleChange}

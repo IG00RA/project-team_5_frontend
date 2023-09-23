@@ -13,7 +13,7 @@ export const Item = styled.li`
     props.theme.colors.calendarPage.day.taskLabelText};
 `;
 
-export const Title = styled.h3`
+export const Title = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
