@@ -14,7 +14,7 @@ const DatePickerComponent = ({ startDate, setStartDate, customInput }) => {
     );
     const dayNames = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
 
-    return dayNameElements.forEach((dayElement, index) => {
+    return dayNameElements?.forEach((dayElement, index) => {
       dayElement.textContent = dayNames[index];
     });
   };
