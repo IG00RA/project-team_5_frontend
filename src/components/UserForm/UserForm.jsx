@@ -71,7 +71,7 @@ export default function UserForm() {
     const inputFields = Object.keys(values);
 
     const formData = new FormData();
-    inputFields.forEach(field => {
+    inputFields?.forEach(field => {
       const value = values[field];
       formData.append(field, value);
     });

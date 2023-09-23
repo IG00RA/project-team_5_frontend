@@ -16,7 +16,6 @@ const columnsList = ['To do', 'In progress', 'Done'];
 
 export const TaskToolbar = ({ openModal, task, ColumnTitle }) => {
   const buttonsList = columnsList.filter(btn => btn !== ColumnTitle);
-
   const dispatch = useDispatch();
 
   const normalizedStringCategory = text => {
@@ -37,8 +36,15 @@ export const TaskToolbar = ({ openModal, task, ColumnTitle }) => {
             onClick={() =>
               dispatch(
                 updateTask({
-                  id: task._id,
-                  task: { category: normalizedStringCategory(btn) },
+                  task: {
+                    category: normalizedStringCategory(btn),
+                    date: task.date,
+                    end: task.end,
+                    priority: task.priority,
+                    start: task.start,
+                    title: task.title,
+                  },
+                  id: task?._id,
                 })
               )
             }
