@@ -20,6 +20,7 @@ import {
 import { useSearchParams } from 'react-router-dom';
 import { ToggleButton } from 'components/RegisterForm/RegisterForm.styled';
 import sprite from '../../images/svg-sprite/symbol-defs.svg';
+import GoogleBtn from 'components/Buttons/GoogleBtn/GoogleBtn';
 
 const emailRegexp = /^\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/;
 
@@ -124,6 +125,7 @@ export const LoginForm = () => {
                 <use href={sprite + '#icon-log-in'}></use>
               </LoginIcon>
             </Button>
+            <GoogleBtn text="Log In with Google" />
           </Form>
         );
       }}
