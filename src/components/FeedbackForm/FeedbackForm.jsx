@@ -25,7 +25,7 @@ import {
 } from './FeedbackForm.styled';
 
 const validationSchema = Yup.object().shape({
-  raiting: Yup.string()
+  rating: Yup.string()
     .required('Rating is required')
     .min(1, 'Rating must be at least 1')
     .max(5, 'Rating must be at most 5'),
@@ -80,7 +80,7 @@ export const FeedbackForm = ({ handleClose }) => {
             checked={value === ratingValue.toString()}
             onChange={() => {
               if (isEditActive || !userReview) {
-                setFieldValue('raiting', ratingValue.toString());
+                setFieldValue('rating', ratingValue.toString());
               }
             }}
           />
@@ -97,7 +97,7 @@ export const FeedbackForm = ({ handleClose }) => {
   return (
     <Formik
       initialValues={{
-        raiting: userRating || DEFAULT_RATING,
+        rating: userRating || DEFAULT_RATING,
         review: userReview || '',
       }}
       validationSchema={validationSchema}
@@ -107,7 +107,7 @@ export const FeedbackForm = ({ handleClose }) => {
         <Form>
           <Label name="rating">Rating</Label>
           <RatingComponent
-            value={values.raiting}
+            value={values.rating}
             setFieldValue={setFieldValue}
           />
           <InputWrapper>

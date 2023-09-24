@@ -56,7 +56,12 @@ const CalendarTable = ({ startDay }) => {
       {dayCellsInCalendar?.map(dayItem => (
         <Cell
           key={dayItem.unix()}
-          to={`/calendar/day/${dayItem.format('YYYY-MM-DD')}`}
+          $isSelectedMonth={isSelectedMonth(dayItem)}
+          to={
+            isSelectedMonth(dayItem)
+              ? `/calendar/day/${dayItem.format('YYYY-MM-DD')}`
+              : ''
+          }
         >
           <RowInCell>
             <ShowDay>
@@ -69,7 +74,9 @@ const CalendarTable = ({ startDay }) => {
               </Day>
             </ShowDay>
 
-            <TasksList>{setDayTask(dayItem)}</TasksList>
+            <TasksList>
+              {isSelectedMonth(dayItem) ? setDayTask(dayItem) : ''}
+            </TasksList>
           </RowInCell>
         </Cell>
       ))}

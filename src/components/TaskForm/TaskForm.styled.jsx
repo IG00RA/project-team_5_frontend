@@ -89,10 +89,10 @@ export const InputLabel = styled.label`
   color: rgba(52, 52, 52, 0.8);
 `;
 
-export const InputText = styled.input`
+export const InputText = styled.textarea`
   padding: 14px 18px;
+  resize: none;
   width: 100%;
-  height: 46px;
 
   font-family: Inter;
   font-size: 14px;
@@ -204,9 +204,17 @@ export const FormSubmitBtn = styled.button`
   line-height: 1.28;
 
   border-radius: 8px;
-  color: ${props => props.theme.colors.modal.task.saveBtnText};
-  background-color: ${props => props.theme.colors.calendarPage.todayBg};
   transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  color: ${props =>
+    props.disabled
+      ? props.theme.colors.modal.task.cancelBtnText
+      : props.theme.colors.modal.task.saveBtnText};
+  background-color: ${props =>
+    props.disabled
+      ? props.theme.colors.modal.task.cancelBtnBg
+      : props.theme.colors.calendarPage.todayBg};
+  cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
 
   &:hover {
     box-shadow: 4px 2px 16px 0px rgba(136, 165, 191, 0.48);
@@ -306,5 +314,5 @@ export const Error = styled.div`
   font-size: 12px;
   line-height: 1.16;
 
-  color: ${props => props.theme.colors.calendarPage.month.hightTaskBg};
+  color: #ea3d65;
 `;

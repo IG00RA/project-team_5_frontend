@@ -10,7 +10,7 @@ export const getAllTasks = createAsyncThunk(
       return res.data;
     } catch (e) {
       Notify.failure('There are no available tasks', { timeout: 2000 });
-      thunkAPI.rejectWithValue(e.message);
+      thunkAPI.rejectWithValue(e.response.data.message);
     }
   }
 );
@@ -21,10 +21,10 @@ export const addTask = createAsyncThunk('tasks/add', async (task, thunkAPI) => {
     Notify.success('The task was created', { timeout: 2000 });
     return res.data;
   } catch (e) {
-    Notify.failure('Oops! Something went wrong, please, try again', {
+    Notify.failure(`${e.response.data.message}`, {
       timeout: 2000,
     });
-    thunkAPI.rejectWithValue(e.message);
+    thunkAPI.rejectWithValue(e.response.data.message);
   }
 });
 
@@ -36,10 +36,10 @@ export const updateTask = createAsyncThunk(
       Notify.success('The task has been updated', { timeout: 2000 });
       return res.data;
     } catch (e) {
-      Notify.failure('Oops! Something went wrong, please, try again', {
+      Notify.failure(`${e.response.data.message}`, {
         timeout: 2000,
       });
-      thunkAPI.rejectWithValue(e.message);
+      thunkAPI.rejectWithValue(e.response.data.message);
     }
   }
 );
@@ -52,10 +52,10 @@ export const deleteTask = createAsyncThunk(
       Notify.success('The task was successfully deleted', { timeout: 2000 });
       return res.data;
     } catch (e) {
-      Notify.failure('Oops! Something went wrong, please, try again', {
+      Notify.failure(`${e.response.data.message}`, {
         timeout: 2000,
       });
-      thunkAPI.rejectWithValue(e.message);
+      thunkAPI.rejectWithValue(e.response.data.message);
     }
   }
 );

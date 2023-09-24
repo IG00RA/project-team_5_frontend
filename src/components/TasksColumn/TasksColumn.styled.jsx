@@ -24,5 +24,6 @@ export const Item = styled.li`
 
   @media screen and (min-width: 768px) {
     min-width: 344px;
+    max-width: 512px;
   }
 `;
