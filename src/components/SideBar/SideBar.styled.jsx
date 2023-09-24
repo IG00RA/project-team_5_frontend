@@ -10,7 +10,7 @@ export const SideBarWrap = styled.div`
   z-index: 1;
 
   padding: 24px 20px;
-  
+
   height: 100vh;
   width: 225px;
 
@@ -31,6 +31,7 @@ export const SideBarWrap = styled.div`
     transition: transform 350ms ease-in-out;
 
     &.openModalMenu {
+      z-index: 2;
       transform: translateX(0px);
     }
   }
@@ -38,12 +39,14 @@ export const SideBarWrap = styled.div`
 
 export const Overlay = styled.div`
   position: fixed;
-  left: 0;
   top: 0;
-  right: 0;
-  bottom: 0;
-  background-color: transparent;
-  z-index: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition:
+    opacity var(--time-delay) var(--timing-function),
+    visibility var(--time-delay) var(--timing-function);
+  z-index: 1;
 `;
 
 export const StyledTitle = styled.span`
