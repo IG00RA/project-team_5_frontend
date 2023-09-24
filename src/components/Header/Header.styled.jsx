@@ -9,7 +9,7 @@ export const Wrap = styled.div`
   @media (min-width: 375px) {
     justify-content: space-between;
   }
-  
+
   @media (min-width: 1440px) {
     margin-bottom: 32px;
   }
@@ -37,6 +37,12 @@ export const MenuIcon = styled.svg`
   height: 22px;
   width: 22px;
   cursor: pointer;
+  transition: all 250ms ease;
+  &:hover,
+  &:focus {
+    stroke: ${props => props.theme.colors.button.hoverBg};
+    transform: rotate(180deg);
+  }
 
   @media (min-width: 375px) {
     height: 24px;
