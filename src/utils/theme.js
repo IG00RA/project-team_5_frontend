@@ -76,8 +76,6 @@ const darkColors = {
   scroll: 'rgba(23, 24, 32, 1)',
 };
 
-// props => props.theme.colors.MainLayout.bg
-
 export const lightTheme = {
   colors: {
     homePage: {

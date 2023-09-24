@@ -314,5 +314,5 @@ export const Error = styled.div`
   font-size: 12px;
   line-height: 1.16;
 
-  color: ${props => props.theme.colors.calendarPage.month.hightTaskBg};
+  color: #ea3d65;
 `;

@@ -32,6 +32,7 @@ import { selectDate } from 'redux/date/selectors';
 const Schema = Yup.object({
   title: Yup.string()
     .min(3, 'Please enter at least 3 characters')
+    .max(250, 'Please enter less than 250 characters')
     .required('This field is required'),
   start: Yup.string(),
   end: Yup.string(),
