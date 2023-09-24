@@ -16,7 +16,7 @@ export const Item = styled.li`
 export const Title = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  /* white-space: nowrap; */
 
   font-family: Inter;
   font-size: 14px;
