@@ -204,9 +204,17 @@ export const FormSubmitBtn = styled.button`
   line-height: 1.28;
 
   border-radius: 8px;
-  color: ${props => props.theme.colors.modal.task.saveBtnText};
-  background-color: ${props => props.theme.colors.calendarPage.todayBg};
   transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  color: ${props =>
+    props.disabled
+      ? props.theme.colors.modal.task.cancelBtnText
+      : props.theme.colors.modal.task.saveBtnText};
+  background-color: ${props =>
+    props.disabled
+      ? props.theme.colors.modal.task.cancelBtnBg
+      : props.theme.colors.calendarPage.todayBg};
+  cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
 
   &:hover {
     box-shadow: 4px 2px 16px 0px rgba(136, 165, 191, 0.48);

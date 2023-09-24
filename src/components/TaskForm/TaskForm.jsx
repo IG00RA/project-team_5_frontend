@@ -80,6 +80,7 @@ export const TaskForm = ({
       return;
     },
   });
+  const [formChanged, setFormChanged] = useState(false);
 
   return (
     <>
@@ -98,7 +99,10 @@ export const TaskForm = ({
               rows={3}
               name="title"
               value={formik.values.title}
-              onChange={formik.handleChange}
+              onChange={e => {
+                formik.handleChange(e);
+                setFormChanged(true);
+              }}
             />
           </InputLabel>
           {formik.errors.title && formik.touched.title && (
@@ -111,7 +115,10 @@ export const TaskForm = ({
                 type="time"
                 name="start"
                 value={formik.values.start}
-                onChange={formik.handleChange}
+                onChange={e => {
+                  formik.handleChange(e);
+                  setFormChanged(true);
+                }}
               />
             </InputLabel>
             <InputLabel>
@@ -120,7 +127,10 @@ export const TaskForm = ({
                 type="time"
                 name="end"
                 value={formik.values.end}
-                onChange={formik.handleChange}
+                onChange={e => {
+                  formik.handleChange(e);
+                  setFormChanged(true);
+                }}
               />
             </InputLabel>
           </InputTimeWrapper>
@@ -137,7 +147,10 @@ export const TaskForm = ({
                     type="radio"
                     name="priority"
                     value={radio}
-                    onChange={formik.handleChange}
+                    onChange={e => {
+                      formik.handleChange(e);
+                      setFormChanged(true);
+                    }}
                   />
                   <RadioCustomCheck color={radio}>
                     <RadioCustom color={radio}></RadioCustom>
@@ -157,7 +170,7 @@ export const TaskForm = ({
                 Add
               </FormSubmitBtn>
             ) : (
-              <FormSubmitBtn type="submit">
+              <FormSubmitBtn type="submit" disabled={!formChanged}>
                 <IconInBtn>
                   <use href={sprite + '#icon-pencil'}></use>
                 </IconInBtn>{' '}
