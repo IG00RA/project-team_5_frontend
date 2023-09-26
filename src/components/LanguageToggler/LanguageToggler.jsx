@@ -12,7 +12,6 @@ export const LanguageToggler = () => {
     const changeLanguage = currentLanguage === 'en' ? 'uk' : 'en';
     setCurrentLanguage(changeLanguage);
     i18n.changeLanguage(changeLanguage);
-    console.log(currentLanguage);
   };
 
   return (
