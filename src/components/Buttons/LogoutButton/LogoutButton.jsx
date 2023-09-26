@@ -1,10 +1,12 @@
 import sprite from '../../../images/svg-sprite/symbol-defs.svg';
 import { LogoutBtn, LogoutBtnText, LogoutIcon } from './Logout.styled';
+import { useTranslation } from 'react-i18next';
 
 const LogoutButton = ({ onClick }) => {
+  const { t } = useTranslation();
   return (
     <LogoutBtn type="button" onClick={onClick}>
-      <LogoutBtnText>Logout</LogoutBtnText>
+      <LogoutBtnText>{t('auth.logout')}</LogoutBtnText>
       <div>
         <LogoutIcon>
           <use href={sprite + '#icon-log-out'} />
