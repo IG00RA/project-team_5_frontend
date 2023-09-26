@@ -1,6 +1,13 @@
 {
   "userProfile": {
-    "title": "User Profile"
+    "title": "User Profile",
+    "user": "User",
+    "name": "User Name",
+    "phone": "Phone",
+    "birthday": "Birthday",
+    "skype": "Skype",
+    "email": "Email",
+    "save": "Save changes"
   },
   "calendar": {
     "title": "Calendar",

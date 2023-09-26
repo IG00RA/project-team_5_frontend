@@ -29,6 +29,7 @@ import { selectUser } from 'redux/user/selectors';
 import sprite from '../../images/svg-sprite/symbol-defs.svg';
 import DatePickerComponent from 'components/DatePickerComponent/DatePickerComponent';
 import { DatePickerUserFormInput } from 'components/DatePickerUserFormInput/DatePickerUserFormInput';
+import { useTranslation } from 'react-i18next';
 
 export default function UserForm() {
   const dispatch = useDispatch();
@@ -57,6 +58,8 @@ export default function UserForm() {
     const reduxValue = user[field];
     return value === reduxValue;
   };
+
+  const { t } = useTranslation();
 
   const initialValues = {
     avatarURL: user.avatarURL,
@@ -154,12 +157,12 @@ export default function UserForm() {
 
                 <UserData>
                   <UserName>{values.userName || 'UserName'}</UserName>
-                  <UserLabel>User</UserLabel>
+                  <UserLabel>{t('userProfile.user')}</UserLabel>
                 </UserData>
               </UserPreview>
 
               <CommonField>
-                <Label>User Name</Label>
+                <Label>{t('userProfile.name')}</Label>
                 <CommonInput
                   name="userName"
                   type="text"
@@ -171,7 +174,7 @@ export default function UserForm() {
               </CommonField>
 
               <CommonField>
-                <Label>Phone</Label>
+                <Label>{t('userProfile.phone')}</Label>
                 <CommonInput
                   name="phone"
                   type="tel"
@@ -183,7 +186,7 @@ export default function UserForm() {
               </CommonField>
 
               <CommonField>
-                <Label>Birthday</Label>
+                <Label>{t('userProfile.birthday')}</Label>
                 <DatePickerComponent
                   startDate={currentBirthday}
                   setStartDate={setStartDate}
@@ -198,7 +201,7 @@ export default function UserForm() {
               </CommonField>
 
               <CommonField>
-                <Label>Skype</Label>
+                <Label>{t('userProfile.skype')}</Label>
                 <CommonInput
                   name="skype"
                   type="text"
@@ -210,7 +213,7 @@ export default function UserForm() {
               </CommonField>
 
               <CommonField>
-                <Label>Email</Label>
+                <Label>{t('userProfile.email')}</Label>
                 <CommonInput
                   name="email"
                   type="text"
