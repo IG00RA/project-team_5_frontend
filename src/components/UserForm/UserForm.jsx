@@ -94,7 +94,6 @@ export default function UserForm() {
           const inputHandler = e => {
             const { name, value } = e.target;
             setFieldValue(name, value);
-
             compareWithRedux(name, value)
               ? setSubmitButtonDisabled()
               : setSubmitButtonActive();

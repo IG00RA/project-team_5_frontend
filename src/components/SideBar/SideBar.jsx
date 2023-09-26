@@ -21,6 +21,7 @@ export const SideBar = ({ isModalMenuOpen, closeModalMenu }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleLogOut = () => {
+    handleCloseModalMenu();
     dispatch(logout());
     navigate('/', { replace: true });
   };

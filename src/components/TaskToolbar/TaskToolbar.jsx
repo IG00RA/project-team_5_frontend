@@ -9,6 +9,7 @@ import {
   PopUpBtn,
   Button,
   IconPopUp,
+  ButtonText,
 } from './TaskToolbar.styled';
 import { deleteTask, updateTask } from 'redux/tasks/tasksOperations';
 
@@ -51,7 +52,7 @@ export const TaskToolbar = ({ openModal, task, ColumnTitle }) => {
             key={btn}
             type="button"
           >
-            <span>{btn}</span>
+            <ButtonText>{btn}</ButtonText>
             <IconPopUp>
               <use href={sprite + '#icon-icon-exit'}></use>
             </IconPopUp>
