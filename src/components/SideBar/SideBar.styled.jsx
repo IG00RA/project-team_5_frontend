@@ -10,7 +10,7 @@ export const SideBarWrap = styled.div`
   z-index: 1;
 
   padding: 24px 20px;
-  padding-bottom: 40px;
+  padding-bottom: 50px;
   height: 100vh;
   width: 225px;
 
