@@ -23,20 +23,21 @@ import {
   EditBtn,
   DeleteBtn,
 } from './FeedbackForm.styled';
-
-const validationSchema = Yup.object().shape({
-  rating: Yup.string()
-    .required('Rating is required')
-    .min(1, 'Rating must be at least 1')
-    .max(5, 'Rating must be at most 5'),
-  review: Yup.string()
-    .required('Review is required')
-    .max(300, 'Review must be at most 300 characters'),
-});
-
-const DEFAULT_RATING = '5';
+import { useTranslation } from 'react-i18next';
 
 export const FeedbackForm = ({ handleClose }) => {
+  const { t } = useTranslation();
+  const validationSchema = Yup.object().shape({
+    rating: Yup.string()
+      .required(t('valid.ratingRequired'))
+      .min(1, 'Rating must be at least 1')
+      .max(5, 'Rating must be at most 5'),
+    review: Yup.string()
+      .required(t('valid.ratingRequired'))
+      .max(300, 'Review must be at most 300 characters'),
+  });
+
+  const DEFAULT_RATING = '5';
   const dispatch = useDispatch();
   const userReview = useSelector(selectReview);
   const userRating = useSelector(selectRating);

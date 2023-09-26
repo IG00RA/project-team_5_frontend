@@ -41,5 +41,12 @@
     "done": "Done",
     "byDay": "By Day",
     "byMonth": "By Month"
+  },
+  "valid": {
+    "ratingRequired": "Rating is required",
+    "ratingMin": "Rating must be at least 1",
+    "ratingMax": "Rating must be at most 5",
+    "review": "Review is required",
+    "reviewMax": "Review must be at most 300 characters"
   }
 }
