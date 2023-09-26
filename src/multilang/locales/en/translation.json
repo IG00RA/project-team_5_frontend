@@ -1,0 +1,22 @@
+{
+  "userProfile": {
+    "title": "User Profile"
+  },
+  "calendar": {
+    "title": "Calendar",
+    "accentText": "Let go",
+    "motivationText": "of the past and focus on the present!",
+    "month": "Month",
+    "day": "Day",
+    "loading": "Loading subpage..."
+  },
+  "statistics": {
+    "title": "Statistics",
+    "tasks": "Tasks",
+    "toDo": "To Do",
+    "inProgress": "In progress",
+    "done": "Done",
+    "byDay": "By Day",
+    "byMonth": "By Month"
+  }
+}
