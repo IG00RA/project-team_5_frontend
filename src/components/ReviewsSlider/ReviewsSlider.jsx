@@ -19,6 +19,7 @@ import {
   AvatarTextContainer,
   AvatarText,
 } from 'components/UserForm/UserForm.styled';
+import { useTranslation } from 'react-i18next';
 
 const RatingComponent = ({ value }) => {
   const maxRating = 5;
@@ -90,10 +91,10 @@ export const ReviewsSlider = ({ reviews }) => {
     prevArrow: <CustomPrevArrow />,
     nextArrow: <CustomNextArrow />,
   };
-
+  const { t } = useTranslation();
   return (
     <ReviewsWrapper>
-      <Title>Reviews</Title>
+      <Title>{t('description.reviews')}</Title>
       <ul>
         <StyledSliser {...settings}>
           {reviews.map(review => (
