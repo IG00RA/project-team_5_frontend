@@ -31,11 +31,17 @@ const handleFulfilledAdd = (state, action) => {
 
 const handleFulfilledUpdate = (state, action) => {
   state.isLoading = false;
-  const idx = state.tasks.findIndex(task => task?._id === action.payload._id);
 
-  if (idx !== -1) {
-    state.tasks.splice(idx, 1, action.payload);
+  if (action.payload) {
+    const idx = state.tasks.findIndex(task => task?._id === action.payload._id);
+
+    if (idx !== -1) {
+      state.tasks.splice(idx, 1, action.payload);
+    }
+  } else if (action.error) {
+    state.error = action.error.message;
   }
+
   state.error = '';
 };
 

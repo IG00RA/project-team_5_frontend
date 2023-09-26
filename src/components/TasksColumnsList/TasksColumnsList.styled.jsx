@@ -11,7 +11,7 @@ export const List = styled.ul`
 
   overflow-x: auto;
   overflow-y: hidden;
-  white-space: nowrap;
+  word-wrap: break-word;
 
   // полоса прокрутки (скроллбар)
 
@@ -35,6 +35,6 @@ export const List = styled.ul`
 
   @media (min-width: 768px) {
     overflow: auto;
-    white-space: nowrap;
+    /* white-space: nowrap; */
   }
 `;
