@@ -36,8 +36,8 @@ export const WrapperPopUp = styled.div`
     align-items: start;
     gap: 14px;
     position: absolute;
-    bottom: 8px;
-    right: 68px;
+    bottom: -6px;
+    right: 50px;
   }
 `;
 
@@ -48,8 +48,8 @@ export const CategoryBtn = styled.button`
     align-items: start;
     gap: 14px;
     position: absolute;
-    bottom: 8px;
-    right: 68px;
+    bottom: -6px;
+    right: 50px;
   }
 `;
 
@@ -79,4 +79,8 @@ export const IconPopUp = styled.svg`
 
   fill: transparent;
   stroke: currentColor;
+`;
+
+export const ButtonText = styled.span`
+  white-space: nowrap;
 `;
