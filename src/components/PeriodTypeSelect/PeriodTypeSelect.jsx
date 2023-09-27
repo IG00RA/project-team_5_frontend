@@ -1,7 +1,9 @@
 import moment from 'moment';
 import { BtnWrapper, PeriodTypeBtn } from './PeriodTypeSelect.styled';
+import { useTranslation } from 'react-i18next';
 
 const PeriodTypeSelect = () => {
+  const { t } = useTranslation();
   return (
     <BtnWrapper>
       <PeriodTypeBtn
@@ -10,14 +12,14 @@ const PeriodTypeSelect = () => {
         $isMonth
         to={`month/${moment().format('YYYY-MM-DD')}`}
       >
-        Month
+        {t('calendar.month')}
       </PeriodTypeBtn>
       <PeriodTypeBtn
         $activeClassName="active"
         type="day"
         to={`day/${moment().format('YYYY-MM-DD')}`}
       >
-        Day
+        {t('calendar.day')}
       </PeriodTypeBtn>
     </BtnWrapper>
   );

@@ -22,7 +22,15 @@
     "password": "Password",
     "enterPassword": "Enter password",
     "passwordTitle": "Password must contain at least one number, one lowercase and one uppercase letter, and be at least 6 characters long.",
-    "Google": "Log In with Google"
+    "Google": "Log In Google"
+  },
+  "register": {
+    "signUp": "Sign Up",
+    "name": "Name",
+    "enterName": "Enter your name",
+    "nameTitle": "Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan",
+    "enterEmail": "Enter email",
+    "Google": "Sign Up with Google"
   },
   "userProfile": {
     "title": "User Profile",
@@ -65,7 +73,10 @@
     "passwordMin": "Password must be at least 6 characters long",
     "passwordSpaces": "Password must not contain spaces",
     "correctEmail": "This is a CORRECT email",
-    "correctPassword": "This is a CORRECT password"
+    "correctPassword": "This is a CORRECT password",
+    "correctName": "This is a CORRECT name",
+    "nameRequired": "Name is required",
+    "nameMatch": "Name must be between 2 and 30 characters"
   },
   "tasks": {
     "addTask": "Add task"
@@ -77,5 +88,9 @@
     "edit": "Edit",
     "save": "Save",
     "cancel": "Cancel"
+  },
+  "notFound": {
+    "text": "We’re sorry, the page you requested could not be found. Please go back to the homepage.",
+    "backToHome": "Back to home"
   }
 }
