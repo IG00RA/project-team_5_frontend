@@ -48,5 +48,16 @@
     "ratingMax": "Rating must be at most 5",
     "review": "Review is required",
     "reviewMax": "Review must be at most 300 characters"
+  },
+  "tasks": {
+    "addTask": "Add task"
+  },
+  "feedback": {
+    "rating": "Rating",
+    "review": "Review",
+    "enterText": "Enter text",
+    "edit": "Edit",
+    "save": "Save",
+    "cancel": "Cancel"
   }
 }

@@ -106,14 +106,14 @@ export const FeedbackForm = ({ handleClose }) => {
     >
       {({ values, setFieldValue }) => (
         <Form>
-          <Label name="rating">Rating</Label>
+          <Label name="rating">{t('feedback.rating')}</Label>
           <RatingComponent
             value={values.rating}
             setFieldValue={setFieldValue}
           />
           <InputWrapper>
             <ReviewWrapper>
-              <Label htmlFor="review">Review</Label>
+              <Label htmlFor="review">{t('feedback.review')}</Label>
               {userReview && (
                 <EditWrapper>
                   <EditBtn
@@ -136,7 +136,7 @@ export const FeedbackForm = ({ handleClose }) => {
 
             <Input
               type="text"
-              placeholder="Enter text"
+              placeholder={t('feedback.enterText')}
               id="review"
               name="review"
               component="textarea"
@@ -148,9 +148,11 @@ export const FeedbackForm = ({ handleClose }) => {
 
           {(!userReview || isEditActive) && (
             <FormBtnWrapper>
-              <FormBtn type="submit">{isEditActive ? 'Edit' : 'Save'}</FormBtn>
+              <FormBtn type="submit">
+                {isEditActive ? t('feedback.edit') : t('feedback.save')}
+              </FormBtn>
               <CancelBtn type="button" onClick={handleClose}>
-                Cancel
+                {t('feedback.cancel')}
               </CancelBtn>
             </FormBtnWrapper>
           )}
