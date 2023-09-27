@@ -21,21 +21,23 @@ import { useSearchParams } from 'react-router-dom';
 import { ToggleButton } from 'components/RegisterForm/RegisterForm.styled';
 import sprite from '../../images/svg-sprite/symbol-defs.svg';
 import GoogleBtn from 'components/Buttons/GoogleBtn/GoogleBtn';
+import { useTranslation } from 'react-i18next';
 
 const emailRegexp = /^\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/;
 
-const validationSchema = Yup.object().shape({
-  email: Yup.string()
-    .email('This is an ERROR email')
-    .matches(emailRegexp, 'Email must contain only Latin characters')
-    .required('Email is required'),
-  password: Yup.string()
-    .required('Password is required')
-    .min(6, 'Password must be at least 6 characters long')
-    .matches(/^\S*$/, 'Password must not contain spaces'),
-});
-
 export const LoginForm = () => {
+  const { t } = useTranslation();
+  const validationSchema = Yup.object().shape({
+    email: Yup.string()
+      .email(t('valid.emailError'))
+      .matches(emailRegexp, t('valid.emailLatin'))
+      .required(t('valid.emailRequired')),
+    password: Yup.string()
+      .required(t('valid.passwordRequired'))
+      .min(6, t('valid.passwordMin'))
+      .matches(/^\S*$/, t('valid.passwordSpaces')),
+  });
+
   const dispatch = useDispatch();
   const [searchParams] = useSearchParams();
   const token = searchParams.get('token');
@@ -66,16 +68,16 @@ export const LoginForm = () => {
 
         return (
           <Form onSubmit={handleSubmit} autoComplete="off">
-            <FormTitle>Log In</FormTitle>
+            <FormTitle>{t('logIn.title')}</FormTitle>
             <Label className={isValid('email')}>
-              Email
+              {t('logIn.email')}
               <Wrapper>
                 <Field
                   className={isValid('email')}
                   type="email"
                   name="email"
                   placeholder="nadiia@gmail.com"
-                  title="Email must be in the format username@domain.com"
+                  title={t('logIn.emailTitle')}
                   value={values.email}
                 />
                 {isValid('email') === 'is-valid' && (
@@ -90,19 +92,19 @@ export const LoginForm = () => {
                 )}
               </Wrapper>
               {isValid('email') === 'is-valid' && (
-                <p>This is a CORRECT email</p>
+                <p>{t('valid.correctEmail')}</p>
               )}
               <ErrorMessage name="email" component="div" />
             </Label>
             <Label className={isValid('password')}>
-              Password
+              {t('logIn.password')}
               <Wrapper>
                 <Field
                   autoComplete="new-password"
                   className={isValid('password')}
                   type={showPassword ? 'text' : 'password'}
                   name="password"
-                  placeholder="Enter password"
+                  placeholder={t('logIn.enterPassword')}
                   title="Password must contain at least one number, one lowercase and one uppercase letter, and be at least 6 characters long."
                   value={values.password}
                 />
@@ -115,17 +117,17 @@ export const LoginForm = () => {
                 </ToggleButton>
               </Wrapper>
               {isValid('password') === 'is-valid' && (
-                <p>This is a CORRECT password</p>
+                <p>{t('valid.correctPassword')}</p>
               )}
               <ErrorMessage name="password" component="div" />
             </Label>
             <Button type="submit" disabled={isSubmitting}>
-              Log In
+              {t('logIn.title')}
               <LoginIcon>
                 <use href={sprite + '#icon-log-in'}></use>
               </LoginIcon>
             </Button>
-            <GoogleBtn text="Log In with Google" />
+            <GoogleBtn text={t('logIn.Google')} />
           </Form>
         );
       }}

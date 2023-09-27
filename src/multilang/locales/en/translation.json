@@ -1,6 +1,7 @@
 {
   "auth": {
     "logIn": "Log in",
+    "logInForm": "Log In",
     "logout": "Logout",
     "signUp": "Sign up"
   },
@@ -13,6 +14,15 @@
     "allSub": "One",
     "allText": "GooseTrack is an all-in-one productivity tool that helps you stay on top of your tasks, events, and deadlines. Say goodbye to scattered to-do lists and hello to streamlined productivity with GooseTrack.",
     "reviews": "Reviews"
+  },
+  "logIn": {
+    "title": "Log In",
+    "email": "Email",
+    "emailTitle": "Email must be in the format username@domain.com",
+    "password": "Password",
+    "enterPassword": "Enter password",
+    "passwordTitle": "Password must contain at least one number, one lowercase and one uppercase letter, and be at least 6 characters long.",
+    "Google": "Log In with Google"
   },
   "userProfile": {
     "title": "User Profile",
@@ -47,7 +57,15 @@
     "ratingMin": "Rating must be at least 1",
     "ratingMax": "Rating must be at most 5",
     "review": "Review is required",
-    "reviewMax": "Review must be at most 300 characters"
+    "reviewMax": "Review must be at most 300 characters",
+    "emailError": "This is an ERROR email",
+    "emailLatin": "Email must contain only Latin characters",
+    "emailRequired": "Email is required",
+    "passwordRequired": "Password is required",
+    "passwordMin": "Password must be at least 6 characters long",
+    "passwordSpaces": "Password must not contain spaces",
+    "correctEmail": "This is a CORRECT email",
+    "correctPassword": "This is a CORRECT password"
   },
   "tasks": {
     "addTask": "Add task"
