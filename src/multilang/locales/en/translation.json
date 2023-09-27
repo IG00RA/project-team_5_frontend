@@ -76,10 +76,20 @@
     "correctPassword": "This is a CORRECT password",
     "correctName": "This is a CORRECT name",
     "nameRequired": "Name is required",
-    "nameMatch": "Name must be between 2 and 30 characters"
+    "nameMatch": "Name must be between 2 and 30 characters",
+    "titleMin": "Please enter at least 3 characters",
+    "titleMax": "Please enter less than 250 characters",
+    "titleRequired": "This field is required"
   },
   "tasks": {
-    "addTask": "Add task"
+    "addTask": "Add task",
+    "title": "Title",
+    "enterText": "Enter text",
+    "start": "Start",
+    "end": "End",
+    "add": "Add",
+    "edit": "Edit",
+    "cancel": "Cancel"
   },
   "feedback": {
     "rating": "Rating",
@@ -92,5 +102,10 @@
   "notFound": {
     "text": "We’re sorry, the page you requested could not be found. Please go back to the homepage.",
     "backToHome": "Back to home"
+  },
+  "radio": {
+    "low": "low",
+    "medium": "medium",
+    "high": "high"
   }
 }
