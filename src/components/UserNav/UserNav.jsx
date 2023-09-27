@@ -8,12 +8,14 @@ import {
 } from './UserNav.styled';
 import sprite from '../../images/svg-sprite/symbol-defs.svg';
 import { useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 const UserNav = ({ closeModalMenu }) => {
   const currentDay = moment();
   const location = useLocation();
   const locationURL = location.pathname;
+  const { t } = useTranslation();
 
   const isCalendarActive = locationURL.startsWith('/calendar');
 
@@ -24,12 +26,12 @@ const UserNav = ({ closeModalMenu }) => {
 
   return (
     <UserNavWrap>
-      <UserNavTitle>{`User Panel`} </UserNavTitle>
+      <UserNavTitle>{t('sidebar.userPanel')} </UserNavTitle>
       <UserNavItem to="/account" onClick={handleCloseModalMenu}>
         <StyledIcon>
           <use href={sprite + '#icon-user-check'} />
         </StyledIcon>
-        {`My Account`}
+        {t('sidebar.myAccount')}
       </UserNavItem>
       <UserNavItem
         to={`/calendar/month/${currentDay.format('YYYY-MM-DD')}`}
@@ -39,13 +41,13 @@ const UserNav = ({ closeModalMenu }) => {
         <StyledIcon>
           <use href={sprite + '#icon-nav-calendar'} />
         </StyledIcon>
-        {`Calendar`}
+        {t('sidebar.calendar')}
       </UserNavItem>
       <UserNavItem to="/statistics" onClick={handleCloseModalMenu}>
         <StyledIconChart>
           <use href={sprite + '#icon-nav-chart'} />
         </StyledIconChart>
-        {`Statistics`}
+        {t('sidebar.statistics')}
       </UserNavItem>
     </UserNavWrap>
   );
