@@ -28,9 +28,8 @@ import sprite from '../../images/svg-sprite/symbol-defs.svg';
 import moment from 'moment';
 import { useState } from 'react';
 import { selectDate } from 'redux/date/selectors';
+import i18next from 'i18next';
 import { useTranslation } from 'react-i18next';
-
-const radioButtonsList = ['low', 'medium', 'high'];
 
 export const TaskForm = ({
   task: {
@@ -53,6 +52,7 @@ export const TaskForm = ({
     end: Yup.string(),
     priority: Yup.string().oneOf(['low', 'medium', 'high']).required(),
   });
+  const radioButtonsList = ['low', 'medium', 'high'];
 
   const [checked, setChecked] = useState(priority);
   const date = useSelector(selectDate);
@@ -158,7 +158,21 @@ export const TaskForm = ({
                   <RadioCustomCheck color={radio}>
                     <RadioCustom color={radio}></RadioCustom>
                   </RadioCustomCheck>
-                  {radio}
+                  {i18next.language === 'uk'
+                    ? (() => {
+                        switch (radio) {
+                          case 'low':
+                            return 'Низький';
+                          case 'medium':
+                            return 'Середній';
+                          case 'high':
+                            return 'Високий';
+                          default:
+                            return 'low';
+                        }
+                      })()
+                    : radio}{' '}
+                  {/* У цьому рядку виправлено помилку */}
                 </Label>
               </li>
             ))}

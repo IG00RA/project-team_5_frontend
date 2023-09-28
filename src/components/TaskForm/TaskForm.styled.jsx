@@ -273,6 +273,12 @@ export const RadioCustom = styled.span`
         return p.theme.colors.calendarPage.month.mediumTaskText;
       case 'high':
         return p.theme.colors.calendarPage.month.hightTaskText;
+      // case 'низький':
+      //   return p.theme.colors.calendarPage.month.lowTaskText;
+      // case 'середній':
+      //   return p.theme.colors.calendarPage.month.mediumTaskText;
+      // case 'високий':
+      //   return p.theme.colors.calendarPage.month.hightTaskText;
       default:
         return;
     }
@@ -301,6 +307,12 @@ export const RadioCustomCheck = styled.span`
           return 'rgba(243, 178, 73, 0.50);';
         case 'high':
           return 'rgba(234, 61, 101, 0.50);';
+        // case 'низький':
+        //   return 'rgba(114, 194, 248, 0.50);';
+        // case 'середній':
+        //   return 'rgba(243, 178, 73, 0.50);';
+        // case 'високий':
+        //   return 'rgba(234, 61, 101, 0.50);';
         default:
           return;
       }

@@ -1,23 +1,56 @@
 import PropTypes from 'prop-types';
-import { TaskToolbar } from "components/TaskToolbar/TaskToolbar";
-import { Img, Item, ItemWrapper, Text, TextWrapper, Title, UserWrapper } from "./TaskColumnCard.styled";
-import { useSelector } from "react-redux";
-import { selectUser } from "redux/user/selectors";
+import { TaskToolbar } from 'components/TaskToolbar/TaskToolbar';
+import {
+  Img,
+  Item,
+  ItemWrapper,
+  Text,
+  TextWrapper,
+  Title,
+  UserWrapper,
+} from './TaskColumnCard.styled';
+import { useSelector } from 'react-redux';
+import { selectUser } from 'redux/user/selectors';
+import { useTranslation } from 'react-i18next';
 
 export const TaskColumnCard = ({ task, openModal, ColumnTitle, provided }) => {
-  const image = 'https://as2.ftcdn.net/v2/jpg/03/59/58/91/1000_F_359589186_JDLl8dIWoBNf1iqEkHxhUeeOulx0wOC5.jpg';
+  const image =
+    'https://as2.ftcdn.net/v2/jpg/03/59/58/91/1000_F_359589186_JDLl8dIWoBNf1iqEkHxhUeeOulx0wOC5.jpg';
+  const { t } = useTranslation();
+  const translatePriority = priority => {
+    switch (priority) {
+      case 'low':
+        return t('radio.low');
+      case 'medium':
+        return t('radio.medium');
+      case 'high':
+        return t('radio.high');
+      default:
+        return 'low';
+    }
+  };
 
   const { avatarURL, userName } = useSelector(selectUser);
 
   return (
-    <Item {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
+    <Item
+      {...provided.draggableProps}
+      {...provided.dragHandleProps}
+      ref={provided.innerRef}
+    >
       <Title>{task.title}</Title>
       <ItemWrapper>
         <UserWrapper>
           <Img src={avatarURL ? avatarURL : image} alt={userName} />
-          <TextWrapper $priority={task.priority}><Text>{task.priority}</Text></TextWrapper>
+          <TextWrapper $priority={task.priority}>
+            <Text>{translatePriority(task.priority)}</Text>
+          </TextWrapper>
         </UserWrapper>
-        <TaskToolbar openModal={openModal} task={task} ColumnTitle={ColumnTitle} />
+        <TaskToolbar
+          openModal={openModal}
+          task={task}
+          ColumnTitle={ColumnTitle}
+        />
       </ItemWrapper>
     </Item>
   );

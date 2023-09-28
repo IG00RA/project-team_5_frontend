@@ -32,7 +32,7 @@ const DatePickerComponent = ({ startDate, setStartDate, customInput }) => {
       dayElement.textContent = dayNames[index];
     });
   };
-  console.log(i18next.language);
+
   return (
     <DatePickerWrapper>
       <DatePicker
