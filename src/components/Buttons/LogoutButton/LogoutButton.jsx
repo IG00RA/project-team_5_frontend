@@ -6,7 +6,7 @@ const LogoutButton = ({ onClick }) => {
   const { t } = useTranslation();
   return (
     <LogoutBtn type="button" onClick={onClick}>
-      <LogoutBtnText>{t('auth.logout')}</LogoutBtnText>
+      <LogoutBtnText>{t('auth.logOut')}</LogoutBtnText>
       <div>
         <LogoutIcon>
           <use href={sprite + '#icon-log-out'} />

@@ -2,7 +2,7 @@
   "auth": {
     "logIn": "Log in",
     "logInForm": "Log In",
-    "logout": "Logout",
+    "logOut": "Logout",
     "signUp": "Sign up"
   },
   "sidebar": {
@@ -116,5 +116,17 @@
     "low": "low",
     "medium": "medium",
     "high": "high"
-  }
+  },
+  "days": {
+    "monday": "M",
+    "tuesday": "T",
+    "wednesday": "W",
+    "thursday": "T",
+    "friday": "F",
+    "saturday": "S",
+    "sunday": "S"
+  },
+  "To_do": "To do",
+  "In_progress": "In progress",
+  "Done": "Done"
 }
