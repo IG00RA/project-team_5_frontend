@@ -41,6 +41,7 @@ export const DatePickerWrapper = styled.div`
 
   .react-datepicker__current-month {
     text-align: center;
+    text-transform: capitalize;
     font-size: 16px;
     font-weight: 600;
     line-height: calc(20 / 16);
