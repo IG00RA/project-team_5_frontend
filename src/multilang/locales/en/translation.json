@@ -28,7 +28,7 @@
     "password": "Password",
     "enterPassword": "Enter password",
     "passwordTitle": "Password must contain at least one number, one lowercase and one uppercase letter, and be at least 6 characters long.",
-    "Google": "Log In Google"
+    "Google": "Log In with Google"
   },
   "register": {
     "signUp": "Sign Up",
