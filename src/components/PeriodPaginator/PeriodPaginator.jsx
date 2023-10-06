@@ -8,10 +8,14 @@ import sprite from '../../images/svg-sprite/symbol-defs.svg';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { updateDate } from 'redux/date/slice';
+import 'moment/min/locales';
 
-export default function PeriodPaginator({ changePeriod, momentDate, setMomentDate }) {
+export default function PeriodPaginator({
+  changePeriod,
+  momentDate,
+  setMomentDate,
+}) {
   const dispatch = useDispatch();
-
   const checkDaysOfWeek = momentDate.format('ddd');
 
   useEffect(() => {
@@ -52,7 +56,10 @@ export default function PeriodPaginator({ changePeriod, momentDate, setMomentDat
       <div>
         <PaginatorBtn
           $isPrevBtn
-          disabled={changePeriod === 'day' && checkDaysOfWeek === 'Mon'}
+          disabled={
+            changePeriod === 'day' &&
+            (checkDaysOfWeek === 'Mon' || checkDaysOfWeek === 'пн')
+          }
           onClick={prevMonthHandler}
         >
           <Icon>
@@ -60,7 +67,10 @@ export default function PeriodPaginator({ changePeriod, momentDate, setMomentDat
           </Icon>
         </PaginatorBtn>
         <PaginatorBtn
-          disabled={changePeriod === 'day' && checkDaysOfWeek === 'Sun'}
+          disabled={
+            changePeriod === 'day' &&
+            (checkDaysOfWeek === 'Sun' || checkDaysOfWeek === 'нд')
+          }
           onClick={nextMonthHandler}
         >
           <Icon>
@@ -70,4 +80,4 @@ export default function PeriodPaginator({ changePeriod, momentDate, setMomentDat
       </div>
     </PaginatorWrapper>
   );
-};
+}
