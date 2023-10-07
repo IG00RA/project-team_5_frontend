@@ -219,6 +219,14 @@ export const FormSubmitBtn = styled.button`
   &:hover {
     box-shadow: 4px 2px 16px 0px rgba(136, 165, 191, 0.48);
   }
+  &:disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+    &:hover,
+    &:focus {
+      box-shadow: none;
+    }
+  }
 `;
 
 export const IconInBtn = styled.svg`
