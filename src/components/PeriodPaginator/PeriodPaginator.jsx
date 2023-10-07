@@ -8,7 +8,6 @@ import sprite from '../../images/svg-sprite/symbol-defs.svg';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { updateDate } from 'redux/date/slice';
-import 'moment/min/locales';
 
 export default function PeriodPaginator({
   changePeriod,

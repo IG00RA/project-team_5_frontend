@@ -18,8 +18,10 @@ export default function Calendar() {
   const [changePeriod, setChangePeriod] = useState('month');
   const { t } = useTranslation();
 
+  const uniqueKey = `${currentLang}-${momentDate}`;
+
   return (
-    <>
+    <div key={uniqueKey}>
       <CalendarToolbar
         changePeriod={changePeriod}
         momentDate={momentDate}
@@ -28,6 +30,6 @@ export default function Calendar() {
       <Suspense fallback={<div>{t('calendar.loading')}</div>}>
         <Outlet context={[setChangePeriod, setMomentDate]} />
       </Suspense>
-    </>
+    </div>
   );
 }
