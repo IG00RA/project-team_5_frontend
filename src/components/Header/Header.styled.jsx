@@ -5,10 +5,7 @@ export const Wrap = styled.div`
   margin-bottom: 64px;
   align-items: center;
   width: 100%;
-
-  @media (min-width: 375px) {
-    justify-content: space-between;
-  }
+  justify-content: space-between;
 
   @media (min-width: 1440px) {
     margin-bottom: 32px;
@@ -19,9 +16,10 @@ export const UserWrap = styled.div`
   display: flex;
   margin-left: 4px;
   align-items: center;
+  margin-left: auto;
+  gap: 10px;
 
   @media (min-width: 375px) {
-    margin-left: auto;
     gap: 18px;
   }
 
