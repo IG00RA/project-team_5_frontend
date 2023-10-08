@@ -217,10 +217,9 @@ export const FormSubmitBtn = styled.button`
   cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
 
   &:hover {
-    box-shadow: 4px 2px 16px 0px rgba(136, 165, 191, 0.48);
+    box-shadow: 4px 2px 16px 0px rgba(19, 108, 187, 0.48);
   }
   &:disabled {
-    pointer-events: none;
     cursor: not-allowed;
     &:hover,
     &:focus {
