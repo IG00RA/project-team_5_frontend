@@ -23,7 +23,7 @@ import sprite from '../../images/svg-sprite/symbol-defs.svg';
 import GoogleBtn from 'components/Buttons/GoogleBtn/GoogleBtn';
 import { useTranslation } from 'react-i18next';
 
-const emailRegexp = /^\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/;
+const emailRegexp = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
 
 export const LoginForm = () => {
   const { t } = useTranslation();
