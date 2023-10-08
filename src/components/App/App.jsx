@@ -16,7 +16,7 @@ import { LoaderWrapper } from './App.styled';
 import Loader from 'components/Loader/Loader';
 // import { useTranslation } from 'react-i18next';
 
-const HomePage = lazy(() => import('../../pages/Home'));
+const HomePage = lazy(() => import('../../pages/Home/Home'));
 const RegisterPage = lazy(() => import('../../pages/Register/Register'));
 const LoginPage = lazy(() => import('../../pages/Login/Login'));
 const AccountPage = lazy(() => import('../../pages/Account/Account'));

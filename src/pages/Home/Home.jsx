@@ -1,12 +1,13 @@
 import { ReviewsSlider } from 'components/ReviewsSlider/ReviewsSlider';
-import { AuthSection } from '../components/AuthSection/AuthSection';
-import { Description } from '../components/Description/Description';
+import { AuthSection } from '../../components/AuthSection/AuthSection';
+import { Description } from '../../components/Description/Description';
 import { useEffect, useState } from 'react';
 import { fetchReviewsData } from 'redux/review/reviewOperations';
 import ScrollToTop from 'components/ScrollToTop/ScrollToTop';
 import { CustomLoader } from 'components/Buttons/ChangeProfileButton/ChangeProfileButton.styled';
 import Loader from 'components/Loader/Loader';
 import { LanguageToggler } from 'components/LanguageToggler/LanguageToggler';
+import { LanguageWrap } from './Home.styled';
 
 export default function Home() {
   const [reviews, setReviews] = useState([]);
@@ -22,7 +23,9 @@ export default function Home() {
 
   return (
     <div>
-      <LanguageToggler />
+      <LanguageWrap>
+        <LanguageToggler />
+      </LanguageWrap>
       <AuthSection />
       <Description />
       {isLoading ? (
