@@ -17,7 +17,6 @@ export const DayCalendarHead = ({ setMomentDate }) => {
   const daysOfWeek = [...Array(7)].map((_, index) =>
     moment(startOfWeek).add(index, 'days')
   );
-
   const currentWidth = window.innerWidth;
   const viewport =
     currentWidth < 768 ? 'mobile' : currentWidth < 1440 ? 'laptop' : 'desktop';
