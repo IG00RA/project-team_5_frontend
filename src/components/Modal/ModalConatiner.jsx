@@ -8,7 +8,7 @@ const ModalContainer = ({ isOpen, onRequestClose, children }) => {
     <Modal isOpen={isOpen} onRequestClose={onRequestClose}>
       {children}
     </Modal>,
-    document.getElementById('modal-root') // Make sure to have a <div id="modal-root"></div> in your HTML
+    document.getElementById('modal-root')
   );
 };
 

@@ -14,7 +14,6 @@ import MainLayout from 'pages/MainLayout/MainLayout';
 import { setMainStyles } from 'helpers/setMainStyles';
 import { LoaderWrapper } from './App.styled';
 import Loader from 'components/Loader/Loader';
-// import { useTranslation } from 'react-i18next';
 
 const HomePage = lazy(() => import('../../pages/Home/Home'));
 const RegisterPage = lazy(() => import('../../pages/Register/Register'));
@@ -26,7 +25,6 @@ const ChoosedMonthModule = lazy(() => import('../ChoosedMonth'));
 const ChoosedDayModule = lazy(() => import('../ChoosedDay'));
 
 export const App = () => {
-  // const { t, i18n } = useTranslation();
   const dispatch = useDispatch();
   const isRefreshing = useSelector(selectIsRefreshing);
   const date = moment().format('YYYY-MM-DD');
