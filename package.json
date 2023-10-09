@@ -2,7 +2,7 @@
   "name": "project-team_5_frontend",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://ig00ra.github.io/project-team_5_frontend/",
+  "homepage": "https://goose-track-khaki.vercel.app",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
     "@testing-library/jest-dom": "^5.17.0",
