@@ -219,13 +219,17 @@ export const FormSubmitBtn = styled.button`
   &:hover {
     box-shadow: 4px 2px 16px 0px rgba(136, 165, 191, 0.48);
   }
+
+  &:disabled {
+    box-shadow: none;
+  }
 `;
 
 export const IconInBtn = styled.svg`
   height: 18px;
   width: 18px;
 
-  stroke: ${props => props.theme.colors.modal.task.saveBtnText};
+  stroke: currentColor;
   fill: transparent;
 `;
 
