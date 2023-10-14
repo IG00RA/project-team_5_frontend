@@ -11,6 +11,7 @@ import {
 } from './UserInfo.styled';
 import { ThemeToggler } from 'components/ThemeToggler/ThemeToggler';
 import { Link } from 'react-router-dom';
+import { LanguageToggler } from 'components/LanguageToggler/LanguageToggler';
 
 export const UserInfo = () => {
   const user = useSelector(selectUser);
@@ -19,6 +20,7 @@ export const UserInfo = () => {
   return (
     <Container>
       <ThemeToggler />
+      <LanguageToggler />
       <UserName>{name}</UserName>
       <AvatarField>
         {user.avatarURL ? (

@@ -66,5 +66,3 @@ export const PeriodTypeBtn = styled(NavLink)`
     line-height: calc(18 / 16);
   }
 `;
-
-// ADD DARK & LIGHT THEME

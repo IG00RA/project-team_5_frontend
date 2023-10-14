@@ -5,14 +5,16 @@ import {
   ImageContainer,
   FormContainer,
 } from './Register.styled';
+import { useTranslation } from 'react-i18next';
 
 export default function Register() {
+  const { t } = useTranslation();
   return (
     <PageContainer>
       <FormContainer>
         <RegisterForm />
       </FormContainer>
-      <AuthNavigate link="/login" text="Log In" />
+      <AuthNavigate link="/login" text={t('auth.logIn')} />
       <ImageContainer />
     </PageContainer>
   );

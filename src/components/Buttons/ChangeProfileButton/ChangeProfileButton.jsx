@@ -1,7 +1,9 @@
 import { Button, CustomLoader, Text } from './ChangeProfileButton.styled';
 import Loader from 'components/Loader/Loader';
+import { useTranslation } from 'react-i18next';
 
 const ChangeProfileButton = ({ onClick, isLoading, disabled }) => {
+  const { t } = useTranslation();
   return (
     <Button
       type="submit"
@@ -14,7 +16,7 @@ const ChangeProfileButton = ({ onClick, isLoading, disabled }) => {
           <Loader />
         </CustomLoader>
       ) : (
-        <Text>Save changes</Text>
+        <Text>{t('userProfile.save')}</Text>
       )}
     </Button>
   );

@@ -44,8 +44,6 @@ export const ReviewWrapper = styled.div`
   }
 `;
 
-//
-
 export const Title = styled.h2`
   margin-bottom: 50px;
 

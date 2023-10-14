@@ -48,7 +48,6 @@ export const logout = createAsyncThunk('auth/logout', async (__, thunkAPI) => {
     clearAuthHeader();
     Notify.success('LogOut success', { timeout: 2000 });
   } catch (e) {
-    // Notify.failure(e);
     return thunkAPI.rejectWithValue(e.message);
   }
 });

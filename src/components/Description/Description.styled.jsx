@@ -9,9 +9,9 @@ export const Wrap = styled.div`
 
   @media screen and (min-width: 1067px) {
     padding: 64px 128px 100px 128px;
-    overflow: hidden; 
+    overflow: hidden;
   }
-`
+`;
 
 export const SectionWrap = styled.div`
   @media screen and (min-width: 1067px) {
@@ -19,14 +19,13 @@ export const SectionWrap = styled.div`
     flex-direction: row;
     align-items: center;
     gap: 228px;
-    
+
     padding-left: 77px;
     padding-right: 0px;
   }
-`
+`;
 export const SecondSectionWrap = styled.div`
-  @media screen and (min-width: 768px) {  
-
+  @media screen and (min-width: 768px) {
     margin-left: auto;
     max-width: 275px;
   }
@@ -37,17 +36,17 @@ export const SecondSectionWrap = styled.div`
     justify-contant: space-evenly;
     padding-left: 0px;
   }
-`
+`;
 export const DesktopSectionWrap = styled.div`
   @media screen and (min-width: 1067px) {
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
     gap: 228px;
-    
+
     margin-left: 0px;
   }
-`
+`;
 
 export const Number = styled.h1`
   font-size: 80px;
@@ -59,7 +58,7 @@ export const Number = styled.h1`
   @media screen and (min-width: 768px) {
     font-size: 104px;
   }
-`
+`;
 
 export const Title = styled.h2`
   font-size: 32px;
@@ -84,7 +83,7 @@ export const Title = styled.h2`
     font-size: 40px;
     line-height: 1.1;
   }
-`
+`;
 
 export const DarkTitle = styled.h2`
   font-size: 32px;
@@ -94,14 +93,14 @@ export const DarkTitle = styled.h2`
   color: ${p => p.theme.colors.homePage.darkTitle};
 
   width: 139px;
-  height: 40px;
+  min-height: 40px;
   margin-top: 14px;
 
   @media screen and (min-width: 768px) {
     font-size: 40px;
     line-height: 1.1;
   }
-`
+`;
 
 export const LastTitle = styled.h2`
   font-size: 32px;
@@ -118,7 +117,7 @@ export const LastTitle = styled.h2`
   align-items: center;
   justify-content: center;
   margin-top: 14px;
-`
+`;
 
 export const Subtitle = styled.h2`
   font-size: 32px;
@@ -134,7 +133,7 @@ export const Subtitle = styled.h2`
     line-height: 1.1;
     margin-top: 14px;
   }
-`
+`;
 
 export const Text = styled.p`
   color: ${p => p.theme.colors.homePage.darkText};
@@ -146,14 +145,13 @@ export const Text = styled.p`
   @media screen and (min-width: 768px) {
     max-width: 275px;
   }
-`
+`;
 export const Image = styled.img`
   width: 335px;
   border-radius: 40px;
   background: ${p => p.theme.colors.homePage.imageBg};
   margin-top: 40px;
   object-fit: contain;
-
 
   @media screen and (min-width: 768px) {
     width: 704px;
@@ -167,4 +165,4 @@ export const Image = styled.img`
     width: 604px;
     margin-top: 0px;
   }
-`
+`;
