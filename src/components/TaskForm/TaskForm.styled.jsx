@@ -123,7 +123,7 @@ export const InputText = styled.textarea`
 
 export const InputTime = styled.input`
   padding: 14px 18px;
-  min-width: 100px;
+  width: 100px;
   height: 46px;
 
   font-family: Inter;
@@ -149,7 +149,7 @@ export const InputTime = styled.input`
   }
 
   @media (min-width: 375px) {
-    min-width: 126px;
+    width: 126px;
   }
 
   @media (min-width: 768px) {
