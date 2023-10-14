@@ -123,7 +123,7 @@ export const InputText = styled.textarea`
 
 export const InputTime = styled.input`
   padding: 14px 18px;
-  width: 100px;
+  width: 126px;
   height: 46px;
 
   font-family: Inter;
@@ -148,9 +148,9 @@ export const InputTime = styled.input`
     box-shadow: 2px 1px 10px 0px rgba(136, 165, 191, 0.48);
   }
 
-  @media (min-width: 375px) {
+  /* @media (min-width: 375px) {
     width: 126px;
-  }
+  } */
 
   @media (min-width: 768px) {
     min-width: 163px;
@@ -221,6 +221,9 @@ export const FormSubmitBtn = styled.button`
   }
   &:disabled {
     cursor: not-allowed;
+    & > svg {
+      stroke: #000000;
+    }
     &:hover,
     &:focus {
       box-shadow: none;
