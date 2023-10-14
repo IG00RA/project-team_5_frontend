@@ -31,6 +31,7 @@ import SidebarDesk from '../../images/landing-page/desktop/image-desktop-2.jpg';
 import SidebarDesk2x from '../../images/landing-page/desktop/image-desktop-2-2x.jpg';
 import AllDesk from '../../images/landing-page/desktop/image-desktop-3.jpg';
 import AllDesk2x from '../../images/landing-page/desktop/image-desktop-3-2x.jpg';
+import { useTranslation } from 'react-i18next';
 
 export const Description = () => {
   const isRetina = window.devicePixelRatio > 1;
@@ -46,19 +47,16 @@ export const Description = () => {
   const allDeskPicture = `${isRetina ? AllMob2x : AllMob} 375w,
                           ${isRetina ? AllTab2x : AllTab} 768w,
                           ${isRetina ? AllDesk2x : AllDesk} 769w`;
+  const { t } = useTranslation();
 
   return (
     <Wrap>
       <SectionWrap>
         <div>
           <Number>1.</Number>
-          <Title>Calendar</Title>
-          <Subtitle>View</Subtitle>
-          <Text>
-            GooseTrack's Calendar view provides a comprehensive overview of your
-            schedule, displaying all your tasks, events, and appointments in a
-            visually appealing and intuitive layout.
-          </Text>
+          <Title>{t('calendar.title')}</Title>
+          <Subtitle>{t('description.view')}</Subtitle>
+          <Text>{t('description.viewText')}</Text>
         </div>
         <Image
           srcSet={calendarPicture}
@@ -72,13 +70,8 @@ export const Description = () => {
         <DesktopSectionWrap>
           <SecondSectionWrap>
             <Number>2.</Number>
-            <DarkTitle>Sidebar</DarkTitle>
-            <Text>
-              GooseTrack offers easy access to your account settings, calendar,
-              and filters. The "My Account" section allows you to manage your
-              profile information and preferences, while the calendar provides a
-              quick and convenient way to view your upcoming events and tasks.
-            </Text>
+            <DarkTitle>{t('description.sidebar')}</DarkTitle>
+            <Text>{t('description.sidebarText')}</Text>
           </SecondSectionWrap>
           <Image
             srcSet={sidebarPicture}
@@ -92,13 +85,9 @@ export const Description = () => {
       <SectionWrap>
         <div>
           <Number>3.</Number>
-          <LastTitle>All in</LastTitle>
-          <Subtitle>One</Subtitle>
-          <Text>
-            GooseTrack is an all-in-one productivity tool that helps you stay on
-            top of your tasks, events, and deadlines. Say goodbye to scattered
-            to-do lists and hello to streamlined productivity with GooseTrack.
-          </Text>
+          <LastTitle>{t('description.all')}</LastTitle>
+          <Subtitle>{t('description.allSub')}</Subtitle>
+          <Text>{t('description.allText')}</Text>
         </div>
         <Image
           srcSet={allDeskPicture}

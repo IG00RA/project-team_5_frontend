@@ -12,8 +12,10 @@ import Goose404Tab2x from '../../images/404-page/goose-404-tablet-2x.webp';
 import Goose404Desk from '../../images/404-page/goose-404-desktop.webp';
 import Goose404Desk2x from '../../images/404-page/goose-404-desktop-2x.webp';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const NotFound = () => {
+  const { t } = useTranslation();
   const isRetina = window.devicePixelRatio > 1;
   const logoImage = ` ${isRetina ? Goose404Mob2x : Goose404Mob} 375w,
                       ${isRetina ? Goose404Tab2x : Goose404Tab} 768w,
@@ -34,12 +36,9 @@ const NotFound = () => {
         </PictureWrap>
       </div>
 
-      <Text>
-        We’re sorry, the page you requested could not be found. Please go back
-        to the homepage.
-      </Text>
+      <Text>{t('notFound.text')}</Text>
       <Link to="/">
-        <HomeButton type="button">Back to home</HomeButton>
+        <HomeButton type="button">{t('notFound.backToHome')}</HomeButton>
       </Link>
     </Wrap>
   );

@@ -123,7 +123,7 @@ export const InputText = styled.textarea`
 
 export const InputTime = styled.input`
   padding: 14px 18px;
-  min-width: 100px;
+  width: 126px;
   height: 46px;
 
   font-family: Inter;
@@ -148,9 +148,9 @@ export const InputTime = styled.input`
     box-shadow: 2px 1px 10px 0px rgba(136, 165, 191, 0.48);
   }
 
-  @media (min-width: 375px) {
-    min-width: 126px;
-  }
+  /* @media (min-width: 375px) {
+    width: 126px;
+  } */
 
   @media (min-width: 768px) {
     min-width: 163px;
@@ -217,7 +217,17 @@ export const FormSubmitBtn = styled.button`
   cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
 
   &:hover {
-    box-shadow: 4px 2px 16px 0px rgba(136, 165, 191, 0.48);
+    box-shadow: 4px 2px 16px 0px rgba(19, 108, 187, 0.48);
+  }
+  &:disabled {
+    cursor: not-allowed;
+    & > svg {
+      stroke: #000000;
+    }
+    &:hover,
+    &:focus {
+      box-shadow: none;
+    }
   }
 `;
 

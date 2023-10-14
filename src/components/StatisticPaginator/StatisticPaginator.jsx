@@ -16,6 +16,7 @@ import {
 } from './StatisticPaginator.styled';
 import { parseISO } from 'date-fns';
 import moment from 'moment';
+import { useTranslation } from 'react-i18next';
 
 export default function StatisticPaginator({ selectedDate, setSelectedDate }) {
   const prevHandler = () => {
@@ -25,6 +26,8 @@ export default function StatisticPaginator({ selectedDate, setSelectedDate }) {
   const nextHandler = () => {
     setSelectedDate(prev => prev.clone().add(1, 'day'));
   };
+
+  const { t } = useTranslation();
 
   return (
     <Wrapper>
@@ -51,11 +54,15 @@ export default function StatisticPaginator({ selectedDate, setSelectedDate }) {
       <List>
         <ListItem>
           <ColoredSquare color="#FFD2DD"></ColoredSquare>
-          <CategoryText fontFamily="Inter">By Day</CategoryText>
+          <CategoryText fontFamily="Inter">
+            {t('statistics.byDay')}
+          </CategoryText>
         </ListItem>
         <ListItem>
           <ColoredSquare color=" #3E85F3;"></ColoredSquare>
-          <CategoryText fontFamily="Poppins">By Month</CategoryText>
+          <CategoryText fontFamily="Poppins">
+            {t('statistics.byMonth')}
+          </CategoryText>
         </ListItem>
       </List>
     </Wrapper>

@@ -11,6 +11,7 @@ import {
 } from 'recharts';
 import { selectTheme } from 'redux/user/selectors';
 import { darkTheme, lightTheme } from 'utils/theme';
+import { useTranslation } from 'react-i18next';
 
 export default function StatisticsChart({
   filteredTasksByDate,
@@ -59,25 +60,28 @@ export default function StatisticsChart({
     Math.max(toDoByMonthPercent, inProgressByMonthPercent, doneByMonthPercent) /
       100 || 0;
 
+  const { t } = useTranslation();
+
   const data = useMemo(
     () => [
       {
-        name: 'To Do',
+        name: t('statistics.toDo'),
         byDay: Math.ceil(toDoByDayPercent),
         byMonth: Math.ceil(toDoByMonthPercent),
       },
       {
-        name: 'In Progress',
+        name: t('statistics.inProgress'),
         byDay: Math.ceil(inProgressByDayPercent),
         byMonth: Math.ceil(inProgressByMonthPercent),
       },
       {
-        name: 'Done',
+        name: t('statistics.done'),
         byDay: Math.ceil(doneByDayPercent),
         byMonth: Math.ceil(doneByMonthPercent),
       },
     ],
     [
+      t,
       toDoByMonthPercent,
       inProgressByMonthPercent,
       doneByMonthPercent,

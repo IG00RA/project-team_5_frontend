@@ -10,6 +10,7 @@ import StatisticsChart from '../../components/StatisticsChart/StatisticsChart';
 import StatisticPaginator from 'components/StatisticPaginator/StatisticPaginator';
 import { StatisticsWrapper, ChartWrapper, Text } from './Statistics.styled';
 import moment from 'moment';
+import { useTranslation } from 'react-i18next';
 
 export default function Statistics() {
   const tasks = useSelector(selectTasks);
@@ -30,6 +31,8 @@ export default function Statistics() {
     selectedDateFormat
   );
 
+  const { t } = useTranslation();
+
   useEffect(() => {
     dispatch(getAllTasks());
   }, [dispatch, selectedDate]);
@@ -41,7 +44,7 @@ export default function Statistics() {
         setSelectedDate={setSelectedDate}
       />
       <ChartWrapper>
-        <Text>Tasks</Text>
+        <Text>{t('statistics.tasks')}</Text>
         <StatisticsChart
           filteredTasksByDate={filteredTasksByDate}
           filteredTasksByMonth={filteredTasksByMonth}

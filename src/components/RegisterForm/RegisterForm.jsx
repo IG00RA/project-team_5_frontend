@@ -22,30 +22,32 @@ import { ReactComponent as HidePasswordIcon } from '../../images/svg/hidden-eye-
 
 import sprite from '../../images/svg-sprite/symbol-defs.svg';
 import GoogleBtn from 'components/Buttons/GoogleBtn/GoogleBtn';
+import { useTranslation } from 'react-i18next';
 const emailRegexp = /^\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/;
 
-const validationSchema = Yup.object().shape({
-  userName: Yup.string()
-    .required('Name is required')
-    .matches(/^\S[\S\s]{0,28}\S$/, 'Name must be between 2 and 30 characters')
-    .test(
-      'name-validation',
-      'Name must be at least 2 characters long',
-      value => {
-        return value && value.replace(/\s/g, '').length >= 2;
-      }
-    ),
-  email: Yup.string()
-    .email('This is an ERROR email')
-    .matches(emailRegexp, 'Email must contain only Latin characters')
-    .required('Email is required'),
-  password: Yup.string()
-    .required('Password is required')
-    .min(6, 'Password must be at least 6 characters long')
-    .matches(/^\S*$/, 'Password must not contain spaces'),
-});
-
 export const RegisterForm = () => {
+  const { t } = useTranslation();
+  const validationSchema = Yup.object().shape({
+    userName: Yup.string()
+      .required(t('valid.nameRequired'))
+      .matches(/^\S[\S\s]{0,28}\S$/, t('valid.nameMatch'))
+      .test(
+        'name-validation',
+        'Name must be at least 2 characters long',
+        value => {
+          return value && value.replace(/\s/g, '').length >= 2;
+        }
+      ),
+    email: Yup.string()
+      .email(t('valid.emailError'))
+      .matches(emailRegexp, t('valid.emailLatin'))
+      .required(t('valid.emailRequired')),
+    password: Yup.string()
+      .required(t('valid.passwordRequired'))
+      .min(6, t('valid.passwordMin'))
+      .matches(/^\S*$/, t('valid.passwordSpaces')),
+  });
+
   const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
   const handlePasswordVisibility = () => {
@@ -71,16 +73,16 @@ export const RegisterForm = () => {
 
         return (
           <Form onSubmit={handleSubmit} autoComplete="off">
-            <FormTitle>Sign Up</FormTitle>
+            <FormTitle>{t('register.signUp')}</FormTitle>
             <Label className={isValid('userName')}>
-              Name
+              {t('register.name')}
               <Wrapper>
                 <Field
                   className={isValid('userName')}
                   type="text"
                   name="userName"
-                  placeholder="Enter your name"
-                  title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+                  placeholder={t('register.enterName')}
+                  title={t('register.nameTitle')}
                   value={values.userName}
                 />
                 {isValid('userName') === 'is-valid' && (
@@ -95,20 +97,20 @@ export const RegisterForm = () => {
                 )}
               </Wrapper>
               {isValid('userName') === 'is-valid' && (
-                <p>This is a CORRECT name</p>
+                <p>{t('valid.correctName')}</p>
               )}
               <ErrorMessage name="userName" component="div" />
             </Label>
             <Label className={isValid('email')}>
-              Email
+              {t('logIn.email')}
               <Wrapper>
                 <Field
                   autoComplete="email-no-fill"
                   className={isValid('email')}
                   type="email"
                   name="email"
-                  placeholder="Enter email"
-                  title="Email must be in the format username@domain.com"
+                  placeholder={t('register.enterEmail')}
+                  title={t('logIn.emailTitle')}
                   value={values.email}
                 />
                 {isValid('email') === 'is-valid' && (
@@ -123,20 +125,20 @@ export const RegisterForm = () => {
                 )}
               </Wrapper>
               {isValid('email') === 'is-valid' && (
-                <p>This is a CORRECT email</p>
+                <p>{t('valid.correctEmail')}</p>
               )}
               <ErrorMessage name="email" component="div" />
             </Label>
             <Label className={isValid('password')}>
-              Password
+              {t('logIn.password')}
               <Wrapper>
                 <Field
                   autoComplete="new-password"
                   className={isValid('password')}
                   type={showPassword ? 'text' : 'password'}
                   name="password"
-                  placeholder="Enter password"
-                  title="Password must contain at least one number, one lowercase and one uppercase letter, and be at least 6 characters long."
+                  placeholder={t('logIn.enterPassword')}
+                  title={t('logIn.PasswordTitle')}
                   value={values.password}
                 />
 
@@ -149,17 +151,17 @@ export const RegisterForm = () => {
                 </ToggleButton>
               </Wrapper>
               {isValid('password') === 'is-valid' && (
-                <p>This is a CORRECT password</p>
+                <p>{t('valid.correctPassword')}</p>
               )}
               <ErrorMessage name="password" component="div" />
             </Label>
             <Button type="submit" disabled={isSubmitting}>
-              Sign Up
+              {t('register.signUp')}
               <LoginIcon>
                 <use href={sprite + '#icon-log-in'}></use>
               </LoginIcon>
             </Button>
-            <GoogleBtn text="Sign Up with Google" />
+            <GoogleBtn text={t('register.Google')} />
           </Form>
         );
       }}

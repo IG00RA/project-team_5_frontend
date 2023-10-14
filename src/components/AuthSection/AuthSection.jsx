@@ -17,12 +17,14 @@ import GooseDesk from '../../images/goose-banner-logo/banner-logo-desktop.webp';
 import GooseDesk2x from '../../images/goose-banner-logo/banner-logo-desktop-2x.webp';
 import sprite from '../../images/svg-sprite/symbol-defs.svg';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 export const AuthSection = () => {
   const isRetina = window.devicePixelRatio > 1;
   const gooseLogo = ` ${isRetina ? GooseMob2x : GooseMob} 375w,
                       ${isRetina ? GooseTab2x : GooseTab} 768w,
                       ${isRetina ? GooseDesk2x : GooseDesk} 769w`;
+  const { t } = useTranslation();
 
   return (
     <Wrap>
@@ -42,7 +44,7 @@ export const AuthSection = () => {
         <ButtonsWrap>
           <Link to="/login">
             <LogInButton type="button">
-              Log in
+              {t('auth.logIn')}
               <LogInIcon>
                 <use href={sprite + '#icon-log-in'}></use>
               </LogInIcon>
@@ -50,7 +52,7 @@ export const AuthSection = () => {
           </Link>
         </ButtonsWrap>
         <SignUpLink type="button">
-          <Link to="/register">Sign up</Link>
+          <Link to="/register">{t('auth.signUp')}</Link>
         </SignUpLink>
       </ButtonsContainer>
     </Wrap>

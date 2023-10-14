@@ -12,6 +12,7 @@ import {
   ButtonText,
 } from './TaskToolbar.styled';
 import { deleteTask, updateTask } from 'redux/tasks/tasksOperations';
+import { useTranslation } from 'react-i18next';
 
 const columnsList = ['To do', 'In progress', 'Done'];
 
@@ -22,7 +23,19 @@ export const TaskToolbar = ({ openModal, task, ColumnTitle }) => {
   const normalizedStringCategory = text => {
     return text?.split(' ').join('-').toLowerCase();
   };
-
+  const { t } = useTranslation();
+  const translateButtonText = buttonText => {
+    switch (buttonText) {
+      case 'To do':
+        return t('To_do');
+      case 'In progress':
+        return t('In_progress');
+      case 'Done':
+        return t('Done');
+      default:
+        return 'To_do';
+    }
+  };
   return (
     <Wrapper>
       <CategoryBtn type="button">
@@ -52,7 +65,7 @@ export const TaskToolbar = ({ openModal, task, ColumnTitle }) => {
             key={btn}
             type="button"
           >
-            <ButtonText>{btn}</ButtonText>
+            <ButtonText>{translateButtonText(btn)}</ButtonText>
             <IconPopUp>
               <use href={sprite + '#icon-icon-exit'}></use>
             </IconPopUp>

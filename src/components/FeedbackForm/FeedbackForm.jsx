@@ -23,20 +23,21 @@ import {
   EditBtn,
   DeleteBtn,
 } from './FeedbackForm.styled';
-
-const validationSchema = Yup.object().shape({
-  rating: Yup.string()
-    .required('Rating is required')
-    .min(1, 'Rating must be at least 1')
-    .max(5, 'Rating must be at most 5'),
-  review: Yup.string()
-    .required('Review is required')
-    .max(300, 'Review must be at most 300 characters'),
-});
-
-const DEFAULT_RATING = '5';
+import { useTranslation } from 'react-i18next';
 
 export const FeedbackForm = ({ handleClose }) => {
+  const { t } = useTranslation();
+  const validationSchema = Yup.object().shape({
+    rating: Yup.string()
+      .required(t('valid.ratingRequired'))
+      .min(1, 'Rating must be at least 1')
+      .max(5, 'Rating must be at most 5'),
+    review: Yup.string()
+      .required(t('valid.ratingRequired'))
+      .max(300, 'Review must be at most 300 characters'),
+  });
+
+  const DEFAULT_RATING = '5';
   const dispatch = useDispatch();
   const userReview = useSelector(selectReview);
   const userRating = useSelector(selectRating);
@@ -105,14 +106,14 @@ export const FeedbackForm = ({ handleClose }) => {
     >
       {({ values, setFieldValue }) => (
         <Form>
-          <Label name="rating">Rating</Label>
+          <Label name="rating">{t('feedback.rating')}</Label>
           <RatingComponent
             value={values.rating}
             setFieldValue={setFieldValue}
           />
           <InputWrapper>
             <ReviewWrapper>
-              <Label htmlFor="review">Review</Label>
+              <Label htmlFor="review">{t('feedback.review')}</Label>
               {userReview && (
                 <EditWrapper>
                   <EditBtn
@@ -135,7 +136,7 @@ export const FeedbackForm = ({ handleClose }) => {
 
             <Input
               type="text"
-              placeholder="Enter text"
+              placeholder={t('feedback.enterText')}
               id="review"
               name="review"
               component="textarea"
@@ -147,9 +148,11 @@ export const FeedbackForm = ({ handleClose }) => {
 
           {(!userReview || isEditActive) && (
             <FormBtnWrapper>
-              <FormBtn type="submit">{isEditActive ? 'Edit' : 'Save'}</FormBtn>
+              <FormBtn type="submit">
+                {isEditActive ? t('feedback.edit') : t('feedback.save')}
+              </FormBtn>
               <CancelBtn type="button" onClick={handleClose}>
-                Cancel
+                {t('feedback.cancel')}
               </CancelBtn>
             </FormBtnWrapper>
           )}

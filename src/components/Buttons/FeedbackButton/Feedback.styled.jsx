@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const FeedbackBtn = styled.button`
-  width: 97px;
+  width: 87px;
   height: 32px;
   padding: 8px 20px;
   border-radius: 10px;
@@ -19,7 +19,10 @@ export const FeedbackBtn = styled.button`
   &:focus {
     background-color: ${props => props.theme.colors.button.hoverBg};
   }
-
+  @media screen and (min-width: 375px) {
+    width: 97px;
+    height: 32px;
+  }
   @media screen and (min-width: 768px) {
     width: 130px;
     height: 42px;

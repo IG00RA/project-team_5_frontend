@@ -16,6 +16,7 @@ import {
   Wrap,
 } from './Header.styled';
 import { AddFeedbackModal } from 'components/AddFeedbackModal/AddFeedbackModal';
+import { useTranslation } from 'react-i18next';
 
 const Header = ({ isModalMenuOpen, openMenu }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -36,50 +37,53 @@ const Header = ({ isModalMenuOpen, openMenu }) => {
 
   const haveTask = () => {
     if (fileredTask?.length > 0) {
-      return fileredTask?.find(task => task?.category === 'to-do' || task?.category === 'in-progress');
-    };
+      return fileredTask?.find(
+        task => task?.category === 'to-do' || task?.category === 'in-progress'
+      );
+    }
   };
 
   let title = '';
-  
+  const { t } = useTranslation();
+
   if (currentPath.startsWith('/account')) {
-    title = 'User Profile';
+    title = t('userProfile.title');
   } else if (currentPath.startsWith('/calendar')) {
-    title = 'Calendar';
+    title = t('calendar.title');
   } else if (currentPath.startsWith('/statistics')) {
-    title = 'Statistics';
+    title = t('statistics.title');
   } else {
     title = '';
-  };
+  }
 
   return (
-      <Wrap>
+    <Wrap>
+      {pageCalendarDay && haveTask() && (
+        <MotivationImg src={gooseMotivation} alt="goose" />
+      )}
+      <div>
+        <Title>{title}</Title>
         {pageCalendarDay && haveTask() && (
-          <MotivationImg src={gooseMotivation} alt="goose" />
+          <MotivationText>
+            <AccentText>{t('calendar.accentText')} </AccentText>
+            {t('calendar.motivationText')}
+          </MotivationText>
         )}
-        <div>
-          <Title>{title}</Title>
-          {pageCalendarDay && haveTask() && (
-            <MotivationText>
-              <AccentText>Let go </AccentText>of the past and focus on the
-              present!
-            </MotivationText>
-          )}
-        </div>
+      </div>
 
-        <MenuIcon onClick={openMenu} open={isModalMenuOpen}>
-          <use href={svgSprite + `#icon-menu`} />
-        </MenuIcon>
-        <UserWrap>
-          <FeedbackButton onClick={openModal} />
-          <UserInfo />
-          <AddFeedbackModal
-            isOpen={isModalOpen}
-            onRequestClose={closeModal}
-            handleClose={closeModal}
-          />
-        </UserWrap>
-      </Wrap>
+      <MenuIcon onClick={openMenu} open={isModalMenuOpen}>
+        <use href={svgSprite + `#icon-menu`} />
+      </MenuIcon>
+      <UserWrap>
+        <FeedbackButton onClick={openModal} />
+        <UserInfo />
+        <AddFeedbackModal
+          isOpen={isModalOpen}
+          onRequestClose={closeModal}
+          handleClose={closeModal}
+        />
+      </UserWrap>
+    </Wrap>
   );
 };
 

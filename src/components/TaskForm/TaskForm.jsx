@@ -28,18 +28,8 @@ import sprite from '../../images/svg-sprite/symbol-defs.svg';
 import moment from 'moment';
 import { useState } from 'react';
 import { selectDate } from 'redux/date/selectors';
-
-const Schema = Yup.object({
-  title: Yup.string()
-    .min(3, 'Please enter at least 3 characters')
-    .max(250, 'Please enter less than 250 characters')
-    .required('This field is required'),
-  start: Yup.string(),
-  end: Yup.string(),
-  priority: Yup.string().oneOf(['low', 'medium', 'high']).required(),
-});
-
-const radioButtonsList = ['low', 'medium', 'high'];
+import i18next from 'i18next';
+import { useTranslation } from 'react-i18next';
 
 export const TaskForm = ({
   task: {
@@ -52,6 +42,18 @@ export const TaskForm = ({
   closeModal,
   ColumnTitle,
 }) => {
+  const { t } = useTranslation();
+  const Schema = Yup.object({
+    title: Yup.string()
+      .min(3, t('valid.titleMin'))
+      .max(250, t('valid.titleMax'))
+      .required(t('valid.titleRequired')),
+    start: Yup.string(),
+    end: Yup.string(),
+    priority: Yup.string().oneOf(['low', 'medium', 'high']).required(),
+  });
+  const radioButtonsList = ['low', 'medium', 'high'];
+
   const [checked, setChecked] = useState(priority);
   const date = useSelector(selectDate);
   const dispatch = useDispatch();
@@ -94,9 +96,9 @@ export const TaskForm = ({
       <Form autoComplete="off" onSubmit={formik.handleSubmit}>
         <InputWrapper>
           <InputLabel>
-            Title
+            {t('tasks.title')}
             <InputText
-              placeholder="Enter text"
+              placeholder={t('tasks.enterText')}
               rows={3}
               name="title"
               value={formik.values.title}
@@ -111,7 +113,7 @@ export const TaskForm = ({
           )}
           <InputTimeWrapper>
             <InputLabel>
-              Start
+              {t('tasks.start')}
               <InputTime
                 type="time"
                 name="start"
@@ -123,7 +125,7 @@ export const TaskForm = ({
               />
             </InputLabel>
             <InputLabel>
-              End
+              {t('tasks.end')}
               <InputTime
                 type="time"
                 name="end"
@@ -156,7 +158,20 @@ export const TaskForm = ({
                   <RadioCustomCheck color={radio}>
                     <RadioCustom color={radio}></RadioCustom>
                   </RadioCustomCheck>
-                  {radio}
+                  {i18next.language === 'uk'
+                    ? (() => {
+                        switch (radio) {
+                          case 'low':
+                            return 'Низький';
+                          case 'medium':
+                            return 'Середній';
+                          case 'high':
+                            return 'Високий';
+                          default:
+                            return 'low';
+                        }
+                      })()
+                    : radio}{' '}
                 </Label>
               </li>
             ))}
@@ -168,18 +183,18 @@ export const TaskForm = ({
                 <IconInBtn>
                   <use href={sprite + '#icon-plus'}></use>
                 </IconInBtn>{' '}
-                Add
+                {t('tasks.add')}
               </FormSubmitBtn>
             ) : (
               <FormSubmitBtn type="submit" disabled={!formChanged}>
                 <IconInBtn>
                   <use href={sprite + '#icon-pencil'}></use>
                 </IconInBtn>{' '}
-                Edit
+                {t('tasks.edit')}
               </FormSubmitBtn>
             )}
             <CancelBtn type="button" onClick={closeModal}>
-              Cancel
+              {t('tasks.cancel')}
             </CancelBtn>
           </WrapperBtn>
         </BottomWrapper>
